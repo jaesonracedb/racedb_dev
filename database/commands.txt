@@ -1,0 +1,58 @@
+
+/*
+  *NOTE
+  * Change <PATH> with corresponding path of file
+  * for ex '/var/lib/mysql-files/Running-Maryland-2020-Sheet1.csv' with enclosed ''
+  * Before loading csv files. replace all blank dates column or wrong format with NULL or the format mm/dd/yyyy and,
+  * Remove all extra columns (notes in csv file)
+*/
+
+//For running events
+LOAD DATA INFILE '<path>'
+INTO TABLE event
+FIELDS TERMINATED BY ','
+OPTIONALLY ENCLOSED BY '"'
+LINES TERMINATED BY '\r\n'
+ignore 1 lines
+(name, @event_date, location_city ,state, category, distance, website, email, summary)
+set event_date = STR_TO_DATE(@event_date,'%m/%d/%Y');
+
+//For Cycling events
+LOAD DATA INFILE '<path>'
+INTO TABLE event
+FIELDS TERMINATED BY ','
+OPTIONALLY ENCLOSED BY '"'
+LINES TERMINATED BY '\r\n'
+ignore 1 lines
+(name, @event_date, location_city ,state, category, cycling_type,distance, website, email, summary)
+set event_date = STR_TO_DATE(@event_date,'%m/%d/%Y');
+
+//For Obstacle events
+LOAD DATA INFILE '<PATH>'
+INTO TABLE event
+FIELDS TERMINATED BY ','
+OPTIONALLY ENCLOSED BY '"'
+LINES TERMINATED BY '\r\n'
+ignore 1 lines
+(name, @event_date, location_city ,state, category, distance, website, email, summary)
+set event_date = STR_TO_DATE(@event_date,'%m/%d/%Y');
+
+//For Other events
+LOAD DATA INFILE '<PATH>'
+INTO TABLE event
+FIELDS TERMINATED BY ','
+OPTIONALLY ENCLOSED BY '"'
+LINES TERMINATED BY '\r\n'
+ignore 1 lines
+(name, @event_date, location_city ,state, category, website, email, summary,race_type)
+set event_date = STR_TO_DATE(@event_date,'%m/%d/%Y');
+
+//For Triathlon events
+LOAD DATA INFILE '<PATH>'
+INTO TABLE event
+FIELDS TERMINATED BY ','
+OPTIONALLY ENCLOSED BY '"'
+LINES TERMINATED BY '\r\n'
+ignore 1 lines
+(name, @event_date, location_city ,state, category, distance,swim_distance,bike_distance,run_distance, website, email, summary)
+set event_date = STR_TO_DATE(@event_date,'%m/%d/%Y');
