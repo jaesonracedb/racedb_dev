@@ -7,5 +7,5 @@ module.exports = (app) => {
   app.post('/', (req,res) => {
     res.send("pls resolve");
   })
-  app.post('./userLogin', controller.userLogin);
+  app.post('/userLogin', controller.userLogin);
 }
