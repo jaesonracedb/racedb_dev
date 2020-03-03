@@ -16,8 +16,8 @@ export default class Homepage extends Component {
       name: document.getElementById('s-name').value,
       email: document.getElementById('s-email').value,
       password: document.getElementById('s-password').value,
-	  about: document.getElementById('s-password').value,
-	  birthday: document.getElementById('s-birthday').value
+	    about: document.getElementById('s-password').value,
+	    birthday: document.getElementById('s-birthday').value
     }
 
     fetch('http://localhost:3001/signup', {
@@ -73,7 +73,7 @@ export default class Homepage extends Component {
           // store username in localStorage
           localStorage.setItem('username', body.username)
 
-          window.location.replace('http://localhost:3000/dashboard')
+          //window.location.replace('http://localhost:3000/dashboard')
 
         }
       })
