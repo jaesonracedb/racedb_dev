@@ -11,7 +11,8 @@ var db = mysqlCon.createConnection({
 exports.userLogin = (req, res) => {
   console.log("User Log In");//Debug line
 	console.log(req.body)
-	let sqlQrYStr = "SELECT * FROM user_account WHERE username=\'"+req.body.username + "\';";
+	//let sqlQrYStr = "SELECT * FROM user_account WHERE username=\'"+req.body.username + "\';";
+  let sqlQrYStr = "CALL search_user_username(\'"+req.body.username + "\');";
 	//TODO: Add password to querry when the password fieldhas been changed
 	console.log(sqlQrYStr);
 	let result = db.query(sqlQrYStr, (err, result) => {
@@ -24,7 +25,7 @@ exports.userLogin = (req, res) => {
 	      result: result,
 	      success: false
 	    });
-		}else if(!(req.body.password === result[0].psswrd)){
+		}else if(!(req.body.password === result[0][0].psswrd)){
 			console.log("Case 2, invalid password\n")
 			res.send({
 	      result: result,
