@@ -19,18 +19,22 @@ exports.userLogin = (req, res) => {
 
 		//Case 1: querry error or user does not exist
     if(err || !result.length){
-			console.log("Case 1\n");
+			console.log("Case 1, user not found\n");
 			if(err) throw err;
 			res.send({
 	      result: result,
-	      success: true
+	      success: false
 	    });
-		}else if(false){
-			console.log("Case 2\n")
-			//TODO: Case 2: Password does not match the username
+		}else if(!(req.body.password === result.password)){
+			console.log("Case 2, invalid password\n")
+			res.send({
+	      result: result,
+	      success: false
+	    });
+			//TODO: Do hashed password check here
 		}else{
 			//Case 3: username and password are valid
-			console.log("Case 3\n");
+			console.log("Case 3, login success\n");
 			let payload = {
 				_id: result._id
 			}
