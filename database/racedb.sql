@@ -20,7 +20,7 @@ CREATE TABLE event(
 
 CREATE TABLE user_account(
   username varchar(250) not null unique primary key,
-  password varchar(250) not null,
+  psswrd varchar(250) not null,
   lname varchar(250) not null,
   fname varchar(250) not null,
   minit varchar(250) not null,
@@ -37,7 +37,7 @@ CREATE TABLE user_races(
 
 CREATE TABLE organizer_account(
   username varchar(250) not null unique primary key,
-  password varchar(250) not null,
+  psswrd varchar(250) not null,
   lname varchar(250) not null,
   fname varchar(250) not null,
   minit varchar(250) not null,
@@ -57,11 +57,19 @@ CREATE TABLE review(
   id int not null auto_increment primary key,
   username varchar(250) not null,
   event_id int not null,
-  rating int(1),
   comment text,
   created_at timestamp default current_timestamp,
   constraint `fk_commented_by` foreign key (username) references user_account(username),
   CONSTRAINT `fk_commented_race` foreign key (event_id) references event(id)
+);
+
+CREATE TABLE rating(
+ id int not null auto_increment primary key,
+ rating int(1),
+ username varchar(250) not null,
+ event_id int not null,
+ constraint `fk_user_rated` foreign key(username) references user_account(username),
+ constraint `fk_event_rated` foreign key(event_id) references event(id)
 );
 
 CREATE TABLE user_photo(

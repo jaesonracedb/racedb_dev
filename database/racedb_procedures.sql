@@ -1,6 +1,4 @@
 delimiter //
---To call a procedure input <CALL <procedureName(params)>>
--- ADDING RACES ---------------------------------------
 create procedure add_race_running(in name varchar(250), in event_date varchar(250), in location_city varchar(250),in state varchar(250), in category varchar(250), in distance varchar(250), in website varchar(250), in email varchar(250), in summary text)
   BEGIN
     insert into event(name, event_date, location_city ,state, category, distance, website, email, summary)
