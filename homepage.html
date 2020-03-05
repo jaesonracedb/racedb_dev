@@ -1,28 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
-  <title>Bootstrap Example</title>
   <meta charset="utf-8">
   <!--sets width to device size, sets zoom-->
   <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>raceDB Homepage</title>
 
   <!--bootstrap stuff-->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
 
+<!--navbar, to edit with pictures-->
 <nav class="navbar navbar-expand-sm navbar-dark" style="background-color: #2d4f78;">
-  <a class="navbar-brand" href="#">
-    <img src="#" alt="logo" style="width:40px;">
+  <a class="navbar-brand ml-3" href="#">
+    <img src="imgs/racedblogo-04-scaled.png" alt="logo" style="width:110px;">
   </a>
 
   <ul class="navbar-nav ml-auto">
     <li class="nav-item">
-      <a class="nav-link" href="#">Create A Race</a>
+      <a class="btn btn-outline-light my-2 my-sm-0" href="#" role="button">Create A Race</a>
     </li>
     <li class="nav-item">
       <a class="nav-link" href="#">Sign Up</a>
@@ -33,13 +35,14 @@
   </ul>
 </nav>
 
-<!--logo and search-->
+<!--Logo and Search-->
 <div class="container">
 	<!--bd-dark is there to see area while there is no picture-->
-	<img src="#" class="mx-auto d-block bg-dark mt-5" alt="banner" style="height:200px;">
-	
-	<!--from https://codepen.io/billzhao/pen/wzxrbW?editors=1000-->
-	<div class="container mt-3">
+	<img src="imgs/racedblogo-04-scaled.png" class="mx-auto d-block" alt="banner" style="width:450px;">
+  <br><br>
+
+  <!--from https://codepen.io/billzhao/pen/wzxrbW?editors=1000-->
+	<div class="container">
 	  <div class="row mx-auto">    
 	   <div class="col-xs-8 col-xs-offset-2">
 		<div class="input-group">
@@ -60,7 +63,7 @@
 		</div>
 	   </div>
 	  </div>
-	</div>		
+	</div>	
 	
 	<nav class="navbar navbar-expand-lg navbar-light bg-light mt-3 mx-auto">
 		<a class="nav-link mx-auto" href="#">Running</a>
@@ -75,7 +78,196 @@
 	</nav>
 </div>
 
+<br><br>
 
+<!-- Exclusives -->
+<!-- template from https://getbootstrap.com/docs/3.4/examples/jumbotron/, will be edited and modified accordingly -->
+<div class="container">
+  <h2 align="center">Exclusives</h2>
+  <br>
+  <!-- Example row of columns -->
+  <div class="row">
+    <div class="col-md-4">
+      <img src="#" class="mx-auto d-block bg-dark mt-5" alt="event" style="height:200px; width:300px;">
+      <h4>Event Title</h4>
+      <p>Date:<br/>
+      Distance:<br/>
+      Category:<br/>
+      Summary:<br/><br/>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      <span class="fa fa-star checked"></span>
+      <span class="fa fa-star checked"></span>
+      <span class="fa fa-star checked"></span>
+      <span class="fa fa-star"></span>
+      <span class="fa fa-star"></span>
+    </div>
+    <div class="col-md-4">
+      <img src="#" class="mx-auto d-block bg-dark mt-5" alt="event" style="height:200px; width:300px;">
+      <h4>Event Title</h4>
+      <p>Date:<br/>
+      Distance:<br/>
+      Category:<br/>
+      Summary:<br/><br/>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      <span class="fa fa-star checked"></span>
+      <span class="fa fa-star checked"></span>
+      <span class="fa fa-star checked"></span>
+      <span class="fa fa-star"></span>
+      <span class="fa fa-star"></span>
+   </div>
+    <div class="col-md-4">
+      <img src="#" class="mx-auto d-block bg-dark mt-5" alt="event" style="height:200px; width:300px;">
+      <h4>Event Title</h4>
+      <p>Date:<br/>
+      Distance:<br/>
+      Category:<br/>
+      Summary:<br/><br/>
+      <span class="fa fa-star checked"></span>
+      <span class="fa fa-star checked"></span>
+      <span class="fa fa-star checked"></span>
+      <span class="fa fa-star"></span>
+      <span class="fa fa-star"></span>
+    </div>
+  </div>
+</div>
+
+<hr width="80%">
+<br>
+<!-- Locations -->
+<div>
+  <h2 align="center">Locations</h2>
+
+  <div class="row">
+    <div class="col-md-4">
+      <img src="#" class="mx-auto d-block bg-dark mt-5" alt="location" style="height:200px; width:300px;">
+    </div>
+    <div class="col-md-4">
+      <img src="#" class="mx-auto d-block bg-dark mt-5" alt="location" style="height:200px; width:300px;">
+    </div>
+    <div class="col-md-4">
+      <img src="#" class="mx-auto d-block bg-dark mt-5" alt="location" style="height:200px; width:300px;">
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-4">
+      <img src="#" class="mx-auto d-block bg-dark mt-5" alt="location" style="height:200px; width:300px;">
+    </div>
+    <div class="col-md-4">
+      <img src="#" class="mx-auto d-block bg-dark mt-5" alt="location" style="height:200px; width:300px;">
+    </div>
+    <div class="col-md-4">
+      <img src="#" class="mx-auto d-block bg-dark mt-5" alt="location" style="height:200px; width:300px;">
+    </div>
+  </div>
+</div>
+
+<br>
+<!-- page select ... -->
+
+<hr width="80%">
+<br>
+<!-- Categories ; there's probably a better way to lay this out lmao -->
+<div>
+  <h2 align="center">Categories</h2>
+
+  <div class="row">
+    <div class="col-md-4">
+      <img src="#" class="mx-auto d-block bg-dark mt-5" alt="category" style="height:200px; width:300px;">
+    </div>
+    <div class="col-md-4">
+      <img src="#" class="mx-auto d-block bg-dark mt-5" alt="category" style="height:200px; width:300px;">
+    </div>
+    <div class="col-md-4">
+      <img src="#" class="mx-auto d-block bg-dark mt-5" alt="category" style="height:200px; width:300px;">
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-4 mx-auto">
+      <img src="#" class="mx-auto d-block bg-dark mt-5" alt="category" style="height:200px; width:300px;">
+    </div>
+    <div class="col-md-4 mx-auto">
+      <img src="#" class="mx-auto d-block bg-dark mt-5" alt="category" style="height:200px; width:300px;">
+    </div>
+  </div>
+</div>
+
+<br>
+
+<hr width="80%">
+
+<br>
+
+
+<div class="footer">
+  <div class="row">
+    <div class="col-md-4 ml-auto">
+      <img src="#" class="mx-auto d-block bg-dark mt-5" alt="logo" style="height:400px; width:400px;">
+    </div>
+    <div class="col-md-4 mr-auto my-auto" align="center">
+      <br><br>
+      <h4> 1 - Create </h4>
+      <p> Create a listing by adding your race to our directory. <p><br>
+      <h4> 2 - Promote </h4>
+      <p> Promote your race by advertising it through our site! <p><br>
+      <h4> 3 - Claim </h4>
+      <p> Claim your race if it already exists within our directory. <p><br>
+    </div>
+  </div>
+</div>
+
+<!-- footer section from https://mdbootstrap.com/docs/jquery/navigation/footer/ -->
+
+<!-- Footer -->
+<footer class="page-footer font-small pt-4">
+
+  <!-- Footer Text -->
+  <div class="container-fluid text-center text-md-left">
+
+    <!-- Grid row -->
+    <div class="row">
+
+      <!-- Grid column -->
+      <div class="col-md-6 mt-md-0 mt-3">
+
+        <!-- Content -->
+        <h5 class="text-uppercase font-weight-bold">Footer text 1</h5>
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita sapiente sint, nulla, nihil
+          repudiandae commodi voluptatibus corrupti animi sequi aliquid magnam debitis, maxime quam recusandae
+          harum esse fugiat. Itaque, culpa?</p>
+
+      </div>
+      <!-- Grid column -->
+
+      <hr class="clearfix w-100 d-md-none pb-3">
+
+      <!-- Grid column -->
+      <div class="col-md-6 mb-md-0 mb-3">
+
+        <!-- Content -->
+        <h5 class="text-uppercase font-weight-bold">Footer text 2</h5>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Optio deserunt fuga perferendis modi earum
+          commodi aperiam temporibus quod nulla nesciunt aliquid debitis ullam omnis quos ipsam, aspernatur id
+          excepturi hic.</p>
+
+      </div>
+      <!-- Grid column -->
+
+    </div>
+    <!-- Grid row -->
+
+  </div>
+  <!-- Footer Text -->
+
+  <!-- Copyright -->
+  <div class="footer-copyright text-center py-3">© 2020 Copyright:
+    <a href="https://mdbootstrap.com/"> MDBootstrap.com</a>
+  </div>
+  <!-- Copyright -->
+
+</footer>
+<!-- Footer -->
+
+<br><br>
 
 </body>
 </html>
