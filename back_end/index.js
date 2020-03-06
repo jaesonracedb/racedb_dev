@@ -4,19 +4,19 @@ const bodyParser = require('body-parser')
 const cookieParser = require('cookie-parser')
 const cors = require('cors')
 
-// var con = mysql.createConnection({
-// 	host: "localhost",
-// 	user: "racedbadmin",
-// 	password: "letskamown",
-//   database: "racedb"
-// });
-//
-// con.connect((err) => {
-// 	if(err){
-//     throw err;
-//   }
-// 	console.log("Connected to mysql");
-// });
+var con = mysql.createConnection({
+	host: "localhost",
+	user: "racedbadmin",
+	password: "letskamown",
+  database: "racedb"
+});
+
+con.connect((err) => {
+	if(err){
+    console.log(err);
+  }
+	console.log("Connected to mysql");
+});
 
 const app = express()
 app.use(bodyParser.json())

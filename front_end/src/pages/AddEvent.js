@@ -37,6 +37,26 @@ class AddEvent extends Component {
     this.handleCyclingType = this.handleCyclingType.bind(this)
   }
 
+  componentWillMount(){
+      this.setState({
+          name: this.handleNameChange,
+          event_date: this.handleEvent_date ,
+          location_city: this.handleLocationCity,
+          state: this.handleState,
+          category:this.handleCategory,
+          distance:this.handleDistance,
+          swim_distance:this.handleSwimDistance,
+          bike_distance:this.handleBikeDistance,
+          run_distance:this.handleRunDistance,
+          website:this.handleWebsite,
+          email:this.email,
+          summary: this.handleSummary,
+          race_type:this.handleRaceType,
+          cycling_type:this.handleCyclingType
+        })
+        console.log(this.state)
+      }
+
   handleAddEvent(e){
     fetch('http://localhost:3001/add-event',{
       method: 'POST',
@@ -45,20 +65,20 @@ class AddEvent extends Component {
         'Accept': 'application/json'
        },
       body: JSON.stringify({
-        "name": this.state.nameIn,
-        "event_date": this.state.event_dateIn,
-        "location_city": this.state.location_cityIn,
-        "state": this.state.stateIn,
-        "category": this.state.categoryIn,
-        "distance": this.state.distanceIn,
-        "swim_distance": this.state.swim_distanceIn,
-        "bike_distance": this.state.bike_distanceIn,
-        "run_distance": this.state.run_distanceIn,
-        "website": this.state.websiteIn,
-        "email": this.state.emailIn,
-        "summary": this.state.summaryIn,
-        "race_type": this.state.race_typeIn,
-        "cycling_type": this.state.cycling_typeIn
+        "name": this.state.name,
+        "event_date": this.state.event_date,
+        "location_city": this.state.location_city,
+        "state": this.state.state,
+        "category": this.state.category,
+        "distance": this.state.distance,
+        "swim_distance": this.state.swim_distance,
+        "bike_distance": this.state.bike_distance,
+        "run_distance": this.state.run_distance,
+        "website": this.state.website,
+        "email": this.state.email,
+        "summary": this.state.summary,
+        "race_type": this.state.race_type,
+        "cycling_type": this.state.cycling_type
       })
     })
     .then(function(response){

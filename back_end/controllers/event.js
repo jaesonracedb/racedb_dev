@@ -23,10 +23,25 @@ exports.addEvent = (req,res)=>{
   // const cycling_type= req.body.cycling_type
     const {name,event_date,location_city,state,category,distance,swim_distance,bike_distance,run_distance,website,email,summary,race_type,cycling_type}=req.body;
   console.log("adding event...");
-  console.log(category);
-    console.log("Selected Running category");
-    const queryString= "CALL add_race_running(?,?,?,?,?,?,?,?,?)"
-    db.query(queryString,[name, event_date, location_city ,state, category, distance, website, email, summary], (err,results)=>{
+  console.log(req.body);
+    if(req.body.category==='running'){
+        console.log("Selected Running category");
+      const queryString= "INSERT INTO event (name,event_date,location_city,state,category,distance,website,email,summary) VALUES(?,?,?,?,?,?,?,?,?)"
+      db.query(queryString,[name, event_date, location_city ,state, category, distance, website, email, summary], (err,results)=>{
+        console.log("name is: "+name+"Location: "+location_city);
+        if(err){
+          console.log(err);
+          res.sendStatus(500)
+        }else{
+          var raceEvent = results[0]
+          localStorage.setItem('event',raceEvent);
+          console.log("added race");
+        }
+      })
+  }else if(req.body.category === "cycling"){
+    const queryString ="INSERT INTO event(name, event_date, location_city, state, category, cycling_type, distance, website, email, summary) values (?,?,?,?,?,?,?,?,?,?);"
+    db.query(queryString,[name, event_date, location_city, state, category, cycling_type, distance, website, email, summary],(err,results,fields)=>{
+      console.log("name is: "+name+"Location: "+location_city);
       if(err){
         console.log(err);
         res.sendStatus(500)
@@ -34,6 +49,50 @@ exports.addEvent = (req,res)=>{
         var raceEvent = results[0]
         localStorage.setItem('event',raceEvent);
         console.log("added race");
-      }
+    }
     })
+  }else if(req.body.category === "obstacle"){
+    const queryString="insert into event(name, event_date, location_city ,state, category, distance, website, email, summary) values (?,?,?,?,?,?,?,?,?);"
+    db.query(queryString,[name, event_date, location_city ,state, category, distance, website, email, summary],(err,results,fields)=>{
+      console.log("name is: "+name+"Location: "+location_city);
+      if(err){
+        console.log(err);
+        res.sendStatus(500)
+      }else{
+        var raceEvent = results[0]
+        localStorage.setItem('event',raceEvent);
+        console.log("added race");
+    }
+  })
+  }else if(req.body.category==="other"){
+    const queryString="INSERT INTO event(name,event_date,location_city, state, category, website,email,summary,race_type) VALUES (?,?,?,?,?,?,?,?,?)"
+    db.query(queryString,[name,event_date,location_city, state, category, website,email,summary,race_type],(err,results,field)=>{
+      console.log("name is: "+name+"Location: "+location_city);
+      if(err){
+        console.log(err);
+        res.sendStatus(500)
+      }else{
+        var raceEvent = results[0]
+        localStorage.setItem('event',raceEvent);
+        console.log("added race");
+    }
+  })
+  }else if(req.body.category="triathlon"){
+    const queryString="INSERT INTO event(name , event_date, location_city, state, category, distance, swim_distance, bike_distance, run_distance,  website, email ,summary) VALUES(?,?,?,?,?,?,?,?,?,?,?,?)"
+    db.query(queryString,[name , event_date, location_city, state, category, distance, swim_distance, bike_distance, run_distance,  website, email ,summary],(err,results,fields)=>{
+      console.log("name is: "+name+"Location: "+location_city);
+      if(err){
+        console.log(err);
+        res.sendStatus(500)
+      }else{
+        var raceEvent = results[0]
+        localStorage.setItem('event',raceEvent);
+        console.log("added race");
+    }
+  })
+  }else{
+    console.log("Failed to find category");
+  }
+
+
 }
