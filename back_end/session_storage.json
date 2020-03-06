@@ -1,0 +1,13 @@
+{
+  "raceEvent": {
+    "user_id": 3,
+    "username": "admin1",
+    "password": "$2b$10$MFKw.7hr57k5JdGTnfMf6uKEW/ItukZYN7EWIlRmJ89gYIEAvYt22",
+    "email": "admin1@ask.com",
+    "firstname": "First Name",
+    "lastname": "Last Name",
+    "contactno": "5092406712",
+    "user_type": 1,
+    "is_deleted": 0
+  }
+}

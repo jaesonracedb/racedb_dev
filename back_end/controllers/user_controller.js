@@ -1,6 +1,7 @@
 const mysqlCon = require('mysql');
 const jwt = require('jsonwebtoken');
 
+
 var db = mysqlCon.createConnection({
 	host: "localhost",
   user: "racedbadmin",
