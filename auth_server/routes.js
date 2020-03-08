@@ -1,4 +1,4 @@
-const controller = require('./controller');
+const usr_cntrllr = require('./controllers/user_controller')
 
 module.exports = (app) => {
   app.get('/', (req, res) =>{
@@ -7,5 +7,5 @@ module.exports = (app) => {
   app.post('/', (req,res) => {
     res.send("pls resolve");
   })
-  app.post('/userLogin', controller.userLogin);
+  app.post('/userLogin', usr_cntrllr.userLogin);
 }
