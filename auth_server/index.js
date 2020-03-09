@@ -20,8 +20,11 @@ con.connect((err) => {
 });
 
 const app = express()
-app.use(bodyParser.json())
-app.use(cookieParser())
+app.use(bodyParser.urlencoded({
+    extended: true
+}));
+app.use(bodyParser.json());
+app.use(cookieParser());
 
 // CORS
 app.use(function(req, res, next) {
@@ -30,10 +33,10 @@ app.use(function(req, res, next) {
   res.setHeader('Access-Control-Allow-Headers', 'Access-Control-Allow-Headers,Access-Control-Allow-Methods,Origin,Accept,Content-Type')
   res.setHeader('Access-Control-Allow-Credentials', 'true')
   next()
-})
+});
 app.options('*', function (req,res) { res.sendStatus(200); });
 
 // Declare Routes
-require('./routes')(app)
+require('./routes')(app);
 
 app.listen(3001, (err) => { if (!err) { console.log('Server listening at port 3001') } } )

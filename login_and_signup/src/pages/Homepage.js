@@ -4,13 +4,17 @@ import Cookies from 'universal-cookie';
 export default class Homepage extends Component {
   constructor(props) {
     super(props)
-
-    this.signup = this.signup.bind(this)
-    this.login = this.login.bind(this)
+    this.state = {
+      file: null
+    };
+    this.signup = this.signup.bind(this);
+    this.login = this.login.bind(this);
+    this.onChangeHandler = this.onChangeHandler.bind(this);
+    this.uploadPicture = this.uploadPicture.bind(this);
   }
 
   signup(e) {
-    e.preventDefault()
+    e.preventDefault();
 
     const newUser = {
       name: document.getElementById('s-name').value,
@@ -79,6 +83,27 @@ export default class Homepage extends Component {
       })
 
   }
+
+  uploadPicture(e){
+    e.preventDefault();
+    const formData = new FormData();
+    console.log(this.state.file);
+    formData.append('file',this.state.file);
+    console.log("Form data file: " );
+    console.log(formData.get('file'));
+    fetch('http://localhost:3001/eventUploadPicture', {
+      method: "POST",
+      body: formData
+    })
+  }
+
+
+  onChangeHandler(e){
+    e.preventDefault();
+    Object.assign(this.state, { file:e.target.files[0] })
+    console.log(this.state.file);
+  }
+
   render() {
     return (
 	  //<link rel="stylesheet" href="styling.css">
@@ -108,6 +133,10 @@ export default class Homepage extends Component {
 						<button onClick={this.signup}>Sign Up</button>
 					</form>
 			</aside>
+      <section>
+        <input type="file" id="file_pic" onChange={this.onChangeHandler}/>
+        <button type="submit" onClick={this.uploadPicture}>Upload</button>
+      </section>
 		</div>
     )
   }
