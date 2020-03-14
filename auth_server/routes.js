@@ -10,5 +10,7 @@ module.exports = (app) => {
   })
 
   app.post('/userLogin', usr_cntrllr.userLogin);
+
+  app.post('/addEvent', event_cntrllr.addEvent);
   app.post('/eventUploadPicture',formidable(), event_cntrllr.eventUploadPicture)
 }

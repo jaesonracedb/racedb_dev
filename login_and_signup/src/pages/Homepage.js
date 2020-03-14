@@ -106,7 +106,35 @@ export default class Homepage extends Component {
   }
 
   changeEventDetails(e){
+    var eventDetails = {
+      name: document.getElementById('e-name').value,
+      event_date: document.getElementById('e-date').value,
+      location_city: document.getElementById('e-city').value,
+      state: document.getElementById('e-state').value,
+      category: document.getElementById('e-category').value,
+      distance: document.getElementById('e-distance').value,
+      swim_distance: document.getElementById('e-swim_distance').value,
+      bike_distance: document.getElementById('e-bike_distance').value,
+      run_distance: document.getElementById('e-run_distance').value,
+      website: document.getElementById('e-website').value,
+      email: document.getElementById('e-email').value,
+      summary: document.getElementById('e-summary').value,
+      race_type: document.getElementById('e-race_type').value,
+      cycling_type: document.getElementById('e-cycling_type').value
 
+    }
+    console.log(eventDetails);
+    //TODO see if formdata is more useful in the long run
+    // var eventDetailsFormData = new FormData(document.getElementById('editEventForm'));
+    // console.log(eventDetailsFormData);
+
+    fetch('http://localhost:3001/addEvent', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(eventDetails)
+    })
   }
 
   render() {
@@ -144,7 +172,7 @@ export default class Homepage extends Component {
       </section>
       <aside id="editEventDetails">
         <h2>Edit Race Details</h2>
-        <form id="editEventForm">
+        <form id="eventForm">
           <input type="text" id="e-name" placeholder="Event Name" /> <br/>
           <input type="date" id="e-date"/> <br/>
           <input type="text" id="e-city" placeholder="City" /> <br/>
