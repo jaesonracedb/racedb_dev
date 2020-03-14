@@ -53,6 +53,7 @@ exports.addEvent = (req,res) => {
 	console.log("Add Event");//Debug Line
 	var query;
 	var params;
+	var rt = req.body.race_type.toLowerCase();
 
 	for(s in req.body){
 		//console.log(req.body[s]);//Debug line
@@ -62,23 +63,34 @@ exports.addEvent = (req,res) => {
 
 	params = req.body.name + "," + req.body.event_date + "," + req.body.location_city + "," + req.body.state + "," + req.body.category + "," + req.body.distance + "," + req.body.swim_distance + "," + req.body.bike_distance + "," + req.body.run_distance + "," + req.body.website + "," + req.body.email + "," + req.body.summary + "," + req.body.cycling_type;
 	console.log(params);//Debug Line
-	switch(req.body.race_type.toLowerCase()){
-		case 'running':
-			query = "CALL add_race_running(" + params + " );";
-		break;
-		case 'obstacle':
-			query = "CALL add_race_obastacle(" + params + " );";
-		break;
-		case 'cycling':
-			query = "CALL add_race_cycling(" + params + " );";
-		break;
-		case 'triathlon':
-			query = "CALL add_race_triathlon(" + params + " );";
-		break;
-			query = "CALL add_race_others(" + params + " );";
-		default:
-
+	console.log(req.body.race_type.toLowerCase());//Debug Line
+	if(rt === "running"){
+		query = "CALL add_race_running(" + params + " );";
+	}else if(rt === "obstacle"){
+		query = "CALL add_race_obastacle(" + params + " );";
+	}else if(rt === "cycling"){
+ 		query = "CALL add_race_cycling(" + params + " );";
+	}else if(rt === "triathlon"){
+		query = "CALL add_race_triathlon(" + params + " );";
+	}else{
+		query = "CALL add_race_others(" + params + " );";
 	}
+	// switch(String(req.body.race_type.toLowerCase())){
+	// 	case "running":
+	// 		query = "CALL add_race_running(" + params + " );";
+	// 	break;
+	// 	case "obstacle":
+	// 		query = "CALL add_race_obastacle(" + params + " );";
+	// 	break;
+	// 	case "cycling":
+	// 		query = "CALL add_race_cycling(" + params + " );";
+	// 	break;
+	// 	case "triathlon":
+	// 		query = "CALL add_race_triathlon(" + params + " );";
+	// 	break;
+	// 	default:
+	// 		query = "CALL add_race_others(" + params + " );";
+	// }
 	console.log(query);//Debug Line
 	let result = db.query(query, (err, result) => {
 		console.log("Query result: \n" + result);
