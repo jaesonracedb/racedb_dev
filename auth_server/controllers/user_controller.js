@@ -19,7 +19,7 @@ exports.userLogin = (req, res) => {
 	let result = db.query(sqlQrYStr, (err, result) => {
 		console.log(result);//Debug line
 		//Case 1: querry error or user does not exist
-    if(err || !result.length){
+    if(err || result.length == 0){
 			console.log("Case 1, user not found\n");
 			if(err) throw err;
 			res.send({

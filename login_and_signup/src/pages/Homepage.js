@@ -11,6 +11,7 @@ export default class Homepage extends Component {
     this.login = this.login.bind(this);
     this.onChangeHandler = this.onChangeHandler.bind(this);
     this.uploadPicture = this.uploadPicture.bind(this);
+    this.changeEventDetails = this.changeEventDetails.bind(this);
   }
 
   signup(e) {
@@ -104,6 +105,10 @@ export default class Homepage extends Component {
     console.log(this.state.file);
   }
 
+  changeEventDetails(e){
+
+  }
+
   render() {
     return (
 	  //<link rel="stylesheet" href="styling.css">
@@ -137,6 +142,26 @@ export default class Homepage extends Component {
         <input type="file" id="file_pic" onChange={this.onChangeHandler}/>
         <button type="submit" onClick={this.uploadPicture}>Upload</button>
       </section>
+      <aside id="editEventDetails">
+        <h2>Edit Race Details</h2>
+        <form id="editEventForm">
+          <input type="text" id="e-name" placeholder="Event Name" /> <br/>
+          <input type="date" id="e-date"/> <br/>
+          <input type="text" id="e-city" placeholder="City" /> <br/>
+          <input type="text" id="e-state" placeholder="State" /> <br/>
+          <input type="text" id="e-category" placeholder="Category" /> <br/>
+          <input type="number" id="e-distance" placeholder="Total Distance" /> <br/>
+          <input type="number" id="e-swim_distance" placeholder="Swim Distance" /> <br/>
+          <input type="number" id="e-bike_distance" placeholder="Bike Distance" /> <br/>
+          <input type="number" id="e-run_distance" placeholder="Run Distance" /> <br/>
+          <input type="text" id="e-website" placeholder="Website Link" /> <br/>
+          <input type="text" id="e-email" placeholder="Organizer e-mail" /> <br/>
+          <input type="text" id="e-summary" placeholder="Race Description" /> <br/>
+          <input type="text" id="e-race_type" placeholder="Race Type" /> <br/>
+          <input type="text" id="e-cycling_type" placeholder="Cycling Type" /> <br/>
+        </form>
+      <button onClick={this.changeEventDetails}> Save Event Changes </button>
+      </aside>
 		</div>
     )
   }

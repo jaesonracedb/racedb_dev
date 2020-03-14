@@ -43,3 +43,8 @@ exports.eventUploadPicture = (req, res) => {
 	//    limits:{fileSize: 1000000},
 	// }).single('image');
 }
+
+exports.eventEditDetails = (req,res) => {
+	//TODO add check if logged in
+	
+}
