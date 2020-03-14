@@ -11,7 +11,7 @@ export default class Homepage extends Component {
     this.login = this.login.bind(this);
     this.onChangeHandler = this.onChangeHandler.bind(this);
     this.uploadPicture = this.uploadPicture.bind(this);
-    this.changeEventDetails = this.changeEventDetails.bind(this);
+    this.saveEvent = this.saveEvent.bind(this);
   }
 
   signup(e) {
@@ -105,7 +105,7 @@ export default class Homepage extends Component {
     console.log(this.state.file);
   }
 
-  changeEventDetails(e){
+  saveEvent(e){
     var eventDetails = {
       name: document.getElementById('e-name').value,
       event_date: document.getElementById('e-date').value,
@@ -188,7 +188,8 @@ export default class Homepage extends Component {
           <input type="text" id="e-race_type" placeholder="Race Type" /> <br/>
           <input type="text" id="e-cycling_type" placeholder="Cycling Type" /> <br/>
         </form>
-      <button onClick={this.changeEventDetails}> Save Event Changes </button>
+      <button onClick={this.saveEvent}> Save Event </button>
+      <button onClick={this.saveEventChanges}> Save Event Changes </button>
       </aside>
 		</div>
     )

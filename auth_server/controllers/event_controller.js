@@ -46,7 +46,16 @@ exports.eventUploadPicture = (req, res) => {
 
 exports.eventEditDetails = (req,res) => {
 	//TODO add check if logged in
+	console.log("Edit Event");//Debug Line
+	var query;
+	var params;
+	var rt = req.body.race_type.toLowerCase();
 
+	for(s in req.body){
+		//console.log(req.body[s]);//Debug line
+		req.body[s] = "\'" + req.body[s] + "\'";
+		//console.log(req.body[s]);//Debug line
+	}
 }
 
 exports.addEvent = (req,res) => {
@@ -75,22 +84,6 @@ exports.addEvent = (req,res) => {
 	}else{
 		query = "CALL add_race_others(" + params + " );";
 	}
-	// switch(String(req.body.race_type.toLowerCase())){
-	// 	case "running":
-	// 		query = "CALL add_race_running(" + params + " );";
-	// 	break;
-	// 	case "obstacle":
-	// 		query = "CALL add_race_obastacle(" + params + " );";
-	// 	break;
-	// 	case "cycling":
-	// 		query = "CALL add_race_cycling(" + params + " );";
-	// 	break;
-	// 	case "triathlon":
-	// 		query = "CALL add_race_triathlon(" + params + " );";
-	// 	break;
-	// 	default:
-	// 		query = "CALL add_race_others(" + params + " );";
-	// }
 	console.log(query);//Debug Line
 	let result = db.query(query, (err, result) => {
 		console.log("Query result: \n" + result);
