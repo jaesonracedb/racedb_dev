@@ -51,23 +51,31 @@ exports.eventEditDetails = (req,res) => {
 
 exports.addEvent = (req,res) => {
 	console.log("Add Event");//Debug Line
-	var params = req.body.name + "," + req.body.event_date + "," + req.body.location_city + "," + req.body.state + "," + req.body.category + "," + req.body.distance + "," + req.body.swim_distance + "," + req.body.bike_distance + "," + req.body.run_distance + "," + req.body.website + "," + req.body.email + "," + req.body.summary + "," + req.body.cycling_type;
-	console.log(params);//Debug Line
 	var query;
+	var params;
+
+	for(s in req.body){
+		//console.log(req.body[s]);//Debug line
+		req.body[s] = "\'" + req.body[s] + "\'";
+		//console.log(req.body[s]);//Debug line
+	}
+
+	params = req.body.name + "," + req.body.event_date + "," + req.body.location_city + "," + req.body.state + "," + req.body.category + "," + req.body.distance + "," + req.body.swim_distance + "," + req.body.bike_distance + "," + req.body.run_distance + "," + req.body.website + "," + req.body.email + "," + req.body.summary + "," + req.body.cycling_type;
+	console.log(params);//Debug Line
 	switch(req.body.race_type.toLowerCase()){
 		case 'running':
 			query = "CALL add_race_running(" + params + " );";
 		break;
 		case 'obstacle':
-		query = "CALL add_race_obastacle(" + params + " );";
+			query = "CALL add_race_obastacle(" + params + " );";
 		break;
 		case 'cycling':
-		query = "CALL add_race_cycling(" + params + " );";
+			query = "CALL add_race_cycling(" + params + " );";
 		break;
 		case 'triathlon':
-		query = "CALL add_race_triathlon(" + params + " );";
+			query = "CALL add_race_triathlon(" + params + " );";
 		break;
-		query = "CALL add_race_others(" + params + " );";
+			query = "CALL add_race_others(" + params + " );";
 		default:
 
 	}
