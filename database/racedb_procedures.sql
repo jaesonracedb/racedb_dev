@@ -34,6 +34,18 @@ create procedure add_race_other(in name varchar(250), in event_date varchar(250)
   END;
 //
 -- VIEW Functions---------------------------------------------------------
+CREATE PROCEDURE view_featured_races()
+  BEGIN
+    select * from event where event.id IN (SELECT featured_events.event_id from featured_events);
+  END;
+//
+
+CREATE PROCEDURE insert_featured(in in_events_id int)
+  BEGIN
+    insert into featured_events(event_id) values(in_events_id);
+  END;
+ //
+
 create procedure view_event_category(in category varchar(250))
   BEGIN
     select * from event where category=category;
@@ -160,6 +172,5 @@ create procedure search_user_email(in email varchar(250))
     select * from user_account where email = email;
   END;
 //
-
 
 delimiter ;

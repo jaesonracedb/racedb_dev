@@ -18,6 +18,13 @@ CREATE TABLE event(
   cycling_type varchar(250)
 );
 
+CREATE TABLE featured_events(
+  id int not null auto_increment PRIMARY KEY,
+  isFeatured boolean default 1,
+  event_id int not null,
+  CONSTRAINT `fk_featured_race` FOREIGN KEY (event_id) REFERENCES event(id)
+);
+
 CREATE TABLE user_account(
   username varchar(250) not null unique primary key,
   psswrd varchar(250) not null,
@@ -61,6 +68,14 @@ CREATE TABLE review(
   created_at timestamp default current_timestamp,
   constraint `fk_commented_by` foreign key (username) references user_account(username),
   CONSTRAINT `fk_commented_race` foreign key (event_id) references event(id)
+);
+
+CREATE TABLE likes(
+  id int not null auto_increment PRIMARY KEY,
+  event_id int not null,
+  username varchar(250) not null,
+  CONSTRAINT `fk_liked_event` FOREIGN KEY(event_id) REFERENCES event(id),
+  CONSTRAINT `fk_like_by` FOREIGN KEY(username) REFERENCES user_account(username)
 );
 
 CREATE TABLE rating(
