@@ -31,6 +31,7 @@ exports.eventUploadPicture = (req, res) => {
 			if(err) throw err;
 			console.log("File Upload done");
 		});
+		fs.close();
   });
   // log any errors that occur
   form.on('error', (err) => {
