@@ -19,7 +19,7 @@ exports.userLogin = (req, res) => {
 	let result = db.query(sqlQrYStr, (err, result) => {
 		console.log(result);//Debug line
 		//Case 1: querry error or user does not exist
-    if(err || result.length == 0){
+    if(err || result[0].length == 0){
 			console.log("Case 1, user not found\n");
 			if(err) throw err;
 			res.send({
@@ -47,4 +47,36 @@ exports.userLogin = (req, res) => {
 	    });
 		}
   });
+}
+
+exports.checkIfLoggedIn = (req, res) => {
+
+	const cookies = req.cookies
+
+	if (!cookies || !cookies.authToken) {
+		console.log('no cookies')
+		return res.send({ isLoggedIn: false })
+	}
+
+	jwt.verify(cookies.authToken, 'THIS_IS_A_SECRET', (err, payload) => {
+
+		if (err) {
+			console.log('error decoding')
+			return res.send({ isLoggedIn: false })
+		}
+
+		User.findOne({ _id: payload._id }, (err, user) => {
+
+			if (err || !user) {
+				console.log('User not found')
+				return res.send({ isLoggedIn: false })
+			}
+
+			else {
+				console.log('is Logged In')
+				return res.send({ isLoggedIn: true })
+			}
+		})
+
+	})
 }

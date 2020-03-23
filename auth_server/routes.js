@@ -1,6 +1,5 @@
 const usr_cntrllr = require('./controllers/user_controller')
 const event_cntrllr = require ('./controllers/event_controller');
-const formidable = require('express-formidable');
 module.exports = (app) => {
   app.get('/', (req, res) =>{
     res.send('Welcome to the Backend API')
@@ -12,5 +11,5 @@ module.exports = (app) => {
   app.post('/userLogin', usr_cntrllr.userLogin);
 
   app.post('/addEvent', event_cntrllr.addEvent);
-  app.post('/eventUploadPicture',formidable(), event_cntrllr.eventUploadPicture)
+  app.post('/eventUploadPicture', event_cntrllr.eventUploadPicture)
 }

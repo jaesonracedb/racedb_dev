@@ -93,7 +93,8 @@ export default class Homepage extends Component {
     console.log("Form data file: " );
     console.log(formData.get('file'));
     fetch('http://localhost:3001/eventUploadPicture', {
-      method: "POST",
+      method: 'POST',
+      enctype:'multipart/form-data',
       body: formData
     })
   }

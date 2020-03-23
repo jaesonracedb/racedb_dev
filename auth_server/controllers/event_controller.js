@@ -2,6 +2,7 @@ const mysqlCon = require('mysql');
 const jwt = require('jsonwebtoken');
 const formidable =  require('formidable');
 const fs = require('fs');
+const path = require('path');
 
 var db = mysqlCon.createConnection({
 	host: "localhost",
@@ -13,35 +14,72 @@ var db = mysqlCon.createConnection({
 
 exports.eventUploadPicture = (req, res) => {
 	console.log("Upload Event Picture");
-	var form = new formidable.IncomingForm();
-  form.parse(req, function (err, fields, files) {
-    var oldpath = files.filetoupload.path;
-    var newpath = './pictures/' + files.filetoupload.name;
-		console.log(oldpath)
-		console.log(newpath)
-    fs.rename(oldpath, newpath, function (err) {
-      if (err) throw err;
-      res.write('File uploaded and moved!');
-			console.log('File uploaded and moved!');
-      res.end();
-    });
-	});
-	// console.log(req.headers);
-	// console.log(req.body);
-	// const path = require("path");
-	// const multer = require("multer");
+	// create an incoming form object
+  var form = new formidable.IncomingForm().parse(req);
+  // specify that we want to allow the user to upload multiple files in a single request
+  form.multiples = true;
+	form.keepExtensions = true;
+  // store all uploads in the /uploads directory
+  form.uploadDir = path.join(__dirname, '../pictures');
+	console.log("Upload directory: " + form.uploadDir);
+	// console.log("File name: " + form.file.name);
+  // every time a file has been uploaded successfully,
+  // rename it to it's orignal name
+  form.on('file', (field, file) => {
+		console.log(file.name);
+    fs.rename(file.path, path.join(form.uploadDir, file.name), (err) => {
+			if(err) throw err;
+			console.log("File Upload done");
+		});
+  });
+  // log any errors that occur
+  form.on('error', (err) => {
+    console.log('An error has occured: \n' + err);
+  });
+  // once all the files have been uploaded, send a response to the client
+  form.on('end', () => {
+    res.end('success');
+  });
+  // parse the incoming request containing the form data
+	// const form = formidable({ multiples: true, uploadDir: './pictures/' });
 	//
-	// const storage = multer.diskStorage({
-	//    destination: "./pictures/",
-	//    filename: function(req, file, cb){
-	//       cb(null,"IMAGE-" + Date.now() + path.extname(file.originalname));
-	//    }
+	// form.parse(req, (err, fields, files) => {
+	//   console.log('fields:', fields);
+	//   console.log('files:', files);
+	// });
+	// var form = new formidable.IncomingForm(),
+  //     files = [],
+  //     fields = [];
+	// form.keepExtensions = true;
+  // form.uploadDir = './pictures';
+	//
+  // form
+  //   .on('field', function(field, value) {
+  //     console.log(field, value);
+  //     fields.push([field, value]);
+  //   })
+  //   .on('file', function(field, file) {
+  //     console.log(field, file);
+  //     files.push([field, file]);
+  //   })
+  //   .on('end', function() {
+  //     console.log('-> upload done');
+  //     res.writeHead(200, {'content-type': 'text/plain'});
+  //     res.write('received fields:\n\n '+util.inspect(fields));
+  //     res.write('\n\n');
+  //     res.end('received files:\n\n '+util.inspect(files));
+  //   })
+	// 	.on('error', (err) => {console.log(err)
+	// 	});
+  // form.parse(req);
+	// process.on('unhandledRejection', async err => {
+  // console.error('Unhandled rejection', JSON.stringify(err));
 	// });
 	//
-	// const upload = multer({
-	//    storage: storage,
-	//    limits:{fileSize: 1000000},
-	// }).single('image');
+	// process.on('uncaughtException', async err => {
+  // console.error('Uncaught exception', JSON.stringify(err));
+	// });
+
 }
 
 exports.eventEditDetails = (req,res) => {
@@ -56,6 +94,7 @@ exports.eventEditDetails = (req,res) => {
 		req.body[s] = "\'" + req.body[s] + "\'";
 		//console.log(req.body[s]);//Debug line
 	}
+
 }
 
 exports.addEvent = (req,res) => {
@@ -86,6 +125,7 @@ exports.addEvent = (req,res) => {
 	}
 	console.log(query);//Debug Line
 	let result = db.query(query, (err, result) => {
+		console.log(err);
 		console.log("Query result: \n" + result);
 	});
 }
