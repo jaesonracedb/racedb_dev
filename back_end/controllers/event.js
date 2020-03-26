@@ -4,6 +4,21 @@ const db = require(__dirname+ '/../db_config/mysql');
 var Storage = require('dom-storage');
 var localStorage = new Storage('./session_storage.json', { strict: false, ws: '  ' });
 
+exports.getFeatured = (req,res)=>{
+  console.log('Getting Featured Shops');
+  const GET_FEATURED = 'CALL view_featured_races()'
+  db.query(GET_FEATURED, (err, featuredEvents)=>{
+    if(!err){
+      console.log("Successful fetched races");
+      return res.json({
+        featured: featuredEvents
+      });
+    }else{
+      console.log("Error encountered while fetching featured races")
+    }
+  })
+}
+
 exports.addEvent = (req,res)=>{
   // console.log()
   // const id = req.body.id
