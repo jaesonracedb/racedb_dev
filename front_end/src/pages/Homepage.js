@@ -7,27 +7,26 @@ export default class Homepage extends Component {
   constructor(props){
     super(props);
     this.state={
-      featured: {}
+      featured: []
     }
+    fetch('http://localhost:3001/get-featured',{
+        headers : {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        }
+      })
+      .then(res => res.json())
+      .then(body => {
+        this.setState({
+          featured: body.featured[0]
+        })
+        console.log(body.featured[0])
+      })
+      console.log("fetched")
   }
-  
-UNSAFE_componentWillMount(){
-  console.log("fetching")
-  fetch('http://localhost:3001/get-featured',{
-    headers : { 
-      'Content-Type': 'application/json',
-      'Accept': 'application/json'
-     }
-  })
-    .then(res => res.json())
-    .then(body => {
-          console.log(body.featured)
-   
-    })
-}
 
   render() {
-    
+
 
     return (
     <div className="application">
@@ -119,23 +118,28 @@ UNSAFE_componentWillMount(){
     <div className="container" id="exclusivesdiv">
       <h2 align="center">Exclusives</h2>
       <br/>
-
       <div className="row">
         <div className="card-group">
         <div className="col-md-4">
           <div className="card border-secondary mb-3 rounded" >
             <img src="imgs/default-running-thumbnail-1.png" className="card-img-top" alt="category" alt="event"/>
             <div className="card-body">
-              <h5 className="card-title">Event Title</h5>
-              <p className="card-text">Date:<br/>
-              Distance:<br/>
-              Category:<br/></p>
-              <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
-              <span className="fa fa-star checked"></span>
-              <span className="fa fa-star checked"></span>
-              <span className="fa fa-star checked"></span>
-              <span className="fa fa-star"></span>
-              <span className="fa fa-star"></span>
+              {this.state.featured.map((ft,index) => {
+                if(index ===0)
+                return <div>
+                  <h5 className="card-title">{ft.name}</h5>
+                  <p className="card-text">Date: {ft.event_date}<br/>
+                  Distance: {ft.distance}<br/>
+                  Category: {ft.category}<br/></p>
+                  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+                  <span className="fa fa-star checked"></span>
+                  <span className="fa fa-star checked"></span>
+                  <span className="fa fa-star checked"></span>
+                  <span className="fa fa-star"></span>
+                  <span className="fa fa-star"></span>
+
+                </div>
+              })}
             </div>
           </div>
 
@@ -144,16 +148,22 @@ UNSAFE_componentWillMount(){
           <div className="card border-secondary mb-3" >
             <img src="imgs/default-running-thumbnail-1.png" className="card-img-top" alt="category" alt="event"/>
             <div className="card-body">
-              <h5 className="card-title">Event Title</h5>
-              <p className="card-text">Date:<br/>
-              Distance:<br/>
-              Category:<br/></p>
-              <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
-              <span className="fa fa-star checked"></span>
-              <span className="fa fa-star checked"></span>
-              <span className="fa fa-star checked"></span>
-              <span className="fa fa-star"></span>
-              <span className="fa fa-star"></span>
+            {this.state.featured.map((ft,index) => {
+              if(index ===1)
+              return <div>
+                <h5 className="card-title">{ft.name}</h5>
+                <p className="card-text">Date: {ft.event_date}<br/>
+                Distance: {ft.distance}<br/>
+                Category: {ft.category}<br/></p>
+                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+                <span className="fa fa-star checked"></span>
+                <span className="fa fa-star checked"></span>
+                <span className="fa fa-star checked"></span>
+                <span className="fa fa-star"></span>
+                <span className="fa fa-star"></span>
+
+              </div>
+            })}
             </div>
           </div>
 
@@ -162,16 +172,22 @@ UNSAFE_componentWillMount(){
           <div className="card border-secondary mb-3" >
             <img src="imgs/default-running-thumbnail-1.png" className="card-img-top" alt="category" alt="event"/>
             <div className="card-body">
-              <h5 className="card-title">Event Title</h5>
-              <p className="card-text">Date:<br/>
-              Distance:<br/>
-              Category:<br/></p>
-              <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
-              <span className="fa fa-star checked"></span>
-              <span className="fa fa-star checked"></span>
-              <span className="fa fa-star checked"></span>
-              <span className="fa fa-star"></span>
-              <span className="fa fa-star"></span>
+            {this.state.featured.map((ft,index) => {
+              if(index ===2)
+              return <div>
+                <h5 className="card-title">{ft.name}</h5>
+                <p className="card-text">Date: {ft.event_date}<br/>
+                Distance: {ft.distance}<br/>
+                Category: {ft.category}<br/></p>
+                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+                <span className="fa fa-star checked"></span>
+                <span className="fa fa-star checked"></span>
+                <span className="fa fa-star checked"></span>
+                <span className="fa fa-star"></span>
+                <span className="fa fa-star"></span>
+
+              </div>
+            })}
             </div>
           </div>
         </div>
@@ -183,16 +199,22 @@ UNSAFE_componentWillMount(){
         <div className="card border-secondary mb-3" >
           <img src="imgs/default-running-thumbnail-1.png" className="card-img-top" alt="category" alt="event"/>
           <div className="card-body">
-            <h5 className="card-title">Event Title</h5>
-            <p className="card-text">Date:<br/>
-            Distance:<br/>
-            Category:<br/></p>
-            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
-            <span className="fa fa-star checked"></span>
-            <span className="fa fa-star checked"></span>
-            <span className="fa fa-star checked"></span>
-            <span className="fa fa-star"></span>
-            <span className="fa fa-star"></span>
+          {this.state.featured.map((ft,index) => {
+            if(index ===3)
+            return <div>
+              <h5 className="card-title">{ft.name}</h5>
+              <p className="card-text">Date: {ft.event_date}<br/>
+              Distance: {ft.distance}<br/>
+              Category: {ft.category}<br/></p>
+              <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+              <span className="fa fa-star checked"></span>
+              <span className="fa fa-star checked"></span>
+              <span className="fa fa-star checked"></span>
+              <span className="fa fa-star"></span>
+              <span className="fa fa-star"></span>
+
+            </div>
+          })}
           </div>
         </div>
 
@@ -201,16 +223,22 @@ UNSAFE_componentWillMount(){
         <div className="card border-secondary mb-3" >
           <img src="imgs/default-running-thumbnail-1.png" className="card-img-top" alt="category" alt="event"/>
           <div className="card-body">
-            <h5 className="card-title">Event Title</h5>
-            <p className="card-text">Date:<br/>
-            Distance:<br/>
-            Category:<br/></p>
-            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
-            <span className="fa fa-star checked"></span>
-            <span className="fa fa-star checked"></span>
-            <span className="fa fa-star checked"></span>
-            <span className="fa fa-star"></span>
-            <span className="fa fa-star"></span>
+          {this.state.featured.map((ft,index) => {
+            if(index ===4)
+            return <div>
+              <h5 className="card-title">{ft.name}</h5>
+              <p className="card-text">Date: {ft.event_date}<br/>
+              Distance: {ft.distance}<br/>
+              Category: {ft.category}<br/></p>
+              <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+              <span className="fa fa-star checked"></span>
+              <span className="fa fa-star checked"></span>
+              <span className="fa fa-star checked"></span>
+              <span className="fa fa-star"></span>
+              <span className="fa fa-star"></span>
+
+            </div>
+          })}
           </div>
         </div>
      </div>
@@ -218,16 +246,22 @@ UNSAFE_componentWillMount(){
         <div className="card border-secondary mb-3" >
           <img src="imgs/default-running-thumbnail-1.png" className="card-img-top" alt="category" alt="event"/>
           <div className="card-body">
-            <h5 className="card-title">Event Title</h5>
-            <p className="card-text">Date:<br/>
-            Distance:<br/>
-            Category:<br/></p>
-            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
-            <span className="fa fa-star checked"></span>
-            <span className="fa fa-star checked"></span>
-            <span className="fa fa-star checked"></span>
-            <span className="fa fa-star"></span>
-            <span className="fa fa-star"></span>
+          {this.state.featured.map((ft,index) => {
+            if(index ===5)
+            return <div>
+              <h5 className="card-title">{ft.name}</h5>
+              <p className="card-text">Date: {ft.event_date}<br/>
+              Distance: {ft.distance}<br/>
+              Category: {ft.category}<br/></p>
+              <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+              <span className="fa fa-star checked"></span>
+              <span className="fa fa-star checked"></span>
+              <span className="fa fa-star checked"></span>
+              <span className="fa fa-star"></span>
+              <span className="fa fa-star"></span>
+
+            </div>
+          })}
           </div>
         </div>
       </div>
