@@ -3,6 +3,10 @@ import Cookies from 'universal-cookie';
 import {Helmet} from "react-helmet";
 import styles from "./main.css"
 import logoRDB from "./imgs/racedblogo-04-scaled.png"
+import stockImg from "./imgs/triathlon.jpg"
+import featuredImg from "./imgs/default-running-thumbnail-1.png"
+import logoRed from "./imgs/racedblogo-02-1024x640.png"
+
 export default class Homepage extends Component {
   constructor(props){
     super(props);
@@ -52,7 +56,7 @@ export default class Homepage extends Component {
 
     <nav className="navbar navbar-expand-sm navbar-dark">
       <a className="navbar-brand ml-3" href="#">
-        <img src="logoRDB" alt="logo" style= {{width:"110px"}}/>
+        <img src={logoRDB} alt="logo" style= {{width:"110px"}}/>
       </a>
 
       <ul className="navbar-nav ml-auto">
@@ -122,7 +126,7 @@ export default class Homepage extends Component {
         <div className="card-group">
         <div className="col-md-4">
           <div className="card border-secondary mb-3 rounded" >
-            <img src="imgs/default-running-thumbnail-1.png" className="card-img-top" alt="category" alt="event"/>
+            <img src={featuredImg} className="card-img-top" alt="Card image cap"/>
             <div className="card-body">
               {this.state.featured.map((ft,index) => {
                 if(index ===0)
@@ -146,7 +150,7 @@ export default class Homepage extends Component {
         </div>
         <div className="col-md-4">
           <div className="card border-secondary mb-3" >
-            <img src="imgs/default-running-thumbnail-1.png" className="card-img-top" alt="category" alt="event"/>
+            <img src={featuredImg} className="card-img-top" alt="category" alt="event"/>
             <div className="card-body">
             {this.state.featured.map((ft,index) => {
               if(index ===1)
@@ -170,7 +174,7 @@ export default class Homepage extends Component {
        </div>
         <div className="col-md-4">
           <div className="card border-secondary mb-3" >
-            <img src="imgs/default-running-thumbnail-1.png" className="card-img-top" alt="category" alt="event"/>
+            <img src={featuredImg} className="card-img-top" alt="category" alt="event"/>
             <div className="card-body">
             {this.state.featured.map((ft,index) => {
               if(index ===2)
@@ -197,7 +201,7 @@ export default class Homepage extends Component {
       <div className="card-group">
       <div className="col-md-4">
         <div className="card border-secondary mb-3" >
-          <img src="imgs/default-running-thumbnail-1.png" className="card-img-top" alt="category" alt="event"/>
+          <img src={featuredImg} className="card-img-top" alt="category" alt="event"/>
           <div className="card-body">
           {this.state.featured.map((ft,index) => {
             if(index ===3)
@@ -221,7 +225,7 @@ export default class Homepage extends Component {
       </div>
       <div className="col-md-4">
         <div className="card border-secondary mb-3" >
-          <img src="imgs/default-running-thumbnail-1.png" className="card-img-top" alt="category" alt="event"/>
+          <img src={featuredImg} className="card-img-top" alt="category" alt="event"/>
           <div className="card-body">
           {this.state.featured.map((ft,index) => {
             if(index ===4)
@@ -244,7 +248,7 @@ export default class Homepage extends Component {
      </div>
       <div className="col-md-4">
         <div className="card border-secondary mb-3" >
-          <img src="imgs/default-running-thumbnail-1.png" className="card-img-top" alt="category" alt="event"/>
+          <img src={featuredImg} className="card-img-top" alt="category" alt="event"/>
           <div className="card-body">
           {this.state.featured.map((ft,index) => {
             if(index ===5)
@@ -277,25 +281,43 @@ export default class Homepage extends Component {
       <h2 align="center">Locations</h2>
 
       <div className="row">
-        <div className="col-md-4">
-          <img src="#" className="mx-auto d-block bg-dark mt-5" alt="location" style={{height:"200px",width:"300px"}}/>
+        <div className="col-md-4" id="location1">
+        <div class='locContainer'>
+          <img src={stockImg} className="mx-auto d-block bg-dark mt-5" alt="New York" style={{height:"200px",width:"300px"}}/>
+          <div class="locationText">New York</div>
         </div>
-        <div className="col-md-4">
-          <img src="#" className="mx-auto d-block bg-dark mt-5" alt="location" style={{height:"200px",width:"300px"}}/>
         </div>
-        <div className="col-md-4">
-          <img src="#" className="mx-auto d-block bg-dark mt-5" alt="location" style={{height:"200px",width:"300px"}}/>
+        <div className="col-md-4" id="location2">
+        <div class='locContainer'>
+          <img src={stockImg} className="mx-auto d-block bg-dark mt-5" alt="New Jersey" style={{height:"200px",width:"300px"}}/>
+          <div class="locationText">New Jersey</div>
+        </div>
+        </div>
+        <div className="col-md-4" id="location3">
+        <div class='locContainer'>
+          <img src={stockImg} className="mx-auto d-block bg-dark mt-5" alt="Maryland" style={{height:"200px",width:"300px"}}/>
+          <div class="locationText">Maryland</div>
+        </div>
         </div>
       </div>
       <div className="row">
-        <div className="col-md-4">
-          <img src="#" className="mx-auto d-block bg-dark mt-5" alt="location" style={{height:"200px",width:"300px"}}/>
+        <div className="col-md-4" id="location4">
+        <div class='locContainer'>
+          <img src={stockImg} className="mx-auto d-block bg-dark mt-5" alt="Maine" style={{height:"200px",width:"300px"}}/>
+          <div class="locationText">Maine</div>
         </div>
-        <div className="col-md-4">
-          <img src="#" className="mx-auto d-block bg-dark mt-5" alt="location" style={{height:"200px",width:"300px"}}/>
         </div>
-        <div className="col-md-4">
-          <img src="#" className="mx-auto d-block bg-dark mt-5" alt="location" style={{height:"200px",width:"300px"}}/>
+        <div className="col-md-4" id="location5">
+        <div class='locContainer'>
+          <img src={stockImg} className="mx-auto d-block bg-dark mt-5" alt="Connecticut" style={{height:"200px",width:"300px"}}/>
+          <div class="locationText">Connecticut</div>
+        </div>
+        </div>
+        <div className="col-md-4" id="location6">
+        <div class='locContainer'>
+          <img src={stockImg} className="mx-auto d-block bg-dark mt-5" alt="California" style={{height:"200px",width:"300px"}}/>
+          <div class="locationText">California</div>
+        </div>
         </div>
       </div>
     </div>
@@ -340,7 +362,7 @@ export default class Homepage extends Component {
     <div className="footer">
       <div className="row">
         <div className="col-md-4 ml-auto">
-          <img src="#" className="mx-auto d-block bg-dark mt-5" alt="logo" style={{height:"400px",width:"400px"}}/>
+          <img src={logoRed} className="mx-auto d-block bg-dark mt-5" alt="logo" style={{height:"400px",width:"400px"}}/>
         </div>
         <div className="col-md-4 mr-auto my-auto" align="center">
           <br/><br/>

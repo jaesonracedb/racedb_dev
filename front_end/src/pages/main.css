@@ -22,7 +22,25 @@ footer {
 .checked {
   color: orange;
 }
-
+.card-body{
+	position: absolute;
+	bottom: 4px;
+}
+.card-img-top{
+	height: 260px;
+}
+.locContainer{
+	position: relative;
+	text-align: center;
+	color: white;
+}
+.locationText{
+	position: absolute;
+	/* size: 20px; */
+	bottom: 8px;
+	left: 45%;
+	transform: translate(-10%,-50%);
+}
 /* div .left {
 	float: left;
 }
