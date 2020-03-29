@@ -77,26 +77,26 @@ export default class Homepage extends Component {
   <div class="m-5 border">
   	<h3 class="mt-3 ml-5">Sign Up</h3>
 
-  	<!--form-->
+  	{/*<!--form-->*/}
   	<div class="p-3">
   		<div class="row ml-4">
         <div class="col-xs ml-2">
   				<a>Last Name</a>
   			</div>
   			<div class="col-lg-4">
-  				<input type="text" class="form-control">
+  				<input type="text" class="form-control"/>
   			</div>
         <div class="col-xs ml-2">
   				<a>First Name</a>
   			</div>
   			<div class="col-lg-4">
-  				<input type="text" class="form-control">
+  				<input type="text" class="form-control"/>
   			</div>
         <div class="col-xs ml-2">
   				<a>Middle Initial</a>
   			</div>
   			<div class="col-lg-1">
-  				<input type="text" class="form-control" maxlength="2">
+  				<input type="text" class="form-control" maxlength="2"/>
   			</div>
   		</div>
   		<div class="row ml-4 mt-4">
@@ -104,15 +104,15 @@ export default class Homepage extends Component {
   				<a>Username</a>
   			</div>
   			<div class="col-lg-4">
-  				<input type="text" class="form-control">
+  				<input type="text" class="form-control"/>
   			</div>
   		</div>
   		<div class="row ml-4 mt-4">
         <div class="col-xs ml-2">
-  				<a style="padding-right: 35px">Email</a>
+  				<a style={{paddingRight: 35+"px"}}>Email</a>
   			</div>
   			<div class="col-lg-4">
-  				<input type="email" class="form-control">
+  				<input type="email" class="form-control"/>
         </div>
       </div>
       <div class="row ml-4 mt-4">
@@ -120,18 +120,20 @@ export default class Homepage extends Component {
   				<a>Password</a>
   			</div>
   			<div class="col-lg-4">
-  				<input type="password" class="form-control">
+  				<input type="password" class="form-control"/>
         </div>
         <div class="col-xs ml-2">
   				<a>Confirm Password</a>
   			</div>
   			<div class="col-lg-4">
-  				<input type="password" class="form-control">
+  				<input type="password" class="form-control"/>
         </div>
       </div>
       <div class="row mt-3 ml-4">
-        <button type="button">Sign Up</a>
+        <button type="button">Sign Up</button>
         </div>
       </div>
     </div>
-  </div>
+  </div></div></div></div>
+)}
+}

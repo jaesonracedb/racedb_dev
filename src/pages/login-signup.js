@@ -6,7 +6,7 @@ import logoRDB from "./imgs/racedblogo-04-scaled.png"
 
 export default class User extends Component {
   constructor(props) {
-
+    super(props)
   }
 
   signup(e) {
@@ -152,14 +152,14 @@ export default class User extends Component {
     <div class="m-5 border">
     	<h3 class="mt-3 ml-5">Log In</h3>
 
-    	<!--form-->
+    	{/*<!--form-->*/}
     	<div class="p-3">
     		<div class="row ml-4">
           <div class="col-xs ml-2">
     				<a>Username</a>
     			</div>
     			<div class="col-lg-4">
-    				<input type="text" class="form-control">
+    				<input type="text" class="form-control"/>
     			</div>
     		</div>
         <div class="row ml-4 mt-4">
@@ -167,14 +167,15 @@ export default class User extends Component {
     				<a>Password</a>
     			</div>
     			<div class="col-lg-4">
-    				<input type="password" class="form-control">
+    				<input type="password" class="form-control"/>
           </div>
         </div>
         <div class="row mt-3 ml-4">
-          <button type="button">Log In</a>
+          <button type="button">Log In</button>
         </div>
       </div>
     </div>
+    </div></div></div></div>
 
     )
   }

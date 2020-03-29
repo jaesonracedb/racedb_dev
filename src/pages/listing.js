@@ -56,13 +56,13 @@ export default class Archive extends Component {
       </ol>
       <div class="carousel-inner">
         <div class="carousel-item active">
-          <img class="d-block w-70" src="..." style="height:300px;" alt="First slide">
+          <img class="d-block w-70" src="..." style={{height:300+"px"}} alt="First slide"/>
         </div>
         <div class="carousel-item">
-          <img class="d-block w-70" src="..." style="height:300px;" alt="Second slide">
+          <img class="d-block w-70" src="..." style={{height:300+'px'}} alt="Second slide"/>
         </div>
         <div class="carousel-item">
-          <img class="d-block w-70" src="..." style="height:300px;" alt="Third slide">
+          <img class="d-block w-70" src="..." style={{height:300+"px"}} alt="Third slide"/>
         </div>
       </div>
       <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -85,8 +85,6 @@ export default class Archive extends Component {
     	<span class="fa fa-star"></span>
     </div>
 
-    <hr width="80%">
-
     //info
     <div>
     	<div class="row">
@@ -95,9 +93,9 @@ export default class Archive extends Component {
     				<p class="card-text"><b>Location:</b>&nbsp;&lt;filler text&gt;</p>
     				<p class="card-text"><b>State:</b>&nbsp;&lt;filler text&gt;</p>
     				<p class="card-text"><b>Distance:</b>&nbsp;&lt;filler text&gt;</p>
-    				<p class="card-text"><b>Summary:</b></p><br>
-    				<!--filler br-->
-    				<br><br><br>
+    				<p class="card-text"><b>Summary:</b></p><br/>
+    				{/*<!--filler br-->*/}
+    				<br/> <br/> <br/>
     			</div>
 
     			<div class="card ml-4 mt-3 p-3">
@@ -117,7 +115,7 @@ export default class Archive extends Component {
     		<div class="col-sm-4">
     			//map to be improved
     			<div id="map-container-google-1" class="z-depth-1-half map-container" >
-    				<iframe src="https://maps.google.com/maps?q=manhatan&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" style="border:0" allowfullscreen></iframe>
+    				<iframe src="https://maps.google.com/maps?q=manhatan&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" style={{border:0}} allowfullscreen></iframe>
     			</div>
 
     			<div class="card p-3">
@@ -136,6 +134,7 @@ export default class Archive extends Component {
     		</div>
     	</div>
     </div>
+    </div></div>
     )
   }
 }
