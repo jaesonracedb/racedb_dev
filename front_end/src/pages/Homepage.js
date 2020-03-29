@@ -6,6 +6,11 @@ import logoRDB from "./imgs/racedblogo-04-scaled.png"
 import stockImg from "./imgs/triathlon.jpg"
 import featuredImg from "./imgs/default-running-thumbnail-1.png"
 import logoRed from "./imgs/racedblogo-02-1024x640.png"
+import running from "./imgs/running.jpg"
+import triathlon from "./imgs/triathlon.jpg"
+import cycling from "./imgs/cycling.jpg"
+import other from "./imgs/other.jpg"
+import obstacle from "./imgs/obstacle-race.jpg"
 
 export default class Homepage extends Component {
   constructor(props){
@@ -273,13 +278,11 @@ export default class Homepage extends Component {
     </div>
     </div>
     <div>
-    <hr width="80%"/>
-    <br/>
-    </div>
 
+    </div>
+    <div className="grayBlock">
     <div>
       <h2 align="center">Locations</h2>
-
       <div className="row">
         <div className="col-md-4" id="location1">
         <div class='locContainer'>
@@ -321,40 +324,40 @@ export default class Homepage extends Component {
         </div>
       </div>
     </div>
-
+</div>
     <br/>
 
 
-    <hr width="80%"/>
-    <br/>
+
+
+
 
     <div>
       <h2 align="center">Categories</h2>
 
       <div className="row">
         <div className="col-md-4">
-          <img src="#" className="mx-auto d-block bg-dark mt-5" alt="category" style={{height:"200px",width:"300px"}}/>
+          <img src={running} className="mx-auto d-block bg-dark mt-5" alt="category" style={{height:"200px",width:"300px"}}/>
         </div>
         <div className="col-md-4">
-          <img src="#" className="mx-auto d-block bg-dark mt-5" alt="category" style={{height:"200px",width:"300px"}}/>
+          <img src={cycling} className="mx-auto d-block bg-dark mt-5" alt="category" style={{height:"200px",width:"300px"}}/>
         </div>
         <div className="col-md-4">
-          <img src="#" className="mx-auto d-block bg-dark mt-5" alt="category" style={{height:"200px",width:"300px"}}/>
+          <img src={triathlon} className="mx-auto d-block bg-dark mt-5" alt="category" style={{height:"200px",width:"300px"}}/>
         </div>
       </div>
       <div className="row">
         <div className="col-md-4 mx-auto">
-          <img src="#" className="mx-auto d-block bg-dark mt-5" alt="category" style={{height:"200px",width:"300px"}}/>
+          <img src={obstacle} className="mx-auto d-block bg-dark mt-5" alt="category" style={{height:"200px",width:"300px"}}/>
         </div>
         <div className="col-md-4 mx-auto">
-          <img src="#" className="mx-auto d-block bg-dark mt-5" alt="category" style={{height:"200px",width:"300px"}}/>
+          <img src={other} className="mx-auto d-block bg-dark mt-5" alt="category" style={{height:"200px",width:"300px"}}/>
         </div>
       </div>
     </div>
 
     <br/>
-
-    <hr width="80%"/>
+<div className="grayBlock">
 
     <br/>
 
@@ -362,7 +365,7 @@ export default class Homepage extends Component {
     <div className="footer">
       <div className="row">
         <div className="col-md-4 ml-auto">
-          <img src={logoRed} className="mx-auto d-block bg-dark mt-5" alt="logo" style={{height:"400px",width:"400px"}}/>
+          <img src={logoRed} className="mx-auto d-block bg-dark mt-5" id="someLogo" alt="logo" style={{height:"400px",width:"400px"}}/>
         </div>
         <div className="col-md-4 mr-auto my-auto" align="center">
           <br/><br/>
@@ -379,7 +382,7 @@ export default class Homepage extends Component {
 
     </div>
     </div>
-
+</div>
     <footer className="page-footer font-small pt-4">
 
 

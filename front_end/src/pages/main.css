@@ -6,6 +6,19 @@ html, body {
   height: 100%;
   margin: 0;
 }
+.grayBlock{
+	background-color: #45505b;
+	box-sizing: border-box;
+	margin-top: 5px;
+	padding-top: 50px;
+	padding-bottom: 100px;
+	margin-bottom: 0px;
+	width: 100%;
+	max-width: 100%;
+}
+#someLogo{
+	background-color: transparent !important;
+}
 .content {
   min-height: 100%;
 }
