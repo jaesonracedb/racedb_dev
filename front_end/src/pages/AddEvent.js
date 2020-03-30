@@ -37,25 +37,25 @@ class AddEvent extends Component {
     this.handleCyclingType = this.handleCyclingType.bind(this)
   }
 
-  componentWillMount(){
-      this.setState({
-          name: this.handleNameChange,
-          event_date: this.handleEvent_date ,
-          location_city: this.handleLocationCity,
-          state: this.handleState,
-          category:this.handleCategory,
-          distance:this.handleDistance,
-          swim_distance:this.handleSwimDistance,
-          bike_distance:this.handleBikeDistance,
-          run_distance:this.handleRunDistance,
-          website:this.handleWebsite,
-          email:this.email,
-          summary: this.handleSummary,
-          race_type:this.handleRaceType,
-          cycling_type:this.handleCyclingType
-        })
-        console.log(this.state)
-      }
+  // UNSAFE_componentWillMount(){
+  //     this.setState({
+  //         name: this.handleNameChange,
+  //         event_date: this.handleEvent_date ,
+  //         location_city: this.handleLocationCity,
+  //         state: this.handleState,
+  //         category:this.handleCategory,
+  //         distance:this.handleDistance,
+  //         swim_distance:this.handleSwimDistance,
+  //         bike_distance:this.handleBikeDistance,
+  //         run_distance:this.handleRunDistance,
+  //         website:this.handleWebsite,
+  //         email:this.email,
+  //         summary: this.handleSummary,
+  //         race_type:this.handleRaceType,
+  //         cycling_type:this.handleCyclingType
+  //       })
+  //       console.log(this.state)
+  //     }
 
   handleAddEvent(e){
     fetch('http://localhost:3001/add-event',{
@@ -180,7 +180,7 @@ class AddEvent extends Component {
       <div>
         <form>
           <input type="text" name="nameIn" placeholder="Input race name" onChange={this.handleNameChange} required/> <br/>
-          <input type="date" name="event_dateIn" required pattern="\d{4}-\d{2}-\d{2}" onChange={this.handleEvent_date} required/><br/>
+          <input type="date" name="event_dateIn" pattern="\d{4}-\d{2}-\d{2}" onChange={this.handleEvent_date} required/><br/>
           <input type="text" name="location_cityIn" placeholder="Enter Location/State" onChange={this.handleLocationCity} required/> <br/>
           <input type="text" name="stateIn" placeholder="Input State" onChange={this.handleState} required/><br/>
           <input type="text" name="categoryIn" placeholder="Input race category" onChange={this.handleCategory} required/><br/>

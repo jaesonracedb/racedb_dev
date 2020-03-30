@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import Cookies from 'universal-cookie';
+// import Cookies from 'universal-cookie';
 import {Helmet} from "react-helmet";
-import styles from "./main.css"
+import styles from "./css/main.css"
 import logoRDB from "./imgs/racedblogo-04-scaled.png"
 import stockImg from "./imgs/triathlon.jpg"
 import featuredImg from "./imgs/default-running-thumbnail-1.png"
@@ -35,8 +35,6 @@ export default class Homepage extends Component {
   }
 
   render() {
-
-
     return (
     <div className="application">
     <Helmet>
@@ -135,7 +133,7 @@ export default class Homepage extends Component {
             <div className="card-body">
               {this.state.featured.map((ft,index) => {
                 if(index ===0)
-                return <div>
+                return <div key={ft.id}>
                   <h5 className="card-title">{ft.name}</h5>
                   <p className="card-text">Date: {ft.event_date}<br/>
                   Distance: {ft.distance}<br/>
@@ -159,7 +157,7 @@ export default class Homepage extends Component {
             <div className="card-body">
             {this.state.featured.map((ft,index) => {
               if(index ===1)
-              return <div>
+              return <div key={ft.id}>
                 <h5 className="card-title">{ft.name}</h5>
                 <p className="card-text">Date: {ft.event_date}<br/>
                 Distance: {ft.distance}<br/>
@@ -183,7 +181,7 @@ export default class Homepage extends Component {
             <div className="card-body">
             {this.state.featured.map((ft,index) => {
               if(index ===2)
-              return <div>
+              return <div key={ft.id}>
                 <h5 className="card-title">{ft.name}</h5>
                 <p className="card-text">Date: {ft.event_date}<br/>
                 Distance: {ft.distance}<br/>
@@ -210,7 +208,7 @@ export default class Homepage extends Component {
           <div className="card-body">
           {this.state.featured.map((ft,index) => {
             if(index ===3)
-            return <div>
+            return <div key={ft.id}>
               <h5 className="card-title">{ft.name}</h5>
               <p className="card-text">Date: {ft.event_date}<br/>
               Distance: {ft.distance}<br/>
@@ -234,7 +232,7 @@ export default class Homepage extends Component {
           <div className="card-body">
           {this.state.featured.map((ft,index) => {
             if(index ===4)
-            return <div>
+            return <div key={ft.id}>
               <h5 className="card-title">{ft.name}</h5>
               <p className="card-text">Date: {ft.event_date}<br/>
               Distance: {ft.distance}<br/>
@@ -257,7 +255,7 @@ export default class Homepage extends Component {
           <div className="card-body">
           {this.state.featured.map((ft,index) => {
             if(index ===5)
-            return <div>
+            return <div key={ft.id}>
               <h5 className="card-title">{ft.name}</h5>
               <p className="card-text">Date: {ft.event_date}<br/>
               Distance: {ft.distance}<br/>
@@ -285,41 +283,41 @@ export default class Homepage extends Component {
       <h2 align="center">Locations</h2>
       <div className="row">
         <div className="col-md-4" id="location1">
-        <div class='locContainer'>
+        <div className='locContainer'>
           <img src={stockImg} className="mx-auto d-block bg-dark mt-5" alt="New York" style={{height:"200px",width:"300px"}}/>
-          <div class="locationText">New York</div>
+          <div className="locationText">New York</div>
         </div>
         </div>
         <div className="col-md-4" id="location2">
-        <div class='locContainer'>
+        <div className='locContainer'>
           <img src={stockImg} className="mx-auto d-block bg-dark mt-5" alt="New Jersey" style={{height:"200px",width:"300px"}}/>
-          <div class="locationText">New Jersey</div>
+          <div className="locationText">New Jersey</div>
         </div>
         </div>
         <div className="col-md-4" id="location3">
-        <div class='locContainer'>
+        <div className='locContainer'>
           <img src={stockImg} className="mx-auto d-block bg-dark mt-5" alt="Maryland" style={{height:"200px",width:"300px"}}/>
-          <div class="locationText">Maryland</div>
+          <div className="locationText">Maryland</div>
         </div>
         </div>
       </div>
       <div className="row">
         <div className="col-md-4" id="location4">
-        <div class='locContainer'>
+        <div className='locContainer'>
           <img src={stockImg} className="mx-auto d-block bg-dark mt-5" alt="Maine" style={{height:"200px",width:"300px"}}/>
-          <div class="locationText">Maine</div>
+          <div className="locationText">Maine</div>
         </div>
         </div>
         <div className="col-md-4" id="location5">
-        <div class='locContainer'>
+        <div className='locContainer'>
           <img src={stockImg} className="mx-auto d-block bg-dark mt-5" alt="Connecticut" style={{height:"200px",width:"300px"}}/>
-          <div class="locationText">Connecticut</div>
+          <div className="locationText">Connecticut</div>
         </div>
         </div>
         <div className="col-md-4" id="location6">
-        <div class='locContainer'>
+        <div className='locContainer'>
           <img src={stockImg} className="mx-auto d-block bg-dark mt-5" alt="California" style={{height:"200px",width:"300px"}}/>
-          <div class="locationText">California</div>
+          <div className="locationText">California</div>
         </div>
         </div>
       </div>
@@ -362,7 +360,7 @@ export default class Homepage extends Component {
     <br/>
 
 
-    <div className="footer">
+
       <div className="row">
         <div className="col-md-4 ml-auto">
           <img src={logoRed} className="mx-auto d-block bg-dark mt-5" id="someLogo" alt="logo" style={{height:"400px",width:"400px"}}/>
@@ -377,12 +375,12 @@ export default class Homepage extends Component {
           <p> Claim your race if it already exists within our directory. </p><br/>
         </div>
       </div>
-    </div>
 
 
     </div>
     </div>
 </div>
+    <div className="footer">
     <footer className="page-footer font-small pt-4">
 
 
@@ -430,7 +428,7 @@ export default class Homepage extends Component {
 
 
     </footer>
-
+    </div>
 
     <br/><br/>
 
