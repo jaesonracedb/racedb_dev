@@ -3,7 +3,7 @@ import Cookies from 'universal-cookie';
 
 export default class User extends Component {
   constructor(props) {
-
+    super();
   }
 
   signup(e) {
