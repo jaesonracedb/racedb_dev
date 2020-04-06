@@ -1,7 +1,7 @@
 const mysql = require('mysql');
 const Promise = require('bluebird');
 
-app.get('/paginaton-results', function(req,res) {
+app.get('/paginaton-results ', function(req,res) {
   var query = "select count(*) as TotalCount from ??";
   var table = ["event"];
   var query = mysql.format(query,table);

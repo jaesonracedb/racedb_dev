@@ -18,6 +18,22 @@ exports.getFeatured = (req,res)=>{
     }
   })
 }
+exports.getRace = (req,res)=>{
+  console.log('Getting Race');
+  const RACE_ID = req.params.id;
+  console.log(RACE_ID);
+  db.query('SELECT * FROM event where id = ?',[RACE_ID],(err,results)=>{
+    if(!err){
+      console.log(results)
+      return res.json({
+        race_info:results
+      })
+    }else{
+      console.log("error!")
+      res.send(err)
+    }
+  })
+}
 
 exports.addEvent = (req,res)=>{
   // console.log()
