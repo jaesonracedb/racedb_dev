@@ -5,9 +5,16 @@ import styles from "./css/main.css"
 import logoRDB from "./imgs/racedblogo-04-scaled.png"
 export default class Archive extends Component {
   constructor(props){
+    const url = require('url');
+    const http = require('http');
+    const queryString =window.location.search;
+    console.log("url"+queryString);
+    const urlParams = new URLSearchParams(queryString)
+    const event_id = urlParams.get('id');
+    // const queryObject = url.parse(req.url.true).query;
     super(props)
     this.state={
-      event_id: props.event_id,
+      id: event_id,
       name: '',
       event_date: null,
       location_city:'',
@@ -23,7 +30,7 @@ export default class Archive extends Component {
       race_type:'',
       cycling_type:''
     }
-    console.log("Race id is: "+ props.event_id)
+    console.log("Race id is: "+ this.state.id)
     fetch('http://localhost:3001/get-race/'+this.state.id,{
       headers: {
         'Content-Type': 'application/json',
@@ -50,7 +57,7 @@ export default class Archive extends Component {
       })
       console.log(body.race_info.name)
     })
-    console.log("fetched")
+
   }
   render() {
     return (
@@ -124,8 +131,8 @@ export default class Archive extends Component {
     </div>
 
     <div>
-    	<h2 className="mt-5 ml-4">Placeholder Name</h2>
-    	<h5 className="mt-2 ml-4">Placeholder Date</h5>
+    	<h2 className="mt-5 ml-4">{this.state.name}</h2>
+    	<h5 className="mt-2 ml-4">{this.state.event_date}</h5>
     	<span className="ml-4 fa fa-star checked"></span>
     	<span className="fa fa-star checked"></span>
     	<span className="fa fa-star checked"></span>
@@ -136,10 +143,10 @@ export default class Archive extends Component {
     	<div className="row">
     		<div className="col-sm-6 mr-5">
     			<div className="card ml-4 p-3">
-    				<p className="card-text"><b>Location:</b>&nbsp;&lt;filler text&gt;</p>
-    				<p className="card-text"><b>State:</b>&nbsp;&lt;filler text&gt;</p>
-    				<p className="card-text"><b>Distance:</b>&nbsp;&lt;filler text&gt;</p>
-    				<p className="card-text"><b>Summary:</b></p><br/>
+    				<p className="card-text"><b>Location:</b>&nbsp;{this.state.location_city}</p>
+    				<p className="card-text"><b>State:</b>&nbsp;{this.state.state}</p>
+    				<p className="card-text"><b>Distance:</b>&nbsp;{this.state.distance}</p>
+    				<p className="card-text"><b>Summary:</b>{this.state.summary}</p><br/>
     				{/*<!--filler br-->*/}
     				<br/> <br/> <br/>
     			</div>
@@ -165,8 +172,8 @@ export default class Archive extends Component {
     			</div>
 
     			<div className="card p-3">
-    				<p className="card-text"><b>Email:</b>&nbsp;&lt;filler&gt;</p>
-    				<p className="card-text"><b>Number:</b>&nbsp;&lt;filler&gt;</p>
+    				<p className="card-text"><b>Email:</b>&nbsp;{this.state.email}</p>
+    				<p className="card-text"><b>Website:</b>&nbsp;<a href={this.state.website}>{this.state.website}</a></p>
     			</div>
 
     			//ads to be finished

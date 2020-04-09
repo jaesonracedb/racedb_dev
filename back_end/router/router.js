@@ -9,6 +9,6 @@ module.exports= (app) =>{
   app.post('/userLogin', userController.userLogin);
   //Event
   app.post('/add-event',eventController.addEvent);
-  app.get('/get-race/:event_id',eventController.getRace);
+  app.get('/get-race/:id',eventController.getRace);
 
 }

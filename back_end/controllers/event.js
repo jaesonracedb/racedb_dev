@@ -24,9 +24,10 @@ exports.getRace = (req,res)=>{
   console.log(RACE_ID);
   db.query('SELECT * FROM event where id = ?',[RACE_ID],(err,results)=>{
     if(!err){
-      console.log(results)
+      console.log("Race id is: "+RACE_ID)
+      console.log("Race Name: "+results[0].name)
       return res.json({
-        race_info:results
+        race_info:results[0]
       })
     }else{
       console.log("error!")
