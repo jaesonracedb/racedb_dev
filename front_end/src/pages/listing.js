@@ -57,9 +57,63 @@ export default class Archive extends Component {
       })
       console.log(body.race_info.name)
     })
-
   }
+  // RENDER PART -----------------------------
   render() {
+    let {id} = this.state;
+    let {name} = this.state;
+    let {event_date} = this.state;
+    let {location_city}= this.state;
+    let {state} = this.state;
+    let {category} = this.state;
+    let {distance} = this.state;
+    let {swim_distance} = this.state;
+    let {bike_distance} = this.state;
+    let {run_distance} = this.state;
+    let {website} =this.state;
+    let {email} = this.state;
+    let {summary} = this.state;
+    let {race_type} = this.state;
+    let {cycling_type} = this.state;
+    console.log(this.state.category)
+    function RunningInfo(props){
+      return <p className="card-text"><b>Distance:</b>&nbsp;{distance}<br/></p>
+    }
+    function CyclingInfo(props){
+      return <div><p className="card-text"><b>Type :</b>&nbsp;{cycling_type}</p><br/>
+              <p className="card-text"><b>Distance:</b>&nbsp;{distance}</p></div>
+    }
+    function TriathlonInfo(props){
+      return <div><p className="card-text"><b>Distance:</b>&nbsp;{distance}</p><br/>
+                  <p className="card-text"><b>Swim Distance:</b>&nbsp;{swim_distance}</p><br/>
+                  <p className="card-text"><b>Bike Distance:</b>&nbsp;{bike_distance}</p><br/>
+                  <p className="card-text"><b>Run Distance:</b>&nbsp;{run_distance}</p><br/></div>
+    }
+    function ObstacleInfo(props){
+      return <div><p className="card-text"><b>Distance:</b>&nbsp;{distance}</p><br/></div>
+    }
+    function OtherInfo(props){
+      return <div><p className="card-text"><b>Race Type:</b>&nbsp;{race_type}</p><br/></div>
+    }
+    function SomeInfo(){
+      return <h1>Failed</h1>;
+    }
+    function ExtraInfo(props){
+      const whatCategory = props.category;
+      if(whatCategory === 'running'){
+        return <RunningInfo />;
+      }else if(whatCategory === 'cycling'){
+        return <CyclingInfo />;
+      }else if(whatCategory === 'triathlon'){
+        return <TriathlonInfo/>;
+      }else if(whatCategory === 'obstacle'){
+        return <ObstacleInfo/>;
+      }else if(whatCategory === 'other'){
+        return <OtherInfo/>;
+      }else{
+        return <SomeInfo/>;
+      }
+    }
     return (
 		<div className="application">
 		<Helmet>
@@ -143,9 +197,12 @@ export default class Archive extends Component {
     	<div className="row">
     		<div className="col-sm-6 mr-5">
     			<div className="card ml-4 p-3">
+            <p className="card-text"><b>Category: </b>&nbsp;{this.state.category}</p>
     				<p className="card-text"><b>Location:</b>&nbsp;{this.state.location_city}</p>
     				<p className="card-text"><b>State:</b>&nbsp;{this.state.state}</p>
-    				<p className="card-text"><b>Distance:</b>&nbsp;{this.state.distance}</p>
+            <div className="extra-info">
+            <ExtraInfo category={this.state.category}/>
+            </div>{/*extra-info*/}
     				<p className="card-text"><b>Summary:</b>{this.state.summary}</p><br/>
     				{/*<!--filler br-->*/}
     				<br/> <br/> <br/>
