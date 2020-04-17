@@ -84,19 +84,19 @@ export default class Homepage extends Component {
   				<a>Last Name</a>
   			</div>
   			<div class="col-lg-4">
-  				<input type="text" class="form-control"/>
+  				<input type="text" class="form-control" id="s-lastname"/>
   			</div>
         <div class="col-xs ml-2">
   				<a>First Name</a>
   			</div>
   			<div class="col-lg-4">
-  				<input type="text" class="form-control"/>
+  				<input type="text" class="form-control" id="s-firstname"/>
   			</div>
         <div class="col-xs ml-2">
   				<a>Middle Initial</a>
   			</div>
   			<div class="col-lg-1">
-  				<input type="text" class="form-control" maxlength="2"/>
+  				<input type="text" class="form-control" id="s-middleinitial" maxlength="2"/>
   			</div>
   		</div>
   		<div class="row ml-4 mt-4">
