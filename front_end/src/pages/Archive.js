@@ -9,9 +9,36 @@ import Footer from "./Footer.js"
 // import styles from "./main.css"
 // import logoRDB from "./imgs/racedblogo-04-scaled.png"
 export default class Archive extends Component {
+  constructor(props){
+    const url = require('url');
+    const http = require('http');
+    const queryString =window.location.search;
+    console.log("url"+queryString);
+    const urlParams = new URLSearchParams(queryString)
+    const currentPage = urlParams.get('page');
+    super(props)
+    this.state={
+      page: currentPage,
+      search_results: []
+    }
+    console.log("Page is: "+this.state.page)
+    fetch('http://localhost:3001/search-results/category/running/id/'+this.state.page,{
+      headers:{
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      }
+    })
+    .then(res=>{return res.json()})
+    .then((body)=>{
+      this.setState({
+        search_results: body.search_results
+      });
+      console.log("List "+body.search_results)
+    })
+  }
   render() {
     return (
-		<div class="application">
+		<div className="application">
 		<Helmet>
 			<meta charset="utf-8"/>
 			{/*--sets width to device size, sets zoom-->*/}
@@ -39,8 +66,9 @@ export default class Archive extends Component {
 
 
 		<div>
-
+    <div className="search-body">
     <ArchiveCard/>
+    </div>{/*Search-body*/}
     <Pagination/>
 		</div>
     </div>

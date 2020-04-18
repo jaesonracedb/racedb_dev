@@ -10,5 +10,6 @@ module.exports= (app) =>{
   //Event
   app.post('/add-event',eventController.addEvent);
   app.get('/get-race/:id',eventController.getRace);
+  app.get('/search-results/:filter/:key/:order/:page',eventController.getPageItems);
 
 }

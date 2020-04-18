@@ -18,6 +18,27 @@ exports.getFeatured = (req,res)=>{
     }
   })
 }
+
+exports.getPageItems =(req,res)=>{
+  const FILTER_QUERY = req.params.filter;
+  const FILTER_KEY = req.params.key;
+  const FILTER_ORDER = req.params.order;
+  const START = ((parseInt(req.params.page)-1)*10);
+  if(FILTER_QUERY ==='category'){
+    db.query('SELECT * FROM event WHERE category = ? ORDER BY ? DESC LIMIT ?,10',[FILTER_KEY,FILTER_ORDER, START], (err,results)=>{
+      if(!err){
+        console.log('Result of page: '+req.params.page)
+        console.log(results)
+        return res.json({
+          search_results: results[0]
+        })
+      }else{
+        console.log(err)
+        res.send(err)
+      }
+    })
+  }
+}
 exports.getRace = (req,res)=>{
   console.log('Getting Race');
   const RACE_ID = req.params.id;
