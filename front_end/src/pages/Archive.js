@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Suspense, Component } from 'react';
 // import Cookies from 'universal-cookie';
 import {Helmet} from "react-helmet";
 import Navbar from "./Navbar.js";
@@ -23,7 +23,8 @@ export default class Archive extends Component {
       page: currentPage,
       filter: currentFilter,
       key: currentKey,
-      search_results: []
+      search_results: [],
+      totalCount: 0
     }
     console.log("Page is: "+this.state.page)
     fetch('http://localhost:3001/search-results/'+this.state.filter+'/'+this.state.key+'/id/'+this.state.page,{
@@ -35,12 +36,20 @@ export default class Archive extends Component {
     .then(res=>{return res.json()})
     .then((body)=>{
       this.setState({
-        search_results: body.search_results
+        search_results: body.search_results,
+        totalCount: body.totalCount
       });
-      console.log("List "+body.search_results)
+      console.log("List "+this.state.totalCount)
     })
   }
   render() {
+    let {search_results} = this.state;
+    function LoopCard(props){
+      var pageResults = {search_results}.length;
+      return <div>{search_results.map((value,index)=>{
+        return <ArchiveCard id={value.id} title={value.name} date={value.event_date} distance={value.distance} category={value.category}/>
+      })}</div>
+    }
     return (
 		<div className="application">
 		<Helmet>
@@ -63,22 +72,22 @@ export default class Archive extends Component {
     <div className="content">
     <div className="content-inside">
 
-<Navbar/>
+    <Navbar/>
 
 
-<SearchBar/>
+    <SearchBar/>
 
 
-		<div>
+		<div id="archive-2">
     <div className="search-body">
-    <ArchiveCard/>
+    <LoopCard/>
     </div>{/*Search-body*/}
-    <Pagination/>
-		</div>
-    </div>
-    </div>
+    <Pagination wait={100} totalCount={this.state.totalCount} currentPage={this.state.page}/>
+		</div>{/*archive2*/}
+    </div>{/*content-inside*/}
+    </div>{/*content*/}
     <Footer/>
-		</div>
+		</div>{/*body*/}
 		</div>
     )
   }

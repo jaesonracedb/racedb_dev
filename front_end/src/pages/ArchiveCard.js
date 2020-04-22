@@ -6,14 +6,20 @@ export default class ArchiveCard extends Component{
     constructor(props){
       super(props);
       this.state ={
-        title: "",
-        date: "",
-        distance: "",
-        category:"",
-        rating: 0
+        id: props.id,
+        title: props.title,
+        date: props.date,
+        distance: props.distance,
+        category: props.category,
+        rating: 0,
+        url: "http://localhost:3000/listing?id="+props.id
+
       }
+
     }
     render(){
+      // var eventRace = "http://localhost:3000/listing?id="+this.state.id;
+      // document.getElementById('eventLink').setAttribute("href",eventRace)
       return(
         <div className="application">
           <Helmet>
@@ -40,11 +46,10 @@ export default class ArchiveCard extends Component{
               <div className="col">
                 <div className="card-block px-2 pb-2">
                   <img className="card-img-left" src="#" alt="" height="170" width="320"/>
-                  <h4 className="card-title">Ad Race</h4>
-                  <p className="card-text">Filter:</p>
-                  <p className="card-text">Date:</p>
-                  <p className="card-text">Distance:</p>
-                  <p className="card-text">Category:</p>
+                  <h4 className="card-title"><a href={this.state.url}>{this.state.title}</a></h4>
+                  <p className="card-text">Date: {this.state.date}</p>
+                  <p className="card-text">Distance: {this.state.distance}</p>
+                  <p className="card-text">Category: {this.state.category}</p>
                   <span className="fa fa-star checked"></span>
                   <span className="fa fa-star checked"></span>
                   <span className="fa fa-star checked"></span>
@@ -57,5 +62,6 @@ export default class ArchiveCard extends Component{
           </div>
         </div>
       )
+
     }
 }

@@ -29,8 +29,12 @@ exports.getPageItems =(req,res)=>{
       if(!err){
         console.log('Result of page: '+req.params.page)
         console.log(results)
-        return res.json({
-          search_results: results[0]
+        db.query('SELECT count(*) AS sqlTotalCount FROM event where category = ?',[FILTER_KEY],(err1,results1)=>{
+          console.log(results1)
+          return res.json({
+            search_results: results,
+            totalCount: results1[0].sqlTotalCount
+          })
         })
       }else{
         console.log(err)

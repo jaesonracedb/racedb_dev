@@ -29,7 +29,7 @@ export default class SearchBar extends Component{
                   <option value="event_date">Date</option>
                   <option value="distance">Distance</option>
                   <option value="location">Location</option>
-                  <option value="category">Type</option>
+                  <option value="category">Category</option>
                 </select>
                 </div>{/*input-group-btn search-panel*/}
                 <input type="text" className="form-control" name="key" id="search" placeholder="Search"/>
