@@ -16,13 +16,17 @@ export default class Archive extends Component {
     console.log("url"+queryString);
     const urlParams = new URLSearchParams(queryString)
     const currentPage = urlParams.get('page');
+    const currentFilter = urlParams.get('filter');
+    const currentKey = urlParams.get('key');
     super(props)
     this.state={
       page: currentPage,
+      filter: currentFilter,
+      key: currentKey,
       search_results: []
     }
     console.log("Page is: "+this.state.page)
-    fetch('http://localhost:3001/search-results/category/running/id/'+this.state.page,{
+    fetch('http://localhost:3001/search-results/'+this.state.filter+'/'+this.state.key+'/id/'+this.state.page,{
       headers:{
         'Content-Type': 'application/json',
         'Accept': 'application/json'
