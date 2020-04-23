@@ -53,6 +53,9 @@ export default class Archive extends Component {
       })}</div>
     }
     function DisplayPagination(props){
+      if(totalCount===undefined){
+        return <div/>
+      }else
       return <Pagination wait={2000} totalCount={totalCount} currentPage={page}/>
     }
     return (

@@ -4,7 +4,7 @@ export default class SearchBar extends Component{
   constructor(props){
     super(props);
     this.state={
-      filter:'Name'
+      filter:'name'
     }
     this.handleFilter = this.handleFilter.bind(this);
   }

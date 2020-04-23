@@ -24,13 +24,12 @@ exports.getPageItems =(req,res)=>{
   const FILTER_KEY = req.params.key;
   const FILTER_ORDER = req.params.order;
   const START = ((parseInt(req.params.page)-1)*10);
+  console.log("Query: "+FILTER_QUERY);
+  console.log("STARTING ITEM: "+ START);
   if(FILTER_QUERY ==='category'){
     db.query('SELECT * FROM event WHERE category = ? ORDER BY ? DESC LIMIT ?,10',[FILTER_KEY,FILTER_ORDER, START], (err,results)=>{
       if(!err){
-        console.log('Result of page: '+req.params.page)
-        console.log(results)
         db.query('SELECT count(*) AS sqlTotalCount FROM event where category = ?',[FILTER_KEY],(err1,results1)=>{
-          console.log(results1)
           return res.json({
             search_results: results,
             totalCount: results1[0].sqlTotalCount
@@ -42,13 +41,56 @@ exports.getPageItems =(req,res)=>{
       }
     })
   }else if(FILTER_QUERY ==='name'){
-
+    const NAME_KEY = '%'+FILTER_KEY+'%';
+    db.query('SELECT * FROM event WHERE name LIKE ? ORDER BY ? DESC LIMIT ?,10',[NAME_KEY,FILTER_ORDER,START],(err,results)=>{
+      if(!err){
+        console.log("NAME_KEY is: "+NAME_KEY);
+        db.query('SELECT COUNT(*) AS sqlTotalCount FROM event WHERE name LIKE ?',[NAME_KEY],(err1,results1)=>{
+          return res.json({
+            search_results: results,
+            totalCount: results1[0].sqlTotalCount
+          })
+        })
+      }else{
+        console.log(err)
+        res.send(err)
+      }
+    });
   }else if(FILTER_QUERY ==='event_date'){
 
   }else if(FILTER_QUERY ==='distance'){
-
+    //modify for when there is no distance, example triathlon
+    const DISTANCE_KEY = '%'+FILTER_KEY+'%';
+    db.query('SELECT * FROM event WHERE distance LIKE ? ORDER BY ? DESC LIMIT ?,10',[DISTANCE_KEY,FILTER_ORDER,START],(err,results)=>{
+      if(!err){
+        console.log("DISTANCE_KEY is: "+DISTANCE_KEY);
+        db.query('SELECT COUNT(*) AS sqlTotalCount FROM event WHERE distance LIKE ?',[DISTANCE_KEY],(err1,results1)=>{
+          return res.json({
+            search_results: results,
+            totalCount: results1[0].sqlTotalCount
+          })
+        })
+      }else{
+        console.log(err)
+        res.send(err)
+      }
+    });
   }else if(FILTER_QUERY === 'location'){
-
+    const LOCATION_KEY = '%'+FILTER_KEY+'%';
+    db.query('SELECT * FROM event WHERE location_city LIKE ? ORDER BY ? DESC LIMIT ?,10',[LOCATION_KEY,FILTER_ORDER,START],(err,results)=>{
+      if(!err){
+        console.log("LOCATION_KEY is: "+LOCATION_KEY);
+        db.query('SELECT COUNT(*) AS sqlTotalCount FROM event WHERE location_city LIKE ?',[LOCATION_KEY],(err1,results1)=>{
+          return res.json({
+            search_results: results,
+            totalCount: results1[0].sqlTotalCount
+          })
+        })
+      }else{
+        console.log(err)
+        res.send(err)
+      }
+    });
   }else{
     console.log("Invalid search")
   }

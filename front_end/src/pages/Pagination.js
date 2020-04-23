@@ -44,7 +44,9 @@ export default class Pagination extends Component{
     var prevPrevNum = currentPage-2;
     console.log("Next page URL: "+nextPage+"::::"+(currentPage+1));
     function SinglePage(props){
-      return <li className="page-item"><a className="page-link" href={thisUrl}>1</a></li>
+      return <ul className="pagination">
+      <li className="page-item"><a className="page-link" href={thisUrl}>1</a></li>
+      </ul>
     }
     function DoublePage(props){
       console.log('Double page current page: '+currentPage);
@@ -65,7 +67,8 @@ export default class Pagination extends Component{
       }
     }
     function MultiPage(props){
-
+      console.log("CURRENT PAGE: "+currentPage);
+      console.log("LAST PAGE: "+lastPage);
       if(currentPage===1){
         return <ul className="pagination">
           <li className="page-item"><a className="page-link" href={thisUrl}>1</a></li>
@@ -74,7 +77,7 @@ export default class Pagination extends Component{
           <li className="page-item"><a className="page-link" href={nextPage}>&gt;</a></li>
           <li className="page-item"><a className="page-link" href={lastPage}>&gt;&gt;</a></li>
         </ul>
-      }else if(currentPage===lastPage){
+      }else if(currentPage===totalPages){
         return <ul className="pagination">
         <li className="page-item"><a className="page-link" href={nextPage}>&lt;</a></li>
         <li className="page-item"><a className="page-link" href={lastPage}>&lt;&lt;</a></li>
@@ -84,8 +87,8 @@ export default class Pagination extends Component{
         </ul>
       }else{
         return <ul className="pagination">
-        <li className="page-item"><a className="page-link" href={nextPage}>&lt;</a></li>
-        <li className="page-item"><a className="page-link" href={lastPage}>&lt;&lt;</a></li>
+        <li className="page-item"><a className="page-link" href={firstPage}>&lt;&lt;</a></li>
+        <li className="page-item"><a className="page-link" href={lastPage}>&lt;</a></li>
         <li className="page-item"><a className="page-link" href={prevPage}>{prevNum}</a></li>
         <li className="page-item"><a className="page-link" href={thisUrl}>{currentPage}</a></li>
         <li className="page-item"><a className="page-link" href={nextPage}>{nextNum}</a></li>
@@ -99,13 +102,15 @@ export default class Pagination extends Component{
       console.log("Total Items == "+totalCount)
       if(hidden){return <div/>}
       else{
-      if(totalPages===1){
-        return <SinglePage/>
-      }else if(totalPages === 2){
-        return <DoublePage/>
-      }else{
-        return <MultiPage/>
-      }
+        if(totalCount===0){
+          return <div/>
+        }else if(totalPages===1){
+          return <SinglePage/>
+        }else if(totalPages === 2){
+          return <DoublePage/>
+        }else{
+          return <MultiPage/>
+        }
       }
     }
     return(
