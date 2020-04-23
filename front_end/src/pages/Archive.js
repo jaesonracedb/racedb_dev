@@ -23,8 +23,7 @@ export default class Archive extends Component {
       page: currentPage,
       filter: currentFilter,
       key: currentKey,
-      search_results: [],
-      totalCount: 0
+      search_results: []
     }
     console.log("Page is: "+this.state.page)
     fetch('http://localhost:3001/search-results/'+this.state.filter+'/'+this.state.key+'/id/'+this.state.page,{
@@ -37,18 +36,24 @@ export default class Archive extends Component {
     .then((body)=>{
       this.setState({
         search_results: body.search_results,
-        totalCount: body.totalCount
+        totalCount: parseInt(body.totalCount)
       });
       console.log("List "+this.state.totalCount)
     })
   }
   render() {
     let {search_results} = this.state;
+    let {totalCount} = this.state;
+    let {page} = this.state;
+    console.log("Total count in render: "+totalCount)
     function LoopCard(props){
       var pageResults = {search_results}.length;
       return <div>{search_results.map((value,index)=>{
         return <ArchiveCard id={value.id} title={value.name} date={value.event_date} distance={value.distance} category={value.category}/>
       })}</div>
+    }
+    function DisplayPagination(props){
+      return <Pagination wait={2000} totalCount={totalCount} currentPage={page}/>
     }
     return (
 		<div className="application">
@@ -82,7 +87,8 @@ export default class Archive extends Component {
     <div className="search-body">
     <LoopCard/>
     </div>{/*Search-body*/}
-    <Pagination wait={100} totalCount={this.state.totalCount} currentPage={this.state.page}/>
+    <DisplayPagination/>
+
 		</div>{/*archive2*/}
     </div>{/*content-inside*/}
     </div>{/*content*/}

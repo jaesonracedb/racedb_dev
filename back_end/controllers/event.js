@@ -41,6 +41,16 @@ exports.getPageItems =(req,res)=>{
         res.send(err)
       }
     })
+  }else if(FILTER_QUERY ==='name'){
+
+  }else if(FILTER_QUERY ==='event_date'){
+
+  }else if(FILTER_QUERY ==='distance'){
+
+  }else if(FILTER_QUERY === 'location'){
+
+  }else{
+    console.log("Invalid search")
   }
 }
 exports.getRace = (req,res)=>{
