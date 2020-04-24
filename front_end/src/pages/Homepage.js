@@ -35,6 +35,9 @@ export default class Homepage extends Component {
   }
 
   render() {
+    const locationUrl = "http://localhost:3000/search?filter=location&page=1&key=";
+    const categoriesUrl= "http://localhost:3000/search?filter=category&page=1&key=";
+    const featuredUrl = "http://localhost:3000/listing?id=";
     return (
     <div className="application">
     <Helmet>
@@ -106,15 +109,15 @@ export default class Homepage extends Component {
     	</div>
 
     	<nav className="navbar navbar-expand-lg navbar-light bg-light mt-3 mx-auto" id="categoryNav">
-    		<a className="nav-link mx-auto" href="#">Running</a>
+    		<a className="nav-link mx-auto" href={categoriesUrl+'running'}>Running</a>
     		|
-    		<a className="nav-link mx-auto" href="#">Triathlon</a>
+    		<a className="nav-link mx-auto" href={categoriesUrl+'triathlon'}>Triathlon</a>
     		|
-    		<a className="nav-link mx-auto" href="#">Cycling</a>
+    		<a className="nav-link mx-auto" href={categoriesUrl+'cycling'}>Cycling</a>
     		|
-    		<a className="nav-link mx-auto" href="#">Obstacle</a>
+    		<a className="nav-link mx-auto" href={categoriesUrl+'obstacle'}>Obstacle</a>
     		|
-    		<a className="nav-link mx-auto" href="#">Other</a>
+    		<a className="nav-link mx-auto" href={categoriesUrl+'other'}>Other</a>
     	</nav>
     </div>
 
@@ -134,7 +137,7 @@ export default class Homepage extends Component {
               {this.state.featured.map((ft,index) => {
                 if(index ===0)
                 return <div key={ft.id}>
-                  <h5 className="card-title">{ft.name}</h5>
+                  <h5 className="card-title"><a href={featuredUrl+ft.id}>{ft.name}</a></h5>
                   <p className="card-text">Date: {ft.event_date}<br/>
                   Distance: {ft.distance}<br/>
                   Category: {ft.category}<br/></p>
@@ -158,7 +161,7 @@ export default class Homepage extends Component {
             {this.state.featured.map((ft,index) => {
               if(index ===1)
               return <div key={ft.id}>
-                <h5 className="card-title">{ft.name}</h5>
+                <h5 className="card-title"><a href={featuredUrl+ft.id}>{ft.name}</a></h5>
                 <p className="card-text">Date: {ft.event_date}<br/>
                 Distance: {ft.distance}<br/>
                 Category: {ft.category}<br/></p>
@@ -182,7 +185,7 @@ export default class Homepage extends Component {
             {this.state.featured.map((ft,index) => {
               if(index ===2)
               return <div key={ft.id}>
-                <h5 className="card-title">{ft.name}</h5>
+                <h5 className="card-title"><a href={featuredUrl+ft.id}>{ft.name}</a></h5>
                 <p className="card-text">Date: {ft.event_date}<br/>
                 Distance: {ft.distance}<br/>
                 Category: {ft.category}<br/></p>
@@ -209,7 +212,7 @@ export default class Homepage extends Component {
           {this.state.featured.map((ft,index) => {
             if(index ===3)
             return <div key={ft.id}>
-              <h5 className="card-title">{ft.name}</h5>
+              <h5 className="card-title"><a href={featuredUrl+ft.id}>{ft.name}</a></h5>
               <p className="card-text">Date: {ft.event_date}<br/>
               Distance: {ft.distance}<br/>
               Category: {ft.category}<br/></p>
@@ -233,7 +236,7 @@ export default class Homepage extends Component {
           {this.state.featured.map((ft,index) => {
             if(index ===4)
             return <div key={ft.id}>
-              <h5 className="card-title">{ft.name}</h5>
+              <h5 className="card-title"><a href={featuredUrl+ft.id}>{ft.name}</a></h5>
               <p className="card-text">Date: {ft.event_date}<br/>
               Distance: {ft.distance}<br/>
               Category: {ft.category}<br/></p>
@@ -256,7 +259,7 @@ export default class Homepage extends Component {
           {this.state.featured.map((ft,index) => {
             if(index ===5)
             return <div key={ft.id}>
-              <h5 className="card-title">{ft.name}</h5>
+              <h5 className="card-title"><a href={featuredUrl+ft.id}>{ft.name}</a></h5>
               <p className="card-text">Date: {ft.event_date}<br/>
               Distance: {ft.distance}<br/>
               Category: {ft.category}<br/></p>
@@ -285,19 +288,19 @@ export default class Homepage extends Component {
         <div className="col-md-4" id="location1">
         <div className='locContainer'>
           <img src={stockImg} className="mx-auto d-block bg-dark mt-5" alt="New York" style={{height:"200px",width:"300px"}}/>
-          <div className="locationText">New York</div>
+          <div className="locationText"><a className ='homepageLocaton'href={locationUrl+'new-york'}>New York</a></div>
         </div>
         </div>
         <div className="col-md-4" id="location2">
         <div className='locContainer'>
           <img src={stockImg} className="mx-auto d-block bg-dark mt-5" alt="New Jersey" style={{height:"200px",width:"300px"}}/>
-          <div className="locationText">New Jersey</div>
+          <div className="locationText"><a className ='homepageLocaton'href={locationUrl+'loc'}>New Jersey</a></div>
         </div>
         </div>
         <div className="col-md-4" id="location3">
         <div className='locContainer'>
           <img src={stockImg} className="mx-auto d-block bg-dark mt-5" alt="Maryland" style={{height:"200px",width:"300px"}}/>
-          <div className="locationText">Maryland</div>
+          <div className="locationText"><a className ='homepageLocaton'href={locationUrl+'new-york'}>Maryland</a></div>
         </div>
         </div>
       </div>
@@ -305,19 +308,19 @@ export default class Homepage extends Component {
         <div className="col-md-4" id="location4">
         <div className='locContainer'>
           <img src={stockImg} className="mx-auto d-block bg-dark mt-5" alt="Maine" style={{height:"200px",width:"300px"}}/>
-          <div className="locationText">Maine</div>
+          <div className="locationText"><a className ='homepageLocaton'href={locationUrl+'new-york'}>Maine</a></div>
         </div>
         </div>
         <div className="col-md-4" id="location5">
         <div className='locContainer'>
           <img src={stockImg} className="mx-auto d-block bg-dark mt-5" alt="Connecticut" style={{height:"200px",width:"300px"}}/>
-          <div className="locationText">Connecticut</div>
+          <div className="locationText"><a className ='homepageLocaton'href={locationUrl+'new-york'}>Connecticut</a></div>
         </div>
         </div>
         <div className="col-md-4" id="location6">
         <div className='locContainer'>
           <img src={stockImg} className="mx-auto d-block bg-dark mt-5" alt="California" style={{height:"200px",width:"300px"}}/>
-          <div className="locationText">California</div>
+          <div className="locationText"><a className ='homepageLocaton'href={locationUrl+'new-york'}>California</a></div>
         </div>
         </div>
       </div>
@@ -336,20 +339,25 @@ export default class Homepage extends Component {
       <div className="row">
         <div className="col-md-4">
           <img src={running} className="mx-auto d-block bg-dark mt-5" alt="category" style={{height:"200px",width:"300px"}}/>
+          <div className="locationText"><a className ='homepageLocaton'href={categoriesUrl+'running'}>Running</a></div>
         </div>
         <div className="col-md-4">
           <img src={cycling} className="mx-auto d-block bg-dark mt-5" alt="category" style={{height:"200px",width:"300px"}}/>
+          <div className="locationText"><a className ='homepageLocaton'href={categoriesUrl+'cycling'}>Cycling</a></div>
         </div>
         <div className="col-md-4">
           <img src={triathlon} className="mx-auto d-block bg-dark mt-5" alt="category" style={{height:"200px",width:"300px"}}/>
+          <div className="locationText"><a className ='homepageLocaton'href={categoriesUrl+'triathlon'}>Triathlon</a></div>
         </div>
       </div>
       <div className="row">
         <div className="col-md-4 mx-auto">
           <img src={obstacle} className="mx-auto d-block bg-dark mt-5" alt="category" style={{height:"200px",width:"300px"}}/>
+          <div className="locationText"><a className ='homepageLocaton'href={categoriesUrl+'obstacle'}>Obstacle</a></div>
         </div>
         <div className="col-md-4 mx-auto">
           <img src={other} className="mx-auto d-block bg-dark mt-5" alt="category" style={{height:"200px",width:"300px"}}/>
+          <div className="locationText"><a className ='homepageLocaton'href={categoriesUrl+'other'}>Other</a></div>
         </div>
       </div>
     </div>

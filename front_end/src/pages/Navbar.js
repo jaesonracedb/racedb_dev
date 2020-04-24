@@ -4,7 +4,7 @@ export default class Navbar extends Component{
   render(){
     return(
       <nav className="navbar navbar-expand-sm navbar-dark" style={{backgroundcolor:"#2d4f78"}}>
-  			<a className="navbar-brand" href="#">
+  			<a className="navbar-brand" href="http://localhost:3000">
   				<img src="logoRDB" alt="logo" style={{width:"110px"}}/>
   			</a>
 

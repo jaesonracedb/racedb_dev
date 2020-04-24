@@ -77,7 +77,7 @@ exports.getPageItems =(req,res)=>{
     });
   }else if(FILTER_QUERY === 'location'){
     const LOCATION_KEY = '%'+FILTER_KEY+'%';
-    db.query('SELECT * FROM event WHERE location_city LIKE ? ORDER BY ? DESC LIMIT ?,10',[LOCATION_KEY,FILTER_ORDER,START],(err,results)=>{
+    db.query('SELECT * FROM event WHERE state LIKE ? OR location_city LIKE ? ORDER BY state DESC LIMIT ?,10',[LOCATION_KEY,LOCATION_KEY,START],(err,results)=>{
       if(!err){
         console.log("LOCATION_KEY is: "+LOCATION_KEY);
         db.query('SELECT COUNT(*) AS sqlTotalCount FROM event WHERE location_city LIKE ?',[LOCATION_KEY],(err1,results1)=>{
