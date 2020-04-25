@@ -1,16 +1,17 @@
 import React, { Component } from 'react';
 // import Cookies from 'universal-cookie';
 import {Helmet} from "react-helmet";
-import styles from "./css/main.css"
-import logoRDB from "./imgs/racedblogo-04-scaled.png"
-import stockImg from "./imgs/triathlon.jpg"
-import featuredImg from "./imgs/default-running-thumbnail-1.png"
-import logoRed from "./imgs/racedblogo-02-1024x640.png"
-import running from "./imgs/running.jpg"
-import triathlon from "./imgs/triathlon.jpg"
-import cycling from "./imgs/cycling.jpg"
-import other from "./imgs/other.jpg"
-import obstacle from "./imgs/obstacle-race.jpg"
+import styles from "./css/main.css";
+import logoRDB from "./imgs/racedblogo-04-scaled.png";
+import stockImg from "./imgs/triathlon.jpg";
+import featuredImg from "./imgs/default-running-thumbnail-1.png";
+import logoRed from "./imgs/racedblogo-02-1024x640.png";
+import running from "./imgs/running.jpg";
+import triathlon from "./imgs/triathlon.jpg";
+import cycling from "./imgs/cycling.jpg";
+import other from "./imgs/other.jpg";
+import obstacle from "./imgs/obstacle-race.jpg";
+import HomepageSearch from "./HomepageSearch.js"
 
 export default class Homepage extends Component {
   constructor(props){
@@ -61,13 +62,13 @@ export default class Homepage extends Component {
       <div className="content-inside">
 
     <nav className="navbar navbar-expand-sm navbar-dark">
-      <a className="navbar-brand ml-3" href="#">
+      <a className="navbar-brand ml-3" href="http://localhost:3000">
         <img src={logoRDB} alt="logo" style= {{width:"110px"}}/>
       </a>
 
       <ul className="navbar-nav ml-auto">
         <li className="nav-item">
-          <a className="btn btn-outline-light my-2 my-sm-0" href="#" role="button">Create A Race</a>
+          <a className="btn btn-outline-light my-2 my-sm-0" href="http://localhost:3000/add-event" role="button">Create A Race</a>
         </li>
         <li className="nav-item">
           <a className="nav-link" href="#">Sign Up</a>
@@ -88,25 +89,10 @@ export default class Homepage extends Component {
     	<div className="container">
     	  <div className="row mx-auto">
     	   <div className="col-xs-8 col-xs-offset-2">
-    		<div className="input-group">
-    		 <div className="input-group-btn search-panel">
-    		  <button type="button" className="btn btn-default dropdown-toggle" data-toggle="dropdown">
-    			<span id="search_concept">All</span> <span className="caret"></span>
-    		  </button>
-    		  <ul className="dropdown-menu scrollable-dropdown" role="menu">
-    			<li><a href="#">Name</a></li>
-    			<li><a href="#">Date</a></li>
-    			<li><a href="#">Distance</a></li>
-    			<li><a href="#">Location</a></li>
-    			<li><a href="#">Type</a></li>
-    		  </ul>
-    		 </div>
-    		 <input type="hidden" name="search_param" value="all" id="search_param"/>
-    		 <input type="text" className="form-control" name="x" id="searchforevent" placeholder="Search" size="100%"/>
-    		</div>
-    	   </div>
-    	  </div>
-    	</div>
+    		<HomepageSearch/>{/*input-group*/}
+    	   </div> {/*col-xs-8 col-xs-offset-2*/}
+    	  </div>{/*row mx-auto*/}
+    	</div> {/*container*/}
 
     	<nav className="navbar navbar-expand-lg navbar-light bg-light mt-3 mx-auto" id="categoryNav">
     		<a className="nav-link mx-auto" href={categoriesUrl+'running'}>Running</a>

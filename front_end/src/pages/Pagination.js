@@ -79,8 +79,8 @@ export default class Pagination extends Component{
         </ul>
       }else if(currentPage===totalPages){
         return <ul className="pagination">
-        <li className="page-item"><a className="page-link" href={nextPage}>&lt;</a></li>
-        <li className="page-item"><a className="page-link" href={lastPage}>&lt;&lt;</a></li>
+        <li className="page-item"><a className="page-link" href={firstPage}>&lt;&lt;</a></li>
+        <li className="page-item"><a className="page-link" href={prevPage}>&lt;</a></li>
           <li className="page-item"><a className="page-link" href={prevPrevPage}>{prevPrevNum}</a></li>
           <li className="page-item"><a className="page-link" href={prevPage}>{prevNum}</a></li>
           <li className="page-item"><a className="page-link" href={thisUrl}>{currentPage}</a></li>
@@ -88,7 +88,7 @@ export default class Pagination extends Component{
       }else{
         return <ul className="pagination">
         <li className="page-item"><a className="page-link" href={firstPage}>&lt;&lt;</a></li>
-        <li className="page-item"><a className="page-link" href={lastPage}>&lt;</a></li>
+        <li className="page-item"><a className="page-link" href={prevPage}>&lt;</a></li>
         <li className="page-item"><a className="page-link" href={prevPage}>{prevNum}</a></li>
         <li className="page-item"><a className="page-link" href={thisUrl}>{currentPage}</a></li>
         <li className="page-item"><a className="page-link" href={nextPage}>{nextNum}</a></li>

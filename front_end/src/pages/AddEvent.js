@@ -1,6 +1,7 @@
-import React, {Component} from 'react';
+import React, {PureComponent} from 'react';
+import {Helmet} from "react-helmet";
 
-class AddEvent extends Component {
+class AddEvent extends PureComponent {
   constructor(){
     super()
     this.state= {
@@ -9,7 +10,7 @@ class AddEvent extends Component {
       event_date: null,
       location_city: '',
       state:'',
-      category: '',
+      category: 'running',
       distance: '',
       swim_distance:'',
       bike_distance: '',
@@ -119,6 +120,7 @@ class AddEvent extends Component {
     this.setState({
       category: e.target.value,
     })
+    console.log("change this.state.category: "+ this.state.category);
   }
 
   handleDistance(e){
@@ -176,26 +178,223 @@ class AddEvent extends Component {
   }
 
   render(){
-    return(
-      <div>
-        <form>
-          <input type="text" name="nameIn" placeholder="Input race name" onChange={this.handleNameChange} required/> <br/>
-          <input type="date" name="event_dateIn" pattern="\d{4}-\d{2}-\d{2}" onChange={this.handleEvent_date} required/><br/>
-          <input type="text" name="location_cityIn" placeholder="Enter Location/State" onChange={this.handleLocationCity} required/> <br/>
-          <input type="text" name="stateIn" placeholder="Input State" onChange={this.handleState} required/><br/>
-          <input type="text" name="categoryIn" placeholder="Input race category" onChange={this.handleCategory} required/><br/>
-          <input type="text" name="distanceIn" placeholder="Input race Distance" onChange={this.handleDistance} required/><br/>
-          <input type="text" name="swim_distanceIn" placeholder="Input swim distance" onChange={this.handleSwimDistance} required/><br/>
-          <input type="text" name="bike_distanceIn" placeholder="Input bike distance" onChange={this.handleBikeDistance} required/><br/>
-          <input type="text" name="run_distanceIn" placeholder="Input run distance" onChange={this.handleRunDistance} required/><br/>
-          <input type="text" name="websiteIn" placeholder="Input race website" onChange={this.handleWebsite} required/><br/>
-          <input type="email" name="emailIn" placeholder="Input organizer email" onChange={this.handleEmail} required/><br/>
-          <input type="text" name="summaryIn" placeholder="Input summary" onChange={this.handleSummary} required/><br/>
-          <input type="text" name="race_typeIn" placeholder="Input race type" onChange={this.handleRaceType} required/><br/>
-          <input type="text" name="cycling_typeIn" placeholder="Input cycling type" onChange={this.handleCyclingType} required/><br/>
-        </form>
-        <button className="addEventButton" type="submit" onClick={this.handleAddEvent}>Submit Race</button>
+    let {category}=this.state;
+    let {handleBikeDistance} = this.handleBikeDistance;
+    let {handleRunDistance} = this.handleRunDistance;
+    let {handleDistance} = this.handleDistance;
+    let {handleSwimDistance} = this.handleSwimDistance;
+    let {handleRaceType} = this.handleRaceType;
+    let {handleCyclingType} = this.handleCyclingType;
+    function DisplayTritahlonFields(){
+      return <div>
+      <div class="row ml-4">
+        <div class="col-xs ml-3">
+          <a> Race Distance: </a>
+        </div>
+        <div class="col-lg-2 ml-3">
+          <input type="text" name="distanceIn" class="form-control" placeholder="Input race Distance" onChange={handleDistance} required/><br/>
+        </div>
+        <div class="col-xs ml-3">
+          <a> Swim Distance: </a>
+        </div>
+        <div class="col-lg-2 ml-3">
+          <input type="text" id="swimDistance" class="form-control" name="swim_distanceIn" placeholder="Input swim distance" onChange={handleSwimDistance} required/><br/>
+        </div>
       </div>
+      <div class="row ml-4">
+        <div class="col-xs ml-3">
+          <a> Bike Distance: </a>
+        </div>
+        <div class="col-lg-2 ml-3">
+          <input type="text" id="bikeDistance" class="form-control" name="bike_distanceIn" placeholder="Input bike distance" onChange={handleBikeDistance} required/><br/>
+        </div>
+        <div class="col-xs ml-3">
+          <a> Run Distance: </a>
+        </div>
+        <div class="col-lg-2 ml-3">
+          <input type="text" id="runDistance" class="form-control" name="run_distanceIn" placeholder="Input run distance" onChange={handleRunDistance} required/><br/>
+        </div>
+      </div>
+      </div>
+    }
+    function DisplayObstacleRunningFields(){
+      return <div class="row ml-4">
+        <div class="col-xs ml-3">
+          <a> Race Distance: </a>
+        </div>
+        <div class="col-lg-2 ml-3">
+          <input type="text" name="distanceIn" class="form-control" placeholder="Input race Distance" onChange={handleDistance} required/><br/>
+        </div>
+        </div>
+    }
+    function DisplayOtherFields(){
+      return <div class="row ml-4">
+      <div class="col-xs ml-3">
+        <a> Race Type: </a>
+      </div>
+      <div class="col-lg-2 ml-3">
+        <input type="text" name="race_typeIn" class="form-control" placeholder="Input race type" onChange={handleRaceType} required/><br/>
+      </div>
+        </div>
+    }
+    function DisplayCyclingFields(){
+      return <div class="row ml-4">
+        <div class="col-xs ml-3">
+          <a> Race Distance: </a>
+        </div>
+        <div class="col-lg-2 ml-3">
+          <input type="text" name="distanceIn" class="form-control" placeholder="Input race Distance" onChange={handleDistance} required/><br/>
+        </div>
+        <div class="col-xs ml-3">
+          <a> Cycling Type: </a>
+        </div>
+        <div class="col-lg-2 ml-3">
+          <input type="text" id="CyclingType" class="form-control" name="cycling_typeIn" placeholder="Input cycling type" onChange={handleCyclingType} required/><br/>
+        </div>
+        </div>
+    }
+    function DisplayCategoryFields(props){
+      if(props.currentCategory==='triathlon'){
+        return <DisplayTritahlonFields/>
+      }else if(props.currentCategory==='obstacle' || props.currentCategory==='running'){
+        return <DisplayObstacleRunningFields/>
+      }else if(props.currentCategory==='other'){
+        return <DisplayOtherFields/>
+      }else if(props.currentCategory==='cycling'){
+        return <DisplayCyclingFields/>
+      }
+        else{
+          return <div/>
+        }
+    }
+    return(
+      <div class="application"> {/*parent div, the whole div to return*/}
+        <Helmet>
+          <meta charset="utf-8"/>
+          {/*--sets width to device size, sets zoom-->*/}
+          <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+          <title>raceDB Homepage</title>
+          <link rel="stylesheet" href="main.css"/>
+
+          {/*// --bootstrap stuff--*/}
+          <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"/>
+          <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+          <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+        </Helmet>
+
+        <div class="body">
+          <div class="content">
+            <div class="content-inside">
+
+            <nav class="navbar navbar-expand-sm navbar-dark">
+              <a class="navbar-brand ml-3" href="http://localhost:3000/">
+                <img src="logoRDB" alt="logo" style= {{width:"110px"}}/>
+              </a>
+
+              <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                  <a class="btn btn-outline-light my-2 my-sm-0" href="http://localhost:3000/add-event" role="button">Create A Race</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Sign Up</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Login</a>
+                </li>
+              </ul>
+            </nav>
+
+            <div>
+              <br/>
+              <h3 class="mt-3 ml-5">Add Your Race!</h3>
+              <br/>
+              <form>
+                <div class="row ml-4">
+                  <div class="col-xs ml-3">
+                    <a>Name:</a>
+                  </div>
+                  <div class="col-lg-4">
+                    <input type="text" name="nameIn" class="form-control" placeholder="Input race name" onChange={this.handleNameChange} required/> <br/>
+                  </div>
+                  <div class="col-xs ml-3">
+                    <a>Date: </a>
+                  </div>
+                  <div class="ml-3">
+                    <input type="date" name="event_dateIn" class="form-control" required pattern="\d{4}-\d{2}-\d{2}" onChange={this.handleEvent_date} required/><br/>
+                  </div>
+                  <div class="col-xs ml-3">
+                    <a> Organizer Email: </a>
+                  </div>
+                  <div class="col-lg-3 ml-3">
+                    <input type="email" name="emailIn" class="form-control" placeholder="organizer@email.com" onChange={this.handleEmail} required/><br/>
+                  </div>
+                </div>
+                <div class="row ml-4">
+                  <div class="col-xs ml-3">
+                    <a> Location: </a>
+                  </div>
+                  <div class="col-lg-3 ml-3">
+                    <input type="text" name="location_cityIn" class="form-control" placeholder="Enter Location/City" onChange={this.handleLocationCity} required/><br/>
+                  </div>
+                  <div class="col-xs ml-3">
+                    <a> State: </a>
+                  </div>
+                  <div class="col-lg-3 ml-3">
+                    <input type="text" name="stateIn" class="form-control" placeholder="Input State" onChange={this.handleState} required/><br/>
+                  </div>
+                </div>
+
+                <div class="row ml-4">
+                <div class="col-xs ml-3">
+                <a>Category: </a>
+                </div>
+                <div class="col-lg-3 ml-3">
+                <select name="categoryIn" class="form-control" placeholder="Input race category" onChange={this.handleCategory} required>
+                <option selected value='running' id="running">Running</option>
+                <option value='cycling' id="cycling">Cycling</option>
+                <option value='triathlon' id="triathlon">Triathlon</option>
+                <option value='obstacle' id="obstacle">Obstacle</option>
+                <option value='other' id="other">Other</option>
+                </select><br/>
+                </div>
+                </div>
+                <DisplayCategoryFields currentCategory={this.state.category}/>
+
+                <div class="row ml-4">
+                  <div class="col-xs ml-3">
+                    <a> Race Website: </a>
+                  </div>
+                  <div class="col-lg-4 ml-3">
+                    <input type="text" name="websiteIn" class="form-control" placeholder="Input race website" onChange={this.handleWebsite} required/><br/>
+                  </div>
+                </div>
+                <div class="row ml-4">
+                  <div class="col-xs ml-3">
+                    <a> Race Summary: </a>
+                  </div>
+                  <div class="col-lg-4 ml-3">
+                    <input type="text" name="summaryIn" class="form-control" placeholder="Input summary" onChange={this.handleSummary} required/><br/>
+                  </div>
+                </div>
+              </form>
+              <div class="row ml-4">
+                <button className="addEventButton" type="submit" class="btn btn-primary" onClick={this.handleAddEvent}>Submit Race</button>
+              </div>
+            </div>  {/* unnamed div enclosing tag */}
+          </div>  {/* div class = content-inside enclosing tag */}
+        </div>  {/* div class = content enclosing tag */}
+      </div>  {/* div class = body enclosing tag */}
+
+      {/*<script>
+        document.getElementById('swimDistance').disabled = true;
+      </script>
+      */}
+
+    </div>
+
     );
   }
 }

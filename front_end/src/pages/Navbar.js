@@ -15,7 +15,7 @@ export default class Navbar extends Component{
 
   			<ul className="navbar-nav ml-auto">
   			<li className="nav-item">
-  				<a className="btn btn-outline-light my-2 my-sm-0" href="#" role="button">Create A Race</a>
+  				<a className="btn btn-outline-light my-2 my-sm-0" href="http://localhost:3000/add-event" role="button">Create A Race</a>
   			</li>
   			<li className="nav-item">
   				<a className="nav-link" href="#">About Us</a>

@@ -75,7 +75,14 @@ export default class Archive extends Component {
     let {summary} = this.state;
     let {race_type} = this.state;
     let {cycling_type} = this.state;
+    let websiteUrl = "http://"+website;
     console.log(this.state.category)
+    var updatedUrl= website;
+    if (!updatedUrl.match("~^(?:f|ht)tps?://~i")) {
+        updatedUrl = "http://" +website;
+    }
+    console.log("URL: "+updatedUrl);
+
     function RunningInfo(props){
       return <p className="card-text"><b>Distance:</b>&nbsp;{distance}<br/></p>
     }
@@ -135,7 +142,7 @@ export default class Archive extends Component {
 		<div className="body">
 
 		<nav className="navbar navbar-expand-sm navbar-dark" style={{backgroundcolor:"#2d4f78"}}>
-			<a className="navbar-brand" href="#">
+			<a className="navbar-brand" href="http://localhost:3000/">
 				<img src="logoRDB" alt="logo" style={{width:"110px"}}/>
 			</a>
 
@@ -146,7 +153,7 @@ export default class Archive extends Component {
 
 			<ul className="navbar-nav ml-auto">
 			<li className="nav-item">
-				<a className="btn btn-outline-light my-2 my-sm-0" href="#" role="button">Create A Race</a>
+				<a className="btn btn-outline-light my-2 my-sm-0" href="http://localhost:3000/add-event" role="button">Create A Race</a>
 			</li>
 			<li className="nav-item">
 				<a className="nav-link" href="#">About Us</a>
@@ -230,7 +237,7 @@ export default class Archive extends Component {
 
     			<div className="card p-3">
     				<p className="card-text"><b>Email:</b>&nbsp;{this.state.email}</p>
-    				<p className="card-text"><b>Website:</b>&nbsp;<a href={this.state.website}>{this.state.website}</a></p>
+    				<p className="card-text"><b>Website:</b>&nbsp;<a href={updatedUrl}>{this.state.website}</a></p>
     			</div>
 
     			//ads to be finished
