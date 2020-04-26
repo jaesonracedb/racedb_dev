@@ -91,6 +91,13 @@ class AddEvent extends PureComponent {
         }
       })
   }
+  shouldComponentUpdate(nextProps, nextState) {
+    if(this.state.category === nextState.category){
+      return false;
+    }else{
+      return true;
+    }
+  }
 
   handleNameChange(e){
     this.setState({
