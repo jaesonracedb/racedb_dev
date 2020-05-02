@@ -16,8 +16,58 @@ html, body {
 	width: 100%;
 	max-width: 100%;
 }
-.footerBar{
+#formSearchHome{
+	position: relative;
+	margin: auto;
+	/* margin-left: 190px; */
+	bottom:-40px;
+}
+#select-filter{
+	min-width: 20%;
+}
+#start-search{
+	width: 13%;
+}
+#searchBar{
+ width: 100%;
+ /* background-color: red; */
+}
+#homeSearch{
+	width: 100%;
+}
+#bannerLogo{
+	max-height: 460px;
+	overflow: hidden;
+	/* position: absolute; */
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+#searchForm-col{
+	margin-left: 23px;
+	min-width: 95%;
+}
+.card.border-secondary.mb-3{
 
+}
+/* #search-key{
+	width: 40%;
+} */
+
+#categoryNav{
+	position: relative;
+	bottom: -100px;
+	min-width: 60%;
+	width: 85%;
+	top:50px;
+	height: 45px;
+}
+#bannerHeader{
+	background-image: url("../imgs/Canva-Runners-in-a-Marathon-1024x680.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
+	min-height: 680px;
+	min-width: 100%;
 }
 #someLogo{
 	background-color: transparent !important;
@@ -26,7 +76,7 @@ html, body {
   min-height: 100%;
 }
 .content-inside {
-  padding: 20px;
+  /* padding: 20px; */
   padding-bottom: 50px;
 }
 footer {
@@ -49,6 +99,8 @@ footer {
 	position: relative;
 	text-align: center;
 	color: white;
+	height: 100%;
+	width: 100%;
 }
 .locationText{
 	position: absolute;
@@ -56,6 +108,10 @@ footer {
 	bottom: 8px;
 	left: 45%;
 	transform: translate(-10%,-50%);
+}
+.locationImg{
+	width: 400px;
+	/* width: 600px; */
 }
 /* div .left {
 	float: left;

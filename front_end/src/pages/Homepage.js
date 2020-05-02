@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 // import Cookies from 'universal-cookie';
 import {Helmet} from "react-helmet";
 import styles from "./css/main.css";
+import homepageBanner from "./imgs/Canva-Runners-in-a-Marathon-1024x680.jpg"
 import logoRDB from "./imgs/racedblogo-04-scaled.png";
 import stockImg from "./imgs/triathlon.jpg";
 import featuredImg from "./imgs/default-running-thumbnail-1.png";
@@ -11,7 +12,7 @@ import triathlon from "./imgs/triathlon.jpg";
 import cycling from "./imgs/cycling.jpg";
 import other from "./imgs/other.jpg";
 import obstacle from "./imgs/obstacle-race.jpg";
-import HomepageSearch from "./HomepageSearch.js"
+import HomepageSearch from "./HomepageSearch.js";
 
 export default class Homepage extends Component {
   constructor(props){
@@ -61,7 +62,7 @@ export default class Homepage extends Component {
     <div className="content">
       <div className="content-inside">
 
-    <nav className="navbar navbar-expand-sm navbar-dark">
+    <nav className="navbar navbar-expand-sm navbar-dark" id="homepageNav">
       <a className="navbar-brand ml-3" href="http://localhost:3000">
         <img src={logoRDB} alt="logo" style= {{width:"110px"}}/>
       </a>
@@ -80,15 +81,15 @@ export default class Homepage extends Component {
     </nav>
 
     {/*// --Logo and Search-->*/}
-    <div className="container header">
+    <div className="container header" id="bannerHeader">
     	{/*// --bd-dark is there to see area while there is no picture-->*/}
-    	<img src="imgs/racedblogo-04-scaled.png" id="bannerimagelogo" className="mx-auto d-block" alt="banner" style={{width:"450px"}}/>
 
 
       {/*// --from https://codepen.io/billzhao/pen/wzxrbW?editors=1000-->*/}
-    	<div className="container">
+    	<div className="container" id="formSearchHome">
+      <img src={logoRDB} alt="Racedb" id="bannerLogo"/>
     	  <div className="row mx-auto">
-    	   <div className="col-xs-8 col-xs-offset-2">
+    	   <div className="col-xs-8 col-xs-offset-2" id="homeSearch">
     		<HomepageSearch/>{/*input-group*/}
     	   </div> {/*col-xs-8 col-xs-offset-2*/}
     	  </div>{/*row mx-auto*/}
@@ -273,19 +274,19 @@ export default class Homepage extends Component {
       <div className="row">
         <div className="col-md-4" id="location1">
         <div className='locContainer'>
-          <img src={stockImg} className="mx-auto d-block bg-dark mt-5" alt="New York" style={{height:"200px",width:"300px"}}/>
+          <img src={stockImg} className="mx-auto d-block bg-dark mt-5 locationImg" alt="New York" style={{height:"200px",width:"300px"}}/>
           <div className="locationText"><a className ='homepageLocaton'href={locationUrl+'new-york'}>New York</a></div>
         </div>
         </div>
         <div className="col-md-4" id="location2">
         <div className='locContainer'>
-          <img src={stockImg} className="mx-auto d-block bg-dark mt-5" alt="New Jersey" style={{height:"200px",width:"300px"}}/>
+          <img src={stockImg} className="mx-auto d-block bg-dark mt-5 locationImg" alt="New Jersey" style={{height:"200px",width:"300px"}}/>
           <div className="locationText"><a className ='homepageLocaton'href={locationUrl+'loc'}>New Jersey</a></div>
         </div>
         </div>
         <div className="col-md-4" id="location3">
         <div className='locContainer'>
-          <img src={stockImg} className="mx-auto d-block bg-dark mt-5" alt="Maryland" style={{height:"200px",width:"300px"}}/>
+          <img src={stockImg} className="mx-auto d-block bg-dark mt-5 locationImg" alt="Maryland" style={{height:"200px",width:"300px"}}/>
           <div className="locationText"><a className ='homepageLocaton'href={locationUrl+'new-york'}>Maryland</a></div>
         </div>
         </div>
@@ -293,19 +294,19 @@ export default class Homepage extends Component {
       <div className="row">
         <div className="col-md-4" id="location4">
         <div className='locContainer'>
-          <img src={stockImg} className="mx-auto d-block bg-dark mt-5" alt="Maine" style={{height:"200px",width:"300px"}}/>
+          <img src={stockImg} className="mx-auto d-block bg-dark mt-5 locationImg" alt="Maine" style={{height:"200px",width:"300px"}}/>
           <div className="locationText"><a className ='homepageLocaton'href={locationUrl+'new-york'}>Maine</a></div>
         </div>
         </div>
         <div className="col-md-4" id="location5">
         <div className='locContainer'>
-          <img src={stockImg} className="mx-auto d-block bg-dark mt-5" alt="Connecticut" style={{height:"200px",width:"300px"}}/>
+          <img src={stockImg} className="mx-auto d-block bg-dark mt-5 locationImg" alt="Connecticut" style={{height:"200px",width:"300px"}}/>
           <div className="locationText"><a className ='homepageLocaton'href={locationUrl+'new-york'}>Connecticut</a></div>
         </div>
         </div>
         <div className="col-md-4" id="location6">
         <div className='locContainer'>
-          <img src={stockImg} className="mx-auto d-block bg-dark mt-5" alt="California" style={{height:"200px",width:"300px"}}/>
+          <img src={stockImg} className="mx-auto d-block bg-dark mt-5 " alt="California" style={{height:"200px",width:"300px"}}/>
           <div className="locationText"><a className ='homepageLocaton'href={locationUrl+'new-york'}>California</a></div>
         </div>
         </div>

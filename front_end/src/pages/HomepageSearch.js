@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-
+import styles from "./css/main.css";
 export default class SearchBar extends Component{
   constructor(props){
     const url = require('url');
@@ -30,13 +30,13 @@ export default class SearchBar extends Component{
     const searchUrl = 'http://localhost:3000/search?page=1'
     return(
       <div>
-      <form className="search-bar" id='searchBar' onSubmit={handleSearch}>
+      <form className="search-bar"  onSubmit={handleSearch}>
         {/*<div className="container ml-3 mt-5">*/}
           <div className="row mx-auto">
-            <div className="col-xs-8 col-xs-offset-2">
-              <div className="input-group">
-                <div className="input-group-btn search-panel">
-                <select class="browser-default custom-select" id='select-filter' onChange={this.handleFilter}>
+            <div className="col-xs-8 col-xs-offset-2" id="searchForm-col">
+              <div className="input-group" id='searchBar'>
+                <div className="input-group-btn search-panel" id='select-filter'>
+                <select class="browser-default custom-select"  onChange={this.handleFilter}>
                   <option selected value="name">Name</option>
                   <option value="event_date">Date</option>
                   <option value="distance">Distance</option>
