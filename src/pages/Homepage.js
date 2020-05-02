@@ -3,6 +3,8 @@ import Cookies from 'universal-cookie';
 import {Helmet} from "react-helmet";
 import styles from "./main.css"
 import logoRDB from "./imgs/racedblogo-04-scaled.png"
+import imgRunDef from "./imgs/default-running-thumbnail-1.png"
+import logo2RDB from "./imgs/racedblogo-02-1024x640.png"
 export default class Homepage extends Component {
   render() {
     return (
@@ -29,7 +31,7 @@ export default class Homepage extends Component {
 
     <nav class="navbar navbar-expand-sm navbar-dark">
       <a class="navbar-brand ml-3" href="#">
-        <img src="logoRDB" alt="logo" style= {{width:"110px"}}/>
+        <img src={logoRDB} alt="logo" style= {{width:"110px"}}/>
       </a>
 
       <ul class="navbar-nav ml-auto">
@@ -48,7 +50,7 @@ export default class Homepage extends Component {
     {/*// --Logo and Search-->*/}
     <div class="container header">
     	{/*// --bd-dark is there to see area while there is no picture-->*/}
-    	<img src="imgs/racedblogo-04-scaled.png" id="bannerimagelogo" class="mx-auto d-block" alt="banner" style={{width:"450px"}}/>
+    	<img src={logoRDB} id="bannerimagelogo" class="mx-auto d-block" alt="banner" style={{width:"450px"}}/>
 
 
       {/*// --from https://codepen.io/billzhao/pen/wzxrbW?editors=1000-->*/}
@@ -69,7 +71,7 @@ export default class Homepage extends Component {
     		  </ul>
     		 </div>
     		 <input type="hidden" name="search_param" value="all" id="search_param"/>
-    		 <input type="text" class="form-control" name="x" id="searchforevent" placeholder="Search" size="100%"/>
+          <input type="text" class="form-control" name="x" id="searchforevent" placeholder="Search" size="100%"/>
     		</div>
     	   </div>
     	  </div>
@@ -100,7 +102,7 @@ export default class Homepage extends Component {
         <div class="card-group">
         <div class="col-md-4">
           <div class="card border-secondary mb-3 rounded" >
-            <img src="imgs/default-running-thumbnail-1.png" class="card-img-top" alt="category" alt="event"/>
+            <img src={imgRunDef} class="card-img-top" alt="category" alt="event"/>
             <div class="card-body">
               <h5 class="card-title">Event Title</h5>
               <p class="card-text">Date:<br/>
@@ -118,7 +120,7 @@ export default class Homepage extends Component {
         </div>
         <div class="col-md-4">
           <div class="card border-secondary mb-3" >
-            <img src="imgs/default-running-thumbnail-1.png" class="card-img-top" alt="category" alt="event"/>
+            <img src={imgRunDef} class="card-img-top" alt="category" alt="event"/>
             <div class="card-body">
               <h5 class="card-title">Event Title</h5>
               <p class="card-text">Date:<br/>
@@ -136,7 +138,7 @@ export default class Homepage extends Component {
        </div>
         <div class="col-md-4">
           <div class="card border-secondary mb-3" >
-            <img src="imgs/default-running-thumbnail-1.png" class="card-img-top" alt="category" alt="event"/>
+            <img src={imgRunDef} class="card-img-top" alt="category" alt="event"/>
             <div class="card-body">
               <h5 class="card-title">Event Title</h5>
               <p class="card-text">Date:<br/>
@@ -157,7 +159,7 @@ export default class Homepage extends Component {
       <div class="card-group">
       <div class="col-md-4">
         <div class="card border-secondary mb-3" >
-          <img src="imgs/default-running-thumbnail-1.png" class="card-img-top" alt="category" alt="event"/>
+          <img src={imgRunDef} class="card-img-top" alt="category" alt="event"/>
           <div class="card-body">
             <h5 class="card-title">Event Title</h5>
             <p class="card-text">Date:<br/>
@@ -175,7 +177,7 @@ export default class Homepage extends Component {
       </div>
       <div class="col-md-4">
         <div class="card border-secondary mb-3" >
-          <img src="imgs/default-running-thumbnail-1.png" class="card-img-top" alt="category" alt="event"/>
+          <img src={imgRunDef} class="card-img-top" alt="category" alt="event"/>
           <div class="card-body">
             <h5 class="card-title">Event Title</h5>
             <p class="card-text">Date:<br/>
@@ -192,7 +194,7 @@ export default class Homepage extends Component {
      </div>
       <div class="col-md-4">
         <div class="card border-secondary mb-3" >
-          <img src="imgs/default-running-thumbnail-1.png" class="card-img-top" alt="category" alt="event"/>
+          <img src={imgRunDef} class="card-img-top" alt="category" alt="event"/>
           <div class="card-body">
             <h5 class="card-title">Event Title</h5>
             <p class="card-text">Date:<br/>
@@ -281,10 +283,10 @@ export default class Homepage extends Component {
 
     <div class="footer">
       <div class="row">
-        <div class="col-md-4 ml-auto">
-          <img src="#" class="mx-auto d-block bg-dark mt-5" alt="logo" style={{height:"400px",width:"400px"}}/>
+        <div class="col-md-4 mr-auto" align="center">
+          <img src={logo2RDB} class="mx-auto d-block" alt="logo2" style={{height:"400px",width:"640px"}}/>
         </div>
-        <div class="col-md-4 mr-auto my-auto" align="center">
+        <div class="col-md-4 mr-auto" align="center">
           <br/><br/>
           <h4> 1 - Create </h4>
           <p> Create a listing by adding your race to our directory. </p><br/>

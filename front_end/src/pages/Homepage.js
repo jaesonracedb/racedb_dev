@@ -1,0 +1,434 @@
+import React, { Component } from 'react';
+// import Cookies from 'universal-cookie';
+import {Helmet} from "react-helmet";
+import styles from "./css/main.css";
+import homepageBanner from "./imgs/Canva-Runners-in-a-Marathon-1024x680.jpg"
+import logoRDB from "./imgs/racedblogo-04-scaled.png";
+import stockImg from "./imgs/triathlon.jpg";
+import featuredImg from "./imgs/default-running-thumbnail-1.png";
+import logoRed from "./imgs/racedblogo-02-1024x640.png";
+import running from "./imgs/running.jpg";
+import triathlon from "./imgs/triathlon.jpg";
+import cycling from "./imgs/cycling.jpg";
+import other from "./imgs/other.jpg";
+import obstacle from "./imgs/obstacle-race.jpg";
+import HomepageSearch from "./HomepageSearch.js";
+
+export default class Homepage extends Component {
+  constructor(props){
+    super(props);
+    this.state={
+      featured: []
+    }
+    fetch('http://localhost:3001/get-featured',{
+        headers : {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        }
+      })
+      .then(res => res.json())
+      .then(body => {
+        this.setState({
+          featured: body.featured[0]
+        })
+        console.log(body.featured[0])
+      })
+      console.log("fetched")
+  }
+
+  render() {
+    const locationUrl = "http://localhost:3000/search?filter=location&page=1&key=";
+    const categoriesUrl= "http://localhost:3000/search?filter=category&page=1&key=";
+    const featuredUrl = "http://localhost:3000/listing?id=";
+    return (
+    <div className="application">
+    <Helmet>
+      <meta charset="utf-8"/>
+      {/*--sets width to device size, sets zoom-->*/}
+      <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+      <title>raceDB Homepage</title>
+      <link rel="stylesheet" href="main.css"/>
+
+      {/*// --bootstrap stuff--*/}
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"/>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"/>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"/>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"/>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+    </Helmet>
+
+    <div className="body">
+    <div className="content">
+      <div className="content-inside">
+
+    <nav className="navbar navbar-expand-sm navbar-dark" id="homepageNav">
+      <a className="navbar-brand ml-3" href="http://localhost:3000">
+        <img src={logoRDB} alt="logo" style= {{width:"110px"}}/>
+      </a>
+
+      <ul className="navbar-nav ml-auto">
+        <li className="nav-item">
+          <a className="btn btn-outline-light my-2 my-sm-0" href="http://localhost:3000/add-event" role="button">Create A Race</a>
+        </li>
+        <li className="nav-item">
+          <a className="nav-link" href="#">Sign Up</a>
+        </li>
+        <li className="nav-item">
+          <a className="nav-link" href="#">Login</a>
+        </li>
+      </ul>
+    </nav>
+
+    {/*// --Logo and Search-->*/}
+    <div className="container header" id="bannerHeader">
+    	{/*// --bd-dark is there to see area while there is no picture-->*/}
+
+
+      {/*// --from https://codepen.io/billzhao/pen/wzxrbW?editors=1000-->*/}
+    	<div className="container" id="formSearchHome">
+      <img src={logoRDB} alt="Racedb" id="bannerLogo"/>
+    	  <div className="row mx-auto">
+    	   <div className="col-xs-8 col-xs-offset-2" id="homeSearch">
+    		<HomepageSearch/>{/*input-group*/}
+    	   </div> {/*col-xs-8 col-xs-offset-2*/}
+    	  </div>{/*row mx-auto*/}
+    	</div> {/*container*/}
+
+    	<nav className="navbar navbar-expand-lg navbar-light bg-light mt-3 mx-auto" id="categoryNav">
+    		<a className="nav-link mx-auto" href={categoriesUrl+'running'}>Running</a>
+    		|
+    		<a className="nav-link mx-auto" href={categoriesUrl+'triathlon'}>Triathlon</a>
+    		|
+    		<a className="nav-link mx-auto" href={categoriesUrl+'cycling'}>Cycling</a>
+    		|
+    		<a className="nav-link mx-auto" href={categoriesUrl+'obstacle'}>Obstacle</a>
+    		|
+    		<a className="nav-link mx-auto" href={categoriesUrl+'other'}>Other</a>
+    	</nav>
+    </div>
+
+
+
+  {/*  // -- Exclusives -->*/}
+    {/*// -- template from https://getbootstrap.com/docs/3.4/examples/jumbotron/, will be edited and modified accordingly -->*/}
+    <div className="container" id="exclusivesdiv">
+      <h2 align="center">Exclusives</h2>
+      <br/>
+      <div className="row">
+        <div className="card-group">
+        <div className="col-md-4">
+          <div className="card border-secondary mb-3 rounded" >
+            <img src={featuredImg} className="card-img-top" alt="Card image cap"/>
+            <div className="card-body">
+              {this.state.featured.map((ft,index) => {
+                if(index ===0)
+                return <div key={ft.id}>
+                  <h5 className="card-title"><a href={featuredUrl+ft.id}>{ft.name}</a></h5>
+                  <p className="card-text">Date: {ft.event_date}<br/>
+                  Distance: {ft.distance}<br/>
+                  Category: {ft.category}<br/></p>
+                  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+                  <span className="fa fa-star checked"></span>
+                  <span className="fa fa-star checked"></span>
+                  <span className="fa fa-star checked"></span>
+                  <span className="fa fa-star"></span>
+                  <span className="fa fa-star"></span>
+
+                </div>
+              })}
+            </div>
+          </div>
+
+        </div>
+        <div className="col-md-4">
+          <div className="card border-secondary mb-3" >
+            <img src={featuredImg} className="card-img-top" alt="category" alt="event"/>
+            <div className="card-body">
+            {this.state.featured.map((ft,index) => {
+              if(index ===1)
+              return <div key={ft.id}>
+                <h5 className="card-title"><a href={featuredUrl+ft.id}>{ft.name}</a></h5>
+                <p className="card-text">Date: {ft.event_date}<br/>
+                Distance: {ft.distance}<br/>
+                Category: {ft.category}<br/></p>
+                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+                <span className="fa fa-star checked"></span>
+                <span className="fa fa-star checked"></span>
+                <span className="fa fa-star checked"></span>
+                <span className="fa fa-star"></span>
+                <span className="fa fa-star"></span>
+
+              </div>
+            })}
+            </div>
+          </div>
+
+       </div>
+        <div className="col-md-4">
+          <div className="card border-secondary mb-3" >
+            <img src={featuredImg} className="card-img-top" alt="category" alt="event"/>
+            <div className="card-body">
+            {this.state.featured.map((ft,index) => {
+              if(index ===2)
+              return <div key={ft.id}>
+                <h5 className="card-title"><a href={featuredUrl+ft.id}>{ft.name}</a></h5>
+                <p className="card-text">Date: {ft.event_date}<br/>
+                Distance: {ft.distance}<br/>
+                Category: {ft.category}<br/></p>
+                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+                <span className="fa fa-star checked"></span>
+                <span className="fa fa-star checked"></span>
+                <span className="fa fa-star checked"></span>
+                <span className="fa fa-star"></span>
+                <span className="fa fa-star"></span>
+
+              </div>
+            })}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div className="row">
+      <div className="card-group">
+      <div className="col-md-4">
+        <div className="card border-secondary mb-3" >
+          <img src={featuredImg} className="card-img-top" alt="category" alt="event"/>
+          <div className="card-body">
+          {this.state.featured.map((ft,index) => {
+            if(index ===3)
+            return <div key={ft.id}>
+              <h5 className="card-title"><a href={featuredUrl+ft.id}>{ft.name}</a></h5>
+              <p className="card-text">Date: {ft.event_date}<br/>
+              Distance: {ft.distance}<br/>
+              Category: {ft.category}<br/></p>
+              <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+              <span className="fa fa-star checked"></span>
+              <span className="fa fa-star checked"></span>
+              <span className="fa fa-star checked"></span>
+              <span className="fa fa-star"></span>
+              <span className="fa fa-star"></span>
+
+            </div>
+          })}
+          </div>
+        </div>
+
+      </div>
+      <div className="col-md-4">
+        <div className="card border-secondary mb-3" >
+          <img src={featuredImg} className="card-img-top" alt="category" alt="event"/>
+          <div className="card-body">
+          {this.state.featured.map((ft,index) => {
+            if(index ===4)
+            return <div key={ft.id}>
+              <h5 className="card-title"><a href={featuredUrl+ft.id}>{ft.name}</a></h5>
+              <p className="card-text">Date: {ft.event_date}<br/>
+              Distance: {ft.distance}<br/>
+              Category: {ft.category}<br/></p>
+              <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+              <span className="fa fa-star checked"></span>
+              <span className="fa fa-star checked"></span>
+              <span className="fa fa-star checked"></span>
+              <span className="fa fa-star"></span>
+              <span className="fa fa-star"></span>
+
+            </div>
+          })}
+          </div>
+        </div>
+     </div>
+      <div className="col-md-4">
+        <div className="card border-secondary mb-3" >
+          <img src={featuredImg} className="card-img-top" alt="category" alt="event"/>
+          <div className="card-body">
+          {this.state.featured.map((ft,index) => {
+            if(index ===5)
+            return <div key={ft.id}>
+              <h5 className="card-title"><a href={featuredUrl+ft.id}>{ft.name}</a></h5>
+              <p className="card-text">Date: {ft.event_date}<br/>
+              Distance: {ft.distance}<br/>
+              Category: {ft.category}<br/></p>
+              <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+              <span className="fa fa-star checked"></span>
+              <span className="fa fa-star checked"></span>
+              <span className="fa fa-star checked"></span>
+              <span className="fa fa-star"></span>
+              <span className="fa fa-star"></span>
+
+            </div>
+          })}
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+    </div>
+    <div>
+
+    </div>
+    <div className="grayBlock">
+    <div>
+      <h2 align="center">Locations</h2>
+      <div className="row">
+        <div className="col-md-4" id="location1">
+        <div className='locContainer'>
+          <img src={stockImg} className="mx-auto d-block bg-dark mt-5 locationImg" alt="New York" style={{height:"200px",width:"300px"}}/>
+          <div className="locationText"><a className ='homepageLocaton'href={locationUrl+'new-york'}>New York</a></div>
+        </div>
+        </div>
+        <div className="col-md-4" id="location2">
+        <div className='locContainer'>
+          <img src={stockImg} className="mx-auto d-block bg-dark mt-5 locationImg" alt="New Jersey" style={{height:"200px",width:"300px"}}/>
+          <div className="locationText"><a className ='homepageLocaton'href={locationUrl+'loc'}>New Jersey</a></div>
+        </div>
+        </div>
+        <div className="col-md-4" id="location3">
+        <div className='locContainer'>
+          <img src={stockImg} className="mx-auto d-block bg-dark mt-5 locationImg" alt="Maryland" style={{height:"200px",width:"300px"}}/>
+          <div className="locationText"><a className ='homepageLocaton'href={locationUrl+'new-york'}>Maryland</a></div>
+        </div>
+        </div>
+      </div>
+      <div className="row">
+        <div className="col-md-4" id="location4">
+        <div className='locContainer'>
+          <img src={stockImg} className="mx-auto d-block bg-dark mt-5 locationImg" alt="Maine" style={{height:"200px",width:"300px"}}/>
+          <div className="locationText"><a className ='homepageLocaton'href={locationUrl+'new-york'}>Maine</a></div>
+        </div>
+        </div>
+        <div className="col-md-4" id="location5">
+        <div className='locContainer'>
+          <img src={stockImg} className="mx-auto d-block bg-dark mt-5 locationImg" alt="Connecticut" style={{height:"200px",width:"300px"}}/>
+          <div className="locationText"><a className ='homepageLocaton'href={locationUrl+'new-york'}>Connecticut</a></div>
+        </div>
+        </div>
+        <div className="col-md-4" id="location6">
+        <div className='locContainer'>
+          <img src={stockImg} className="mx-auto d-block bg-dark mt-5 " alt="California" style={{height:"200px",width:"300px"}}/>
+          <div className="locationText"><a className ='homepageLocaton'href={locationUrl+'new-york'}>California</a></div>
+        </div>
+        </div>
+      </div>
+    </div>
+</div>
+    <br/>
+
+
+
+
+
+
+    <div>
+      <h2 align="center">Categories</h2>
+
+      <div className="row">
+        <div className="col-md-4">
+          <img src={running} className="mx-auto d-block bg-dark mt-5" alt="category" style={{height:"200px",width:"300px"}}/>
+          <div className="locationText"><a className ='homepageLocaton'href={categoriesUrl+'running'}>Running</a></div>
+        </div>
+        <div className="col-md-4">
+          <img src={cycling} className="mx-auto d-block bg-dark mt-5" alt="category" style={{height:"200px",width:"300px"}}/>
+          <div className="locationText"><a className ='homepageLocaton'href={categoriesUrl+'cycling'}>Cycling</a></div>
+        </div>
+        <div className="col-md-4">
+          <img src={triathlon} className="mx-auto d-block bg-dark mt-5" alt="category" style={{height:"200px",width:"300px"}}/>
+          <div className="locationText"><a className ='homepageLocaton'href={categoriesUrl+'triathlon'}>Triathlon</a></div>
+        </div>
+      </div>
+      <div className="row">
+        <div className="col-md-4 mx-auto">
+          <img src={obstacle} className="mx-auto d-block bg-dark mt-5" alt="category" style={{height:"200px",width:"300px"}}/>
+          <div className="locationText"><a className ='homepageLocaton'href={categoriesUrl+'obstacle'}>Obstacle</a></div>
+        </div>
+        <div className="col-md-4 mx-auto">
+          <img src={other} className="mx-auto d-block bg-dark mt-5" alt="category" style={{height:"200px",width:"300px"}}/>
+          <div className="locationText"><a className ='homepageLocaton'href={categoriesUrl+'other'}>Other</a></div>
+        </div>
+      </div>
+    </div>
+
+    <br/>
+<div className="grayBlock">
+
+    <br/>
+
+
+
+      <div className="row">
+        <div className="col-md-4 ml-auto">
+          <img src={logoRed} className="mx-auto d-block bg-dark mt-5" id="someLogo" alt="logo" style={{height:"400px",width:"400px"}}/>
+        </div>
+        <div className="col-md-4 mr-auto my-auto" align="center">
+          <br/><br/>
+          <h4> 1 - Create </h4>
+          <p> Create a listing by adding your race to our directory. </p><br/>
+          <h4> 2 - Promote </h4>
+          <p> Promote your race by advertising it through our site! </p><br/>
+          <h4> 3 - Claim </h4>
+          <p> Claim your race if it already exists within our directory. </p><br/>
+        </div>
+      </div>
+
+
+    </div>
+    </div>
+</div>
+    <div className="footer">
+    <footer className="page-footer font-small pt-4">
+
+
+      <div className="container-fluid text-center text-md-left">
+
+
+        <div className="row" id="footer">
+
+
+          <div className="col-md-6 mt-md-0 mt-3">
+
+
+            <h5 className="text-uppercase font-weight-bold">Footer text 1</h5>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita sapiente sint, nulla, nihil
+              repudiandae commodi voluptatibus corrupti animi sequi aliquid magnam debitis, maxime quam recusandae
+              harum esse fugiat. Itaque, culpa?</p>
+
+          </div>
+
+
+          <hr className="clearfix w-100 d-md-none pb-3"/>
+
+
+          <div className="col-md-6 mb-md-0 mb-3">
+
+
+            <h5 className="text-uppercase font-weight-bold">Footer text 2</h5>
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Optio deserunt fuga perferendis modi earum
+              commodi aperiam temporibus quod nulla nesciunt aliquid debitis ullam omnis quos ipsam, aspernatur id
+              excepturi hic.</p>
+
+          </div>
+
+
+        </div>
+
+
+      </div>
+
+
+
+      <div className="footer-copyright text-center py-3">© 2020 Copyright:
+        <a href="https://mdbootstrap.com/"> MDBootstrap.com</a>
+      </div>
+
+
+    </footer>
+    </div>
+
+    <br/><br/>
+
+    </div>
+</div>
+    )
+  }
+}
