@@ -271,43 +271,45 @@ export default class Homepage extends Component {
     <div className="grayBlock">
     <div>
       <h2 align="center">Locations</h2>
+      <br/>
       <div className="row">
         <div className="col-md-4" id="location1">
         <div className='locContainer'>
-          <img src={stockImg} className="mx-auto d-block bg-dark mt-5 locationImg" alt="New York" style={{height:"200px",width:"300px"}}/>
-          <div className="locationText"><a className ='homepageLocaton'href={locationUrl+'new-york'}>New York</a></div>
+          <img src={stockImg} className="mx-auto d-block bg-dark mt-5 locationImg" class="img-thumbnail" alt="New York" style={{height:"200px",width:"300px"}}/>
+          <div className="locationText"><a className ='homepageLocaton' class="btn btn-primary btn-sm" href={locationUrl+'new-york'}>New York</a></div>
         </div>
         </div>
         <div className="col-md-4" id="location2">
         <div className='locContainer'>
-          <img src={stockImg} className="mx-auto d-block bg-dark mt-5 locationImg" alt="New Jersey" style={{height:"200px",width:"300px"}}/>
-          <div className="locationText"><a className ='homepageLocaton'href={locationUrl+'loc'}>New Jersey</a></div>
+          <img src={stockImg} className="mx-auto d-block bg-dark mt-5 locationImg" class="img-thumbnail" alt="New Jersey" style={{height:"200px",width:"300px"}}/>
+          <div className="locationText"><a className ='homepageLocaton' class="btn btn-primary btn-sm" href={locationUrl+'loc'}>New Jersey</a></div>
         </div>
         </div>
         <div className="col-md-4" id="location3">
         <div className='locContainer'>
-          <img src={stockImg} className="mx-auto d-block bg-dark mt-5 locationImg" alt="Maryland" style={{height:"200px",width:"300px"}}/>
-          <div className="locationText"><a className ='homepageLocaton'href={locationUrl+'new-york'}>Maryland</a></div>
+          <img src={stockImg} className="mx-auto d-block bg-dark mt-5 locationImg" class="img-thumbnail" alt="Maryland" style={{height:"200px",width:"300px"}}/>
+          <div className="locationText"><a className ='homepageLocaton' class="btn btn-primary btn-sm" href={locationUrl+'new-york'}>Maryland</a></div>
         </div>
         </div>
       </div>
+      <br/>
       <div className="row">
         <div className="col-md-4" id="location4">
         <div className='locContainer'>
-          <img src={stockImg} className="mx-auto d-block bg-dark mt-5 locationImg" alt="Maine" style={{height:"200px",width:"300px"}}/>
-          <div className="locationText"><a className ='homepageLocaton'href={locationUrl+'new-york'}>Maine</a></div>
+          <img src={stockImg} className="mx-auto d-block bg-dark mt-5 locationImg" class="img-thumbnail" alt="Maine" style={{height:"200px",width:"300px"}}/>
+          <div className="locationText"><a className ='homepageLocaton' class="btn btn-primary btn-sm" href={locationUrl+'new-york'}>Maine</a></div>
         </div>
         </div>
         <div className="col-md-4" id="location5">
         <div className='locContainer'>
-          <img src={stockImg} className="mx-auto d-block bg-dark mt-5 locationImg" alt="Connecticut" style={{height:"200px",width:"300px"}}/>
-          <div className="locationText"><a className ='homepageLocaton'href={locationUrl+'new-york'}>Connecticut</a></div>
+          <img src={stockImg} className="mx-auto d-block bg-dark mt-5 locationImg" class="img-thumbnail" alt="Connecticut" style={{height:"200px",width:"300px"}}/>
+          <div className="locationText"><a className ='homepageLocaton' class="btn btn-primary btn-sm" href={locationUrl+'new-york'}>Connecticut</a></div>
         </div>
         </div>
         <div className="col-md-4" id="location6">
         <div className='locContainer'>
-          <img src={stockImg} className="mx-auto d-block bg-dark mt-5 " alt="California" style={{height:"200px",width:"300px"}}/>
-          <div className="locationText"><a className ='homepageLocaton'href={locationUrl+'new-york'}>California</a></div>
+          <img src={stockImg} className="mx-auto d-block bg-dark mt-5 locationImg" class="img-thumbnail" alt="California" style={{height:"200px",width:"300px"}}/>
+          <div className="locationText"><a className ='homepageLocaton' class="btn btn-primary btn-sm" href={locationUrl+'new-york'}>California</a></div>
         </div>
         </div>
       </div>
@@ -326,25 +328,25 @@ export default class Homepage extends Component {
       <div className="row">
         <div className="col-md-4">
           <img src={running} className="mx-auto d-block bg-dark mt-5" alt="category" style={{height:"200px",width:"300px"}}/>
-          <div className="locationText"><a className ='homepageLocaton'href={categoriesUrl+'running'}>Running</a></div>
+          <div className="locationText"><a className ='homepageLocaton'class="btn btn-secondary btn-sm" href={categoriesUrl+'running'}>Running</a></div>
         </div>
         <div className="col-md-4">
           <img src={cycling} className="mx-auto d-block bg-dark mt-5" alt="category" style={{height:"200px",width:"300px"}}/>
-          <div className="locationText"><a className ='homepageLocaton'href={categoriesUrl+'cycling'}>Cycling</a></div>
+          <div className="locationText"><a className ='homepageLocaton'class="btn btn-secondary btn-sm" href={categoriesUrl+'cycling'}>Cycling</a></div>
         </div>
         <div className="col-md-4">
           <img src={triathlon} className="mx-auto d-block bg-dark mt-5" alt="category" style={{height:"200px",width:"300px"}}/>
-          <div className="locationText"><a className ='homepageLocaton'href={categoriesUrl+'triathlon'}>Triathlon</a></div>
+          <div className="locationText"><a className ='homepageLocaton'class="btn btn-secondary btn-sm" href={categoriesUrl+'triathlon'}>Triathlon</a></div>
         </div>
       </div>
       <div className="row">
         <div className="col-md-4 mx-auto">
           <img src={obstacle} className="mx-auto d-block bg-dark mt-5" alt="category" style={{height:"200px",width:"300px"}}/>
-          <div className="locationText"><a className ='homepageLocaton'href={categoriesUrl+'obstacle'}>Obstacle</a></div>
+          <div className="locationText"><a className ='homepageLocaton' class="btn btn-secondary btn-sm" href={categoriesUrl+'obstacle'}>Obstacle</a></div>
         </div>
         <div className="col-md-4 mx-auto">
           <img src={other} className="mx-auto d-block bg-dark mt-5" alt="category" style={{height:"200px",width:"300px"}}/>
-          <div className="locationText"><a className ='homepageLocaton'href={categoriesUrl+'other'}>Other</a></div>
+          <div className="locationText"><a className ='homepageLocaton'class="btn btn-secondary btn-sm" href={categoriesUrl+'other'}>Other</a></div>
         </div>
       </div>
     </div>
@@ -357,8 +359,8 @@ export default class Homepage extends Component {
 
 
       <div className="row">
-        <div className="col-md-4 ml-auto">
-          <img src={logoRed} className="mx-auto d-block bg-dark mt-5" id="someLogo" alt="logo" style={{height:"400px",width:"400px"}}/>
+        <div className="col-md-4 mr-auto">
+          <img src={logoRed} className="mx-auto d-block bg-dark mt-5" id="someLogo" alt="logo" style={{height:"400px",width:"640px"}}/>
         </div>
         <div className="col-md-4 mr-auto my-auto" align="center">
           <br/><br/>
@@ -371,63 +373,70 @@ export default class Homepage extends Component {
         </div>
       </div>
 
+      <div class="row">
 
+            <div class="col-md-4 mx-auto">
+
+              <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Footer Content</h5>
+              <p>Here you can use rows and columns to organize your footer content. Lorem ipsum dolor sit amet,
+                consectetur
+                adipisicing elit.</p>
+
+            </div>
+
+            <hr class="clearfix w-100 d-md-none"/>
+
+            <div class="col-md-2 mx-auto">
+
+              <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Links</h5>
+
+              <ul class="list-unstyled">
+                <li>
+                  <a href="#!">Link 1</a>
+                </li>
+                <li>
+                  <a href="#!">Link 2</a>
+                </li>
+                <li>
+                  <a href="#!">Link 3</a>
+                </li>
+                <li>
+                  <a href="#!">Link 4</a>
+                </li>
+              </ul>
+
+            </div>
+
+            <hr class="clearfix w-100 d-md-none"/>
+
+            <div class="col-md-2 mx-auto">
+
+              <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Links</h5>
+
+              <ul class="list-unstyled">
+                <li>
+                  <a href="#!">Link 1</a>
+                </li>
+                <li>
+                  <a href="#!">Link 2</a>
+                </li>
+                <li>
+                  <a href="#!">Link 3</a>
+                </li>
+                <li>
+                  <a href="#!">Link 4</a>
+                </li>
+              </ul>
+
+            </div>
+
+            <hr class="clearfix w-100 d-md-none"/>
     </div>
     </div>
 </div>
-    <div className="footer">
-    <footer className="page-footer font-small pt-4">
-
-
-      <div className="container-fluid text-center text-md-left">
-
-
-        <div className="row" id="footer">
-
-
-          <div className="col-md-6 mt-md-0 mt-3">
-
-
-            <h5 className="text-uppercase font-weight-bold">Footer text 1</h5>
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita sapiente sint, nulla, nihil
-              repudiandae commodi voluptatibus corrupti animi sequi aliquid magnam debitis, maxime quam recusandae
-              harum esse fugiat. Itaque, culpa?</p>
-
-          </div>
-
-
-          <hr className="clearfix w-100 d-md-none pb-3"/>
-
-
-          <div className="col-md-6 mb-md-0 mb-3">
-
-
-            <h5 className="text-uppercase font-weight-bold">Footer text 2</h5>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Optio deserunt fuga perferendis modi earum
-              commodi aperiam temporibus quod nulla nesciunt aliquid debitis ullam omnis quos ipsam, aspernatur id
-              excepturi hic.</p>
-
-          </div>
-
-
-        </div>
-
-
-      </div>
-
-
-
-      <div className="footer-copyright text-center py-3">© 2020 Copyright:
-        <a href="https://mdbootstrap.com/"> MDBootstrap.com</a>
-      </div>
-
-
-    </footer>
-    </div>
-
-    <br/><br/>
 
     </div>
+</div>
 </div>
     )
   }
