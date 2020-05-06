@@ -297,7 +297,7 @@ class AddEvent extends PureComponent {
           <div class="content">
             <div class="content-inside">
 
-            <nav class="navbar navbar-expand-sm navbar-dark">
+            <nav class="navbar navbar-expand-sm navbar-dark" id="homepageNav">
               <a class="navbar-brand ml-3" href="http://localhost:3000/">
                 <img src={logoRDB} alt="logo" style= {{width:"110px"}}/>
               </a>
@@ -315,8 +315,8 @@ class AddEvent extends PureComponent {
               </ul>
             </nav>
 
+
             <div>
-              <br/>
               <h3 class="mt-3 ml-5">Add Your Race!</h3>
               <br/>
               <form>

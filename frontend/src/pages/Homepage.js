@@ -111,8 +111,7 @@ export default class Homepage extends Component {
   {/*  // -- Exclusives -->*/}
     {/*// -- template from https://getbootstrap.com/docs/3.4/examples/jumbotron/, will be edited and modified accordingly -->*/}
     <div className="container" id="exclusivesdiv">
-      <h2 align="center">Exclusives</h2>
-      <br/>
+      <h2 align="center" class="sectionTitle">Exclusives</h2>
       <div className="row">
         <div className="card-group">
         <div className="col-md-4">
@@ -263,15 +262,13 @@ export default class Homepage extends Component {
     </div>
     </div>
     </div>
-    <div>
 
-    </div>
-    <div className="grayBlock">
-    <div>
-      <h2 align="center" style={{color:"white"}}>Locations</h2>
-      <br/>
+
+
+    <div className="grayBlock" id="locationsdiv">
+      <h2 align="center" style={{color:"white"}} class="sectionTitle">Locations</h2>
       <div class="container-fluid" align="center">
-        <div className="row" class="row">
+        <div className="row" id="locationsfirstrow">
           <div className="col-md-4" id="location1">
             <div className='locContainer' class="img-thumbnail">
               <a className ='homepageLocaton' href={locationUrl+'new-york'} style={{color:"black"}}>
@@ -304,9 +301,8 @@ export default class Homepage extends Component {
           </div>
         </div>
       </div>
-      <br/>
       <div class="container-fluid" align="center">
-        <div className="row" class="row">
+        <div className="row">
           <div className="col-md-4" id="location1">
             <div className='locContainer' class="img-thumbnail">
               <a className ='homepageLocaton' href={locationUrl+'maine'} style={{color:"black"}}>
@@ -340,51 +336,44 @@ export default class Homepage extends Component {
         </div>
       </div>
     </div>
-</div>
-    <br/>
 
 
 
-
-
-
-    <div>
-      <h2 align="center">Categories</h2>
-
-      <div class="container-fluid pt-4" align="center">
-        <div className="row">
-          <div className="col-md-4">
-            <div className='locContainer' class="img-thumbnail">
-              <a className ='homepageLocaton' href={categoriesUrl+'running'} style={{color:"black"}}>
-                <img src={running} className="mx-auto d-block bg-dark mt-5" class="img-thumbnail" alt="category" style={{width:"100%"}}/>
-                <div className="locationText" class="caption" align="center">
-                  <h5>Running</h5>
-                </div>
-              </a>
-            </div>
-          </div>
-          <div className="col-md-4">
-            <div className='locContainer' class="img-thumbnail">
-              <a className ='homepageLocaton' href={categoriesUrl+'cycling'} style={{color:"black"}}>
-                <img src={running} className="mx-auto d-block bg-dark mt-5" class="img-thumbnail" alt="category" style={{width:"100%"}}/>
-                <div className="locationText" class="caption" align="center">
-                  <h5>Cycling</h5>
-                </div>
-              </a>
-            </div>
-          </div>
-          <div className="col-md-4">
-            <div className='locContainer' class="img-thumbnail">
-              <a className ='homepageLocaton' href={categoriesUrl+'triathlon'} style={{color:"black"}}>
-                <img src={running} className="mx-auto d-block bg-dark mt-5" class="img-thumbnail" alt="category" style={{width:"100%"}}/>
-                <div className="locationText" class="caption" align="center">
-                  <h5>Triathlon</h5>
-                </div>
-              </a>
-            </div>
+    <div class="container-fluid" id="categoriesdiv" align="center">
+      <h2 align="center" class="sectionTitle">Categories</h2>
+      <div className="row" id="categoriesfirstrow">
+        <div className="col-md-4">
+          <div className='locContainer' class="img-thumbnail">
+            <a className ='homepageLocaton' href={categoriesUrl+'running'} style={{color:"black"}}>
+              <img src={running} className="mx-auto d-block bg-dark mt-5" class="img-thumbnail" alt="category" style={{width:"100%"}}/>
+              <div className="locationText" class="caption" align="center">
+                <h5>Running</h5>
+              </div>
+            </a>
           </div>
         </div>
-      <div class="container-fluid pt-4" align="center">
+        <div className="col-md-4">
+          <div className='locContainer' class="img-thumbnail">
+            <a className ='homepageLocaton' href={categoriesUrl+'cycling'} style={{color:"black"}}>
+              <img src={running} className="mx-auto d-block bg-dark mt-5" class="img-thumbnail" alt="category" style={{width:"100%"}}/>
+              <div className="locationText" class="caption" align="center">
+                <h5>Cycling</h5>
+              </div>
+            </a>
+          </div>
+        </div>
+        <div className="col-md-4">
+          <div className='locContainer' class="img-thumbnail">
+            <a className ='homepageLocaton' href={categoriesUrl+'triathlon'} style={{color:"black"}}>
+              <img src={running} className="mx-auto d-block bg-dark mt-5" class="img-thumbnail" alt="category" style={{width:"100%"}}/>
+              <div className="locationText" class="caption" align="center">
+                <h5>Triathlon</h5>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="container-fluid" align="center">
         <div className="row">
           <div className="col-md-2">
           </div>
@@ -412,92 +401,70 @@ export default class Homepage extends Component {
       </div>
     </div>
 
-    <br/>
-<div className="grayBlock">
-
-    <br/>
 
 
-
+    <div className="grayBlock" id="homepagefooter">
       <div className="row">
         <div className="col-md-4 mr-auto">
           <img src={logoRed} className="mx-auto d-block bg-dark mt-5" id="someLogo" alt="logo" style={{height:"400px",width:"640px"}}/>
         </div>
         <div className="col-md-4 mr-auto my-auto" align="center">
-          <br/><br/>
-          <h4> 1 - Create </h4>
-          <p> Create a listing by adding your race to our directory. </p><br/>
-          <h4> 2 - Promote </h4>
-          <p> Promote your race by advertising it through our site! </p><br/>
-          <h4> 3 - Claim </h4>
-          <p> Claim your race if it already exists within our directory. </p><br/>
+          <h4 style={{color:"white"}}> 1 - Create </h4>
+          <p style={{color:"white"}}> Create a listing by adding your race to our directory. </p><br/>
+          <h4 style={{color:"white"}}> 2 - Promote </h4>
+          <p style={{color:"white"}}> Promote your race by advertising it through our site! </p><br/>
+          <h4 style={{color:"white"}}> 3 - Claim </h4>
+          <p style={{color:"white"}}> Claim your race if it already exists within our directory. </p><br/>
         </div>
       </div>
-
       <div class="row">
+        <div class="col-md-4 mx-auto">
 
-            <div class="col-md-4 mx-auto">
+          <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Footer Content</h5>
+          <p>Here you can use rows and columns to organize your footer content. Lorem ipsum dolor sit amet,
+            consectetur
+            adipisicing elit.</p>
 
-              <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Footer Content</h5>
-              <p>Here you can use rows and columns to organize your footer content. Lorem ipsum dolor sit amet,
-                consectetur
-                adipisicing elit.</p>
-
-            </div>
-
-            <hr class="clearfix w-100 d-md-none"/>
-
-            <div class="col-md-2 mx-auto">
-
-              <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Links</h5>
-
-              <ul class="list-unstyled">
-                <li>
-                  <a href="#!">Link 1</a>
-                </li>
-                <li>
-                  <a href="#!">Link 2</a>
-                </li>
-                <li>
-                  <a href="#!">Link 3</a>
-                </li>
-                <li>
-                  <a href="#!">Link 4</a>
-                </li>
-              </ul>
-
-            </div>
-
-            <hr class="clearfix w-100 d-md-none"/>
-
-            <div class="col-md-2 mx-auto">
-
-              <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Links</h5>
-
-              <ul class="list-unstyled">
-                <li>
-                  <a href="#!">Link 1</a>
-                </li>
-                <li>
-                  <a href="#!">Link 2</a>
-                </li>
-                <li>
-                  <a href="#!">Link 3</a>
-                </li>
-                <li>
-                  <a href="#!">Link 4</a>
-                </li>
-              </ul>
-
-            </div>
-
-            <hr class="clearfix w-100 d-md-none"/>
-    </div>
+        </div>
+        <div class="col-md-2 mx-auto">
+          <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Links</h5>
+          <ul class="list-unstyled">
+            <li>
+              <a href="#!">Link 1</a>
+            </li>
+            <li>
+              <a href="#!">Link 2</a>
+            </li>
+            <li>
+              <a href="#!">Link 3</a>
+            </li>
+            <li>
+              <a href="#!">Link 4</a>
+            </li>
+          </ul>
+        </div>
+        <div class="col-md-2 mx-auto">
+          <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Links</h5>
+          <ul class="list-unstyled">
+            <li>
+              <a href="#!">Link 1</a>
+            </li>
+            <li>
+              <a href="#!">Link 2</a>
+            </li>
+            <li>
+              <a href="#!">Link 3</a>
+            </li>
+            <li>
+              <a href="#!">Link 4</a>
+            </li>
+          </ul>
+        </div>
+      </div>
     </div>
 </div>
 
     </div>
-</div>
 </div>
 </div>
     )
