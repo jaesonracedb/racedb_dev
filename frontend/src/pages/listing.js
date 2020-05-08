@@ -141,9 +141,9 @@ export default class Archive extends Component {
 
 		<div className="body">
 
-		<nav className="navbar navbar-expand-sm navbar-dark" style={{backgroundcolor:"#2d4f78"}}>
+		<nav className="navbar navbar-expand-sm navbar-dark" id="homepageNav">
 			<a className="navbar-brand" href="http://localhost:3000/">
-				<img src="logoRDB" alt="logo" style={{width:"110px"}}/>
+				<img src={logoRDB} alt="logo" style={{width:"110px"}}/>
 			</a>
 
 			<form className="form-inline my-2 my-lg-0">

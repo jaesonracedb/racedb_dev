@@ -26,7 +26,7 @@ html, body {
 	min-width: 20%;
 }
 #start-search{
-	width: 13%;
+	width: 15%;
 }
 #searchBar{
  width: 100%;
@@ -36,12 +36,13 @@ html, body {
 	width: 100%;
 }
 #bannerLogo{
-	max-height: 460px;
+	max-height: 350px;
 	overflow: hidden;
 	/* position: absolute; */
 	display: block;
 	margin-left: auto;
 	margin-right: auto;
+	margin-top: -30px;
 }
 #searchForm-col{
 	margin-left: 23px;
@@ -54,6 +55,10 @@ html, body {
 	width: 40%;
 } */
 
+#homepageNav{
+	height: 80px;
+}
+
 #categoryNav{
 	position: relative;
 	bottom: -100px;
@@ -61,12 +66,14 @@ html, body {
 	width: 85%;
 	top:50px;
 	height: 45px;
+	margin-top: 20px;
+
 }
 #bannerHeader{
 	background-image: url("../imgs/Canva-Runners-in-a-Marathon-1024x680.jpg");
 	background-repeat: no-repeat;
 	background-size: cover;
-	min-height: 680px;
+	min-height: 650px;
 	min-width: 100%;
 }
 #someLogo{
@@ -79,6 +86,13 @@ html, body {
   /* padding: 20px; */
   padding-bottom: 50px;
 }
+
+.sectionTitle{
+	font-size: 36px;
+	margin-bottom: 50px;
+
+}
+
 footer {
   height: 50px;
   margin-top: 90px;
@@ -139,12 +153,34 @@ nav.navbar.navbar-expand-sm.navbar-dark{
 	background-color: #2d4f78;
 }
 .card-group{
-	margin-bottom: 100px;
+	margin-bottom: 50px;
 
 }
 #exclusivesdiv{
-	margin-top:80px;
+	margin-top:50px;
 }
+
+#locationsdiv{
+	margin-top:50px;
+}
+
+#locationsfirstrow{
+	margin-bottom:50px;
+}
+
+#categoriesdiv{
+	margin-top:50px;
+	margin-bottom:100px;
+}
+
+#categoriesfirstrow{
+	margin-bottom:50px;
+}
+
+#homepagefooter{
+
+}
+
 #bannerimagelogo{
 	margin-top: 30px;
 }

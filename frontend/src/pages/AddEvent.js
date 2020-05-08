@@ -1,5 +1,6 @@
 import React, {PureComponent} from 'react';
 import {Helmet} from "react-helmet";
+import logoRDB from "./imgs/racedblogo-04-scaled.png";
 
 class AddEvent extends PureComponent {
   constructor(){
@@ -296,9 +297,9 @@ class AddEvent extends PureComponent {
           <div class="content">
             <div class="content-inside">
 
-            <nav class="navbar navbar-expand-sm navbar-dark">
+            <nav class="navbar navbar-expand-sm navbar-dark" id="homepageNav">
               <a class="navbar-brand ml-3" href="http://localhost:3000/">
-                <img src="logoRDB" alt="logo" style= {{width:"110px"}}/>
+                <img src={logoRDB} alt="logo" style= {{width:"110px"}}/>
               </a>
 
               <ul class="navbar-nav ml-auto">
@@ -314,8 +315,8 @@ class AddEvent extends PureComponent {
               </ul>
             </nav>
 
+
             <div>
-              <br/>
               <h3 class="mt-3 ml-5">Add Your Race!</h3>
               <br/>
               <form>

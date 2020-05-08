@@ -95,17 +95,15 @@ export default class Homepage extends Component {
     	  </div>{/*row mx-auto*/}
     	</div> {/*container*/}
 
-    	<nav className="navbar navbar-expand-lg navbar-light bg-light mt-3 mx-auto" id="categoryNav">
-    		<a className="nav-link mx-auto" href={categoriesUrl+'running'}>Running</a>
-    		|
-    		<a className="nav-link mx-auto" href={categoriesUrl+'triathlon'}>Triathlon</a>
-    		|
-    		<a className="nav-link mx-auto" href={categoriesUrl+'cycling'}>Cycling</a>
-    		|
-    		<a className="nav-link mx-auto" href={categoriesUrl+'obstacle'}>Obstacle</a>
-    		|
-    		<a className="nav-link mx-auto" href={categoriesUrl+'other'}>Other</a>
-    	</nav>
+      <div class="container mt-4" align="center">
+    	<div class="btn-group btn-group-justified" id="categoryNav">
+    		<a class="btn btn-secondary" href={categoriesUrl+'running'}>Running</a>
+    		<a className="btn btn-secondary" href={categoriesUrl+'triathlon'}>Triathlon</a>
+    		<a className="btn btn-secondary" href={categoriesUrl+'cycling'}>Cycling</a>
+    		<a className="btn btn-secondary" href={categoriesUrl+'obstacle'}>Obstacle</a>
+    		<a className="btn btn-secondary" href={categoriesUrl+'other'}>Other</a>
+    	</div>
+      </div>
     </div>
 
 
@@ -113,8 +111,7 @@ export default class Homepage extends Component {
   {/*  // -- Exclusives -->*/}
     {/*// -- template from https://getbootstrap.com/docs/3.4/examples/jumbotron/, will be edited and modified accordingly -->*/}
     <div className="container" id="exclusivesdiv">
-      <h2 align="center">Exclusives</h2>
-      <br/>
+      <h2 align="center" class="sectionTitle">Exclusives</h2>
       <div className="row">
         <div className="card-group">
         <div className="col-md-4">
@@ -265,169 +262,210 @@ export default class Homepage extends Component {
     </div>
     </div>
     </div>
-    <div>
 
-    </div>
-    <div className="grayBlock">
-    <div>
-      <h2 align="center">Locations</h2>
-      <div className="row">
-        <div className="col-md-4" id="location1">
-        <div className='locContainer'>
-          <img src={stockImg} className="mx-auto d-block bg-dark mt-5 locationImg" alt="New York" style={{height:"200px",width:"300px"}}/>
-          <div className="locationText"><a className ='homepageLocaton'href={locationUrl+'new-york'}>New York</a></div>
-        </div>
-        </div>
-        <div className="col-md-4" id="location2">
-        <div className='locContainer'>
-          <img src={stockImg} className="mx-auto d-block bg-dark mt-5 locationImg" alt="New Jersey" style={{height:"200px",width:"300px"}}/>
-          <div className="locationText"><a className ='homepageLocaton'href={locationUrl+'loc'}>New Jersey</a></div>
-        </div>
-        </div>
-        <div className="col-md-4" id="location3">
-        <div className='locContainer'>
-          <img src={stockImg} className="mx-auto d-block bg-dark mt-5 locationImg" alt="Maryland" style={{height:"200px",width:"300px"}}/>
-          <div className="locationText"><a className ='homepageLocaton'href={locationUrl+'new-york'}>Maryland</a></div>
-        </div>
+
+
+    <div className="grayBlock" id="locationsdiv">
+      <h2 align="center" style={{color:"white"}} class="sectionTitle">Locations</h2>
+      <div class="container-fluid" align="center">
+        <div className="row" id="locationsfirstrow">
+          <div className="col-md-4" id="location1">
+            <div className='locContainer' class="img-thumbnail">
+              <a className ='homepageLocaton' href={locationUrl+'new-york'} style={{color:"black"}}>
+                <img src={stockImg} className="mx-auto d-block bg-dark mt-5 locationImg" class="img-thumbnail" alt="New York" style={{width:"100%"}}/>
+                <div className="locationText" class="caption" align="center">
+                  <h5>New York</h5>
+                </div>
+              </a>
+            </div>
+          </div>
+          <div className="col-md-4" id="location1">
+            <div className='locContainer' class="img-thumbnail">
+              <a className ='homepageLocaton' href={locationUrl+'new-jersey'} style={{color:"black"}}>
+                <img src={stockImg} className="mx-auto d-block bg-dark mt-5 locationImg" class="img-thumbnail" alt="New York" style={{width:"100%"}}/>
+                <div className="locationText" class="caption" align="center">
+                  <h5>New Jersey</h5>
+                </div>
+              </a>
+            </div>
+          </div>
+          <div className="col-md-4" id="location1">
+            <div className='locContainer' class="img-thumbnail">
+              <a className ='homepageLocaton' href={locationUrl+'maryland'} style={{color:"black"}}>
+                <img src={stockImg} className="mx-auto d-block bg-dark mt-5 locationImg" class="img-thumbnail" alt="New York" style={{width:"100%"}}/>
+                <div className="locationText" class="caption" align="center">
+                  <h5>Maryland</h5>
+                </div>
+              </a>
+            </div>
+          </div>
         </div>
       </div>
-      <div className="row">
-        <div className="col-md-4" id="location4">
-        <div className='locContainer'>
-          <img src={stockImg} className="mx-auto d-block bg-dark mt-5 locationImg" alt="Maine" style={{height:"200px",width:"300px"}}/>
-          <div className="locationText"><a className ='homepageLocaton'href={locationUrl+'new-york'}>Maine</a></div>
-        </div>
-        </div>
-        <div className="col-md-4" id="location5">
-        <div className='locContainer'>
-          <img src={stockImg} className="mx-auto d-block bg-dark mt-5 locationImg" alt="Connecticut" style={{height:"200px",width:"300px"}}/>
-          <div className="locationText"><a className ='homepageLocaton'href={locationUrl+'new-york'}>Connecticut</a></div>
-        </div>
-        </div>
-        <div className="col-md-4" id="location6">
-        <div className='locContainer'>
-          <img src={stockImg} className="mx-auto d-block bg-dark mt-5 " alt="California" style={{height:"200px",width:"300px"}}/>
-          <div className="locationText"><a className ='homepageLocaton'href={locationUrl+'new-york'}>California</a></div>
-        </div>
-        </div>
-      </div>
-    </div>
-</div>
-    <br/>
-
-
-
-
-
-
-    <div>
-      <h2 align="center">Categories</h2>
-
-      <div className="row">
-        <div className="col-md-4">
-          <img src={running} className="mx-auto d-block bg-dark mt-5" alt="category" style={{height:"200px",width:"300px"}}/>
-          <div className="locationText"><a className ='homepageLocaton'href={categoriesUrl+'running'}>Running</a></div>
-        </div>
-        <div className="col-md-4">
-          <img src={cycling} className="mx-auto d-block bg-dark mt-5" alt="category" style={{height:"200px",width:"300px"}}/>
-          <div className="locationText"><a className ='homepageLocaton'href={categoriesUrl+'cycling'}>Cycling</a></div>
-        </div>
-        <div className="col-md-4">
-          <img src={triathlon} className="mx-auto d-block bg-dark mt-5" alt="category" style={{height:"200px",width:"300px"}}/>
-          <div className="locationText"><a className ='homepageLocaton'href={categoriesUrl+'triathlon'}>Triathlon</a></div>
-        </div>
-      </div>
-      <div className="row">
-        <div className="col-md-4 mx-auto">
-          <img src={obstacle} className="mx-auto d-block bg-dark mt-5" alt="category" style={{height:"200px",width:"300px"}}/>
-          <div className="locationText"><a className ='homepageLocaton'href={categoriesUrl+'obstacle'}>Obstacle</a></div>
-        </div>
-        <div className="col-md-4 mx-auto">
-          <img src={other} className="mx-auto d-block bg-dark mt-5" alt="category" style={{height:"200px",width:"300px"}}/>
-          <div className="locationText"><a className ='homepageLocaton'href={categoriesUrl+'other'}>Other</a></div>
+      <div class="container-fluid" align="center">
+        <div className="row">
+          <div className="col-md-4" id="location1">
+            <div className='locContainer' class="img-thumbnail">
+              <a className ='homepageLocaton' href={locationUrl+'maine'} style={{color:"black"}}>
+                <img src={stockImg} className="mx-auto d-block bg-dark mt-5 locationImg" class="img-thumbnail" alt="New York" style={{width:"100%"}}/>
+                <div className="locationText" class="caption" align="center">
+                  <h5>Maine</h5>
+                </div>
+              </a>
+            </div>
+          </div>
+          <div className="col-md-4" id="location1">
+            <div className='locContainer' class="img-thumbnail">
+              <a className ='homepageLocaton' href={locationUrl+'connecticut'} style={{color:"black"}}>
+                <img src={stockImg} className="mx-auto d-block bg-dark mt-5 locationImg" class="img-thumbnail" alt="New York" style={{width:"100%"}}/>
+                <div className="locationText" class="caption" align="center">
+                  <h5>Connecticut</h5>
+                </div>
+              </a>
+            </div>
+          </div>
+          <div className="col-md-4" id="location1">
+            <div className='locContainer' class="img-thumbnail">
+              <a className ='homepageLocaton' href={locationUrl+'california'} style={{color:"black"}}>
+                <img src={stockImg} className="mx-auto d-block bg-dark mt-5 locationImg" class="img-thumbnail" alt="New York" style={{width:"100%"}}/>
+                <div className="locationText" class="caption" align="center">
+                  <h5>California</h5>
+                </div>
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </div>
 
-    <br/>
-<div className="grayBlock">
-
-    <br/>
 
 
+    <div class="container-fluid" id="categoriesdiv" align="center">
+      <h2 align="center" class="sectionTitle">Categories</h2>
+      <div className="row" id="categoriesfirstrow">
+        <div className="col-md-4">
+          <div className='locContainer' class="img-thumbnail">
+            <a className ='homepageLocaton' href={categoriesUrl+'running'} style={{color:"black"}}>
+              <img src={running} className="mx-auto d-block bg-dark mt-5" class="img-thumbnail" alt="category" style={{width:"100%"}}/>
+              <div className="locationText" class="caption" align="center">
+                <h5>Running</h5>
+              </div>
+            </a>
+          </div>
+        </div>
+        <div className="col-md-4">
+          <div className='locContainer' class="img-thumbnail">
+            <a className ='homepageLocaton' href={categoriesUrl+'cycling'} style={{color:"black"}}>
+              <img src={running} className="mx-auto d-block bg-dark mt-5" class="img-thumbnail" alt="category" style={{width:"100%"}}/>
+              <div className="locationText" class="caption" align="center">
+                <h5>Cycling</h5>
+              </div>
+            </a>
+          </div>
+        </div>
+        <div className="col-md-4">
+          <div className='locContainer' class="img-thumbnail">
+            <a className ='homepageLocaton' href={categoriesUrl+'triathlon'} style={{color:"black"}}>
+              <img src={running} className="mx-auto d-block bg-dark mt-5" class="img-thumbnail" alt="category" style={{width:"100%"}}/>
+              <div className="locationText" class="caption" align="center">
+                <h5>Triathlon</h5>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="container-fluid" align="center">
+        <div className="row">
+          <div className="col-md-2">
+          </div>
+          <div className="col-md-4">
+            <div className='locContainer' class="img-thumbnail">
+              <a className ='homepageLocaton' href={categoriesUrl+'obstacle'} style={{color:"black"}}>
+                <img src={running} className="mx-auto d-block bg-dark mt-5" class="img-thumbnail" alt="category" style={{width:"100%"}}/>
+                <div className="locationText" class="caption" align="center">
+                  <h5>Obstacle</h5>
+                </div>
+              </a>
+            </div>
+          </div>
+          <div className="col-md-4">
+            <div className='locContainer' class="img-thumbnail">
+              <a className ='homepageLocaton' href={categoriesUrl+'other'} style={{color:"black"}}>
+                <img src={running} className="mx-auto d-block bg-dark mt-5" class="img-thumbnail" alt="category" style={{width:"100%"}}/>
+                <div className="locationText" class="caption" align="center">
+                  <h5>Other</h5>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
+
+
+    <div className="grayBlock" id="homepagefooter">
       <div className="row">
-        <div className="col-md-4 ml-auto">
-          <img src={logoRed} className="mx-auto d-block bg-dark mt-5" id="someLogo" alt="logo" style={{height:"400px",width:"400px"}}/>
+        <div className="col-md-4 mr-auto">
+          <img src={logoRed} className="mx-auto d-block bg-dark mt-5" id="someLogo" alt="logo" style={{height:"400px",width:"640px"}}/>
         </div>
         <div className="col-md-4 mr-auto my-auto" align="center">
-          <br/><br/>
-          <h4> 1 - Create </h4>
-          <p> Create a listing by adding your race to our directory. </p><br/>
-          <h4> 2 - Promote </h4>
-          <p> Promote your race by advertising it through our site! </p><br/>
-          <h4> 3 - Claim </h4>
-          <p> Claim your race if it already exists within our directory. </p><br/>
+          <h4 style={{color:"white"}}> 1 - Create </h4>
+          <p style={{color:"white"}}> Create a listing by adding your race to our directory. </p><br/>
+          <h4 style={{color:"white"}}> 2 - Promote </h4>
+          <p style={{color:"white"}}> Promote your race by advertising it through our site! </p><br/>
+          <h4 style={{color:"white"}}> 3 - Claim </h4>
+          <p style={{color:"white"}}> Claim your race if it already exists within our directory. </p><br/>
         </div>
       </div>
+      <div class="row">
+        <div class="col-md-4 mx-auto">
 
+          <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Footer Content</h5>
+          <p>Here you can use rows and columns to organize your footer content. Lorem ipsum dolor sit amet,
+            consectetur
+            adipisicing elit.</p>
 
-    </div>
+        </div>
+        <div class="col-md-2 mx-auto">
+          <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Links</h5>
+          <ul class="list-unstyled">
+            <li>
+              <a href="#!">Link 1</a>
+            </li>
+            <li>
+              <a href="#!">Link 2</a>
+            </li>
+            <li>
+              <a href="#!">Link 3</a>
+            </li>
+            <li>
+              <a href="#!">Link 4</a>
+            </li>
+          </ul>
+        </div>
+        <div class="col-md-2 mx-auto">
+          <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Links</h5>
+          <ul class="list-unstyled">
+            <li>
+              <a href="#!">Link 1</a>
+            </li>
+            <li>
+              <a href="#!">Link 2</a>
+            </li>
+            <li>
+              <a href="#!">Link 3</a>
+            </li>
+            <li>
+              <a href="#!">Link 4</a>
+            </li>
+          </ul>
+        </div>
+      </div>
     </div>
 </div>
-    <div className="footer">
-    <footer className="page-footer font-small pt-4">
-
-
-      <div className="container-fluid text-center text-md-left">
-
-
-        <div className="row" id="footer">
-
-
-          <div className="col-md-6 mt-md-0 mt-3">
-
-
-            <h5 className="text-uppercase font-weight-bold">Footer text 1</h5>
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita sapiente sint, nulla, nihil
-              repudiandae commodi voluptatibus corrupti animi sequi aliquid magnam debitis, maxime quam recusandae
-              harum esse fugiat. Itaque, culpa?</p>
-
-          </div>
-
-
-          <hr className="clearfix w-100 d-md-none pb-3"/>
-
-
-          <div className="col-md-6 mb-md-0 mb-3">
-
-
-            <h5 className="text-uppercase font-weight-bold">Footer text 2</h5>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Optio deserunt fuga perferendis modi earum
-              commodi aperiam temporibus quod nulla nesciunt aliquid debitis ullam omnis quos ipsam, aspernatur id
-              excepturi hic.</p>
-
-          </div>
-
-
-        </div>
-
-
-      </div>
-
-
-
-      <div className="footer-copyright text-center py-3">© 2020 Copyright:
-        <a href="https://mdbootstrap.com/"> MDBootstrap.com</a>
-      </div>
-
-
-    </footer>
-    </div>
-
-    <br/><br/>
 
     </div>
+</div>
 </div>
     )
   }
