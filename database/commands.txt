@@ -8,14 +8,15 @@
 */
 
 //For running events
-LOAD DATA INFILE '<path>'
+LOAD DATA INFILE '<insert path here>'
 INTO TABLE event
 FIELDS TERMINATED BY ','
 OPTIONALLY ENCLOSED BY '"'
 LINES TERMINATED BY '\r\n'
 ignore 1 lines
-(name, @event_date, location_city ,state, category, distance, website, email, summary)
+(name, @event_date, location_city ,state, category, distance, website, email, summary,@dummy)
 set event_date = STR_TO_DATE(@event_date,'%m/%d/%Y');
+//put @dummy for every extra column unneeded.
 
 //For Cycling events
 LOAD DATA INFILE '<path>'
@@ -24,7 +25,7 @@ FIELDS TERMINATED BY ','
 OPTIONALLY ENCLOSED BY '"'
 LINES TERMINATED BY '\r\n'
 ignore 1 lines
-(name, @event_date, location_city ,state, category, cycling_type,distance, website, email, summary)
+(name, @event_date, location_city ,state, category, cycling_type,distance, website, email, summary,@dummy)
 set event_date = STR_TO_DATE(@event_date,'%m/%d/%Y');
 
 //For Obstacle events
@@ -34,7 +35,7 @@ FIELDS TERMINATED BY ','
 OPTIONALLY ENCLOSED BY '"'
 LINES TERMINATED BY '\r\n'
 ignore 1 lines
-(name, @event_date, location_city ,state, category, distance, website, email, summary)
+(name, @event_date, location_city ,state, category, distance, website, email, summary,@dummy)
 set event_date = STR_TO_DATE(@event_date,'%m/%d/%Y');
 
 //For Other events
@@ -44,7 +45,7 @@ FIELDS TERMINATED BY ','
 OPTIONALLY ENCLOSED BY '"'
 LINES TERMINATED BY '\r\n'
 ignore 1 lines
-(name, @event_date, location_city ,state, category, website, email, summary,race_type)
+(name, @event_date, location_city ,state, category, website, email, summary,race_type,@dummy)
 set event_date = STR_TO_DATE(@event_date,'%m/%d/%Y');
 
 //For Triathlon events
@@ -54,5 +55,5 @@ FIELDS TERMINATED BY ','
 OPTIONALLY ENCLOSED BY '"'
 LINES TERMINATED BY '\r\n'
 ignore 1 lines
-(name, @event_date, location_city ,state, category, distance,swim_distance,bike_distance,run_distance, website, email, summary)
+(name, @event_date, location_city ,state, category, distance,swim_distance,bike_distance,run_distance, website, email, summary,@dummy)
 set event_date = STR_TO_DATE(@event_date,'%m/%d/%Y');
