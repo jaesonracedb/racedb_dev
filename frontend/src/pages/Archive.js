@@ -87,16 +87,16 @@ export default class Archive extends Component {
 
 
 		<div id="archive-2">
-    <div className="search-body">
-    <LoopCard/>
-    </div>{/*Search-body*/}
-    <DisplayPagination/>
+      <div className="search-body">
+        <LoopCard/>
+      </div>{/*Search-body*/}
+      <DisplayPagination/>
 
-		</div>{/*archive2*/}
-    </div>{/*content-inside*/}
-    </div>{/*content*/}
-    <Footer/>
-		</div>{/*body*/}
+  	</div>{/*archive2*/}
+      </div>{/*content-inside*/}
+      </div>{/*content*/}
+      <Footer/>
+  		</div>{/*body*/}
 		</div>
     )
   }

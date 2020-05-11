@@ -79,6 +79,11 @@ html, body {
 #someLogo{
 	background-color: transparent !important;
 }
+
+#searchbarSubtext{
+	font-size: 12px;
+}
+
 .content {
   min-height: 100%;
 }
