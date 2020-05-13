@@ -1,14 +1,24 @@
 const mysqlCon = require('mysql');
 const jwt = require('jsonwebtoken');
+const db = require(__dirname+ '/../db_config/mysql');
+var Storage = require('dom-storage');
+var localStorage = new Storage('./session_storage.json', { strict: false, ws: '  ' });
 
 
-var db = mysqlCon.createConnection({
-	host: "localhost",
-  user: "racedbadmin",
-	password: "letskamown",
-	database: "racedb"
-});
-
+exports.createUser = (req,res) =>{
+	console.log('Creating User');
+	const {username,password,email,lastName,firstName,middleInit}= req.body;
+	const queryString = "INSERT INTO user_account (username,psswrd,lname,fname,minit,email) values (?,?,?,?,?,?)"
+	db.query(queryString,[username,password,lastName,firstName,middleInit,email],(err,results)=>{
+		if(err){
+			console.log(err);
+			results.sendStatus(500)
+		}else{
+			console.log("User Added")
+			res.sendStatus(200);
+		}
+	})
+}
 exports.userLogin = (req, res) => {
   console.log("User Log In");//Debug line
 	console.log(req.body)

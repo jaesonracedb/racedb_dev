@@ -12,6 +12,7 @@ import triathlon from "./imgs/triathlon.jpg";
 import cycling from "./imgs/cycling.jpg";
 import other from "./imgs/other.jpg";
 import obstacle from "./imgs/obstacle-race.jpg";
+import HomeNav from "./HomeNav.js";
 import HomepageSearch from "./HomepageSearch.js";
 
 export default class Homepage extends Component {
@@ -35,11 +36,12 @@ export default class Homepage extends Component {
       })
       console.log("fetched")
   }
-
   render() {
+    const loginUrl = "http://localhost:3000/login";
     const locationUrl = "http://localhost:3000/search?filter=location&page=1&key=";
     const categoriesUrl= "http://localhost:3000/search?filter=category&page=1&key=";
     const featuredUrl = "http://localhost:3000/listing?id=";
+    const homeUrl ="http://localhost:3000";
     return (
     <div className="application">
     <Helmet>
@@ -61,24 +63,8 @@ export default class Homepage extends Component {
     <div className="body">
     <div className="content">
       <div className="content-inside">
-
-    <nav className="navbar navbar-expand-sm navbar-dark" id="homepageNav">
-      <a className="navbar-brand ml-3" href="http://localhost:3000">
-        <img src={logoRDB} alt="logo" style= {{width:"110px"}}/>
-      </a>
-
-      <ul className="navbar-nav ml-auto">
-        <li className="nav-item">
-          <a className="btn btn-outline-light my-2 my-sm-0" href="http://localhost:3000/add-event" role="button">Create A Race</a>
-        </li>
-        <li className="nav-item">
-          <a className="nav-link" href="#">Sign Up</a>
-        </li>
-        <li className="nav-item">
-          <a className="nav-link" href="#">Login</a>
-        </li>
-      </ul>
-    </nav>
+    <HomeNav/>
+    
 
     {/*// --Logo and Search-->*/}
     <div className="container header" id="bannerHeader">
