@@ -90,7 +90,9 @@ export default class Archive extends Component {
       <div className="search-body">
         <LoopCard/>
       </div>{/*Search-body*/}
-      <DisplayPagination/>
+      <div className="ml-4">
+        <DisplayPagination/>
+      </div>
 
   	</div>{/*archive2*/}
       </div>{/*content-inside*/}

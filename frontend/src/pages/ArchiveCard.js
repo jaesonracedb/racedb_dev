@@ -1,7 +1,7 @@
 import React, {Component } from 'react';
 import styles from "./css/archiveCard.css";
 import Helmet from "react-helmet";
-
+import logoRDB from "./imgs/racedblogo-04-scaled.png";
 export default class ArchiveCard extends Component{
     constructor(props){
       super(props);
@@ -37,15 +37,14 @@ export default class ArchiveCard extends Component{
             <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
           </Helmet>
-          <div className="body">
-          <div className="card ml-3 w-50">
-            <div className="row no-gutters">
-              <div className="col-auto pt-4 px-3">
-                <img src="imgs/072218_AG_Triathlon_Getty_0155-1024x683.jpg" className="img-fluid" alt="" height="170" width="320"/>
+
+          <div class="card mx-4 mb-2 col-md-auto h-100" id="archiveCard">
+            <div class="row no-gutters my-3">
+              <div class="col-auto">
+                <img src={logoRDB} class="img-fluid" alt="img" height="200px" width="200px"/>
               </div>
-              <div className="col">
-                <div className="card-block px-2 pb-2">
-                  <img className="card-img-left" src="#" alt="" height="170" width="320"/>
+              <div class="col">
+                <div class="card-block px-2">
                   <h4 className="card-title"><a href={this.state.url}>{this.state.title}</a></h4>
                   <p className="card-text">Date: {this.state.date}</p>
                   <p className="card-text">Distance: {this.state.distance}</p>
@@ -59,7 +58,8 @@ export default class ArchiveCard extends Component{
               </div>
             </div>
           </div>
-          </div>
+
+
         </div>
       )
 

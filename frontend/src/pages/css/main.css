@@ -101,7 +101,7 @@ html, body {
 footer {
   height: 50px;
   margin-top: 90px;
-	background-color: green;
+	background-color: grey;
 }
 /* for star ratings under EXCLUSIVES portion of homepage */
 .checked {
@@ -188,6 +188,10 @@ nav.navbar.navbar-expand-sm.navbar-dark{
 
 #bannerimagelogo{
 	margin-top: 30px;
+}
+
+#archiveCard{
+	font-size: 14px;
 }
 
 .card{
