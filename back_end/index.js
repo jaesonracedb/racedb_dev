@@ -6,8 +6,8 @@ const cors = require('cors')
 
 var con = mysql.createConnection({
 	host: "localhost",
-	user: "racedbadmin",
-	password: "letskamown",
+	user: "root",
+	password: "",
   database: "racedb"
 });
 

@@ -403,14 +403,13 @@ export default class Homepage extends Component {
           <p style={{color:"white"}}> Claim your race if it already exists within our directory. </p><br/>
         </div>
       </div>
+
       <div class="row">
         <div class="col-md-4 mx-auto">
-
           <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Footer Content</h5>
           <p>Here you can use rows and columns to organize your footer content. Lorem ipsum dolor sit amet,
             consectetur
             adipisicing elit.</p>
-
         </div>
         <div class="col-md-2 mx-auto">
           <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Links</h5>
@@ -447,7 +446,10 @@ export default class Homepage extends Component {
           </ul>
         </div>
       </div>
+
     </div>
+
+
 </div>
 
     </div>
