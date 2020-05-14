@@ -19,7 +19,7 @@ export default class SearchBar extends Component{
     return(
       <div>
       <form className="search-bar" id='searchBar'>
-        <div className="container ml-3 mt-5">
+        <div className="container ml-2 mt-4">
           <div className="row mx-auto">
             <div className="col-xs-8 col-xs-offset-2">
               <div className="input-group pr-5 mr-5">
@@ -41,7 +41,7 @@ export default class SearchBar extends Component{
           </div>{/*row mx-auto*/}
         </div>{/*container ml-3 mt-5*/}
         </form>{/*Form*/}
-        <a className="ml-4">Search Results for: &lt;filter&gt; &lt;input&gt;</a>
+        <a className="ml-4" id="searchbarSubtext">Search Results for: &lt;filter&gt; &lt;input&gt;</a>
       </div>
 
     )
