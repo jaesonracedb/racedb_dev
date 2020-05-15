@@ -114,9 +114,9 @@ export default class Signup extends Component {
     }else{
       console.log("Error: Invalid Username")
     }
-    
 
-    
+
+
 
   }
 
@@ -171,41 +171,41 @@ export default class Signup extends Component {
     <div class="body">
     <div class="content">
       <div class="content-inside">
-        
+
     <HomeNav/>
 
     <div class="m-5 border">
-    	<h3 class="mt-3 ml-5">Log In</h3>
+    	<h3 class="mt-4 ml-5">Sign Up</h3>
 
     	{/*<!--form-->*/}
-    	<div class="p-3">
-      <div class="row ml-4">
-          <div class="col-xs ml-2">
+    	<div class="m-4">
+        <div class="row ml-4">
+          <div class="col-xs ml-3">
     				<a>Username</a>
     			</div>
-          </div>
-      <div class="row ml-4">
-    			<div class="col-lg-4">
-    				<input type="text" class="form-control" onChange={this.handleUsername}/>
-    			</div>
-      </div>
+        </div>
+        <div class="row ml-4">
+      			<div class="col-lg-4">
+      				<input type="text" class="form-control" onChange={this.handleUsername}/>
+      			</div>
+        </div>
 
-    		<div class="row ml-4 mt-3">
-          <div class="col-xs ml-2">
+    		<div class="row ml-4 mt-4">
+          <div class="col-xs ml-3">
     				<a>Email</a>
     			</div>
-          </div>
-          <div class="row ml-4">
+        </div>
+        <div class="row ml-4">
     			<div class="col-lg-4">
     				<input type="text" class="form-control" onChange={this.handleEmail}/>
     			</div>
     		</div>
 
         <div class="row ml-4 mt-3">
-          <div class="col-xs ml-2">
+          <div class="col-xs ml-3">
     				<a>Password</a>
     			</div>
-          </div>
+        </div>
         <div class="row ml-4">
     			<div class="col-lg-4">
     				<input type="password" class="form-control" onChange={this.handlePass}/>
@@ -213,11 +213,11 @@ export default class Signup extends Component {
         </div>
 
         <div class="row ml-4 mt-3">
-          <div class="col-xs ml-2">
+          <div class="col-xs ml-3">
     				<a>Confirm Password</a>
     			</div>
-          </div>
-          <div class="row ml-4">
+        </div>
+        <div class="row ml-4">
     			<div class="col-lg-4">
     				<input type="password" class="form-control" onChange={this.handlePass1}/>
           </div>
@@ -234,7 +234,7 @@ export default class Signup extends Component {
     				<a>M.I.</a>
     			</div>
         </div>
-        
+
         <div class="row ml-4">
     			<div class="col-lg-3">
     				<input type="text" class="form-control" onChange={this.handleLastName}/>
@@ -242,18 +242,20 @@ export default class Signup extends Component {
     			<div class="col-lg-3">
     				<input type="text" class="form-control" onChange={this.handleFirstName}/>
     			</div>
-          
+
     			<div class="col-lg-1">
     				<input type="text" class="form-control" onChange={this.handleMiddleInit}/>
     			</div>
     		</div>
 
 
-        <div class="row mt-3 ml-4">
-          <button type="button" class="btn btn-primary" onClick={this.signup}>Log In</button>
+        <div class="row mt-4 ml-4">
+          <button type="button" class="btn btn-primary" onClick={this.signup}>Create Account</button>
         </div>
+
       </div>
     </div>
+
     </div></div></div></div>
 
     )

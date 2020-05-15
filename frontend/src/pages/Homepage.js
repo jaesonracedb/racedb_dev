@@ -63,9 +63,9 @@ export default class Homepage extends Component {
     <div className="body">
     <div className="content">
       <div className="content-inside">
+
     <HomeNav/>
     
-
     {/*// --Logo and Search-->*/}
     <div className="container header" id="bannerHeader">
     	{/*// --bd-dark is there to see area while there is no picture-->*/}

@@ -52,7 +52,7 @@ export default class User extends Component {
         else {
           // save the token as a cookie
           alert("Login successful!");
-          
+
 
           const cookies = new Cookies()
           // cookies.set('authToken', body.token)
@@ -122,28 +122,32 @@ export default class User extends Component {
     <HomeNav/>
 
     <div class="m-5 border">
-    	<h3 class="mt-3 ml-5">Log In</h3>
+    	<h3 class="mt-4 ml-5">Log In</h3>
 
     	{/*<!--form-->*/}
-    	<div class="p-3">
+    	<div class="m-4">
     		<div class="row ml-4">
-          <div class="col-xs ml-2">
+          <div class="col-xs ml-3">
     				<a>Username</a>
     			</div>
-    			<div class="col-lg-4">
+
+    			<div class="col-lg-4 ml-3">
     				<input type="text" onChange={this.handleUsername} class="form-control"/>
+
     			</div>
     		</div>
         <div class="row ml-4 mt-4">
-          <div class="col-xs ml-2">
+          <div class="col-xs ml-3">
     				<a>Password</a>
     			</div>
-    			<div class="col-lg-4">
+
+    			<div class="col-lg-4 ml-4">
     				<input type="password" onChange={this.handlePassword} class="form-control"/>
           </div>
         </div>
         <div class="row mt-3 ml-4">
-          <button type="button" onClick={this.login} class="btn btn-primary">Log In</button>
+          <button type="button" onClick={this.login} class="btn btn-primary ml-3 my-2">Log In</button>
+
         </div>
       </div>
     </div>
