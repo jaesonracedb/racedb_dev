@@ -1,0 +1,22 @@
+POST http://localhost:3001/userLogin
+Content-Type: application/json
+
+{
+    "username": "TestUser",
+    "password": "TestPassword"
+}
+###
+
+POST http://localhost:3001/create-user
+Content-Type: application/json
+
+{
+    "username": "TestUser",
+    "password": "TestPassword",
+    "email": "TestEmail",
+    "firstName": "TestName",
+    "lastName": "TestLast",
+    "middleInit": "TestMinit"
+}
+
+###

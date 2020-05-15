@@ -2,47 +2,35 @@ import React, { Component } from 'react';
 import Cookies from 'universal-cookie';
 import {Helmet} from "react-helmet";
 import logoRDB from "./imgs/racedblogo-04-scaled.png"
+import HomeNav from "./HomeNav.js";
 
 export default class User extends Component {
   constructor(props) {
     super(props)
-  }
-
-  signup(e) {
-    e.preventDefault()
-
-    const newUser = {
-      name: document.getElementById('s-name').value,
-      email: document.getElementById('s-email').value,
-      password: document.getElementById('s-password').value,
-	    about: document.getElementById('s-password').value,
-	    birthday: document.getElementById('s-birthday').value
+    this.state ={
+      username: '',
+      password:''
     }
-
-    fetch('http://localhost:3001/signup', {
-      method: "POST",
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(newUser)
-    })
-      .then(response => response.json())
-      .then(body => {
-        if (body.success) {
-          alert('Successfully signed up!')
-        } else {
-          alert('Failed to sign up')
-        }
-      })
-
+    this.handleUsername = this.handleUsername.bind(this);
+    this.handlePassword = this.handlePassword.bind(this);
+    this.login  = this.login.bind(this);
   }
-
+  handlePassword(e){
+    this.setState({
+      password: e.target.value
+    })
+  }
+  handleUsername(e){
+    this.setState({
+      username: e.target.value
+    })
+  }
   login(e) {
     e.preventDefault()
     console.log("Login button pressed\n");
     const credentials = {
-      username: document.getElementById('l-username').value,
-      password: document.getElementById('l-password').value
+      username: this.state.username,
+      password: this.state.password
     }
 
     fetch('http://localhost:3001/userLogin', {
@@ -63,7 +51,8 @@ export default class User extends Component {
 
         else {
           // save the token as a cookie
-
+          alert("Login successful!");
+          
 
           const cookies = new Cookies()
           // cookies.set('authToken', body.token)
@@ -130,6 +119,7 @@ export default class User extends Component {
     <div class="content">
       <div class="content-inside">
 
+<<<<<<< HEAD
     <nav class="navbar navbar-expand-sm navbar-dark">
       <a class="navbar-brand ml-3" href="http://localhost:3000/">
         <img src={logoRDB} alt="logo" style= {{width:"110px"}}/>
@@ -147,6 +137,9 @@ export default class User extends Component {
         </li>
       </ul>
     </nav>
+=======
+    <HomeNav/>
+>>>>>>> 19cf805d0fd6f2b17914447eec27f7ba7e1b37b0
 
     <div class="m-5 border">
     	<h3 class="mt-4 ml-5">Log In</h3>
@@ -157,20 +150,34 @@ export default class User extends Component {
           <div class="col-xs ml-3">
     				<a>Username</a>
     			</div>
+<<<<<<< HEAD
     			<div class="col-lg-4 ml-3">
     				<input type="text" class="form-control"/>
+=======
+    			<div class="col-lg-4">
+    				<input type="text" onChange={this.handleUsername} class="form-control"/>
+>>>>>>> 19cf805d0fd6f2b17914447eec27f7ba7e1b37b0
     			</div>
     		</div>
         <div class="row ml-4 mt-4">
           <div class="col-xs ml-3">
     				<a>Password</a>
     			</div>
+<<<<<<< HEAD
     			<div class="col-lg-4 ml-4">
     				<input type="password" class="form-control"/>
           </div>
         </div>
         <div class="row mt-3 ml-4">
           <button type="button" class="btn btn-primary ml-3 my-2">Log In</button>
+=======
+    			<div class="col-lg-4">
+    				<input type="password" onChange={this.handlePassword} class="form-control"/>
+          </div>
+        </div>
+        <div class="row mt-3 ml-4">
+          <button type="button" onClick={this.login} class="btn btn-primary">Log In</button>
+>>>>>>> 19cf805d0fd6f2b17914447eec27f7ba7e1b37b0
         </div>
       </div>
     </div>
