@@ -52,7 +52,7 @@ export default class User extends Component {
         else {
           // save the token as a cookie
           alert("Login successful!");
-          
+
 
           const cookies = new Cookies()
           // cookies.set('authToken', body.token)
@@ -119,27 +119,7 @@ export default class User extends Component {
     <div class="content">
       <div class="content-inside">
 
-<<<<<<< HEAD
-    <nav class="navbar navbar-expand-sm navbar-dark">
-      <a class="navbar-brand ml-3" href="http://localhost:3000/">
-        <img src={logoRDB} alt="logo" style= {{width:"110px"}}/>
-      </a>
-
-      <ul class="navbar-nav ml-auto">
-        <li class="nav-item">
-          <a class="btn btn-outline-light my-2 my-sm-0" href="http://localhost:3000/add-event" role="button">Create A Race</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Sign Up</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Login</a>
-        </li>
-      </ul>
-    </nav>
-=======
     <HomeNav/>
->>>>>>> 19cf805d0fd6f2b17914447eec27f7ba7e1b37b0
 
     <div class="m-5 border">
     	<h3 class="mt-4 ml-5">Log In</h3>
@@ -150,34 +130,24 @@ export default class User extends Component {
           <div class="col-xs ml-3">
     				<a>Username</a>
     			</div>
-<<<<<<< HEAD
+
     			<div class="col-lg-4 ml-3">
-    				<input type="text" class="form-control"/>
-=======
-    			<div class="col-lg-4">
     				<input type="text" onChange={this.handleUsername} class="form-control"/>
->>>>>>> 19cf805d0fd6f2b17914447eec27f7ba7e1b37b0
+
     			</div>
     		</div>
         <div class="row ml-4 mt-4">
           <div class="col-xs ml-3">
     				<a>Password</a>
     			</div>
-<<<<<<< HEAD
+
     			<div class="col-lg-4 ml-4">
-    				<input type="password" class="form-control"/>
-          </div>
-        </div>
-        <div class="row mt-3 ml-4">
-          <button type="button" class="btn btn-primary ml-3 my-2">Log In</button>
-=======
-    			<div class="col-lg-4">
     				<input type="password" onChange={this.handlePassword} class="form-control"/>
           </div>
         </div>
         <div class="row mt-3 ml-4">
-          <button type="button" onClick={this.login} class="btn btn-primary">Log In</button>
->>>>>>> 19cf805d0fd6f2b17914447eec27f7ba7e1b37b0
+          <button type="button" onClick={this.login} class="btn btn-primary ml-3 my-2">Log In</button>
+
         </div>
       </div>
     </div>

@@ -63,30 +63,9 @@ export default class Homepage extends Component {
     <div className="body">
     <div className="content">
       <div className="content-inside">
-<<<<<<< HEAD
 
-    <nav className="navbar navbar-expand-sm navbar-dark" id="homepageNav">
-      <a className="navbar-brand ml-3" href="http://localhost:3000">
-        <img src={logoRDB} alt="logo" style= {{width:"110px"}}/>
-      </a>
-
-      <ul className="navbar-nav ml-auto">
-        <li className="nav-item">
-          <a className="btn btn-outline-light my-2 my-sm-0" href="http://localhost:3000/add-event" role="button">Create A Race</a>
-        </li>
-        <li className="nav-item">
-          <a className="nav-link" href="#">Sign Up</a>
-        </li>
-        <li className="nav-item">
-          <a className="nav-link" href="http://localhost:3000/login">Login</a>
-        </li>
-      </ul>
-    </nav>
-=======
     <HomeNav/>
     
->>>>>>> 19cf805d0fd6f2b17914447eec27f7ba7e1b37b0
-
     {/*// --Logo and Search-->*/}
     <div className="container header" id="bannerHeader">
     	{/*// --bd-dark is there to see area while there is no picture-->*/}
