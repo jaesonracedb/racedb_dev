@@ -75,7 +75,7 @@ export default class Homepage extends Component {
           <a className="nav-link" href="#">Sign Up</a>
         </li>
         <li className="nav-item">
-          <a className="nav-link" href="#">Login</a>
+          <a className="nav-link" href="http://localhost:3000/login">Login</a>
         </li>
       </ul>
     </nav>

@@ -131,13 +131,13 @@ export default class User extends Component {
       <div class="content-inside">
 
     <nav class="navbar navbar-expand-sm navbar-dark">
-      <a class="navbar-brand ml-3" href="#">
+      <a class="navbar-brand ml-3" href="http://localhost:3000/">
         <img src={logoRDB} alt="logo" style= {{width:"110px"}}/>
       </a>
 
       <ul class="navbar-nav ml-auto">
         <li class="nav-item">
-          <a class="btn btn-outline-light my-2 my-sm-0" href="#" role="button">Create A Race</a>
+          <a class="btn btn-outline-light my-2 my-sm-0" href="http://localhost:3000/add-event" role="button">Create A Race</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">Sign Up</a>
@@ -149,28 +149,28 @@ export default class User extends Component {
     </nav>
 
     <div class="m-5 border">
-    	<h3 class="mt-3 ml-5">Log In</h3>
+    	<h3 class="mt-4 ml-5">Log In</h3>
 
     	{/*<!--form-->*/}
-    	<div class="p-3">
+    	<div class="m-4">
     		<div class="row ml-4">
-          <div class="col-xs ml-2">
+          <div class="col-xs ml-3">
     				<a>Username</a>
     			</div>
-    			<div class="col-lg-4">
+    			<div class="col-lg-4 ml-3">
     				<input type="text" class="form-control"/>
     			</div>
     		</div>
         <div class="row ml-4 mt-4">
-          <div class="col-xs ml-2">
+          <div class="col-xs ml-3">
     				<a>Password</a>
     			</div>
-    			<div class="col-lg-4">
+    			<div class="col-lg-4 ml-4">
     				<input type="password" class="form-control"/>
           </div>
         </div>
         <div class="row mt-3 ml-4">
-          <button type="button" class="btn btn-primary">Log In</button>
+          <button type="button" class="btn btn-primary ml-3 my-2">Log In</button>
         </div>
       </div>
     </div>

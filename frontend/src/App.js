@@ -7,6 +7,7 @@ import AddEvent from "./pages/AddEvent";
 import Archive from "./pages/Archive"
 import Listing from "./pages/listing"
 import Login from "./pages/login-signup"
+import Signup from "./pages/Signup"
 
 export default class App extends Component{
   render(){
