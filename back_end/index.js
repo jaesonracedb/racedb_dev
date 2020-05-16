@@ -4,12 +4,7 @@ const bodyParser = require('body-parser')
 const cookieParser = require('cookie-parser')
 const cors = require('cors')
 
-var con = mysql.createConnection({
-	host: "localhost",
-	user: "root",
-	password: "",
-  database: "racedb"
-});
+var con = require(__dirname+ '/db_config/mysql');
 
 con.connect((err) => {
 	if(err){

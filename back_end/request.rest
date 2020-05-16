@@ -2,21 +2,38 @@ POST http://localhost:3001/userLogin
 Content-Type: application/json
 
 {
-    "username": "TestUser",
-    "password": "TestPassword"
+    "username": "TestUser5",
+    "password": "TestPassword4"
 }
 ###
+POST http://localhost:3001/token
+Content-Type: application/json
 
+{
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiVGVzdE5hbWUzIiwidXNlcm5hbWUiOiJUZXN0VXNlcjUiLCJpYXQiOjE1ODk1Njc5OTV9.FXqIOc1F81zYZeYiOjHZt4BT5mIF70pSsyYAIMgXDN4"
+}
+###
+DELETE http://localhost:3001/logout
+Content-Type: application/json
+
+{
+    "token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiVGVzdE5hbWUzIiwidXNlcm5hbWUiOiJUZXN0VXNlcjUiLCJpYXQiOjE1ODk1NjgwNjV9.QS-jOKqPed2fC1hr785uIgucJyGsO95nsIXN0Y_yv44"
+}
+
+###
 POST http://localhost:3001/create-user
 Content-Type: application/json
 
 {
-    "username": "TestUser",
-    "password": "TestPassword",
-    "email": "TestEmail",
-    "firstName": "TestName",
-    "lastName": "TestLast",
-    "middleInit": "TestMinit"
+    "username": "TestUser5",
+    "password": "TestPassword4",
+    "email": "TestEmail5",
+    "firstName": "TestName3",
+    "lastName": "TestLast3",
+    "middleInit": "TestMinit3"
 }
 
 ###
+
+GET http://localhost:3001/sampleAuth
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiVGVzdE5hbWUzIiwidXNlcm5hbWUiOiJUZXN0VXNlcjUiLCJpYXQiOjE1ODk1Njc5OTUsImV4cCI6MTU4OTU2ODAyMH0.OQBqU7-Ng4ZD3Rj7lG2QGIGwjX_uAcg3u_nROgzQdMI
