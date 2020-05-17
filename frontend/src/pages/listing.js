@@ -1,18 +1,21 @@
 import React, { Component } from 'react';
 import Cookies from 'universal-cookie';
 import {Helmet} from "react-helmet";
+import HomeNav from "./HomeNav.js"
 import styles from "./css/main.css"
 import logoRDB from "./imgs/racedblogo-04-scaled.png"
 export default class Archive extends Component {
   constructor(props){
+    super(props)
     const url = require('url');
     const http = require('http');
     const queryString =window.location.search;
     console.log("url"+queryString);
     const urlParams = new URLSearchParams(queryString)
     const event_id = urlParams.get('id');
+    const loggedInQuery = urlParams.get('loggedIn');
+    const tokenQuery = urlParams.get('token');
     // const queryObject = url.parse(req.url.true).query;
-    super(props)
     this.state={
       id: event_id,
       name: '',
@@ -28,8 +31,31 @@ export default class Archive extends Component {
       email:'',
       summary:'',
       race_type:'',
-      cycling_type:''
+      cycling_type:'',
+      loggedIn: loggedInQuery,
+      token: tokenQuery,
     }
+    fetch('http://localhost:3001/token-info/',{
+      headers:{
+        'Authorization': 'Bearer '+this.state.token,
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      }
+    })
+    .then(res=>{return res.json()})
+    .then((body,err)=>{
+      console.log("Welcome: "+ body.name);
+      if(err){
+        console.log("Token not valid")
+        this.setState({loggedIn:false});
+      }else{
+        console.log("Logged In")
+        this.setState({
+          name: body.name,
+          username: body.username
+        })
+      } 
+    })
     console.log("Race id is: "+ this.state.id)
     fetch('http://localhost:3001/get-race/'+this.state.id,{
       headers: {
@@ -141,28 +167,7 @@ export default class Archive extends Component {
 
 		<div className="body">
 
-		<nav className="navbar navbar-expand-sm navbar-dark" id="homepageNav">
-			<a className="navbar-brand" href="http://localhost:3000/">
-				<img src={logoRDB} alt="logo" style={{width:"110px"}}/>
-			</a>
-
-			<form className="form-inline my-2 my-lg-0">
-				<input className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"/>
-				<button className="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
-			</form>
-
-			<ul className="navbar-nav ml-auto">
-			<li className="nav-item">
-				<a className="btn btn-outline-light my-2 my-sm-0" href="http://localhost:3000/add-event" role="button">Create A Race</a>
-			</li>
-			<li className="nav-item">
-				<a className="nav-link" href="#">About Us</a>
-			</li>
-			<li className="nav-item">
-				<a className="nav-link" href="#">Contact Page</a>
-			</li>
-			</ul>
-		</nav>
+		<HomeNav username={this.state.username} name={this.state.name} token={this.state.token} loggedIn={this.state.loggedIn}/>
 
     <div id="carouselExampleIndicators" className="carousel slide mt-5 bg-dark" data-ride="carousel">
       <ol className="carousel-indicators">

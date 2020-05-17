@@ -9,7 +9,9 @@ export default class Pagination extends Component{
     const currentPage = urlParams.get('page');
     const currentFilter = urlParams.get('filter');
     const currentKey = urlParams.get('key');
-    const urlPage = "http://localhost:3000/search?filter="+currentFilter+"&key="+currentKey+"&page=";
+    const loggedInQuery = urlParams.get('loggedIn');
+    const tokenQuery = urlParams.get('token');
+    const urlPage = "http://localhost:3000/search?loggedIn="+loggedInQuery+"&token="+tokenQuery+"&filter="+currentFilter+"&key="+currentKey+"&page=";
     super(props);
     this.state={
       totalCount: parseInt(props.totalCount),

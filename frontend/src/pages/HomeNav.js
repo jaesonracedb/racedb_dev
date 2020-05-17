@@ -63,11 +63,11 @@ export default class HomeNav extends Component{
   render(){
     const loginUrl = "http://localhost:3000/login";
     const signupUrl = "http://localhost:3000/signup";
-    const homeUrl ="http://localhost:3000";
     const logoutUrl = "http://localhost:3000/"
     let {name} = this.state;
     let {loggedIn} = this.state;
     let {token} = this.state;
+    const homeUrl ="http://localhost:3000/?&loggedIn="+loggedIn+"&token="+token
     function IsLoggedIn(props){
       if(loggedIn){
         return <nav className="navbar navbar-expand-sm navbar-dark" id="homepageNav">

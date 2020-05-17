@@ -1,7 +1,7 @@
 import React, { Suspense, Component } from 'react';
 // import Cookies from 'universal-cookie';
 import {Helmet} from "react-helmet";
-import Navbar from "./Navbar.js";
+import Navbar from "./HomeNav.js";
 import SearchBar from "./SearchBar.js"
 import ArchiveCard from "./ArchiveCard.js"
 import Pagination from "./Pagination.js"
@@ -19,12 +19,38 @@ export default class Archive extends Component {
     const currentPage = urlParams.get('page');
     const currentFilter = urlParams.get('filter');
     const currentKey = urlParams.get('key');
+    const loggedInQuery = urlParams.get('loggedIn');
+    const tokenQuery = urlParams.get('token');
     this.state={
       page: currentPage,
       filter: currentFilter,
       key: currentKey,
-      search_results: []
+      search_results: [],
+      loggedIn: loggedInQuery,
+      token: tokenQuery,
+ 
     }
+    fetch('http://localhost:3001/token-info/',{
+      headers:{
+        'Authorization': 'Bearer '+this.state.token,
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      }
+    })
+    .then(res=>{return res.json()})
+    .then((body,err)=>{
+      console.log("Welcome: "+ body.name);
+      if(err){
+        console.log("Token not valid")
+        this.setState({loggedIn:false});
+      }else{
+        console.log("Logged In")
+        this.setState({
+          name: body.name,
+          username: body.username
+        })
+      } 
+    })
     console.log("Page is: "+this.state.page)
     fetch('http://localhost:3001/search-results/'+this.state.filter+'/'+this.state.key+'/id/'+this.state.page,{
       headers:{
@@ -80,7 +106,7 @@ export default class Archive extends Component {
     <div className="content">
     <div className="content-inside">
 
-    <Navbar/>
+    <Navbar username={this.state.username} name={this.state.name} token={this.state.token} loggedIn={this.state.loggedIn}/>
 
 
     <SearchBar/>

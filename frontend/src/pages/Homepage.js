@@ -73,9 +73,11 @@ export default class Homepage extends Component {
 
   render() {
     const loginUrl = "http://localhost:3000/login";
-    const locationUrl = "http://localhost:3000/search?filter=location&page=1&key=";
-    const categoriesUrl= "http://localhost:3000/search?filter=category&page=1&key=";
-    const featuredUrl = "http://localhost:3000/listing?id=";
+    const {loggedIn} = this.state;
+    const {token} = this.state;
+    const locationUrl = "http://localhost:3000/search?filter=location&page=1&loggedIn="+loggedIn+"&token="+token+"&key=";
+    const categoriesUrl= "http://localhost:3000/search?filter=category&page=1&loggedIn="+loggedIn+"&token="+token+"&key=";
+    const featuredUrl = "http://localhost:3000/listing?loggedIn="+loggedIn+"&token="+token+"&id=";
     const homeUrl ="http://localhost:3000";
     return (
     <div className="application">

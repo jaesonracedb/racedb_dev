@@ -4,11 +4,16 @@ export default class SearchBar extends Component{
   constructor(props){
     const url = require('url');
     const http = require('http');
-
+    const queryString =window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    const loggedInQuery = urlParams.get('loggedIn');
+    const tokenQuery = urlParams.get('token');
     super(props);
     this.state={
       filter:'name',
-      key:''
+      key:'',
+      loggedIn: loggedInQuery,
+      token: tokenQuery 
     }
     this.handleFilter = this.handleFilter.bind(this);
     this.handleKey = this.handleKey.bind(this);
@@ -27,7 +32,9 @@ export default class SearchBar extends Component{
   render(){
     let {filter}= this.state;
     let {key}=this.state;
-    const searchUrl = 'http://localhost:3000/search?page=1'
+    const {loggedIn} = this.state;
+    const {token} = this.state;
+    const searchUrl = "http://localhost:3000/search?page=1&loggedIn="+loggedIn+"&token="+token
     return(
       <div>
       <form className="search-bar"  onSubmit={handleSearch}>

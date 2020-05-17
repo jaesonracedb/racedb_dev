@@ -4,7 +4,14 @@ import Helmet from "react-helmet";
 import logoRDB from "./imgs/racedblogo-04-scaled.png";
 export default class ArchiveCard extends Component{
     constructor(props){
-      super(props);
+    super(props);
+    const url = require('url');
+    const http = require('http');
+    const queryString =window.location.search;
+    console.log("url"+queryString);
+    const urlParams = new URLSearchParams(queryString)
+    const loggedInQuery = urlParams.get('loggedIn');
+    const tokenQuery = urlParams.get('token');
       this.state ={
         id: props.id,
         title: props.title,
@@ -12,7 +19,9 @@ export default class ArchiveCard extends Component{
         distance: props.distance,
         category: props.category,
         rating: 0,
-        url: "http://localhost:3000/listing?id="+props.id
+        loggedIn: loggedInQuery,
+        token: tokenQuery,
+        url: "http://localhost:3000/listing?loggedIn="+loggedInQuery+"&token="+tokenQuery+"&id="+props.id
 
       }
 
