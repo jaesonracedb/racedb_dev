@@ -10,6 +10,7 @@ import Footer from "./Footer.js"
 // import logoRDB from "./imgs/racedblogo-04-scaled.png"
 export default class Archive extends Component {
   constructor(props){
+    super(props)
     const url = require('url');
     const http = require('http');
     const queryString =window.location.search;
@@ -18,7 +19,6 @@ export default class Archive extends Component {
     const currentPage = urlParams.get('page');
     const currentFilter = urlParams.get('filter');
     const currentKey = urlParams.get('key');
-    super(props)
     this.state={
       page: currentPage,
       filter: currentFilter,

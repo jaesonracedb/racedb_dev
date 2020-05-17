@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, useEffect } from 'react';
 // import Cookies from 'universal-cookie';
 import {Helmet} from "react-helmet";
 import styles from "./css/main.css";
@@ -15,12 +15,45 @@ import obstacle from "./imgs/obstacle-race.jpg";
 import HomeNav from "./HomeNav.js";
 import HomepageSearch from "./HomepageSearch.js";
 
+
 export default class Homepage extends Component {
   constructor(props){
     super(props);
+    const url = require('url');
+    const http = require('http');
+    const queryString =window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    const loggedInQuery = urlParams.get('loggedIn');
+    const tokenQuery = urlParams.get('token');
     this.state={
-      featured: []
+      featured: [],
+      loggedIn:loggedInQuery,
+      token: tokenQuery
     }
+    console.log('GETTING INFO USER ' + this.state.loggedIn)
+  
+    fetch('http://localhost:3001/token-info/',{
+      headers:{
+        'Authorization': 'Bearer '+this.state.token,
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      }
+    })
+    .then(res=>{return res.json()})
+    .then((body,err)=>{
+      console.log("Welcome: "+ body.name);
+      if(err){
+        console.log("Token not valid")
+        this.setState({loggedIn:false});
+      }else{
+        console.log("Logged In")
+        this.setState({
+          name: body.name,
+          username: body.username
+        })
+      } 
+    })
+
     fetch('http://localhost:3001/get-featured',{
         headers : {
           'Content-Type': 'application/json',
@@ -36,6 +69,8 @@ export default class Homepage extends Component {
       })
       console.log("fetched")
   }
+  
+
   render() {
     const loginUrl = "http://localhost:3000/login";
     const locationUrl = "http://localhost:3000/search?filter=location&page=1&key=";
@@ -63,8 +98,7 @@ export default class Homepage extends Component {
     <div className="body">
     <div className="content">
       <div className="content-inside">
-    <HomeNav/>
-    
+    <HomeNav username={this.state.username} name={this.state.name} token={this.state.token} loggedIn={this.state.loggedIn}/>
 
     {/*// --Logo and Search-->*/}
     <div className="container header" id="bannerHeader">
@@ -76,7 +110,7 @@ export default class Homepage extends Component {
       <img src={logoRDB} alt="Racedb" id="bannerLogo"/>
     	  <div className="row mx-auto">
     	   <div className="col-xs-8 col-xs-offset-2" id="homeSearch">
-    		<HomepageSearch/>{/*input-group*/}
+    		<HomepageSearch />{/*input-group*/}
     	   </div> {/*col-xs-8 col-xs-offset-2*/}
     	  </div>{/*row mx-auto*/}
     	</div> {/*container*/}

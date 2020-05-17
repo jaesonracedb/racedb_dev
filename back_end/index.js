@@ -17,14 +17,17 @@ const app = express()
 app.use(bodyParser.json())
 app.use(cookieParser())
 
+
 // CORS
 app.use(function(req, res, next) {
   res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000')
-  res.setHeader('Access-Control-Allow-Methods' ,'GET,POST,OPTIONS')
-  res.setHeader('Access-Control-Allow-Headers', 'Access-Control-Allow-Headers,Access-Control-Allow-Methods,Origin,Accept,Content-Type')
+  res.setHeader('Access-Control-Allow-Methods' ,'GET,PUT,POST,DELETE,PATCH,OPTIONS')
+  res.setHeader('Access-Control-Allow-Headers', 'Access-Control-Allow-Headers,Access-Control-Allow-Methods,Origin,Accept,Content-Type','Authorization')
   res.setHeader('Access-Control-Allow-Credentials', 'true')
   next()
 })
+app.use(cors())
+app.options('*', cors())
 app.options('*', function (req,res) { res.sendStatus(200); });
 
 // Declare Routes

@@ -62,33 +62,64 @@ exports.sampleAuthenticate = (req,res)=>{
 		}
 	})
 }
+exports.authenticateToken =(req,res,next) =>{
+	const authHeader = req.headers['authorization'];
+	const token = authHeader && authHeader.split(' ')[1];
+	console.log('Authenticating')
+	console.log(req.headers)
+	if(token == null) return res.sendStatus(401);
+	else{
+		console.log(token)
+		jwt.verify(token,process.env.ACCESS_TOKEN_SECRET, (err,user)=>{
+			if(err){
+				console.log("Failed to Authenticate")
+				return res.sendStatus(403);
+			}else{
+				req.user= user;
+				next();
+			}
+		})
+	}
+}
 
 exports.refreshToken =(req,res)=>{
 	console.log("Refreshing")
-	const refresh_token = req.body.token
-	var rFlag = false;
-	const queryString = 'SELECT COUNT(*) as flag FROM user_account where rToken REGEXP(?);'
-	const rTokRegEx = "\^"+refresh_token+"\$";
-	db.query(queryString,[rTokRegEx], (err1,results)=>{
-		if(refresh_token==null) return res.sendStatus(401)
-		else if(!results[0].flag >0){
-			console.log('Setting rflag true')
-			rFlag = true;
-			console.log(rFlag);
-			return res.sendStatus(403)
+	if(req.body.username == null){
+		return res.sendStatus(100)
+	}
+	const queryFindUser = "SELECT * from user_account where username REGEXP(?) LIMIT 1;";
+	const usernameRegEx = '\^' + req.body.username  + '\$'
+	db.query(queryFindUser,[usernameRegEx], (errUser,resultsUser)=>{
+		if(errUser){
+			console.log(errUser)
+			return res.sendStatus(401)
 		}else{
-			console.log("Else station")
-			jwt.verify(refresh_token,process.env.REFRESH_TOKEN_SECRET, (err2,user)=>{
-				if(err2){
-					console.log('Cannot verify')
+			console.log()
+			const refresh_token = resultsUser[0].rToken
+			var rFlag = false;
+			const queryString = 'SELECT COUNT(*) as flag FROM user_account where rToken REGEXP(?);'
+			const rTokRegEx = "\^"+refresh_token+"\$";
+			db.query(queryString,[rTokRegEx], (err1,results)=>{
+				if(refresh_token==null) return res.sendStatus(401)
+				else if(!results[0].flag >0){
+					console.log('Setting rflag true')
+					rFlag = true;
+					console.log(rFlag);
 					return res.sendStatus(403)
 				}else{
-					const accessToken = generateAccessToken({name: user.name, username: user.username})
-					res.json({token: accessToken})
+					console.log("Else station")
+					jwt.verify(refresh_token,process.env.REFRESH_TOKEN_SECRET, (err2,user)=>{
+						if(err2){
+							console.log('Cannot verify')
+							return res.sendStatus(403)
+						}else{
+							const accessToken = generateAccessToken({name: user.name, username: user.username})
+							res.json({token: accessToken})
+						}
+					})
 				}
-			})
+			})	
 		}
-
 	})
 }
 exports.logout = (req,res)=>{
@@ -102,31 +133,18 @@ exports.logout = (req,res)=>{
 		}
 	})
 }
-exports.authenticateToken =(req,res,next) =>{
-	const authHeader = req.headers['authorization'];
-	const token = authHeader && authHeader.split(' ')[1];
-	console.log('Authenticating')
-	if(token == null) return res.sendStatus(401);
-	else{
-		jwt.verify(token,process.env.ACCESS_TOKEN_SECRET, (err,user)=>{
-			if(err){
-				return res.sendStatus(403);
-			}else{
-				req.user= user;
-				next();
-			}
-		})
-	}
+exports.checkToken=(req,res)=>{
+	
 }
 function generateAccessToken(user){
-	return jwt.sign(user,process.env.ACCESS_TOKEN_SECRET,{ expiresIn: '30m' })
+	return jwt.sign(user,process.env.ACCESS_TOKEN_SECRET,{ expiresIn: '1d' })
 }
 exports.userLogin = async (req, res) => {
-  	console.log("User Log In");//Debug line
+	console.log("User Log In");//Debug line
 	console.log(req.body)
 	try{
- 		let queryString = "SELECT * from user_account where username REGEXP(?) LIMIT 1;";
-			//TODO: Add password to querry when the password fieldhas been changed
+		const queryString = "SELECT * from user_account where username REGEXP(?) LIMIT 1;";
+		//TODO: Add password to querry when the password fieldhas been changed
 		const usernameRegEx = '\^' + req.body.username  + '\$'
 		db.query(queryString,[usernameRegEx],(err, result) => {
 			//Case 1: querry error or user does not exist

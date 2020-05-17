@@ -9,7 +9,8 @@ export default class User extends Component {
     super(props)
     this.state ={
       username: '',
-      password:''
+      password:'',
+      loggedIn:false
     }
     this.handleUsername = this.handleUsername.bind(this);
     this.handlePassword = this.handlePassword.bind(this);
@@ -52,16 +53,14 @@ export default class User extends Component {
         else {
           // save the token as a cookie
           alert("Login successful!");
-          
+          this.setState({
+            loggedIn:true,
+            token: body.token,
+            rToken: body.refresh_token
+          })
+          const redirectUrl = "http://localhost:3000/?loggedIn=true&token="+body.token
+          window.location.replace(redirectUrl);
 
-          const cookies = new Cookies()
-          // cookies.set('authToken', body.token)
-          cookies.set('authToken', body.token, {path: '/', expires: new Date(Date.now()+3600000)});
-
-          // store username in localStorage
-          localStorage.setItem('username', body.username)
-
-          //window.location.replace('http://localhost:3000/dashboard')
 
         }
       })
