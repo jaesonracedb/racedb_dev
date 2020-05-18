@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import Cookies from 'universal-cookie';
+import StarRating from "./StarRating.js";
+import StaticStar from "./StaticStar.js"
+
 import {Helmet} from "react-helmet";
 import HomeNav from "./HomeNav.js"
 import styles from "./css/main.css"
@@ -92,6 +95,7 @@ export default class Archive extends Component {
     let {location_city}= this.state;
     let {state} = this.state;
     let {category} = this.state;
+    let {loggedIn} = this.state;
     let {distance} = this.state;
     let {swim_distance} = this.state;
     let {bike_distance} = this.state;
@@ -147,6 +151,20 @@ export default class Archive extends Component {
         return <SomeInfo/>;
       }
     }
+    function DisplayRating(props){
+      if(loggedIn){
+        return <div className="card ml-4 mt-3 p-3">
+          <h5 className="card-title">Submit Rating</h5>
+          
+          <StarRating size='30' />
+
+          {/* <textarea className="form-control" rows="5"></textarea>
+          <button className="btn btn-sm btn-outline-primary ml-auto mt-1" type="submit">Submit</button> */}
+        </div>
+        }else {
+          return <div/>
+        }
+    }
     return (
 		<div className="application">
 		<Helmet>
@@ -196,15 +214,11 @@ export default class Archive extends Component {
       </a>
     </div>
 
+    <h1>{this.state.name}</h1>
     <div>
-    	<h2 className="mt-5 ml-4">{this.state.name}</h2>
-    	<h5 className="mt-2 ml-4">{this.state.event_date}</h5>
-    	<span className="ml-4 fa fa-star checked"></span>
-    	<span className="fa fa-star checked"></span>
-    	<span className="fa fa-star checked"></span>
-    	<span className="fa fa-star"></span>
-    	<span className="fa fa-star"></span>
+    <StaticStar size="30"/>
     </div>
+    
     <div>
     	<div className="row">
     		<div className="col-sm-6 mr-5">
@@ -219,23 +233,11 @@ export default class Archive extends Component {
     				{/*<!--filler br-->*/}
     				<br/> <br/> <br/>
     			</div>
-
-    			<div className="card ml-4 mt-3 p-3">
-    				<h5 className="card-title">Submit a Review</h5>
-    				<div>
-    					<span className="fa fa-star checked"></span>
-    					<span className="fa fa-star checked"></span>
-    					<span className="fa fa-star checked"></span>
-    					<span className="fa fa-star"></span>
-    					<span className="fa fa-star"></span>
-    				</div>
-
-    				<textarea className="form-control" rows="5"></textarea>
-    				<button className="btn btn-sm btn-outline-primary ml-auto mt-1" type="submit">Submit</button>
-    			</div>
+    <DisplayRating/>
+    			
     		</div>
     		<div className="col-sm-4">
-    			//map to be improved
+    			{/* //map to be improved */}
     			<div id="map-container-google-1" className="z-depth-1-half map-container" >
     				<iframe src="https://maps.google.com/maps?q=manhatan&t=&z=13&ie=UTF8&iwloc=&output=embed" frameBorder="0" style={{border:0}} allowFullScreen></iframe>
     			</div>
@@ -245,13 +247,8 @@ export default class Archive extends Component {
     				<p className="card-text"><b>Website:</b>&nbsp;<a href={updatedUrl}>{this.state.website}</a></p>
     			</div>
 
-    			//ads to be finished
+    			{/* //ads to be finished */}
     			<div>
-    			</div>
-
-    			<div className="card mt-3 p-3">
-    				<p className="card-text">Own or work here?&nbsp;<a href="#" className="text-primary">Claim it!</a></p>
-    				<p className="card-text">See something wrong?&nbsp;<a href="#" className="text-danger">Report!</a></p>
     			</div>
     		</div>
     	</div>

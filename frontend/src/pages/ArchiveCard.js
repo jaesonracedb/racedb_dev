@@ -1,6 +1,7 @@
 import React, {Component } from 'react';
 import styles from "./css/archiveCard.css";
 import Helmet from "react-helmet";
+import StaticStar from "./StaticStar.js";
 import logoRDB from "./imgs/racedblogo-04-scaled.png";
 export default class ArchiveCard extends Component{
     constructor(props){
@@ -58,11 +59,7 @@ export default class ArchiveCard extends Component{
                   <p className="card-text">Date: {this.state.date}</p>
                   <p className="card-text">Distance: {this.state.distance}</p>
                   <p className="card-text">Category: {this.state.category}</p>
-                  <span className="fa fa-star checked"></span>
-                  <span className="fa fa-star checked"></span>
-                  <span className="fa fa-star checked"></span>
-                  <span className="fa fa-star"></span>
-                  <span className="fa fa-star"></span>
+                  <StaticStar size="15"/>
                 </div>
               </div>
             </div>

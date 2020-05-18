@@ -112,7 +112,65 @@ exports.getRace = (req,res)=>{
     }
   })
 }
-
+exports.getUserRating = (req,res)=>{
+  const queryString= "select SUM (rating) as total from likes where event_id = ? && username REGEXP(?)"
+  const username = "\^"+req.body.username+"\$"
+  db.query(queryString,[req.body.event_id,username],(err,results)=>{
+    console.log(req.body.username+" RATING: "+results[0].total)
+    if(err){
+      console.log("ERROR?")
+      console.log(err)
+      return res.sendStatus(400)
+    }else{
+      console.log('Getting Like from '+req.body.event_id)
+      return res.send({
+        total: results[0].total
+      })
+    }
+  })
+}
+exports.getRating = (req,res)=>{
+  console.log("GETTING RATING")
+  const queryString = "select AVG(rating) as total from likes where event_id = ?"
+  db.query(queryString,[req.body.event_id],(err,results)=>{
+    console.log("AVERAGE RATING: "+results[0].total)
+    if(err){
+      console.log("ERROR?")
+      console.log(err)
+      return res.sendStatus(400)
+    }else{
+      console.log('Getting Like from '+req.body.event_id)
+      return res.send({
+        total: results[0].total
+      })
+    }
+  })
+}
+exports.addLike = (req,res)=>{
+  const queryString = "insert into likes(event_id,username,rating) values (?,?,?);"
+  const event_id = req.body.event_id;
+  const username = req.body.username;
+  const usernameRegExp ="\^"+ req.body.username+"\$";
+  const rating = req.body.rating;
+  const updateLike = "update likes set rating = ? where event_id = ? AND username REGEXP (?)"
+  db.query(queryString,[event_id,username,rating],(err,results)=>{
+    if(err){
+      // insert code to alter rating
+      db.query(updateLike,[rating,event_id,usernameRegExp],(err1,results1)=>{
+        if(err1){
+          return res.sendStatus(400)
+        }else{
+          console.log("Like updated!!")
+          return res.sendStatus(200);
+        }
+      })
+    }else{
+      //
+      console.log("Like added!")
+      return res.sendStatus(200);
+    }
+  })
+}
 exports.addEvent = (req,res)=>{
   // console.log()
   // const id = req.body.id

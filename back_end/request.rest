@@ -6,16 +6,31 @@ Content-Type: application/json
     "password": "TestPassword4"
 }
 ###
-POST http://localhost:3001/token
+POST http://localhost:3001/get-rating
+Content-Type: application/json
+{
+    "event_id": 1195
+}
+###
+POST http://localhost:3001/add-like
 Content-Type: application/json
 
 {
-    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiVGVzdE5hbWUzIiwidXNlcm5hbWUiOiJUZXN0VXNlcjUiLCJpYXQiOjE1ODk1Njc5OTV9.FXqIOc1F81zYZeYiOjHZt4BT5mIF70pSsyYAIMgXDN4"
+    "event_id": 131,
+    "username": "TestUser40",
+    "rating": 1
+}
+###
+POST http://localhost:3001/refresh-user
+Content-Type: application/json
+
+{
+    "username": "TestUser5"
 }
 ###
 DELETE http://localhost:3001/logout
 Content-Type: application/json
-
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiVGVzdE5hbWUzIiwidXNlcm5hbWUiOiJUZXN0VXNlcjUiLCJpYXQiOjE1ODk2OTc5MDF9.kuV_El_-twwjMWWioQWiRnPXkTA2_Ucae-g_XqqQn0w
 {
     "token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiVGVzdE5hbWUzIiwidXNlcm5hbWUiOiJUZXN0VXNlcjUiLCJpYXQiOjE1ODk1NjgwNjV9.QS-jOKqPed2fC1hr785uIgucJyGsO95nsIXN0Y_yv44"
 }
@@ -35,5 +50,5 @@ Content-Type: application/json
 
 ###
 
-GET http://localhost:3001/sampleAuth
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiVGVzdE5hbWUzIiwidXNlcm5hbWUiOiJUZXN0VXNlcjUiLCJpYXQiOjE1ODk1Njc5OTUsImV4cCI6MTU4OTU2ODAyMH0.OQBqU7-Ng4ZD3Rj7lG2QGIGwjX_uAcg3u_nROgzQdMI
+GET http://localhost:3001/token-info
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiVGVzdE5hbWUzIiwidXNlcm5hbWUiOiJUZXN0VXNlcjUiLCJpYXQiOjE1ODk2OTkxODQsImV4cCI6MTU4OTY5OTE5OX0.eY2YOEWkT8aKeZP74f3dwQmczlhoLkiGJBXp5PHDZdY
