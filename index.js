@@ -19,11 +19,20 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json())
 app.use(cookieParser())
 
+if (process.env.NODE_ENV === 'production') {
+  // Exprees will serve up production assets
+  app.use(express.static('client/build'));
 
+  // Express serve up index.html file if it doesn't recognize route
+  const path = require('path');
+  app.get('*', (req, res) => {
+    res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+  });
+}
 
 // CORS
 app.use(function(req, res, next) {
-  res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000')
+  res.setHeader('Access-Control-Allow-Origin', __dirname)
   res.setHeader('Access-Control-Allow-Methods' ,'GET,PUT,POST,DELETE,PATCH,OPTIONS')
   res.setHeader('Access-Control-Allow-Headers', 'Access-Control-Allow-Headers,Access-Control-Allow-Methods,Origin,Accept,Content-Type','Authorization')
   res.setHeader('Access-Control-Allow-Credentials', 'true')
@@ -36,4 +45,4 @@ app.options('*', function (req,res) { res.sendStatus(200); });
 // Declare Routes
 require('./router/router')(app)
 
-app.listen(PORT, (err) => { if (!err) { console.log('Server listening at port 3001') } } )
+app.listen(PORT, (err) => { if (!err) { console.log('Server listening at port '+PORT) } } )
