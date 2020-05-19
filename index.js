@@ -1,3 +1,4 @@
+var PORT = process.env.PORT || 3001;
 const mysql = require('mysql');
 const express = require('express')
 const bodyParser = require('body-parser')
@@ -36,4 +37,4 @@ app.options('*', function (req,res) { res.sendStatus(200); });
 // Declare Routes
 require('./router/router')(app)
 
-app.listen(3001, (err) => { if (!err) { console.log('Server listening at port 3001') } } )
+app.listen(PORT, (err) => { if (!err) { console.log('Server listening at port 3001') } } )
