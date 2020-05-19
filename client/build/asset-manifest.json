@@ -1,0 +1,31 @@
+{
+  "files": {
+    "main.css": "/static/css/main.efb4cc36.chunk.css",
+    "main.js": "/static/js/main.a693b4ba.chunk.js",
+    "main.js.map": "/static/js/main.a693b4ba.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.fc86ed61.js",
+    "runtime-main.js.map": "/static/js/runtime-main.fc86ed61.js.map",
+    "static/js/2.1a61e930.chunk.js": "/static/js/2.1a61e930.chunk.js",
+    "static/js/2.1a61e930.chunk.js.map": "/static/js/2.1a61e930.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.c13106d6967c5606a4bd75255fefb1fc.js": "/precache-manifest.c13106d6967c5606a4bd75255fefb1fc.js",
+    "service-worker.js": "/service-worker.js",
+    "static/css/main.efb4cc36.chunk.css.map": "/static/css/main.efb4cc36.chunk.css.map",
+    "static/js/2.1a61e930.chunk.js.LICENSE.txt": "/static/js/2.1a61e930.chunk.js.LICENSE.txt",
+    "static/media/Canva-Runners-in-a-Marathon-1024x680.jpg": "/static/media/Canva-Runners-in-a-Marathon-1024x680.3a00ba5b.jpg",
+    "static/media/cycling.jpg": "/static/media/cycling.d9886075.jpg",
+    "static/media/default-running-thumbnail-1.png": "/static/media/default-running-thumbnail-1.bc39cda7.png",
+    "static/media/obstacle-race.jpg": "/static/media/obstacle-race.16c704b2.jpg",
+    "static/media/other.jpg": "/static/media/other.8722fad1.jpg",
+    "static/media/racedblogo-02-1024x640.png": "/static/media/racedblogo-02-1024x640.9bd6cb77.png",
+    "static/media/racedblogo-04-scaled.png": "/static/media/racedblogo-04-scaled.9f437a4d.png",
+    "static/media/running.jpg": "/static/media/running.547d68d0.jpg",
+    "static/media/triathlon.jpg": "/static/media/triathlon.a5ad5ae1.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.fc86ed61.js",
+    "static/js/2.1a61e930.chunk.js",
+    "static/css/main.efb4cc36.chunk.css",
+    "static/js/main.a693b4ba.chunk.js"
+  ]
+}
