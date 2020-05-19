@@ -1,0 +1,54 @@
+POST http://localhost:3001/userLogin
+Content-Type: application/json
+
+{
+    "username": "TestUser5",
+    "password": "TestPassword4"
+}
+###
+POST http://localhost:3001/get-rating
+Content-Type: application/json
+{
+    "event_id": 1195
+}
+###
+POST http://localhost:3001/add-like
+Content-Type: application/json
+
+{
+    "event_id": 131,
+    "username": "TestUser40",
+    "rating": 1
+}
+###
+POST http://localhost:3001/refresh-user
+Content-Type: application/json
+
+{
+    "username": "TestUser5"
+}
+###
+DELETE http://localhost:3001/logout
+Content-Type: application/json
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiVGVzdE5hbWUzIiwidXNlcm5hbWUiOiJUZXN0VXNlcjUiLCJpYXQiOjE1ODk2OTc5MDF9.kuV_El_-twwjMWWioQWiRnPXkTA2_Ucae-g_XqqQn0w
+{
+    "token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiVGVzdE5hbWUzIiwidXNlcm5hbWUiOiJUZXN0VXNlcjUiLCJpYXQiOjE1ODk1NjgwNjV9.QS-jOKqPed2fC1hr785uIgucJyGsO95nsIXN0Y_yv44"
+}
+
+###
+POST http://localhost:3001/create-user
+Content-Type: application/json
+
+{
+    "username": "TestUser5",
+    "password": "TestPassword4",
+    "email": "TestEmail5",
+    "firstName": "TestName3",
+    "lastName": "TestLast3",
+    "middleInit": "TestMinit3"
+}
+
+###
+
+GET http://localhost:3001/token-info
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiVGVzdE5hbWUzIiwidXNlcm5hbWUiOiJUZXN0VXNlcjUiLCJpYXQiOjE1ODk2OTkxODQsImV4cCI6MTU4OTY5OTE5OX0.eY2YOEWkT8aKeZP74f3dwQmczlhoLkiGJBXp5PHDZdY
