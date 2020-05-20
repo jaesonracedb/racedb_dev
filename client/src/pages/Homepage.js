@@ -26,7 +26,7 @@ export default class Homepage extends Component {
     const urlParams = new URLSearchParams(queryString);
     const loggedInQuery = urlParams.get('loggedIn');
     const tokenQuery = urlParams.get('token');
-    const webPage = "https://race-db.herokuapp.com"
+    var webPage = "https://race-db.herokuapp.com"
     this.state={
       featured: [],
       loggedIn:loggedInQuery,
@@ -74,7 +74,7 @@ export default class Homepage extends Component {
   
 
   render() {
-    const webPage = this.webPage;
+    var webPage = "https://race-db.herokuapp.com"
     const loginUrl = +webPage+":3000/login";
     const {loggedIn} = this.state;
     const {token} = this.state;
