@@ -19,6 +19,7 @@ import HomepageSearch from "./HomepageSearch.js";
 export default class Homepage extends Component {
   constructor(props){
     super(props);
+    var PORT = process.env.PORT || 3001;
     const url = require('url');
     const http = require('http');
     const queryString =window.location.search;
@@ -32,7 +33,7 @@ export default class Homepage extends Component {
     }
     console.log('GETTING INFO USER ' + this.state.loggedIn)
   
-    fetch('http://localhost:3001/token-info/',{
+    fetch(__dirname+":"+PORT+"/token-info/",{
       headers:{
         'Authorization': 'Bearer '+this.state.token,
         'Content-Type': 'application/json',
@@ -54,7 +55,7 @@ export default class Homepage extends Component {
       } 
     })
 
-    fetch('http://localhost:3001/get-featured',{
+    fetch(__dirname+":"+PORT+"/get-featured",{
         headers : {
           'Content-Type': 'application/json',
           'Accept': 'application/json'
@@ -72,13 +73,13 @@ export default class Homepage extends Component {
   
 
   render() {
-    const loginUrl = "http://localhost:3000/login";
+    const loginUrl = __dirname+":3000/login";
     const {loggedIn} = this.state;
     const {token} = this.state;
-    const locationUrl = "http://localhost:3000/search?filter=location&page=1&loggedIn="+loggedIn+"&token="+token+"&key=";
-    const categoriesUrl= "http://localhost:3000/search?filter=category&page=1&loggedIn="+loggedIn+"&token="+token+"&key=";
-    const featuredUrl = "http://localhost:3000/listing?loggedIn="+loggedIn+"&token="+token+"&id=";
-    const homeUrl ="http://localhost:3000";
+    const locationUrl =  __dirname+":3000/search?filter=location&page=1&loggedIn="+loggedIn+"&token="+token+"&key=";
+    const categoriesUrl=  __dirname+":3000/search?filter=category&page=1&loggedIn="+loggedIn+"&token="+token+"&key=";
+    const featuredUrl =  __dirname+":3000/listing?loggedIn="+loggedIn+"&token="+token+"&id=";
+    const homeUrl = __dirname+":3000";
     return (
     <div className="application">
     <Helmet>
