@@ -75,13 +75,13 @@ export default class Homepage extends Component {
 
   render() {
     var webPage = "https://race-db.herokuapp.com"
-    const loginUrl = +webPage+":3000/login";
+    const loginUrl = +webPage+"/login";
     const {loggedIn} = this.state;
     const {token} = this.state;
-    const locationUrl =  webPage+":3000/search?filter=location&page=1&loggedIn="+loggedIn+"&token="+token+"&key=";
-    const categoriesUrl=  webPage+":3000/search?filter=category&page=1&loggedIn="+loggedIn+"&token="+token+"&key=";
-    const featuredUrl =  webPage+":3000/listing?loggedIn="+loggedIn+"&token="+token+"&id=";
-    const homeUrl = webPage+":3000";
+    const locationUrl =  webPage+"/search?filter=location&page=1&loggedIn="+loggedIn+"&token="+token+"&key=";
+    const categoriesUrl=  webPage+"/search?filter=category&page=1&loggedIn="+loggedIn+"&token="+token+"&key=";
+    const featuredUrl =  webPage+"/listing?loggedIn="+loggedIn+"&token="+token+"&id=";
+    const homeUrl = webPage;
     return (
     <div className="application">
     <Helmet>

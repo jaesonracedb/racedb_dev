@@ -64,14 +64,14 @@ export default class HomeNav extends Component{
 
   render(){
     var webPage = "https://race-db.herokuapp.com"
-    const loginUrl = webPage+":3000/login";
-    const signupUrl = webPage+":3000/signup";
-    const logoutUrl = webPage+":3000/";
-    const createRaceUrl = webPage+":3000/add-event";
+    const loginUrl = webPage+"/login";
+    const signupUrl = webPage+"/signup";
+    const logoutUrl = webPage+"/";
+    const createRaceUrl = webPage+"/add-event";
     let {name} = this.state;
     let {loggedIn} = this.state;
     let {token} = this.state;
-    const homeUrl =webPage+":3000/?&loggedIn="+loggedIn+"&token="+token
+    const homeUrl =webPage+"/?&loggedIn="+loggedIn+"&token="+token
     function IsLoggedIn(props){
       if(loggedIn){
         return <nav className="navbar navbar-expand-sm navbar-dark" id="homepageNav">
