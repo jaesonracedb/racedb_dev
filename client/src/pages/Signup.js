@@ -71,6 +71,8 @@ export default class Signup extends Component {
     let verifyPass1 = this.state.password;
     let verifyPass2 = this.state.password1;
     let thisUser = this.state.username;
+    var PORT = process.env.PORT || 3001;
+    var webPage = "https://race-db.herokuapp.com"
     const regExName = /^([a-zA-Z0-9\s])*$/;
     const regExUser = /^([a-zA-Z0-9\_])*$/;
     const newUser = {
@@ -87,7 +89,7 @@ export default class Signup extends Component {
             if(verifyPass1 === verifyPass2){
               console.log("Signed Up");
             alert('Nice');
-            fetch('http://localhost:3001/create-user', {
+            fetch(webPage+':'+PORT+'/create-user', {
               method: "POST",
               headers: {
                 'Content-Type': 'application/json'

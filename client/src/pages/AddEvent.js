@@ -5,6 +5,15 @@ import logoRDB from "./imgs/racedblogo-04-scaled.png";
 class AddEvent extends PureComponent {
   constructor(){
     super()
+    const url = require('url');
+    const http = require('http');
+    const queryString =window.location.search;
+    console.log("url"+queryString);
+    const urlParams = new URLSearchParams(queryString)
+    const loggedInQuery = urlParams.get('loggedIn');
+    const tokenQuery = urlParams.get('token');
+    var PORT = process.env.PORT || 3001;
+    var webPage = "https://race-db.herokuapp.com"
     this.state= {
       // id: null,
       name: '',
@@ -20,8 +29,32 @@ class AddEvent extends PureComponent {
       email: '',
       summary: '',
       race_type:'',
-      cycling_type: ''
+      cycling_type: '',
+      loggedIn: loggedInQuery,
+      token: tokenQuery,
+
     }
+    fetch(webPage+":"+PORT+"/token-info/",{
+      headers:{
+        'Authorization': 'Bearer '+this.state.token,
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      }
+    })
+    .then(res=>{return res.json()})
+    .then((body,err)=>{
+      console.log("Welcome: "+ body.name);
+      if(err){
+        console.log("Token not valid")
+        this.setState({loggedIn:false});
+      }else{
+        console.log("Logged In")
+        this.setState({
+          name: body.user_name,
+          username: body.username
+        })
+      } 
+    })
     this.handleAddEvent = this.handleAddEvent.bind(this)
     this.handleNameChange = this.handleNameChange.bind(this)
     this.handleEvent_date = this.handleEvent_date.bind(this)
@@ -60,7 +93,7 @@ class AddEvent extends PureComponent {
   //     }
 
   handleAddEvent(e){
-    fetch('http://localhost:3001/add-event',{
+    fetch(webPage+':'+PORT+'/add-event',{
       method: 'POST',
       headers : {
         'Content-Type': 'application/json',
@@ -297,23 +330,7 @@ class AddEvent extends PureComponent {
           <div class="content">
             <div class="content-inside">
 
-            <nav class="navbar navbar-expand-sm navbar-dark" id="homepageNav">
-              <a class="navbar-brand ml-3" href="http://localhost:3000/">
-                <img src={logoRDB} alt="logo" style= {{width:"110px"}}/>
-              </a>
-
-              <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                  <a class="btn btn-outline-light my-2 my-sm-0" href="http://localhost:3000/add-event" role="button">Create A Race</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">Sign Up</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">Login</a>
-                </li>
-              </ul>
-            </nav>
+            <HomeNav username={this.state.username} name={this.state.user_name} token={this.state.token} loggedIn={this.state.loggedIn}/>
 
 
             <div>

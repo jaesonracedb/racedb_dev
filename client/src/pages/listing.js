@@ -18,6 +18,8 @@ export default class Archive extends Component {
     const event_id = urlParams.get('id');
     const loggedInQuery = urlParams.get('loggedIn');
     const tokenQuery = urlParams.get('token');
+    var PORT = process.env.PORT || 3001;
+    var webPage = "https://race-db.herokuapp.com"
     // const queryObject = url.parse(req.url.true).query;
     this.state={
       id: event_id,
@@ -38,7 +40,7 @@ export default class Archive extends Component {
       loggedIn: loggedInQuery,
       token: tokenQuery,
     }
-    fetch('http://localhost:3001/token-info/',{
+    fetch(webPage+':'+PORT+'/token-info/',{
       headers:{
         'Authorization': 'Bearer '+this.state.token,
         'Content-Type': 'application/json',
@@ -60,7 +62,7 @@ export default class Archive extends Component {
       } 
     })
     console.log("Race id is: "+ this.state.id)
-    fetch('http://localhost:3001/get-race/'+this.state.id,{
+    fetch(webPage+':'+PORT+'/get-race/'+this.state.id,{
       headers: {
         'Content-Type': 'application/json',
         'Accept': 'application/json'

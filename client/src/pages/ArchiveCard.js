@@ -13,6 +13,8 @@ export default class ArchiveCard extends Component{
     const urlParams = new URLSearchParams(queryString)
     const loggedInQuery = urlParams.get('loggedIn');
     const tokenQuery = urlParams.get('token');
+    var PORT = process.env.PORT || 3001;
+    var webPage = "https://race-db.herokuapp.com"
       this.state ={
         id: props.id,
         title: props.title,
@@ -22,7 +24,7 @@ export default class ArchiveCard extends Component{
         rating: 0,
         loggedIn: loggedInQuery,
         token: tokenQuery,
-        url: "http://localhost:3000/listing?loggedIn="+loggedInQuery+"&token="+tokenQuery+"&id="+props.id
+        url: webPage+"/listing?loggedIn="+loggedInQuery+"&token="+tokenQuery+"&id="+props.id
 
       }
 

@@ -8,6 +8,8 @@ export default class SearchBar extends Component{
     const urlParams = new URLSearchParams(queryString);
     const loggedInQuery = urlParams.get('loggedIn');
     const tokenQuery = urlParams.get('token');
+    var PORT = process.env.PORT || 3001;
+    var webPage = "https://race-db.herokuapp.com"
     super(props);
     this.state={
       filter:'name',
@@ -34,7 +36,8 @@ export default class SearchBar extends Component{
     let {key}=this.state;
     const {loggedIn} = this.state;
     const {token} = this.state;
-    const searchUrl = "http://localhost:3000/search?page=1&loggedIn="+loggedIn+"&token="+token
+    var webPage = "https://race-db.herokuapp.com"
+    const searchUrl = webPage+"/search?page=1&loggedIn="+loggedIn+"&token="+token
     return(
       <div>
       <form className="search-bar"  onSubmit={handleSearch}>

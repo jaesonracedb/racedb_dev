@@ -19,13 +19,13 @@ import HomepageSearch from "./HomepageSearch.js";
 export default class Homepage extends Component {
   constructor(props){
     super(props);
-    var PORT = process.env.PORT || 3001;
     const url = require('url');
     const http = require('http');
     const queryString =window.location.search;
     const urlParams = new URLSearchParams(queryString);
     const loggedInQuery = urlParams.get('loggedIn');
     const tokenQuery = urlParams.get('token');
+    var PORT = process.env.PORT || 3001;
     var webPage = "https://race-db.herokuapp.com"
     this.state={
       featured: [],

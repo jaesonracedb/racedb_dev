@@ -12,6 +12,8 @@ export default class StaticStar extends Component {
         const loggedInQuery = urlParams.get('loggedIn');
         const tokenQuery = urlParams.get('token');
         const idQuery = urlParams.get('id');
+        var PORT = process.env.PORT || 3001;
+        var webPage = "https://race-db.herokuapp.com"
         this.state={
             size: props.size,
             rating: null,
@@ -20,7 +22,7 @@ export default class StaticStar extends Component {
             token: tokenQuery,
             event_id: idQuery
         }
-        fetch('http://localhost:3001/get-rating',{
+        fetch(webPage+':'+PORT+'/get-rating',{
             method:"POST",
             headers:{
                 "Content-Type": 'application/json',

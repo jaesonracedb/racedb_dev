@@ -7,6 +7,8 @@ import HomeNav from "./HomeNav.js";
 export default class User extends Component {
   constructor(props) {
     super(props)
+    var PORT = process.env.PORT || 3001;
+    var webPage = "https://race-db.herokuapp.com"
     this.state ={
       username: '',
       password:'',
@@ -33,8 +35,9 @@ export default class User extends Component {
       username: this.state.username,
       password: this.state.password
     }
-
-    fetch('http://localhost:3001/userLogin', {
+    var PORT = process.env.PORT || 3001;
+    var webPage = "https://race-db.herokuapp.com"
+    fetch(webPage+':'+PORT+'/userLogin', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -58,7 +61,7 @@ export default class User extends Component {
             token: body.token,
             rToken: body.refresh_token
           })
-          const redirectUrl = "http://localhost:3000/?loggedIn=true&token="+body.token
+          const redirectUrl = webPage+"/?loggedIn=true&token="+body.token
           window.location.replace(redirectUrl);
 
 

@@ -11,7 +11,9 @@ export default class Pagination extends Component{
     const currentKey = urlParams.get('key');
     const loggedInQuery = urlParams.get('loggedIn');
     const tokenQuery = urlParams.get('token');
-    const urlPage = "http://localhost:3000/search?loggedIn="+loggedInQuery+"&token="+tokenQuery+"&filter="+currentFilter+"&key="+currentKey+"&page=";
+    var PORT = process.env.PORT || 3001;
+    var webPage = "https://race-db.herokuapp.com"
+    const urlPage = webPage+"/search?loggedIn="+loggedInQuery+"&token="+tokenQuery+"&filter="+currentFilter+"&key="+currentKey+"&page=";
     super(props);
     this.state={
       totalCount: parseInt(props.totalCount),

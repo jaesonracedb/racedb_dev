@@ -12,6 +12,8 @@ export default class StarRating extends Component {
         const loggedInQuery = urlParams.get('loggedIn');
         const tokenQuery = urlParams.get('token');
         const idQuery = urlParams.get('id');
+        var PORT = process.env.PORT || 3001;
+        var webPage = "https://race-db.herokuapp.com"
         this.state={
             size: props.size,
             rating: null,
@@ -25,7 +27,7 @@ export default class StarRating extends Component {
         this.handleHover = this.handleHover.bind(this);
         
         // add fetch rating here
-        fetch('http://localhost:3001/token-info/',{
+        fetch(webPage+':'+PORT+'/token-info/',{
             headers:{
                 'Authorization': 'Bearer '+this.state.token,
                 'Content-Type': 'application/json',
@@ -45,7 +47,7 @@ export default class StarRating extends Component {
                 loggedIn: true,
                 username: body.username
                 })
-                fetch('http://localhost:3001/get-user-rating/',{
+                fetch(webPage+':'+PORT+'/get-user-rating/',{
                     method:"POST",
                     headers:{
                         "Content-Type": 'application/json',
@@ -72,10 +74,12 @@ export default class StarRating extends Component {
         })
     }
     handleRating(e){
+        var PORT = process.env.PORT || 3001;
+        var webPage = "https://race-db.herokuapp.com"
         this.setState({
             rating: e.target.value
         })
-        fetch('http://localhost:3001/add-like',{
+        fetch(webPage+':'+PORT+'/add-like',{
             method: "POST",
             headers: {
                 'Content-Type': 'application/json'
