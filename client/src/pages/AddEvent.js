@@ -1,5 +1,6 @@
 import React, {PureComponent} from 'react';
 import {Helmet} from "react-helmet";
+import HomeNav from "./HomeNav.js";
 import logoRDB from "./imgs/racedblogo-04-scaled.png";
 
 class AddEvent extends PureComponent {
@@ -93,6 +94,8 @@ class AddEvent extends PureComponent {
   //     }
 
   handleAddEvent(e){
+    var PORT = process.env.PORT || 3001;
+    var webPage = "https://race-db.herokuapp.com"
     fetch(webPage+':'+PORT+'/add-event',{
       method: 'POST',
       headers : {
