@@ -26,6 +26,7 @@ export default class Homepage extends Component {
     const urlParams = new URLSearchParams(queryString);
     const loggedInQuery = urlParams.get('loggedIn');
     const tokenQuery = urlParams.get('token');
+    const webPage = "https://race-db.herokuapp.com"
     this.state={
       featured: [],
       loggedIn:loggedInQuery,
@@ -33,7 +34,7 @@ export default class Homepage extends Component {
     }
     console.log('GETTING INFO USER ' + this.state.loggedIn)
   
-    fetch(__dirname+":"+PORT+"/token-info/",{
+    fetch(webPage+":"+PORT+"/token-info/",{
       headers:{
         'Authorization': 'Bearer '+this.state.token,
         'Content-Type': 'application/json',
@@ -55,7 +56,7 @@ export default class Homepage extends Component {
       } 
     })
 
-    fetch(__dirname+":"+PORT+"/get-featured",{
+    fetch(webPage+":"+PORT+"/get-featured",{
         headers : {
           'Content-Type': 'application/json',
           'Accept': 'application/json'
@@ -73,13 +74,14 @@ export default class Homepage extends Component {
   
 
   render() {
-    const loginUrl = __dirname+":3000/login";
+    const webPage = this.webPage;
+    const loginUrl = +webPage+":3000/login";
     const {loggedIn} = this.state;
     const {token} = this.state;
-    const locationUrl =  __dirname+":3000/search?filter=location&page=1&loggedIn="+loggedIn+"&token="+token+"&key=";
-    const categoriesUrl=  __dirname+":3000/search?filter=category&page=1&loggedIn="+loggedIn+"&token="+token+"&key=";
-    const featuredUrl =  __dirname+":3000/listing?loggedIn="+loggedIn+"&token="+token+"&id=";
-    const homeUrl = __dirname+":3000";
+    const locationUrl =  webPage+":3000/search?filter=location&page=1&loggedIn="+loggedIn+"&token="+token+"&key=";
+    const categoriesUrl=  webPage+":3000/search?filter=category&page=1&loggedIn="+loggedIn+"&token="+token+"&key=";
+    const featuredUrl =  webPage+":3000/listing?loggedIn="+loggedIn+"&token="+token+"&id=";
+    const homeUrl = webPage+":3000";
     return (
     <div className="application">
     <Helmet>
