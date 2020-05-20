@@ -63,6 +63,7 @@ export default class HomeNav extends Component{
 
 
   render(){
+    var webPage = "https://race-db.herokuapp.com"
     const loginUrl = webPage+":3000/login";
     const signupUrl = webPage+":3000/signup";
     const logoutUrl = webPage+":3000/";
