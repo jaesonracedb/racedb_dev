@@ -27,7 +27,7 @@ export default class Homepage extends Component {
     const tokenQuery = urlParams.get('token');
     var PORT = process.env.PORT || 3001;
     var webPage = "https://race-db.herokuapp.com"
-    const console.log("PORT IS: "+PORT)
+    console.log("PORT IS: "+PORT)
     this.state={
       featured: [],
       loggedIn:loggedInQuery,
