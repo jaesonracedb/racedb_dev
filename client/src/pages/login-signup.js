@@ -37,7 +37,7 @@ export default class User extends Component {
     }
     var PORT = process.env.PORT || 3001;
     var webPage = "https://race-db.herokuapp.com"
-    fetch(webPage+':'+PORT+'/userLogin', {
+    fetch('/userLogin', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'

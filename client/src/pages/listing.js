@@ -40,7 +40,7 @@ export default class Archive extends Component {
       loggedIn: loggedInQuery,
       token: tokenQuery,
     }
-    fetch(webPage+':'+PORT+'/token-info/',{
+    fetch('/token-info/',{
       headers:{
         'Authorization': 'Bearer '+this.state.token,
         'Content-Type': 'application/json',
@@ -62,7 +62,7 @@ export default class Archive extends Component {
       } 
     })
     console.log("Race id is: "+ this.state.id)
-    fetch(webPage+':'+PORT+'/get-race/'+this.state.id,{
+    fetch('/get-race/'+this.state.id,{
       headers: {
         'Content-Type': 'application/json',
         'Accept': 'application/json'

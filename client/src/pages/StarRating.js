@@ -27,7 +27,7 @@ export default class StarRating extends Component {
         this.handleHover = this.handleHover.bind(this);
         
         // add fetch rating here
-        fetch(webPage+':'+PORT+'/token-info/',{
+        fetch('/token-info/',{
             headers:{
                 'Authorization': 'Bearer '+this.state.token,
                 'Content-Type': 'application/json',
@@ -47,7 +47,7 @@ export default class StarRating extends Component {
                 loggedIn: true,
                 username: body.username
                 })
-                fetch(webPage+':'+PORT+'/get-user-rating/',{
+                fetch('/get-user-rating/',{
                     method:"POST",
                     headers:{
                         "Content-Type": 'application/json',
@@ -79,7 +79,7 @@ export default class StarRating extends Component {
         this.setState({
             rating: e.target.value
         })
-        fetch(webPage+':'+PORT+'/add-like',{
+        fetch('/add-like',{
             method: "POST",
             headers: {
                 'Content-Type': 'application/json'

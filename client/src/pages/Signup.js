@@ -89,7 +89,7 @@ export default class Signup extends Component {
             if(verifyPass1 === verifyPass2){
               console.log("Signed Up");
             alert('Nice');
-            fetch(webPage+':'+PORT+'/create-user', {
+            fetch('/create-user', {
               method: "POST",
               headers: {
                 'Content-Type': 'application/json'

@@ -35,7 +35,7 @@ class AddEvent extends PureComponent {
       token: tokenQuery,
 
     }
-    fetch(webPage+":"+PORT+"/token-info/",{
+    fetch("/token-info/",{
       headers:{
         'Authorization': 'Bearer '+this.state.token,
         'Content-Type': 'application/json',
@@ -96,7 +96,7 @@ class AddEvent extends PureComponent {
   handleAddEvent(e){
     var PORT = process.env.PORT || 3001;
     var webPage = "https://race-db.herokuapp.com"
-    fetch(webPage+':'+PORT+'/add-event',{
+    fetch('/add-event',{
       method: 'POST',
       headers : {
         'Content-Type': 'application/json',

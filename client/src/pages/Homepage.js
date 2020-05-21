@@ -57,7 +57,7 @@ export default class Homepage extends Component {
       } 
     })
 
-    fetch(webPage+":3001/get-featured",{
+    fetch("/get-featured",{
         headers : {
           'Content-Type': 'application/json',
           'Accept': 'application/json'
