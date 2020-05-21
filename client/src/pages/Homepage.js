@@ -35,7 +35,7 @@ export default class Homepage extends Component {
     }
     console.log('GETTING INFO USER ' + this.state.loggedIn)
   
-    fetch(webPage+":"+PORT+"/token-info/",{
+    fetch(webPage+":3001/token-info/",{
       headers:{
         'Authorization': 'Bearer '+this.state.token,
         'Content-Type': 'application/json',
@@ -57,7 +57,7 @@ export default class Homepage extends Component {
       } 
     })
 
-    fetch(webPage+":"+PORT+"/get-featured",{
+    fetch(webPage+":3001/get-featured",{
         headers : {
           'Content-Type': 'application/json',
           'Accept': 'application/json'
