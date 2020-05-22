@@ -10,10 +10,12 @@ Next go back to the master branch and change the database config by entering the
 
 Next, on the root folder of the Master run the code 
 ```
+npm install
 node index
 ```
 Finally, open another terminal and enter the client folder and run the code
 ```
+npm install
 sudo npm start
 ```
 
