@@ -21,7 +21,7 @@ export default class Archive extends Component {
     const currentKey = urlParams.get('key');
     const loggedInQuery = urlParams.get('loggedIn');
     const tokenQuery = urlParams.get('token');
-    var PORT = process.env.PORT || 3001;
+    var PORT = process.env.PORT || 80;
     var webPage = "https://race-db.herokuapp.com"
     this.state={
       page: currentPage,
@@ -32,7 +32,7 @@ export default class Archive extends Component {
       token: tokenQuery,
  
     }
-    fetch('/token-info/',{
+    fetch(webPage+':'+PORT+'/token-info/',{
       headers:{
         'Authorization': 'Bearer '+this.state.token,
         'Content-Type': 'application/json',
@@ -54,7 +54,7 @@ export default class Archive extends Component {
       } 
     })
     console.log("Page is: "+this.state.page)
-    fetch('/search-results/'+this.state.filter+'/'+this.state.key+'/id/'+this.state.page,{
+    fetch(webPage+':'+PORT+'/search-results/'+this.state.filter+'/'+this.state.key+'/id/'+this.state.page,{
       headers:{
         'Content-Type': 'application/json',
         'Accept': 'application/json'

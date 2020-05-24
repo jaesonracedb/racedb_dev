@@ -19,7 +19,7 @@ export default class HomeNav extends Component{
     }
     console.log("NAME IS : "+this.state.name)
   
-    fetch('/token-info/',{
+    fetch(webPage+':'+PORT+'/token-info/',{
       headers:{
         'Authorization': 'Bearer '+this.state.token,
         'Content-Type': 'application/json',

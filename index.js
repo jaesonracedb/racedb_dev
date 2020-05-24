@@ -1,4 +1,4 @@
-var PORT = process.env.PORT || 3001;
+var PORT = process.env.PORT || 80;
 const mysql = require('mysql');
 const express = require('express')
 const bodyParser = require('body-parser')

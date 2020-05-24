@@ -25,7 +25,7 @@ export default class Homepage extends Component {
     const urlParams = new URLSearchParams(queryString);
     const loggedInQuery = urlParams.get('loggedIn');
     const tokenQuery = urlParams.get('token');
-    var PORT = process.env.PORT || 3001;
+    var PORT = process.env.PORT || 80;
     var webPage = "https://race-db.herokuapp.com"
     console.log("PORT IS: "+PORT)
     this.state={
@@ -35,7 +35,7 @@ export default class Homepage extends Component {
     }
     console.log('GETTING INFO USER ' + this.state.loggedIn)
   
-    fetch(webPage+":3001/token-info/",{
+    fetch(webPage+":"+PORT+"/token-info/",{
       headers:{
         'Authorization': 'Bearer '+this.state.token,
         'Content-Type': 'application/json',
@@ -57,7 +57,7 @@ export default class Homepage extends Component {
       } 
     })
 
-    fetch("/get-featured",{
+    fetch(webPage+":"+PORT+"/get-featured",{
         headers : {
           'Content-Type': 'application/json',
           'Accept': 'application/json'

@@ -7,7 +7,7 @@ import HomeNav from "./HomeNav.js";
 export default class User extends Component {
   constructor(props) {
     super(props)
-    var PORT = process.env.PORT || 3001;
+    var PORT = process.env.PORT || 80;
     var webPage = "https://race-db.herokuapp.com"
     this.state ={
       username: '',
@@ -37,7 +37,7 @@ export default class User extends Component {
     }
     var PORT = process.env.PORT || 3001;
     var webPage = "https://race-db.herokuapp.com"
-    fetch('/userLogin', {
+    fetch(webPage+':'+PORT+'/userLogin', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'

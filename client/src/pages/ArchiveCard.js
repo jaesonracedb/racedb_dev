@@ -13,7 +13,7 @@ export default class ArchiveCard extends Component{
     const urlParams = new URLSearchParams(queryString)
     const loggedInQuery = urlParams.get('loggedIn');
     const tokenQuery = urlParams.get('token');
-    var PORT = process.env.PORT || 3001;
+    var PORT = process.env.PORT || 80;
     var webPage = "https://race-db.herokuapp.com"
       this.state ={
         id: props.id,

@@ -71,7 +71,7 @@ export default class Signup extends Component {
     let verifyPass1 = this.state.password;
     let verifyPass2 = this.state.password1;
     let thisUser = this.state.username;
-    var PORT = process.env.PORT || 3001;
+    var PORT = process.env.PORT || 80;
     var webPage = "https://race-db.herokuapp.com"
     const regExName = /^([a-zA-Z0-9\s])*$/;
     const regExUser = /^([a-zA-Z0-9\_])*$/;
@@ -88,8 +88,7 @@ export default class Signup extends Component {
           if(verifyPass1.length >= 8){
             if(verifyPass1 === verifyPass2){
               console.log("Signed Up");
-            alert('Nice');
-            fetch('/create-user', {
+            fetch(webPage+':'+PORT+'/create-user', {
               method: "POST",
               headers: {
                 'Content-Type': 'application/json'
@@ -99,22 +98,22 @@ export default class Signup extends Component {
               .then(response => response.json())
               .then(body => {
                 if (body.success) {
-                  alert('Successfully signed up!')
+                  alert('Account Created!');
                 } else {
                   alert('Failed to sign up')
                 }
               })
             }else{
-              console.log('Passwords do not match!')
+              alert('Passwords do not match!')
             }
           }else{
-            console.log("Error: Password is too short");
+            alert("Error: Password is too short");
           }
       }else{
-        console.log("Error: Invalid Characters in name")
+        alert("Error: Invalid Characters in name")
       }
     }else{
-      console.log("Error: Invalid Username")
+      alert("Error: Invalid Username")
     }
     
 

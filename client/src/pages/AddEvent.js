@@ -13,7 +13,7 @@ class AddEvent extends PureComponent {
     const urlParams = new URLSearchParams(queryString)
     const loggedInQuery = urlParams.get('loggedIn');
     const tokenQuery = urlParams.get('token');
-    var PORT = process.env.PORT || 3001;
+    var PORT = process.env.PORT || 80;
     var webPage = "https://race-db.herokuapp.com"
     this.state= {
       // id: null,
@@ -35,7 +35,7 @@ class AddEvent extends PureComponent {
       token: tokenQuery,
 
     }
-    fetch("/token-info/",{
+    fetch(webPage+":"+PORT+"/token-info/",{
       headers:{
         'Authorization': 'Bearer '+this.state.token,
         'Content-Type': 'application/json',
@@ -94,9 +94,9 @@ class AddEvent extends PureComponent {
   //     }
 
   handleAddEvent(e){
-    var PORT = process.env.PORT || 3001;
+    var PORT = process.env.PORT || 80;
     var webPage = "https://race-db.herokuapp.com"
-    fetch('/add-event',{
+    fetch(webPage+':'+PORT+'/add-event',{
       method: 'POST',
       headers : {
         'Content-Type': 'application/json',
