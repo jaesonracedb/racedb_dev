@@ -26,11 +26,12 @@ export default class HomeNav extends Component{
         'Content-Type': 'application/json',
         'Accept': 'application/json'
       }
-    }).catch(()=>{
-      console.log("ERRORS???")
+    }).catch((error10)=>{
+      console.log(error10)
     })
     .then(res=>{
-      if(res.status===403){
+      console.log(res);
+      if(res.status===403 ){
         this.setState({
           loggedIn:false
         })
