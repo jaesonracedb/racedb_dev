@@ -1,5 +1,6 @@
 import React,{Component, useState, useEffect} from 'react';
 import logoRDB from "./imgs/racedblogo-04-scaled.png";
+import "./css/main.css";
 export default class HomeNav extends Component{
   constructor(props){
     super(props)
