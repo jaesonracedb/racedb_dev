@@ -40,8 +40,8 @@ exports.createUser = async (req,res) =>{
 				}
 			}
 		})
-	}catch{
-		console.log("error applying salt");
+	}catch(error){
+		console.log(error)
 		res.sendStatus(500);
 	}
 }
@@ -201,7 +201,8 @@ exports.userLogin = async (req, res) => {
 			})
 		}
 		});
-	}catch{
+	}catch(error){
+		console.log(error);
 		res.sendStatus(500);
 	}
 }

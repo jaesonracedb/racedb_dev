@@ -4,7 +4,7 @@ import "./css/main.css";
 export default class HomeNav extends Component{
   constructor(props){
     super(props)
-    var PORT = process.env.PORT || 3001;
+    var PORT = process.env.PORT || 80;
     const url = require('url');
     const http = require('http');
     const queryString =window.location.search;

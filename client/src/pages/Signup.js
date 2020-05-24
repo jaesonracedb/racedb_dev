@@ -94,7 +94,7 @@ export default class Signup extends Component {
                 'Content-Type': 'application/json'
               },
               body: JSON.stringify(newUser)
-            })
+            }).catch(error10 => console.log(error10))
               .then(response => response.json())
               .then(body => {
                 if (body.success) {
