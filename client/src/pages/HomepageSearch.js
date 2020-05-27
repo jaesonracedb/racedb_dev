@@ -2,6 +2,9 @@ import React, {Component} from 'react';
 import styles from "./css/main.css";
 export default class SearchBar extends Component{
   constructor(props){
+    super(props);
+    const dotenv = require('dotenv')
+    dotenv.config({ path: '../../../' })
     const url = require('url');
     const http = require('http');
     const queryString =window.location.search;
@@ -10,7 +13,6 @@ export default class SearchBar extends Component{
     const tokenQuery = urlParams.get('token');
     var PORT = process.env.PORT || 80;
     var webPage = "https://race-db.herokuapp.com"
-    super(props);
     this.state={
       filter:'name',
       key:'',

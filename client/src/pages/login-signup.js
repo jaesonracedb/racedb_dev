@@ -7,6 +7,8 @@ import HomeNav from "./HomeNav.js";
 export default class User extends Component {
   constructor(props) {
     super(props)
+    const dotenv = require('dotenv')
+    dotenv.config({ path: '../../../' })
     var PORT = process.env.PORT || 80;
     var webPage = "https://race-db.herokuapp.com"
     this.state ={

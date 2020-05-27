@@ -6,6 +6,8 @@ import logoRDB from "./imgs/racedblogo-04-scaled.png";
 class AddEvent extends PureComponent {
   constructor(){
     super()
+    const dotenv = require('dotenv')
+    dotenv.config({ path: '../../../' })
     const url = require('url');
     const http = require('http');
     const queryString =window.location.search;

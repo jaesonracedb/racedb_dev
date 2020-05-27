@@ -6,6 +6,8 @@ import logoRDB from "./imgs/racedblogo-04-scaled.png";
 export default class ArchiveCard extends Component{
     constructor(props){
     super(props);
+    const dotenv = require('dotenv')
+    dotenv.config({ path: '../../../' })
     const url = require('url');
     const http = require('http');
     const queryString =window.location.search;

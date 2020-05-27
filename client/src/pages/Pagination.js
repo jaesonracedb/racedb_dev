@@ -2,6 +2,9 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 export default class Pagination extends Component{
   constructor(props){
+    super(props);
+    const dotenv = require('dotenv')
+    dotenv.config({ path: '../../../' })
     const url = require('url');
     const http = require('http');
     const queryString =window.location.search;
@@ -14,7 +17,6 @@ export default class Pagination extends Component{
     var PORT = process.env.PORT || 80;
     var webPage = "https://race-db.herokuapp.com"
     const urlPage = webPage+"/search?loggedIn="+loggedInQuery+"&token="+tokenQuery+"&filter="+currentFilter+"&key="+currentKey+"&page=";
-    super(props);
     this.state={
       totalCount: parseInt(props.totalCount),
       totalPages: Math.floor(props.totalCount/10)+1,

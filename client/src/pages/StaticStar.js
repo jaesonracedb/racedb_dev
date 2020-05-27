@@ -5,6 +5,8 @@ import './css/star.css';
 export default class StaticStar extends Component {
     constructor(props){
         super(props);
+        const dotenv = require('dotenv')
+        dotenv.config({ path: '../../../' })
         const url = require('url');
         const http = require('http');
         const queryString =window.location.search;

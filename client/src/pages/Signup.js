@@ -7,6 +7,8 @@ import HomeNav from "./HomeNav.js";
 export default class Signup extends Component {
   constructor(props) {
     super(props)
+    const dotenv = require('dotenv')
+    dotenv.config({ path: '../../../' })
     this.state={
       username:'',
       password:'',

@@ -4,6 +4,8 @@ import "./css/main.css";
 export default class HomeNav extends Component{
   constructor(props){
     super(props)
+    const dotenv = require('dotenv')
+    dotenv.config({ path: '../../../' })
     var PORT = process.env.PORT || 80;
     const url = require('url');
     const http = require('http');
