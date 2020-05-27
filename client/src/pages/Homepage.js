@@ -20,7 +20,8 @@ export default class Homepage extends Component {
   constructor(props){
     super(props);
     const dotenv = require('dotenv')
-    dotenv.config({ path: '../../../' })
+    dotenv.config({ path: '../../../..' })
+    console.log("ENV PORT: "+ process.env.PORT)
     const url = require('url');
     const http = require('http');
     const queryString =window.location.search;
