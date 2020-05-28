@@ -14,5 +14,5 @@ module.exports= (app) =>{
   app.post('/get-rating',eventController.getRating);
   app.post('/get-user-rating',eventController.getUserRating);
   app.post('/add-like',eventController.addLike);
-  app.post('/add-event',eventController.addEvent);
+  app.post('/create-event',eventController.addEvent);
 }

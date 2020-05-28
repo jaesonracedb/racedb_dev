@@ -98,7 +98,7 @@ class AddEvent extends PureComponent {
   handleAddEvent(e){
     var PORT = process.env.PORT || 80;
     var webPage = "https://race-db.herokuapp.com"
-    fetch('/add-event',{
+    fetch('/create-event',{
       method: 'POST',
       headers : {
         'Content-Type': 'application/json',
