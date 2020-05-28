@@ -24,7 +24,7 @@ export default class StaticStar extends Component {
             token: tokenQuery,
             event_id: idQuery
         }
-        fetch(webPage+':'+PORT+'/get-rating',{
+        fetch('/get-rating',{
             method:"POST",
             headers:{
                 "Content-Type": 'application/json',

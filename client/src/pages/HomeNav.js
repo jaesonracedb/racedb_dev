@@ -22,7 +22,7 @@ export default class HomeNav extends Component{
     }
     console.log("NAME IS : "+this.state.name)
   
-    fetch(webPage+':'+PORT+'/token-info/',{
+    fetch('/token-info/',{
       headers:{
         'Authorization': 'Bearer '+this.state.token,
         'Content-Type': 'application/json',
@@ -33,21 +33,25 @@ export default class HomeNav extends Component{
     })
     .then(res=>{
       console.log(res);
-      if(res.status===403 ){
+      if(res!== undefined && res.status===403 ){
         this.setState({
           loggedIn:false
         })
         return res.json()
       }
-      else{return res.json()}
+      else if(res !== undefined){return res.json()}
+      else{
+         return console.log("Critical Error")
+      }
     })
     .then((body,err)=>{
       console.log("WELCOME: "+ body);
         console.log("Logged In")
-        this.setState({
-          name: body.name,
-        })
-
+        if(body !== undefined){
+          this.setState({
+            name: body.name,
+          })
+        }
     })
       // fetch('http://localhost:3001/refresh-user/',{
       //     method:"POST",

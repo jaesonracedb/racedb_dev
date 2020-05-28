@@ -1,9 +1,12 @@
+require('dotenv').config()
 var PORT = process.env.PORT || 80;
 const mysql = require('mysql');
 const express = require('express')
 const bodyParser = require('body-parser')
 const cookieParser = require('cookie-parser')
 const cors = require('cors')
+const path = require('path');
+const port = process.env.PORT || 3001;
 
 var con = require(__dirname+ '/db_config/mysql');
 
@@ -22,7 +25,6 @@ app.use(cookieParser())
 
 if (process.env.NODE_ENV === 'production') {
   // Exprees will serve up production assets
-  const path = require('path');
   app.use(express.static(path.join(__dirname,'client/build')));
 
   // Express serve up index.html file if it doesn't recognize route
@@ -46,4 +48,4 @@ app.options('*', function (req,res) { res.sendStatus(200); });
 // Declare Routes
 require('./router/router')(app)
 
-app.listen(PORT, (err) => { if (!err) { console.log(`Server listening at port ${PORT}`) } } )
+app.listen(port, () => console.log(`Server listening at port ${port}`));

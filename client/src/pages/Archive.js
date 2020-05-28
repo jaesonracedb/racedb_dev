@@ -34,7 +34,7 @@ export default class Archive extends Component {
       token: tokenQuery,
  
     }
-    fetch(webPage+':'+PORT+'/token-info/',{
+    fetch('/token-info/',{
       headers:{
         'Authorization': 'Bearer '+this.state.token,
         'Content-Type': 'application/json',
@@ -56,7 +56,7 @@ export default class Archive extends Component {
       } 
     })
     console.log("Page is: "+this.state.page)
-    fetch(webPage+':'+PORT+'/search-results/'+this.state.filter+'/'+this.state.key+'/id/'+this.state.page,{
+    fetch('/search-results/'+this.state.filter+'/'+this.state.key+'/id/'+this.state.page,{
       headers:{
         'Content-Type': 'application/json',
         'Accept': 'application/json'

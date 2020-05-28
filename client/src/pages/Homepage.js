@@ -19,8 +19,8 @@ import HomepageSearch from "./HomepageSearch.js";
 export default class Homepage extends Component {
   constructor(props){
     super(props);
-    const dotenv = require('dotenv')
-    dotenv.config({ path: './../../..' })
+    const dotenv = require('dotenv').config()
+    // dotenv.config({ path: '../../../' })
     console.log("ENV PORT: "+ process.env.PORT)
     const url = require('url');
     const http = require('http');
@@ -38,7 +38,7 @@ export default class Homepage extends Component {
     }
     console.log('GETTING INFO USER ' + this.state.loggedIn)
   
-    fetch(webPage+":"+PORT+"/token-info/",{
+    fetch("/token-info/",{
       headers:{
         'Authorization': 'Bearer '+this.state.token,
         'Content-Type': 'application/json',
@@ -60,7 +60,7 @@ export default class Homepage extends Component {
       } 
     })
 
-    fetch(webPage+":"+PORT+"/get-featured",{
+    fetch("/get-featured",{
         headers : {
           'Content-Type': 'application/json',
           'Accept': 'application/json'
