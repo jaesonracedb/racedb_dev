@@ -1,0 +1,125 @@
+import React,{Component, useState, useEffect} from 'react';
+import logoRDB from "./imgs/racedblogo-04-scaled.png";
+import "./css/main.css";
+export default class HomeNav extends Component{
+  constructor(props){
+    super(props)
+    const dotenv = require('dotenv')
+    dotenv.config({ path: '../../../' })
+    var PORT = process.env.PORT || 3001;
+    const url = require('url');
+    const http = require('http');
+    const queryString =window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    const loggedInQuery = urlParams.get('loggedIn');
+    const tokenQuery = urlParams.get('token');
+    this.state={
+      loggedIn: props.loggedIn,
+      name: props.name,
+      username: props.username,
+      token:props.token
+    }
+    console.log("NAME IS : "+this.state.name)
+  
+    fetch('/token-info/',{
+      headers:{
+        'Authorization': 'Bearer '+this.state.token,
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      }
+    }).catch((error10)=>{
+      console.log(error10)
+    })
+    .then(res=>{
+      console.log(res);
+      if(res!== undefined && res.status===403 ){
+        this.setState({
+          loggedIn:false
+        })
+        return res.json()
+      }
+      else if(res !== undefined){return res.json()}
+      else{
+         return console.log("Critical Error")
+      }
+    })
+    .then((body,err)=>{
+      console.log("WELCOME: "+ body);
+        console.log("Logged In")
+        if(body !== undefined){
+          this.setState({
+            name: body.name,
+          })
+        }
+    })
+      // fetch('http://localhost:3001/refresh-user/',{
+      //     method:"POST",
+      //     headers:{
+      //       'Content-Type': 'applicaton/json',
+      //     },
+      //     body: JSON.stringify({username: this.state.username})
+      //   })
+      //   .then( res=>{return res.json()})
+      //   .then((body,err)=>{
+      //     this.setState({
+      //       token: body.token
+      //     })       
+      //   })
+    // fetch('http://localhost:3001/check-token')
+  }
+
+
+  render(){
+    const loginUrl = "/login";
+    const signupUrl = "/signup";
+    const logoutUrl = "/";
+    const createRaceUrl = "/add-event";
+    let {name} = this.state;
+    let {loggedIn} = this.state;
+    let {token} = this.state;
+    const homeUrl ="/?&loggedIn="+loggedIn+"&token="+token
+    function IsLoggedIn(props){
+      if(loggedIn){
+        return <nav className="navbar navbar-expand-sm navbar-dark" id="homepageNav">
+        <a className="navbar-brand ml-3" href={homeUrl}>
+          <img src={logoRDB} alt="logo" style= {{width:"110px"}}/>
+        </a>
+
+        <ul className="navbar-nav ml-auto">
+          <li className="nav-item">
+           <h5> Hi, {name}</h5>
+          </li>
+          <li className="nav-item">
+            <a className="btn btn-outline-light my-2 my-sm-0" href={createRaceUrl} role="button">Create A Race</a>
+          </li>
+          <li className="nav-item">
+            <a className="nav-link" href={logoutUrl}>Logout</a>
+          </li>
+        </ul>
+      </nav>
+      }else{
+        return <nav className="navbar navbar-expand-sm navbar-dark" id="homepageNav">
+                <a className="navbar-brand ml-3" href={homeUrl}>
+                  <img src={logoRDB} alt="logo" style= {{width:"110px"}}/>
+                </a>
+
+                <ul className="navbar-nav ml-auto">
+                  <li className="nav-item">
+                    <a className="btn btn-outline-light my-2 my-sm-0" href={createRaceUrl} role="button">Create A Race</a>
+                  </li>
+                  <li className="nav-item">
+                    <a className="nav-link" href={signupUrl}>Sign Up</a>
+                  </li>
+                  <li className="nav-item">
+                    <a className="nav-link" href={loginUrl}>Login</a>
+                  </li>
+                </ul>
+              </nav>
+      }
+    }
+    return(
+    <IsLoggedIn/>
+    
+    )
+  }
+}
