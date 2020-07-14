@@ -89,17 +89,17 @@ export default class Homepage extends Component {
     <Helmet>
       <meta charset="utf-8"/>
       {/*--sets width to device size, sets zoom-->*/}
-      <meta name="viewport" content="width=device-width, initial-scale=1"/>
+      <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, shrink-to-fit=no"/>
 
       <title>raceDB Homepage</title>
 
       {/*// --bootstrap stuff--*/}
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"/>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+    </Helmet>
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"/>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"/>
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"/>
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
-    </Helmet>
 
     <div className="body">
     <div className="content">
@@ -107,28 +107,30 @@ export default class Homepage extends Component {
     <HomeNav username={this.state.username} name={this.state.name} token={this.state.token} loggedIn={this.state.loggedIn}/>
 
     {/*// --Logo and Search-->*/}
-    <div className="container header" id="bannerHeader">
+    <div className="container-fluid header" id="bannerHeader">
     	{/*// --bd-dark is there to see area while there is no picture-->*/}
 
 
-      {/*// --from https://codepen.io/billzhao/pen/wzxrbW?editors=1000-->*/}
+      {/*search field*/}
     	<div className="container" id="formSearchHome">
       <img src={logoRDB} alt="Racedb" id="bannerLogo"/>
     	  <div className="row mx-auto">
-    	   <div className="col-xs-8 col-xs-offset-2" id="homeSearch">
+    	   <div className="col-xs-8 col-xs-offset-2 col-md-10 mx-auto" id="homeSearch">
     		<HomepageSearch />{/*input-group*/}
     	   </div> {/*col-xs-8 col-xs-offset-2*/}
     	  </div>{/*row mx-auto*/}
     	</div> {/*container*/}
-
-      <div class="container mt-4" align="center">
-    	<div class="btn-group btn-group-justified" id="categoryNav">
+      
+      
+      {/*Quick Category search*/}
+      <div className="container-fluid col-xs-12 col-md-12 col-lg-8 mx-auto">
+    	<div class="btn-group btn-group flex-wrap mx-auto" align="center" id="categoryNav">
     		<a class="btn btn-secondary" href={categoriesUrl+'running'}>Running</a>
     		<a className="btn btn-secondary" href={categoriesUrl+'triathlon'}>Triathlon</a>
     		<a className="btn btn-secondary" href={categoriesUrl+'cycling'}>Cycling</a>
     		<a className="btn btn-secondary" href={categoriesUrl+'obstacle'}>Obstacle</a>
     		<a className="btn btn-secondary" href={categoriesUrl+'other'}>Other</a>
-    	</div>
+      </div>
       </div>
     </div>
 
@@ -136,11 +138,12 @@ export default class Homepage extends Component {
 
   {/*  // -- Exclusives -->*/}
     {/*// -- template from https://getbootstrap.com/docs/3.4/examples/jumbotron/, will be edited and modified accordingly -->*/}
-    <div className="container" id="exclusivesdiv">
-      <h2 align="center" class="sectionTitle">Exclusives</h2>
+    <div className="container mx-auto" id="exclusivesdiv" align="center">
+      <h2 align="center" class="sectionTitle">Featured Races</h2>
       <div className="row">
-        <div className="card-group">
-        <div className="col-md-4">
+        
+        {/* Featured Card first Row FIRST card START */}
+        <div className=" col-xs-8 col-md-6 col-lg-4">
           <div className="card border-secondary mb-3 rounded" >
             <img src={featuredImg} className="card-img-top" alt="Card image cap"/>
             <div className="card-body">
@@ -162,9 +165,11 @@ export default class Homepage extends Component {
               })}
             </div>
           </div>
-
-        </div>
-        <div className="col-md-4">
+          </div>
+          
+          
+        {/* Featured Card first Row SECOND card START */}    
+        <div className=" col-xs-8 col-md-6 col-lg-4">
           <div className="card border-secondary mb-3" >
             <img src={featuredImg} className="card-img-top" alt="category" alt="event"/>
             <div className="card-body">
@@ -186,9 +191,10 @@ export default class Homepage extends Component {
             })}
             </div>
           </div>
-
        </div>
-        <div className="col-md-4">
+       {/* Featured Card first Row THIRD card START */}        
+       <div className=" col-xs-8 col-md-6 col-lg-4">
+        
           <div className="card border-secondary mb-3" >
             <img src={featuredImg} className="card-img-top" alt="category" alt="event"/>
             <div className="card-body">
@@ -210,12 +216,12 @@ export default class Homepage extends Component {
             })}
             </div>
           </div>
+        
         </div>
-      </div>
-    </div>
-    <div className="row">
-      <div className="card-group">
-      <div className="col-md-4">
+     
+
+      {/* Featured Card SECOND Row FIRST card START */}        
+      <div className="col-xs-8 col-md-6 col-lg-4">
         <div className="card border-secondary mb-3" >
           <img src={featuredImg} className="card-img-top" alt="category" alt="event"/>
           <div className="card-body">
@@ -237,9 +243,10 @@ export default class Homepage extends Component {
           })}
           </div>
         </div>
-
       </div>
-      <div className="col-md-4">
+
+      {/* Featured Card SECOND Row SECOND card START */}             
+      <div className="col-xs-8 col-md-6 col-lg-4">
         <div className="card border-secondary mb-3" >
           <img src={featuredImg} className="card-img-top" alt="category" alt="event"/>
           <div className="card-body">
@@ -262,7 +269,9 @@ export default class Homepage extends Component {
           </div>
         </div>
      </div>
-      <div className="col-md-4">
+
+     {/* Featured Card SECOND Row THIRD card START */}        
+      <div className="col-xs-8 col-md-6 col-lg-4">
         <div className="card border-secondary mb-3" >
           <img src={featuredImg} className="card-img-top" alt="category" alt="event"/>
           <div className="card-body">
@@ -285,8 +294,9 @@ export default class Homepage extends Component {
           </div>
         </div>
       </div>
+    
     </div>
-    </div>
+    {/*  */}
     </div>
 
 
@@ -294,8 +304,10 @@ export default class Homepage extends Component {
     <div className="grayBlock" id="locationsdiv">
       <h2 align="center" style={{color:"white"}} class="sectionTitle">Locations</h2>
       <div class="container-fluid" align="center">
+
+        
         <div className="row" id="locationsfirstrow">
-          <div className="col-md-4" id="location1">
+          <div className="col-xs-8 col-md-6 col-lg-4 mb-3 mb-md-3" id="location1">
             <div className='locContainer' class="img-thumbnail">
               <a className ='homepageLocaton' href={locationUrl+'new-york'} style={{color:"black"}}>
                 <img src={stockImg} className="mx-auto d-block bg-dark mt-5 locationImg" class="img-thumbnail" alt="New York" style={{width:"100%"}}/>
@@ -305,7 +317,7 @@ export default class Homepage extends Component {
               </a>
             </div>
           </div>
-          <div className="col-md-4" id="location1">
+          <div className="col-xs-8 col-md-6 col-lg-4 mb-3 mb-md-3" id="location1">
             <div className='locContainer' class="img-thumbnail">
               <a className ='homepageLocaton' href={locationUrl+'new-jersey'} style={{color:"black"}}>
                 <img src={stockImg} className="mx-auto d-block bg-dark mt-5 locationImg" class="img-thumbnail" alt="New York" style={{width:"100%"}}/>
@@ -315,7 +327,7 @@ export default class Homepage extends Component {
               </a>
             </div>
           </div>
-          <div className="col-md-4" id="location1">
+          <div className="col-xs-8 col-md-6 col-lg-4 mb-3 mb-md-3" id="location1">
             <div className='locContainer' class="img-thumbnail">
               <a className ='homepageLocaton' href={locationUrl+'maryland'} style={{color:"black"}}>
                 <img src={stockImg} className="mx-auto d-block bg-dark mt-5 locationImg" class="img-thumbnail" alt="New York" style={{width:"100%"}}/>
@@ -325,11 +337,11 @@ export default class Homepage extends Component {
               </a>
             </div>
           </div>
-        </div>
-      </div>
-      <div class="container-fluid" align="center">
-        <div className="row">
-          <div className="col-md-4" id="location1">
+        
+      
+      
+        
+          <div className="col-xs-8 col-md-6 col-lg-4 mb-3 mb-md-0" id="location1">
             <div className='locContainer' class="img-thumbnail">
               <a className ='homepageLocaton' href={locationUrl+'maine'} style={{color:"black"}}>
                 <img src={stockImg} className="mx-auto d-block bg-dark mt-5 locationImg" class="img-thumbnail" alt="New York" style={{width:"100%"}}/>
@@ -339,7 +351,7 @@ export default class Homepage extends Component {
               </a>
             </div>
           </div>
-          <div className="col-md-4" id="location1">
+          <div className="col-xs-8 col-md-6 col-lg-4 mb-3 mb-md-0" id="location1">
             <div className='locContainer' class="img-thumbnail">
               <a className ='homepageLocaton' href={locationUrl+'connecticut'} style={{color:"black"}}>
                 <img src={stockImg} className="mx-auto d-block bg-dark mt-5 locationImg" class="img-thumbnail" alt="New York" style={{width:"100%"}}/>
@@ -349,7 +361,7 @@ export default class Homepage extends Component {
               </a>
             </div>
           </div>
-          <div className="col-md-4" id="location1">
+          <div className="col-xs-8 col-md-6 col-lg-4" id="location1">
             <div className='locContainer' class="img-thumbnail">
               <a className ='homepageLocaton' href={locationUrl+'california'} style={{color:"black"}}>
                 <img src={stockImg} className="mx-auto d-block bg-dark mt-5 locationImg" class="img-thumbnail" alt="New York" style={{width:"100%"}}/>
@@ -360,15 +372,16 @@ export default class Homepage extends Component {
             </div>
           </div>
         </div>
-      </div>
+      
     </div>
+      </div>
+{/* END OF LOCATIONS */}
+{/* START OF CATEGORIES */}
 
-
-
-    <div class="container-fluid" id="categoriesdiv" align="center">
+    <div class="container-fluid mx-auto" id="categoriesdiv" align="center">
       <h2 align="center" class="sectionTitle">Categories</h2>
       <div className="row" id="categoriesfirstrow">
-        <div className="col-md-4">
+        <div className="col-md-6 col-lg-4 mb-2">
           <div className='locContainer' class="img-thumbnail">
             <a className ='homepageLocaton' href={categoriesUrl+'running'} style={{color:"black"}}>
               <img src={running} className="mx-auto d-block bg-dark mt-5" class="img-thumbnail" alt="category" style={{width:"100%"}}/>
@@ -378,7 +391,7 @@ export default class Homepage extends Component {
             </a>
           </div>
         </div>
-        <div className="col-md-4">
+        <div className="col-md-6 col-lg-4 mb-2">
           <div className='locContainer' class="img-thumbnail">
             <a className ='homepageLocaton' href={categoriesUrl+'cycling'} style={{color:"black"}}>
               <img src={running} className="mx-auto d-block bg-dark mt-5" class="img-thumbnail" alt="category" style={{width:"100%"}}/>
@@ -388,7 +401,7 @@ export default class Homepage extends Component {
             </a>
           </div>
         </div>
-        <div className="col-md-4">
+        <div className="col-md-6 col-lg-4 mb-2">
           <div className='locContainer' class="img-thumbnail">
             <a className ='homepageLocaton' href={categoriesUrl+'triathlon'} style={{color:"black"}}>
               <img src={running} className="mx-auto d-block bg-dark mt-5" class="img-thumbnail" alt="category" style={{width:"100%"}}/>
@@ -398,12 +411,7 @@ export default class Homepage extends Component {
             </a>
           </div>
         </div>
-      </div>
-      <div class="container-fluid" align="center">
-        <div className="row">
-          <div className="col-md-2">
-          </div>
-          <div className="col-md-4">
+          <div className="col-md-6 col-lg-4 offset-lg-2 mb-2">
             <div className='locContainer' class="img-thumbnail">
               <a className ='homepageLocaton' href={categoriesUrl+'obstacle'} style={{color:"black"}}>
                 <img src={running} className="mx-auto d-block bg-dark mt-5" class="img-thumbnail" alt="category" style={{width:"100%"}}/>
@@ -413,7 +421,7 @@ export default class Homepage extends Component {
               </a>
             </div>
           </div>
-          <div className="col-md-4">
+          <div className="col-md-6 col-lg-4 mb-md-2">
             <div className='locContainer' class="img-thumbnail">
               <a className ='homepageLocaton' href={categoriesUrl+'other'} style={{color:"black"}}>
                 <img src={running} className="mx-auto d-block bg-dark mt-5" class="img-thumbnail" alt="category" style={{width:"100%"}}/>
@@ -423,7 +431,6 @@ export default class Homepage extends Component {
               </a>
             </div>
           </div>
-        </div>
       </div>
     </div>
 
@@ -432,7 +439,7 @@ export default class Homepage extends Component {
     <div className="grayBlock" id="homepagefooter">
       <div className="row">
         <div className="col-md-4 mr-auto">
-          <img src={logoRed} className="mx-auto d-block bg-dark mt-5" id="someLogo" alt="logo" style={{height:"400px",width:"640px"}}/>
+          <img src={logoRed} className="mx-auto d-block bg-dark mt-5" id="someLogo" alt="logo"/>
         </div>
         <div className="col-md-4 mr-auto my-auto" align="center">
           <h4 style={{color:"white"}}> 1 - Create </h4>

@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {Helmet} from "react-helmet";
 import styles from "./css/main.css";
 export default class SearchBar extends Component{
   constructor(props){
@@ -41,6 +42,9 @@ export default class SearchBar extends Component{
     const searchUrl = "/search?page=1&loggedIn="+loggedIn+"&token="+token
     return(
       <div>
+      <Helmet>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+      </Helmet>
       <form className="search-bar"  onSubmit={handleSearch}>
         {/*<div className="container ml-3 mt-5">*/}
           <div className="row mx-auto">
@@ -58,7 +62,7 @@ export default class SearchBar extends Component{
                 <input type="text" className="form-control"  onChange={this.handleKey} name="key" id="search-key" placeholder="Search"/>
                 <input type="hidden" className="form-control"  name="filter" value={this.state.filter}/>
                 <input type="hidden" className="form-control" name="page" value="1"/>
-                <button type="submit" class="btn btn-primary mb-2" id="start-search">Search</button>
+                <button type="submit" class="btn btn-primary mb-2" id="start-search"><i class="fa fa-search"></i></button>
               </div>{/*input-group*/}
             </div>{/*col-xs-8 col-xs-offset-2*/}
           </div>{/*row mx-auto*/}

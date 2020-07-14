@@ -1,6 +1,7 @@
 import React,{Component, useState, useEffect} from 'react';
 import logoRDB from "./imgs/racedblogo-04-scaled.png";
 import "./css/main.css";
+import {Helmet} from "react-helmet";
 export default class HomeNav extends Component{
   constructor(props){
     super(props)
@@ -80,15 +81,17 @@ export default class HomeNav extends Component{
     const homeUrl ="/?&loggedIn="+loggedIn+"&token="+token
     function IsLoggedIn(props){
       if(loggedIn){
-        return <nav className="navbar navbar-expand-sm navbar-dark" id="homepageNav">
+        return <nav className="navbar navbar-expand-md navbar-dark" id="homepageNav">
         <a className="navbar-brand ml-3" href={homeUrl}>
           <img src={logoRDB} alt="logo" style= {{width:"110px"}}/>
         </a>
 
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav2" aria-controls="navbarNav2" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse" id="navbarNav2">
         <ul className="navbar-nav ml-auto">
-          <li className="nav-item">
-           <h5> Hi, {name}</h5>
-          </li>
           <li className="nav-item">
             <a className="btn btn-outline-light my-2 my-sm-0" href={createRaceUrl} role="button">Create A Race</a>
           </li>
@@ -96,13 +99,21 @@ export default class HomeNav extends Component{
             <a className="nav-link" href={logoutUrl}>Logout</a>
           </li>
         </ul>
+        </div>
       </nav>
+        
       }else{
-        return <nav className="navbar navbar-expand-sm navbar-dark" id="homepageNav">
+        return <nav className="navbar navbar-expand-md navbar-dark" id="homepageNav">
                 <a className="navbar-brand ml-3" href={homeUrl}>
                   <img src={logoRDB} alt="logo" style= {{width:"110px"}}/>
                 </a>
 
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+                
+
+                <div class="collapse navbar-collapse" id="navbarNav">
                 <ul className="navbar-nav ml-auto">
                   <li className="nav-item">
                     <a className="btn btn-outline-light my-2 my-sm-0" href={createRaceUrl} role="button">Create A Race</a>
@@ -114,12 +125,20 @@ export default class HomeNav extends Component{
                     <a className="nav-link" href={loginUrl}>Login</a>
                   </li>
                 </ul>
+                </div>
               </nav>
       }
     }
     return(
+    <div>
+    <Helmet>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.6/umd/popper.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    </Helmet>
     <IsLoggedIn/>
-    
+    </div>
     )
   }
 }

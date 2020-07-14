@@ -177,7 +177,7 @@ export default class Signup extends Component {
     <HomeNav/>
 
     <div class="m-5 border">
-    	<h3 class="mt-3 ml-5">Log In</h3>
+    	<h3 class="mt-3 ml-5">Signup</h3>
 
     	{/*<!--form-->*/}
     	<div class="p-3">
