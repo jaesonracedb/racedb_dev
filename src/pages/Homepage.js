@@ -6,6 +6,12 @@ import homepageBanner from "./imgs/Canva-Runners-in-a-Marathon-1024x680.jpg"
 import logoRDB from "./imgs/racedblogo-04-scaled.png";
 import stockImg from "./imgs/triathlon.jpg";
 import featuredImg from "./imgs/default-running-thumbnail-1.png";
+import featured1 from "./imgs/Featured/rsz_williamsburglogo.jpg";
+import featured3 from "./imgs/Featured/rsz_nyrr.jpg";
+import featured4 from "./imgs/Featured/rsz_gfny.jpg";
+import featured2 from "./imgs/Featured/rsz_spartan.jpg";
+import featured5 from "./imgs/Featured/rsz_duathlon.png";
+import featured6 from "./imgs/Featured/rsz_ironman.png";
 import logoRed from "./imgs/racedblogo-02-1024x640.png";
 import running from "./imgs/running.jpg";
 import triathlon from "./imgs/triathlon.jpg";
@@ -146,7 +152,7 @@ export default class Homepage extends Component {
         {/* Featured Card first Row FIRST card START */}
         <div className=" col-xs-8 col-md-6 col-lg-4">
           <div className="card border-secondary mb-3 rounded" >
-            <img src={featuredImg} className="card-img-top" alt="Card image cap"/>
+            <img src={featured1} className="card-img-top" alt="Card image cap"/>
             <div className="card-body">
               {this.state.featured.map((ft,index) => {
                 if(index ===0)
@@ -172,7 +178,7 @@ export default class Homepage extends Component {
         {/* Featured Card first Row SECOND card START */}    
         <div className=" col-xs-8 col-md-6 col-lg-4">
           <div className="card border-secondary mb-3" >
-            <img src={featuredImg} className="card-img-top" alt="category" alt="event"/>
+            <img src={featured2} className="card-img-top" alt="category" alt="event"/>
             <div className="card-body">
             {this.state.featured.map((ft,index) => {
               if(index ===1)
@@ -197,7 +203,7 @@ export default class Homepage extends Component {
        <div className=" col-xs-8 col-md-6 col-lg-4">
         
           <div className="card border-secondary mb-3" >
-            <img src={featuredImg} className="card-img-top" alt="category" alt="event"/>
+            <img src={featured3} className="card-img-top" alt="category" alt="event"/>
             <div className="card-body">
             {this.state.featured.map((ft,index) => {
               if(index ===2)
@@ -224,7 +230,7 @@ export default class Homepage extends Component {
       {/* Featured Card SECOND Row FIRST card START */}        
       <div className="col-xs-8 col-md-6 col-lg-4">
         <div className="card border-secondary mb-3" >
-          <img src={featuredImg} className="card-img-top" alt="category" alt="event"/>
+          <img src={featured4} className="card-img-top" alt="category" alt="event"/>
           <div className="card-body">
           {this.state.featured.map((ft,index) => {
             if(index ===3)
@@ -249,7 +255,7 @@ export default class Homepage extends Component {
       {/* Featured Card SECOND Row SECOND card START */}             
       <div className="col-xs-8 col-md-6 col-lg-4">
         <div className="card border-secondary mb-3" >
-          <img src={featuredImg} className="card-img-top" alt="category" alt="event"/>
+          <img src={featured5} className="card-img-top" alt="category" alt="event"/>
           <div className="card-body">
           {this.state.featured.map((ft,index) => {
             if(index ===4)
@@ -274,7 +280,7 @@ export default class Homepage extends Component {
      {/* Featured Card SECOND Row THIRD card START */}        
       <div className="col-xs-8 col-md-6 col-lg-4">
         <div className="card border-secondary mb-3" >
-          <img src={featuredImg} className="card-img-top" alt="category" alt="event"/>
+          <img src={featured6} className="card-img-top" alt="category" alt="event"/>
           <div className="card-body">
           {this.state.featured.map((ft,index) => {
             if(index ===5)
