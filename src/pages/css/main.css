@@ -63,7 +63,7 @@ nav.navbar.navbar-expand-md.navbar-dark{
 }
 #select-filter{
 	width: 30%;
-	max-width: 4rem;
+	max-width: 8rem;
 	min-width: 85px;
 }
 #start-search{
@@ -97,7 +97,7 @@ nav.navbar.navbar-expand-md.navbar-dark{
 }
 
 #categoryNav{
-	padding-top: 8rem;
+	padding-top: 3rem;
 	display: flex;
 	align-items: center;
 	max-width: 85%;

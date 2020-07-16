@@ -97,7 +97,7 @@ export default class Homepage extends Component {
       {/*--sets width to device size, sets zoom-->*/}
       <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, shrink-to-fit=no"/>
 
-      <title>raceDB Homepage</title>
+      <title>Racedb</title>
 
       {/*// --bootstrap stuff--*/}
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"/>
@@ -114,29 +114,33 @@ export default class Homepage extends Component {
     <HomeNav username={this.state.username} name={this.state.name} token={this.state.token} loggedIn={this.state.loggedIn}/>
 
     {/*// --Logo and Search-->*/}
-    <div className="container-fluid header" id="bannerHeader">
+        <div className="container-fluid header " id="bannerHeader">
     	{/*// --bd-dark is there to see area while there is no picture-->*/}
 
 
       {/*search field*/}
-    	<div className="container" id="formSearchHome">
-      <img src={logoRDB} alt="Racedb" id="bannerLogo"/>
-    	  <div className="row mx-auto">
-    	   <div className="col-xs-8 col-xs-offset-2 col-md-10 mx-auto" id="homeSearch">
-    		<HomepageSearch />{/*input-group*/}
-    	   </div> {/*col-xs-8 col-xs-offset-2*/}
+      <div className="row mb-4">
+        <div className="container" id="formSearchHome">
+            <img src={logoRDB} alt="Racedb" id="bannerLogo"/>
+    	  </div> {/*container*/}
+      </div>
+    	  
+        <div className="row mx-auto pt-5">
+          <div className="col-xs-8 col-xs-offset-2 col-md-10 mx-auto" id="homeSearch">
+          <HomepageSearch />{/*input-group*/}
+          </div> {/*col-xs-8 col-xs-offset-2*/}
     	  </div>{/*row mx-auto*/}
-    	</div> {/*container*/}
-      
       
       {/*Quick Category search*/}
-      <div className="container-fluid col-xs-12 col-md-12 col-lg-8 mx-auto">
+      <div className="row">
+      <div className="container-fluid col-xs-12 col-md-12 col-lg-8 mx-auto pt-3 pb-5 mb-3">
     	<div class="btn-group btn-group flex-wrap mx-auto" align="center" id="categoryNav">
     		<a class="btn btn-secondary" href={categoriesUrl+'running'}>Running</a>
     		<a className="btn btn-secondary" href={categoriesUrl+'triathlon'}>Triathlon</a>
     		<a className="btn btn-secondary" href={categoriesUrl+'cycling'}>Cycling</a>
     		<a className="btn btn-secondary" href={categoriesUrl+'obstacle'}>Obstacle</a>
     		<a className="btn btn-secondary" href={categoriesUrl+'other'}>Other</a>
+      </div>
       </div>
       </div>
     </div>
