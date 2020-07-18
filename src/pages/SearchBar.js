@@ -18,14 +18,14 @@ export default class SearchBar extends Component{
 
     return(
       <div>
-      <form className="search-bar" id='searchBar'>
+      <form className="search-bar">
         <div className="container ml-2 mt-4">
           <div className="row mx-auto">
-            <div className="col-xs-8 col-xs-offset-2">
-              <div className="input-group pr-5 mr-5">
-                <div className="input-group-btn search-panel">
-                <select class="browser-default custom-select" id='select-filter' onChange={this.handleFilter}>
-                  <option selected value="name">Name</option>
+            <div className="col-xs-12">
+              <div className="input-group">
+                <div className="input-group-btn search-panel" id='select-filter'>
+                <select class="browser-default custom-select" onChange={this.handleFilter}>
+                  <option defaultValue value="name">Name</option>
                   <option value="event_date">Date</option>
                   <option value="distance">Distance</option>
                   <option value="location">Location</option>
@@ -35,7 +35,7 @@ export default class SearchBar extends Component{
                 <input type="text" className="form-control" name="key" id="search" placeholder="Search"/>
                 <input type="hidden" className="form-control" name="filter" value={this.state.filter}/>
                 <input type="hidden" className="form-control" name="page" value="1"/>
-                <button type="submit" class="btn btn-primary pr-5 mr-5" id="start-search">Search</button>
+                <button type="submit" class="btn btn-primary mb-2" id="start-search"><i className="fa fa-search"></i></button>
               </div>{/*input-group*/}
             </div>{/*col-xs-8 col-xs-offset-2*/}
           </div>{/*row mx-auto*/}

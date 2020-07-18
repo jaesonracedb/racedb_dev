@@ -141,8 +141,8 @@ export default class Homepage extends Component {
       {/*Quick Category search*/}
       <div className="row">
       <div className="container-fluid col-xs-12 col-md-12 col-lg-8 mx-auto pt-3 pb-5 mb-3">
-    	<div class="btn-group btn-group flex-wrap mx-auto" align="center" id="categoryNav">
-    		<a class="btn btn-secondary" href={categoriesUrl+'running'}>Running</a>
+    	<div className="btn-group btn-group flex-wrap mx-auto" align="center" id="categoryNav">
+    		<a className="btn btn-secondary" href={categoriesUrl+'running'}>Running</a>
     		<a className="btn btn-secondary" href={categoriesUrl+'triathlon'}>Triathlon</a>
     		<a className="btn btn-secondary" href={categoriesUrl+'cycling'}>Cycling</a>
     		<a className="btn btn-secondary" href={categoriesUrl+'obstacle'}>Obstacle</a>
@@ -157,7 +157,7 @@ export default class Homepage extends Component {
   {/*  // -- Exclusives -->*/}
     {/*// -- template from https://getbootstrap.com/docs/3.4/examples/jumbotron/, will be edited and modified accordingly -->*/}
     <div className="container mx-auto" id="exclusivesdiv" align="center">
-      <h2 align="center" class="sectionTitle">Featured Races</h2>
+      <h2 align="center" className="sectionTitle">Featured Races</h2>
       <div className="row">
         
         {/* Featured Card first Row FIRST card START */}
@@ -320,36 +320,36 @@ export default class Homepage extends Component {
 
 
     <div className="grayBlock" id="locationsdiv">
-      <h2 align="center" style={{color:"white"}} class="sectionTitle">Locations</h2>
-      <div class="container-fluid" align="center">
+      <h2 align="center" style={{color:"white"}} className="sectionTitle">Locations</h2>
+      <div className="container-fluid" align="center">
 
         
         <div className="row" id="locationsfirstrow">
           <div className="col-xs-8 col-md-6 col-lg-4 mb-3 mb-md-3" id="location1">
-            <div className='locContainer' class="img-thumbnail ">
+            <div className='locContainer img-thumbnail '>
               <a className ='homepageLocaton' href={locationUrl+'new-york'} style={{color:"black"}}>
                 <img src={location1} className="mx-auto d-block bg-dark locationImg" alt="New York"/>
-                <div className="locationText" class="caption" align="center">
+                <div className="locationText caption" align="center">
                   <h5>New York</h5>
                 </div>
               </a>
             </div>
           </div>
           <div className="col-xs-8 col-md-6 col-lg-4 mb-3 mb-md-3" id="location1">
-            <div className='locContainer' class="img-thumbnail">
+            <div className='locContainer img-thumbnail'>
               <a className ='homepageLocaton' href={locationUrl+'new-jersey'} style={{color:"black"}}>
                 <img src={location2} className="mx-auto d-block bg-dark locationImg" alt="New Jersey"/>
-                <div className="locationText" class="caption" align="center">
+                <div className="locationText caption" align="center">
                   <h5>New Jersey</h5>
                 </div>
               </a>
             </div>
           </div>
           <div className="col-xs-8 col-md-6 col-lg-4 mb-3 mb-md-3" id="location1">
-            <div className='locContainer' class="img-thumbnail">
+            <div className='locContainer img-thumbnail'>
               <a className ='homepageLocaton' href={locationUrl+'pennsylvania'} style={{color:"black"}}>
                 <img src={location3} className="mx-auto d-block bg-dark locationImg" alt="Pennsylvania" />
-                <div className="locationText" class="caption" align="center">
+                <div className="locationText caption" align="center">
                   <h5>Pennsylvania</h5>
                 </div>
               </a>
@@ -360,30 +360,30 @@ export default class Homepage extends Component {
       
         
           <div className="col-xs-8 col-md-6 col-lg-4 mb-3 mb-md-0" id="location1">
-            <div className='locContainer' class="img-thumbnail">
+            <div className='locContainer img-thumbnail'>
               <a className ='homepageLocaton' href={locationUrl+'connecticut'} style={{color:"black"}}>
                 <img src={location4} className="mx-auto d-block bg-dark locationImg"  alt="Connecticut"/>
-                <div className="locationText" class="caption" align="center">
+                <div className="locationText caption" align="center">
                   <h5>Connecticut</h5>
                 </div>
               </a>
             </div>
           </div>
           <div className="col-xs-8 col-md-6 col-lg-4 mb-3 mb-md-0" id="location1">
-            <div className='locContainer' class="img-thumbnail">
+            <div className='locContainer img-thumbnail'>
               <a className ='homepageLocaton' href={locationUrl+'massachusetts'} style={{color:"black"}}>
                 <img src={location5} className="mx-auto d-block bg-dark locationImg" alt="Massachusetts"/>
-                <div className="locationText" class="caption" align="center">
+                <div className="locationText caption" align="center">
                   <h5>Massachusetts</h5>
                 </div>
               </a>
             </div>
           </div>
           <div className="col-xs-8 col-md-6 col-lg-4" id="location1">
-            <div className='locContainer' class="img-thumbnail">
+            <div className='locContainer img-thumbnail'>
               <a className ='homepageLocaton' href={locationUrl+'delaware'} style={{color:"black"}}>
                 <img src={location6} className="mx-auto d-block bg-dark locationImg"  alt="Delaware" />
-                <div className="locationText" class="caption" align="center">
+                <div className="locationText caption"  align="center">
                   <h5>California</h5>
                 </div>
               </a>
@@ -396,54 +396,54 @@ export default class Homepage extends Component {
 {/* END OF LOCATIONS */}
 {/* START OF CATEGORIES */}
 
-    <div class="container-fluid mx-auto" id="categoriesdiv" align="center">
-      <h2 align="center" class="sectionTitle">Categories</h2>
+    <div className="container-fluid mx-auto" id="categoriesdiv" align="center">
+      <h2 align="center" className="sectionTitle">Categories</h2>
       <div className="row" id="categoriesfirstrow">
         <div className="col-md-6 col-lg-4 mb-2">
-          <div className='locContainer' class="img-thumbnail">
+          <div className='locContainer img-thumbnail'>
             <a className ='homepageLocaton' href={categoriesUrl+'running'} style={{color:"black"}}>
-              <img src={running} className="mx-auto d-block bg-dark mt-5" class="img-thumbnail" alt="category" style={{width:"100%"}}/>
-              <div className="locationText" class="caption" align="center">
+              <img src={running} className="mx-auto d-block bg-dark mt-5 img-thumbnail"  alt="category" style={{width:"100%"}}/>
+              <div className="locationText caption" align="center">
                 <h5>Running</h5>
               </div>
             </a>
           </div>
         </div>
         <div className="col-md-6 col-lg-4 mb-2">
-          <div className='locContainer' class="img-thumbnail">
+          <div className='locContainer img-thumbnail' >
             <a className ='homepageLocaton' href={categoriesUrl+'cycling'} style={{color:"black"}}>
-              <img src={running} className="mx-auto d-block bg-dark mt-5" class="img-thumbnail" alt="category" style={{width:"100%"}}/>
-              <div className="locationText" class="caption" align="center">
+              <img src={running} className="mx-auto d-block bg-dark mt-5 img-thumbnail" alt="category" style={{width:"100%"}}/>
+              <div className="locationText caption" align="center">
                 <h5>Cycling</h5>
               </div>
             </a>
           </div>
         </div>
         <div className="col-md-6 col-lg-4 mb-2">
-          <div className='locContainer' class="img-thumbnail">
+          <div className='locContainer img-thumbnail'>
             <a className ='homepageLocaton' href={categoriesUrl+'triathlon'} style={{color:"black"}}>
-              <img src={running} className="mx-auto d-block bg-dark mt-5" class="img-thumbnail" alt="category" style={{width:"100%"}}/>
-              <div className="locationText" class="caption" align="center">
+              <img src={running} className="mx-auto d-block bg-dark mt-5 img-thumbnail" alt="category" style={{width:"100%"}}/>
+              <div className="locationText caption" align="center">
                 <h5>Triathlon</h5>
               </div>
             </a>
           </div>
         </div>
           <div className="col-md-6 col-lg-4 offset-lg-2 mb-2">
-            <div className='locContainer' class="img-thumbnail">
+            <div className='locContainer img-thumbnail'>
               <a className ='homepageLocaton' href={categoriesUrl+'obstacle'} style={{color:"black"}}>
-                <img src={running} className="mx-auto d-block bg-dark mt-5" class="img-thumbnail" alt="category" style={{width:"100%"}}/>
-                <div className="locationText" class="caption" align="center">
+                <img src={running} className="mx-auto d-block bg-dark mt-5 img-thumbnail" alt="category" style={{width:"100%"}}/>
+                <div className="locationText caption" align="center">
                   <h5>Obstacle</h5>
                 </div>
               </a>
             </div>
           </div>
           <div className="col-md-6 col-lg-4 mb-md-2">
-            <div className='locContainer' class="img-thumbnail">
+            <div className='locContainer img-thumbnail'>
               <a className ='homepageLocaton' href={categoriesUrl+'other'} style={{color:"black"}}>
-                <img src={running} className="mx-auto d-block bg-dark mt-5" class="img-thumbnail" alt="category" style={{width:"100%"}}/>
-                <div className="locationText" class="caption" align="center">
+                <img src={running} className="mx-auto d-block bg-dark mt-5 img-thumbnail" alt="category" style={{width:"100%"}}/>
+                <div className="locationText caption" align="center">
                   <h5>Other</h5>
                 </div>
               </a>

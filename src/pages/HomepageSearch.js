@@ -60,8 +60,8 @@ export default class SearchBar extends Component{
             <div className="col-xs-8 col-xs-offset-2" id="searchForm-col">
               <div className="input-group" id='searchBar'>
                 <div className="input-group-btn search-panel" id='select-filter'>
-                <select class="browser-default custom-select"  onChange={this.handleFilter}>
-                  <option selected value="name">Name</option>
+                <select className="browser-default custom-select"  onChange={this.handleFilter}>
+                  <option defaultValue value="name">Name</option>
                   <option value="event_date">Date</option>
                   <option value="distance">Distance</option>
                   <option value="location">Location</option>
@@ -71,7 +71,7 @@ export default class SearchBar extends Component{
                 <input type="text" className="form-control"  onChange={this.handleKey} name="key" id="search-key" placeholder="Search"/>
                 <input type="hidden" className="form-control"  name="filter" value={this.state.filter}/>
                 <input type="hidden" className="form-control" name="page" value="1"/>
-                <button type="submit" class="btn btn-primary mb-2" id="start-search"><i class="fa fa-search"></i></button>
+                <button type="submit" className="btn btn-primary mb-2" id="start-search"><i className="fa fa-search"></i></button>
               </div>{/*input-group*/}
             </div>{/*col-xs-8 col-xs-offset-2*/}
           </div>{/*row mx-auto*/}

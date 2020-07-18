@@ -52,14 +52,14 @@ export default class ArchiveCard extends Component{
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
           </Helmet>
 
-          <div class="card mx-4 mb-2 col-md-auto h-100" id="archiveCard">
-            <div class="row no-gutters my-3">
-              <div class="col-auto">
-                <img src={logoRDB} class="img-fluid" alt="img" height="200px" width="200px"/>
+          <div className="card mx-4 mb-2 col-auto" id="archiveCard">
+            <div className="row no-gutters my-3">
+              <div className="col-auto">
+                <img src={logoRDB} className="img-fluid" alt="img" height="200px" width="200px"/>
               </div>
-              <div class="col">
-                <div class="card-block px-2">
-                  <h4 className="card-title"><a href={this.state.url}>{this.state.title}</a></h4>
+              <div className="col mt-1">
+                <div className="card-block px-2">
+                  <h5 className="h5-responsive card-title"><a href={this.state.url}>{this.state.title}</a></h5>
                   <p className="card-text">Date: {this.state.date}</p>
                   <p className="card-text">Distance: {this.state.distance}</p>
                   <p className="card-text">Category: {this.state.category}</p>

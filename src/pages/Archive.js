@@ -92,9 +92,9 @@ export default class Archive extends Component {
 		<Helmet>
 			<meta charset="utf-8"/>
 			{/*--sets width to device size, sets zoom-->*/}
-			<meta name="viewport" content="width=device-width, initial-scale=1"/>
+			<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, shrink-to-fit=no"/>
 
-			<title>raceDB Homepage</title>
+			<title>Racedb</title>
 			<link rel="stylesheet" href="main.css"/>
 
 			{/*// --bootstrap stuff--*/}
