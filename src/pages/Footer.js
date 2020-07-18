@@ -15,7 +15,7 @@ export default class Footer extends Component{
           <link href="css/mdb.min.css" rel="stylesheet"/>
           <link href="css/style.css" rel="stylesheet"/>  
       </Helmet>
-      <footer className="fixed-bottom page-footer font-small stylish-color-dark pt-4" id="homepagefooter">
+      <footer className="page-footer font-small stylish-color-dark pt-4" id="homepagefooter">
           <div className="container-fluid text-center text-md-left">
             <div className="row">
                 <div className="col-md-6 mt-md-0 mt-3">
