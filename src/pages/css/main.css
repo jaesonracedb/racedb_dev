@@ -46,7 +46,7 @@ nav.navbar.navbar-expand-md.navbar-dark{
 	background-color: #ff2400;
 }
 .grayBlock{
-	background-color: #45505b;
+	background-color: #3E4551;
 	box-sizing: border-box;
 	margin-top: 5px;
 	padding-top: 50px;
@@ -54,6 +54,9 @@ nav.navbar.navbar-expand-md.navbar-dark{
 	margin-bottom: 0px;
 	width: 100%;
 	max-width: 100%;
+}
+.loc-img{
+	width: 370;
 }
 #formSearchHome{
 	position: relative;
@@ -114,12 +117,20 @@ nav.navbar.navbar-expand-md.navbar-dark{
 	font-size: 12px;
 }
 
-.content {
+/* .content {
   min-height: 100%;
-}
+} */
+
+/* 
 .content-inside {
-  /* padding: 20px; */
+  /* padding: 20px; *//*
   padding-bottom: 50px;
+} */
+footer{
+	background-color: #3E4551;
+	position: relative;
+	bottom: 0;
+	width: 100%;
 }
 
 .sectionTitle{
@@ -128,11 +139,6 @@ nav.navbar.navbar-expand-md.navbar-dark{
 
 }
 
-footer {
-  height: 50px;
-  margin-top: 90px;
-	background-color: grey;
-}
 /* for star ratings under EXCLUSIVES portion of homepage */
 .checked {
   color: orange;
@@ -158,9 +164,11 @@ footer {
 	left: 45%;
 	transform: translate(-10%,-50%);
 }
+
 .locationImg{
-	width: 400px;
-	/* width: 600px; */
+	width: 100%;
+	height: auto;
+	min-width: 100%;
 }
 /* div .left {
 	float: left;
@@ -208,9 +216,6 @@ div .right {
 	margin-bottom:50px;
 }
 
-#homepagefooter{
-
-}
 
 
 #archiveCard{
@@ -218,8 +223,6 @@ div .right {
 }
 
 .card{
-		
-		height:450px;
 		max-width: 350px;
 		border-radius: 5px;
 		/* padding-bottom: 10px; */

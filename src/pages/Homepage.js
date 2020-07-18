@@ -12,6 +12,12 @@ import featured4 from "./imgs/Featured/rsz_gfny.jpg";
 import featured2 from "./imgs/Featured/rsz_spartan.jpg";
 import featured5 from "./imgs/Featured/rsz_duathlon.png";
 import featured6 from "./imgs/Featured/rsz_ironman.png";
+import location1 from "./imgs/Locations/homepage/New-York.jpg";
+import location2 from "./imgs/Locations/homepage/New-Jersey.jpg";
+import location3 from "./imgs/Locations/homepage/Pennsylvania.jpg";
+import location4 from "./imgs/Locations/homepage/Connecticut.jpg";
+import location5 from "./imgs/Locations/homepage/Massachusetts.jpg";
+import location6 from "./imgs/Locations/homepage/Delaware.jpg";
 import logoRed from "./imgs/racedblogo-02-1024x640.png";
 import running from "./imgs/running.jpg";
 import triathlon from "./imgs/triathlon.jpg";
@@ -20,6 +26,7 @@ import other from "./imgs/other.jpg";
 import obstacle from "./imgs/obstacle-race.jpg";
 import HomeNav from "./HomeNav.js";
 import HomepageSearch from "./HomepageSearch.js";
+import Footer from "./Footer.js";
 
 
 export default class Homepage extends Component {
@@ -319,9 +326,9 @@ export default class Homepage extends Component {
         
         <div className="row" id="locationsfirstrow">
           <div className="col-xs-8 col-md-6 col-lg-4 mb-3 mb-md-3" id="location1">
-            <div className='locContainer' class="img-thumbnail">
+            <div className='locContainer' class="img-thumbnail ">
               <a className ='homepageLocaton' href={locationUrl+'new-york'} style={{color:"black"}}>
-                <img src={stockImg} className="mx-auto d-block bg-dark mt-5 locationImg" class="img-thumbnail" alt="New York" style={{width:"100%"}}/>
+                <img src={location1} className="mx-auto d-block bg-dark locationImg" alt="New York"/>
                 <div className="locationText" class="caption" align="center">
                   <h5>New York</h5>
                 </div>
@@ -331,7 +338,7 @@ export default class Homepage extends Component {
           <div className="col-xs-8 col-md-6 col-lg-4 mb-3 mb-md-3" id="location1">
             <div className='locContainer' class="img-thumbnail">
               <a className ='homepageLocaton' href={locationUrl+'new-jersey'} style={{color:"black"}}>
-                <img src={stockImg} className="mx-auto d-block bg-dark mt-5 locationImg" class="img-thumbnail" alt="New York" style={{width:"100%"}}/>
+                <img src={location2} className="mx-auto d-block bg-dark locationImg" alt="New Jersey"/>
                 <div className="locationText" class="caption" align="center">
                   <h5>New Jersey</h5>
                 </div>
@@ -340,10 +347,10 @@ export default class Homepage extends Component {
           </div>
           <div className="col-xs-8 col-md-6 col-lg-4 mb-3 mb-md-3" id="location1">
             <div className='locContainer' class="img-thumbnail">
-              <a className ='homepageLocaton' href={locationUrl+'maryland'} style={{color:"black"}}>
-                <img src={stockImg} className="mx-auto d-block bg-dark mt-5 locationImg" class="img-thumbnail" alt="New York" style={{width:"100%"}}/>
+              <a className ='homepageLocaton' href={locationUrl+'pennsylvania'} style={{color:"black"}}>
+                <img src={location3} className="mx-auto d-block bg-dark locationImg" alt="Pennsylvania" />
                 <div className="locationText" class="caption" align="center">
-                  <h5>Maryland</h5>
+                  <h5>Pennsylvania</h5>
                 </div>
               </a>
             </div>
@@ -352,30 +359,30 @@ export default class Homepage extends Component {
       
       
         
-          <div className="col-xs-8 col-md-6 col-lg-4 mb-3 mb-md-0" id="location1">
-            <div className='locContainer' class="img-thumbnail">
-              <a className ='homepageLocaton' href={locationUrl+'maine'} style={{color:"black"}}>
-                <img src={stockImg} className="mx-auto d-block bg-dark mt-5 locationImg" class="img-thumbnail" alt="New York" style={{width:"100%"}}/>
-                <div className="locationText" class="caption" align="center">
-                  <h5>Maine</h5>
-                </div>
-              </a>
-            </div>
-          </div>
           <div className="col-xs-8 col-md-6 col-lg-4 mb-3 mb-md-0" id="location1">
             <div className='locContainer' class="img-thumbnail">
               <a className ='homepageLocaton' href={locationUrl+'connecticut'} style={{color:"black"}}>
-                <img src={stockImg} className="mx-auto d-block bg-dark mt-5 locationImg" class="img-thumbnail" alt="New York" style={{width:"100%"}}/>
+                <img src={location4} className="mx-auto d-block bg-dark locationImg"  alt="Connecticut"/>
                 <div className="locationText" class="caption" align="center">
                   <h5>Connecticut</h5>
                 </div>
               </a>
             </div>
           </div>
+          <div className="col-xs-8 col-md-6 col-lg-4 mb-3 mb-md-0" id="location1">
+            <div className='locContainer' class="img-thumbnail">
+              <a className ='homepageLocaton' href={locationUrl+'massachusetts'} style={{color:"black"}}>
+                <img src={location5} className="mx-auto d-block bg-dark locationImg" alt="Massachusetts"/>
+                <div className="locationText" class="caption" align="center">
+                  <h5>Massachusetts</h5>
+                </div>
+              </a>
+            </div>
+          </div>
           <div className="col-xs-8 col-md-6 col-lg-4" id="location1">
             <div className='locContainer' class="img-thumbnail">
-              <a className ='homepageLocaton' href={locationUrl+'california'} style={{color:"black"}}>
-                <img src={stockImg} className="mx-auto d-block bg-dark mt-5 locationImg" class="img-thumbnail" alt="New York" style={{width:"100%"}}/>
+              <a className ='homepageLocaton' href={locationUrl+'delaware'} style={{color:"black"}}>
+                <img src={location6} className="mx-auto d-block bg-dark locationImg"  alt="Delaware" />
                 <div className="locationText" class="caption" align="center">
                   <h5>California</h5>
                 </div>
@@ -461,56 +468,13 @@ export default class Homepage extends Component {
           <p style={{color:"white"}}> Claim your race if it already exists within our directory. </p><br/>
         </div>
       </div>
+    </div>
 
-      <div class="row">
-        <div class="col-md-4 mx-auto">
-          <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Footer Content</h5>
-          <p>Here you can use rows and columns to organize your footer content. Lorem ipsum dolor sit amet,
-            consectetur
-            adipisicing elit.</p>
-        </div>
-        <div class="col-md-2 mx-auto">
-          <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Links</h5>
-          <ul class="list-unstyled">
-            <li>
-              <a href="#!">Link 1</a>
-            </li>
-            <li>
-              <a href="#!">Link 2</a>
-            </li>
-            <li>
-              <a href="#!">Link 3</a>
-            </li>
-            <li>
-              <a href="#!">Link 4</a>
-            </li>
-          </ul>
-        </div>
-        <div class="col-md-2 mx-auto">
-          <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Links</h5>
-          <ul class="list-unstyled">
-            <li>
-              <a href="#!">Link 1</a>
-            </li>
-            <li>
-              <a href="#!">Link 2</a>
-            </li>
-            <li>
-              <a href="#!">Link 3</a>
-            </li>
-            <li>
-              <a href="#!">Link 4</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-
+    </div>
     </div>
 
 
-</div>
-
-    </div>
+    <Footer/>
 </div>
 </div>
     )
