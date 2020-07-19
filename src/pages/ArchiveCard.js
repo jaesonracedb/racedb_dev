@@ -41,7 +41,7 @@ export default class ArchiveCard extends Component{
             {/*--sets width to device size, sets zoom-->*/}
             <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
-            <title>raceDB Homepage</title>
+            <title>raceDB</title>
             <link rel="stylesheet" href="main.css"/>
 
             {/*// --bootstrap stuff--*/}
@@ -57,7 +57,7 @@ export default class ArchiveCard extends Component{
               <div className="col-auto">
                 <img src={logoRDB} className="img-fluid" alt="img" height="200px" width="200px"/>
               </div>
-              <div className="col mt-1">
+              <div className="col-auto mt-1">
                 <div className="card-block px-2">
                   <h5 className="h5-responsive card-title"><a href={this.state.url}>{this.state.title}</a></h5>
                   <p className="card-text">Date: {this.state.date}</p>
