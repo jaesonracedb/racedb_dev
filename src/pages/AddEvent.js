@@ -231,71 +231,55 @@ class AddEvent extends PureComponent {
     let {handleCyclingType} = this.handleCyclingType;
     function DisplayTritahlonFields(){
       return <div>
-      <div class="row ml-4">
-        <div class="col-xs ml-3">
-          <a> Race Distance: </a>
-        </div>
-        <div class="col-lg-2 ml-3">
-          <input type="text" name="distanceIn" class="form-control" placeholder="Input race Distance" onChange={handleDistance} required/><br/>
-        </div>
-        <div class="col-xs ml-3">
-          <a> Swim Distance: </a>
-        </div>
-        <div class="col-lg-2 ml-3">
-          <input type="text" id="swimDistance" class="form-control" name="swim_distanceIn" placeholder="Input swim distance" onChange={handleSwimDistance} required/><br/>
-        </div>
-      </div>
-      <div class="row ml-4">
-        <div class="col-xs ml-3">
-          <a> Bike Distance: </a>
-        </div>
-        <div class="col-lg-2 ml-3">
-          <input type="text" id="bikeDistance" class="form-control" name="bike_distanceIn" placeholder="Input bike distance" onChange={handleBikeDistance} required/><br/>
-        </div>
-        <div class="col-xs ml-3">
-          <a> Run Distance: </a>
-        </div>
-        <div class="col-lg-2 ml-3">
-          <input type="text" id="runDistance" class="form-control" name="run_distanceIn" placeholder="Input run distance" onChange={handleRunDistance} required/><br/>
-        </div>
-      </div>
+        <div className="form-row">
+                  <div class="form-group col-md-5">
+                    <label for="inputRaceDistanceTriathlon">Race Distance</label>
+                    <input type="text" name="distanceIn" id="inputRaceDistanceTriathlon" className="form-control" placeholder="Input race Distance" onChange={handleDistance} required/><br/>
+                  </div>
+                  <div class="form-group col-md-5">
+                    <label for="inputSwimDistanceTriathlon">Swim Distance</label>
+                    <input type="text" id="swimDistance" id="inputSwimDistanceTriathlon" className="form-control" name="swim_distanceIn" placeholder="Input swim distance" onChange={handleSwimDistance} required/><br/>
+                  </div> 
+          </div>   
+          <div className="form-row">
+                  <div class="form-group col-md-5">
+                    <label for="inputBikeDistanceTriathlon">Bike Distance</label>
+                    <input type="text" id="bikeDistance" id="inputBikeDistanceTriathlon" className="form-control" name="bike_distanceIn" placeholder="Input bike distance" onChange={handleBikeDistance} required/><br/>
+                  </div>
+                  <div class="form-group col-md-5">
+                    <label for="inputRunDistanceTriathlon">Run Distance</label>
+                    <input type="text" id="runDistance" id="inputRunDistanceTriathlon" className="form-control" name="run_distanceIn" placeholder="Input run distance" onChange={handleRunDistance} required/><br/>
+                  </div> 
+            </div>   
       </div>
     }
     function DisplayObstacleRunningFields(){
-      return <div class="row ml-4">
-        <div class="col-xs ml-3">
-          <a> Race Distance: </a>
-        </div>
-        <div class="col-lg-2 ml-3">
-          <input type="text" name="distanceIn" class="form-control" placeholder="Input race Distance" onChange={handleDistance} required/><br/>
-        </div>
+      return <div class="form-group col-md-6">
+        <label for="inputObstacleRunningDistance">Race Distance</label>
+        <input type="text" name="distanceIn" id="inputObstacleRunningDistance" class="form-control" placeholder="Input race Distance" onChange={handleDistance} required/><br/>
         </div>
     }
     function DisplayOtherFields(){
-      return <div class="row ml-4">
-      <div class="col-xs ml-3">
-        <a> Race Type: </a>
+      return <div class="form-group col-md-6">
+      <label for="inputOtherDistance">Race Distance</label>
+      <input type="text" name="race_typeIn" id="inputOtherDistance" className="form-control" placeholder="Input race type" onChange={handleRaceType} required/><br/>
       </div>
-      <div class="col-lg-2 ml-3">
-        <input type="text" name="race_typeIn" class="form-control" placeholder="Input race type" onChange={handleRaceType} required/><br/>
-      </div>
-        </div>
+      
     }
     function DisplayCyclingFields(){
-      return <div class="row ml-4">
-        <div class="col-xs ml-3">
-          <a> Race Distance: </a>
+      return <div className="form-row">
+        <div class="form-group col-md-6">
+            <label for="inputRaceDistanceCycling">Race Distance</label>
+            <input type="text" name="distanceIn" id="inputRaceDistanceCycling" className="form-control" placeholder="Input race Distance" onChange={handleDistance} required/><br/>
         </div>
-        <div class="col-lg-2 ml-3">
-          <input type="text" name="distanceIn" class="form-control" placeholder="Input race Distance" onChange={handleDistance} required/><br/>
-        </div>
-        <div class="col-xs ml-3">
-          <a> Cycling Type: </a>
-        </div>
-        <div class="col-lg-2 ml-3">
-          <input type="text" id="CyclingType" class="form-control" name="cycling_typeIn" placeholder="Input cycling type" onChange={handleCyclingType} required/><br/>
-        </div>
-        </div>
+        <div class="form-group col-md-6">
+            <label for="inputCyclingType">Cycling Type</label>
+            <input type="text" id="inputCyclingType" className="form-control" name="cycling_typeIn" placeholder="Input cycling type" onChange={handleCyclingType} required/><br/>
+        </div> 
+      </div>    
+      
+      
+    
     }
     function DisplayCategoryFields(props){
       if(props.currentCategory==='triathlon'){
@@ -318,7 +302,7 @@ class AddEvent extends PureComponent {
           {/*--sets width to device size, sets zoom-->*/}
           <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
-          <title>raceDB Homepage</title>
+          <title>raceDB</title>
           <link rel="stylesheet" href="main.css"/>
 
           {/*// --bootstrap stuff--*/}
@@ -339,78 +323,57 @@ class AddEvent extends PureComponent {
             <div>
               <h3 class="mt-3 ml-5">Add Your Race!</h3>
               <br/>
-              <form>
-                <div class="row ml-4">
-                  <div class="col-xs ml-3">
-                    <a>Name:</a>
-                  </div>
-                  <div class="col-lg-4">
-                    <input type="text" name="nameIn" class="form-control" placeholder="Input race name" onChange={this.handleNameChange} required/> <br/>
-                  </div>
-                  <div class="col-xs ml-3">
-                    <a>Date: </a>
-                  </div>
-                  <div class="ml-3">
-                    <input type="date" name="event_dateIn" class="form-control" required pattern="\d{4}-\d{2}-\d{2}" onChange={this.handleEvent_date} required/><br/>
-                  </div>
-                  <div class="col-xs ml-3">
-                    <a> Organizer Email: </a>
-                  </div>
-                  <div class="col-lg-3 ml-3">
-                    <input type="email" name="emailIn" class="form-control" placeholder="organizer@email.com" onChange={this.handleEmail} required/><br/>
-                  </div>
-                </div>
-                <div class="row ml-4">
-                  <div class="col-xs ml-3">
-                    <a> Location: </a>
-                  </div>
-                  <div class="col-lg-3 ml-3">
-                    <input type="text" name="location_cityIn" class="form-control" placeholder="Enter Location/City" onChange={this.handleLocationCity} required/><br/>
-                  </div>
-                  <div class="col-xs ml-3">
-                    <a> State: </a>
-                  </div>
-                  <div class="col-lg-3 ml-3">
-                    <input type="text" name="stateIn" class="form-control" placeholder="Input State" onChange={this.handleState} required/><br/>
-                  </div>
-                </div>
 
-                <div class="row ml-4">
-                <div class="col-xs ml-3">
-                <a>Category: </a>
+
+
+              <form className="pl-md-5" >
+                <div class="form-row">
+                  <div class="form-group col-md-5">
+                    <label for="inputEmail4">Name</label>
+                    <input type="text" name="nameIn" id="inputEmail4" className="form-control" placeholder="Input race name" onChange={this.handleNameChange} required/> <br/>
+                  </div>
+                  <div class="form-group col-md-2">
+                    <label for="inputDate4">Date</label>
+                    <input type="date" name="event_dateIn" id="inputDate4" className="form-control" required pattern="\d{4}-\d{2}-\d{2}" onChange={this.handleEvent_date} required/><br/>
+                  </div>
+                  <div class="form-group col-md-3">
+                    <label for="organizerEmail4">Organizer Email</label>
+                    <input type="email" name="emailIn" id="organizerEmail4" className="form-control" placeholder="organizer@email.com" onChange={this.handleEmail} required/><br/>
+                  </div>
                 </div>
-                <div class="col-lg-3 ml-3">
-                <select name="categoryIn" class="form-control" placeholder="Input race category" onChange={this.handleCategory} required>
-                <option selected value='running' id="running">Running</option>
-                <option value='cycling' id="cycling">Cycling</option>
-                <option value='triathlon' id="triathlon">Triathlon</option>
-                <option value='obstacle' id="obstacle">Obstacle</option>
-                <option value='other' id="other">Other</option>
-                </select><br/>
+                <div class="form-row">
+                <div class="form-group col-md-5">
+                  <label for="inputLocation">Location</label>
+                  <input type="text" name="location_cityIn" id="inputLocation" className="form-control" placeholder="Enter Location/City" onChange={this.handleLocationCity} required/><br/>
                 </div>
+                <div class="form-group col-md-3">
+                  <label for="inputState">State</label>
+                  <input type="text" name="stateIn" id="inputState" className="form-control" placeholder="Input State" onChange={this.handleState} required/><br/>
+                </div>
+                  <div class="form-group col-md-2">
+                    <label for="inputCategory">Category</label>
+                        <select name="categoryIn" class="form-control" id="inputCategory" placeholder="Input race category" onChange={this.handleCategory} required>
+                          <option defaultValue value='running' id="running">Running</option>
+                          <option value='cycling' id="cycling">Cycling</option>
+                          <option value='triathlon' id="triathlon">Triathlon</option>
+                          <option value='obstacle' id="obstacle">Obstacle</option>
+                          <option value='other' id="other">Other</option>
+                        </select><br/>
+                  </div>
                 </div>
                 <DisplayCategoryFields currentCategory={this.state.category}/>
-
-                <div class="row ml-4">
-                  <div class="col-xs ml-3">
-                    <a> Race Website: </a>
+                <div className="form-row">
+                  <div class="form-group col-md-5">
+                    <label for="inputWebsite">Race Website</label>
+                    <input type="text" name="websiteIn" id="inputWebsite" className="form-control" placeholder="Input race website" onChange={this.handleWebsite} required/><br/>
                   </div>
-                  <div class="col-lg-4 ml-3">
-                    <input type="text" name="websiteIn" class="form-control" placeholder="Input race website" onChange={this.handleWebsite} required/><br/>
-                  </div>
-                </div>
-                <div class="row ml-4">
-                  <div class="col-xs ml-3">
-                    <a> Race Summary: </a>
-                  </div>
-                  <div class="col-lg-4 ml-3">
-                    <input type="text" name="summaryIn" class="form-control" placeholder="Input summary" onChange={this.handleSummary} required/><br/>
-                  </div>
-                </div>
-              </form>
-              <div class="row ml-4">
+                  <div class="form-group col-md-5">
+                    <label for="inputSummary">Race Summary:</label>
+                    <input type="text" name="summaryIn" id="inputSummary" className="form-control" placeholder="Input summary" onChange={this.handleSummary} required/><br/>
+                  </div> 
+                  </div>               
                 <button className="addEventButton" type="submit" class="btn btn-primary" onClick={this.handleAddEvent}>Submit Race</button>
-              </div>
+              </form>
             </div>  {/* unnamed div enclosing tag */}
           </div>  {/* div class = content-inside enclosing tag */}
         </div>  {/* div class = content enclosing tag */}
