@@ -164,7 +164,6 @@ class AddEvent extends PureComponent {
     this.setState({
       category: e.target.value,
     })
-    console.log("change this.state.category: "+ this.state.category);
   }
 
   handleDistance(e){

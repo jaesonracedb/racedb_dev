@@ -176,83 +176,49 @@ export default class Signup extends Component {
         
     <HomeNav/>
 
-    <div class="m-5 border">
-    	<h3 class="mt-3 ml-5">Signup</h3>
+    <div class="col-md-3 mt-5 border mx-auto">
+    	<h3 class="mt-3 ml-3 pt-3 ml-md-5" align="center">Signup</h3>
 
     	{/*<!--form-->*/}
     	<div class="p-3">
-      <div class="row ml-4">
-          <div class="col-xs ml-2">
-    				<a>Username</a>
-    			</div>
-          </div>
-      <div class="row ml-4">
-    			<div class="col-lg-4">
-    				<input type="text" class="form-control" onChange={this.handleUsername}/>
-    			</div>
-      </div>
-
-    		<div class="row ml-4 mt-3">
-          <div class="col-xs ml-2">
-    				<a>Email</a>
-    			</div>
-          </div>
-          <div class="row ml-4">
-    			<div class="col-lg-4">
-    				<input type="text" class="form-control" onChange={this.handleEmail}/>
-    			</div>
-    		</div>
-
-        <div class="row ml-4 mt-3">
-          <div class="col-xs ml-2">
-    				<a>Password</a>
-    			</div>
-          </div>
-        <div class="row ml-4">
-    			<div class="col-lg-4">
-    				<input type="password" class="form-control" onChange={this.handlePass}/>
-          </div>
-        </div>
-
-        <div class="row ml-4 mt-3">
-          <div class="col-xs ml-2">
-    				<a>Confirm Password</a>
-    			</div>
-          </div>
-          <div class="row ml-4">
-    			<div class="col-lg-4">
-    				<input type="password" class="form-control" onChange={this.handlePass1}/>
-          </div>
-        </div>
-
-        <div class="row ml-4 mt-3">
-          <div class="col-lg-3">
-    				<a>Last Name</a>
-    			</div>
-          <div class="col-lg-3">
-    				<a>First Name</a>
-    			</div>
-          <div class="col-lg-1">
-    				<a>M.I.</a>
-    			</div>
+        <div class="form-group ml-md-4 mt-3 col-auto">
+          <label for="inputU">Username</label>
+          <input type="text" id="inputU" className="form-control" onChange={this.handleUsername}/>
         </div>
         
-        <div class="row ml-4">
-    			<div class="col-lg-3">
-    				<input type="text" class="form-control" onChange={this.handleLastName}/>
-    			</div>
-    			<div class="col-lg-3">
-    				<input type="text" class="form-control" onChange={this.handleFirstName}/>
-    			</div>
-          
-    			<div class="col-lg-1">
-    				<input type="text" class="form-control" onChange={this.handleMiddleInit}/>
-    			</div>
-    		</div>
+
+        <div class="form-group ml-md-4 mt-3 col-auto">
+          <label for="inputEmail">Email</label>
+          <input type="text" id="inputE" className="form-control" onChange={this.handleEmail}/>
+        </div>
+
+        <div class="form-group ml-md-4 mt-3 col-auto">
+          <label for="inputP">Password</label>
+          <input type="password" id="inputP" className="form-control" onChange={this.handlePass}/>
+        </div>
 
 
-        <div class="row mt-3 ml-4">
-          <button type="button" class="btn btn-primary" onClick={this.signup}>Log In</button>
+        <div class="form-group ml-md-4 mt-3 col-auto">
+          <label for="inputCP">Confirm Password</label>
+          <input type="password" id="inputCP" class="form-control" onChange={this.handlePass1}/>
+        </div>
+        
+        <div class="form-group ml-md-4 mt-3 col-auto">
+          <label for="inputLN">Last Name</label>
+          <input type="text" id="inputLN" class="form-control" onChange={this.handleLastName}/>
+        </div>
+        <div class="form-group ml-md-4 mt-3 col-auto">
+          <label for="inputFN">First Name</label>
+          <input type="text" class="form-control" id="inputFN" onChange={this.handleFirstName}/>
+        </div>
+        <div class="form-group ml-md-4 mt-3 col-auto">
+          <label for="inputMI">M.I.</label>
+          <input type="text" class="form-control" id="inputMI" onChange={this.handleMiddleInit}/>
+        </div>
+
+
+        <div class="row mt-3 ml-md-4">
+          <button type="button" class="btn btn-primary ml-auto mr-3" onClick={this.signup}>Sign Up</button>
         </div>
       </div>
     </div>
