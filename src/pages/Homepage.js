@@ -142,11 +142,11 @@ export default class Homepage extends Component {
       <div className="row">
       <div className="container-fluid col-xs-12 col-md-12 col-lg-8 mx-auto pt-3 pb-5 mb-3">
     	<div className="btn-group btn-group flex-wrap mx-auto" align="center" id="categoryNav">
-    		<a className="btn btn-secondary" href={categoriesUrl+'running'}>Running</a>
-    		<a className="btn btn-secondary" href={categoriesUrl+'triathlon'}>Triathlon</a>
-    		<a className="btn btn-secondary" href={categoriesUrl+'cycling'}>Cycling</a>
-    		<a className="btn btn-secondary" href={categoriesUrl+'obstacle'}>Obstacle</a>
-    		<a className="btn btn-secondary" href={categoriesUrl+'other'}>Other</a>
+    		<a className="btn btn-secondary homeCatButton" href={categoriesUrl+'running'}>Running</a>
+    		<a className="btn btn-secondary homeCatButton" href={categoriesUrl+'triathlon'}>Triathlon</a>
+    		<a className="btn btn-secondary homeCatButton" href={categoriesUrl+'cycling'}>Cycling</a>
+    		<a className="btn btn-secondary homeCatButton" href={categoriesUrl+'obstacle'}>Obstacle</a>
+    		<a className="btn btn-secondary homeCatButton" href={categoriesUrl+'other'}>Other</a>
       </div>
       </div>
       </div>
