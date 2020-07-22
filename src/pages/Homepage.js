@@ -19,11 +19,11 @@ import location4 from "./imgs/Locations/homepage/Connecticut.jpg";
 import location5 from "./imgs/Locations/homepage/Massachusetts.jpg";
 import location6 from "./imgs/Locations/homepage/Delaware.jpg";
 import logoRed from "./imgs/racedblogo-02-1024x640.png";
-import running from "./imgs/running.jpg";
-import triathlon from "./imgs/triathlon.jpg";
-import cycling from "./imgs/cycling.jpg";
-import other from "./imgs/other.jpg";
-import obstacle from "./imgs/obstacle-race.jpg";
+import running from "./imgs/running.png";
+import triathlon from "./imgs/triathlon.png";
+import cycling from "./imgs/cycling.png";
+import other from "./imgs/other.png";
+import obstacle from "./imgs/obstacle.png";
 import HomeNav from "./HomeNav.js";
 import HomepageSearch from "./HomepageSearch.js";
 import Footer from "./Footer.js";
@@ -319,9 +319,8 @@ export default class Homepage extends Component {
 
 
 
-    <div className="grayBlock" id="locationsdiv">
-      <h2 align="center" style={{color:"white"}} className="sectionTitle">Locations</h2>
-      <div className="container-fluid" align="center">
+    <div className="grayBlock container-fluid mx-auto" align="center" id="locationsdiv">
+      <h2 align="center" style={{color:"white"}} className="sectionTitle mb-3">Locations</h2>
 
         
         <div className="row" id="locationsfirstrow">
@@ -391,66 +390,75 @@ export default class Homepage extends Component {
           </div>
         </div>
       
-    </div>
+    
       </div>
 {/* END OF LOCATIONS */}
 {/* START OF CATEGORIES */}
-
-    <div className="container-fluid mx-auto" id="categoriesdiv" align="center">
-      <h2 align="center" className="sectionTitle">Categories</h2>
-      <div className="row" id="categoriesfirstrow">
-        <div className="col-md-6 col-lg-4 mb-2">
-          <div className='locContainer img-thumbnail'>
+      <div className="container-fluid mx-auto" id="categoriesdiv" align="center">
+      <h2 align="center" className="sectionTitle">Categories</h2>        
+        <div className="row" id="categoriesfirstrow">
+          <div className="col-xs-8 col-md-6 col-lg-4 mb-3 mb-md-3" id="location1">
+            <div className='locContainer img-thumbnail '>
             <a className ='homepageLocaton' href={categoriesUrl+'running'} style={{color:"black"}}>
               <img src={running} className="mx-auto d-block bg-dark mt-5 img-thumbnail"  alt="category" style={{width:"100%"}}/>
               <div className="locationText caption" align="center">
                 <h5>Running</h5>
               </div>
             </a>
+            </div>
           </div>
-        </div>
-        <div className="col-md-6 col-lg-4 mb-2">
-          <div className='locContainer img-thumbnail' >
+          <div className="col-xs-8 col-md-6 col-lg-4 mb-3 mb-md-3" id="location1">
+            <div className='locContainer img-thumbnail'>
             <a className ='homepageLocaton' href={categoriesUrl+'cycling'} style={{color:"black"}}>
-              <img src={running} className="mx-auto d-block bg-dark mt-5 img-thumbnail" alt="category" style={{width:"100%"}}/>
+              <img src={cycling} className="mx-auto d-block bg-dark mt-5 img-thumbnail" alt="category" style={{width:"100%"}}/>
               <div className="locationText caption" align="center">
                 <h5>Cycling</h5>
               </div>
             </a>
+            </div>
           </div>
-        </div>
-        <div className="col-md-6 col-lg-4 mb-2">
-          <div className='locContainer img-thumbnail'>
+          <div className="col-xs-8 col-md-6 col-lg-4 mb-3 mb-md-3" id="location1">
+            <div className='locContainer img-thumbnail'>
             <a className ='homepageLocaton' href={categoriesUrl+'triathlon'} style={{color:"black"}}>
-              <img src={running} className="mx-auto d-block bg-dark mt-5 img-thumbnail" alt="category" style={{width:"100%"}}/>
+              <img src={triathlon} className="mx-auto d-block bg-dark mt-5 img-thumbnail" alt="category" style={{width:"100%"}}/>
               <div className="locationText caption" align="center">
                 <h5>Triathlon</h5>
               </div>
             </a>
+            </div>
           </div>
-        </div>
-          <div className="col-md-6 col-lg-4 offset-lg-2 mb-2">
+        
+      
+      
+        
+          <div className="col-xs-8 col-md-6 col-lg-4 mb-3 mb-md-0 offset-lg-2" id="location1">
             <div className='locContainer img-thumbnail'>
               <a className ='homepageLocaton' href={categoriesUrl+'obstacle'} style={{color:"black"}}>
-                <img src={running} className="mx-auto d-block bg-dark mt-5 img-thumbnail" alt="category" style={{width:"100%"}}/>
+                <img src={obstacle} className="mx-auto d-block bg-dark mt-5 img-thumbnail" alt="category" style={{width:"100%"}}/>
                 <div className="locationText caption" align="center">
                   <h5>Obstacle</h5>
                 </div>
               </a>
             </div>
           </div>
-          <div className="col-md-6 col-lg-4 mb-md-2">
+          <div className="col-xs-8 col-md-6 col-lg-4 mb-3 mb-md-0 offset-md-3 offset-lg-0" id="location1">
             <div className='locContainer img-thumbnail'>
-              <a className ='homepageLocaton' href={categoriesUrl+'other'} style={{color:"black"}}>
-                <img src={running} className="mx-auto d-block bg-dark mt-5 img-thumbnail" alt="category" style={{width:"100%"}}/>
+            <a className ='homepageLocaton' href={categoriesUrl+'other'} style={{color:"black"}}>
+                <img src={other} className="mx-auto d-block bg-dark mt-5 img-thumbnail" alt="category" style={{width:"100%"}}/>
                 <div className="locationText caption" align="center">
                   <h5>Other</h5>
                 </div>
               </a>
             </div>
           </div>
-      </div>
-    </div>
+        </div>
+      
+    
+      </div>          
+    
+
+
+
 
 
 
