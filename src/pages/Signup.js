@@ -16,7 +16,7 @@ export default class Signup extends Component {
       email: '',
       firstName: '',
       lastName: '',
-      middleInit: ''
+      middleInit: null
     }
     this.handleUsername = this.handleUsername.bind(this);
     this.handlePass = this.handlePass.bind(this);
@@ -24,7 +24,7 @@ export default class Signup extends Component {
     this.handleEmail = this.handleEmail.bind(this);
     this.handleLastName = this.handleLastName.bind(this);
     this.handleFirstName = this.handleFirstName.bind(this);
-    this.handleMiddleInit = this.handleMiddleInit.bind(this);
+
     this.signup= this.signup.bind(this);
   }
   handleUsername(e){
@@ -57,11 +57,7 @@ export default class Signup extends Component {
       lastName: e.target.value
     })
   }
-  handleMiddleInit(e){
-    this.setState({
-      middleInit: e.target.value
-    })
-  }
+
 
 
   signup(e) {
@@ -82,10 +78,10 @@ export default class Signup extends Component {
       email: this.state.email,
       firstName: this.state.firstName,
       lastName: this.state.lastName,
-      middleInit: this.state.middleInit
+      middleInit: null
     }
     if(regExUser.test(thisUser)){
-      if(regExName.test(thisFirstName) && regExName.test(thisLastName) && regExName.test(thisMiddleInit)){
+      if(regExName.test(thisFirstName) && regExName.test(thisLastName)){
           if(verifyPass1.length >= 8){
             if(verifyPass1 === verifyPass2){
               console.log("Signed Up");
@@ -211,11 +207,6 @@ export default class Signup extends Component {
           <label for="inputFN">First Name</label>
           <input type="text" class="form-control" id="inputFN" onChange={this.handleFirstName}/>
         </div>
-        <div class="form-group ml-md-4 mt-3 col-auto">
-          <label for="inputMI">M.I.</label>
-          <input type="text" class="form-control" id="inputMI" onChange={this.handleMiddleInit}/>
-        </div>
-
 
         <div class="row mt-3 ml-md-4">
           <button type="button" class="btn btn-primary ml-auto mr-3" onClick={this.signup}>Sign Up</button>

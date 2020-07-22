@@ -1,5 +1,5 @@
 import React,{Component, useState, useEffect} from 'react';
-import logoRDB from "./imgs/racedblogo-04-scaled.png";
+import logoRDB from "./imgs/rsz_racedblogo-04-scaled.png";
 import "./css/main.css";
 import {Helmet} from "react-helmet";
 export default class HomeNav extends Component{
@@ -83,7 +83,7 @@ export default class HomeNav extends Component{
       if(loggedIn){
         return <nav className="navbar navbar-expand-md navbar-dark" id="homepageNav">
         <a className="navbar-brand ml-3" href={homeUrl}>
-          <img src={logoRDB} alt="logo" style= {{width:"110px"}}/>
+          <img src={logoRDB} alt="logo" className="navBarImg"/>
         </a>
 
         <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav2" aria-controls="navbarNav2" aria-expanded="false" aria-label="Toggle navigation">
@@ -105,7 +105,7 @@ export default class HomeNav extends Component{
       }else{
         return <nav className="navbar navbar-expand-md navbar-dark" id="homepageNav">
                 <a className="navbar-brand ml-3" href={homeUrl}>
-                  <img src={logoRDB} alt="logo" style= {{width:"110px"}}/>
+                  <img src={logoRDB} alt="logo" className="navBarImg"/>
                 </a>
 
                 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">

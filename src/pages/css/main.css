@@ -182,7 +182,11 @@ div .right {
     margin-left: -15px;
 }
 
-
+.navBarImg{
+	max-height: 2.7rem;
+	height: auto;
+	margin-left: -0.9rem;
+}
 /* .card-img-top{
 	height: 170px;
 	width:320px;

@@ -1,12 +1,12 @@
 import React, {Component} from 'react';
-import logoRDB from "./imgs/racedblogo-04-scaled.png";
+import logoRDB from "./imgs/rsz_racedblogo-04-scaled.png";
 
 export default class Navbar extends Component{
   render(){
     return(
       <nav className="navbar navbar-expand-sm navbar-dark" style={{backgroundcolor:"#2d4f78"}}>
   			<a className="navbar-brand" href="http://localhost:3000">
-  				<img src={logoRDB} alt="logo" style={{width:"110px"}}/>
+  				<img src={logoRDB} alt="logo" className="navBarImg"/>
   			</a>
 
   			<form className="form-inline my-2 my-lg-0">
