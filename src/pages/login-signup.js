@@ -124,29 +124,22 @@ export default class User extends Component {
 
     <HomeNav/>
 
-    <div class="m-5 border">
+    <div class="col-md-5 m-5 mt-5 border mx-auto">
     	<h3 class="mt-3 ml-5">Log In</h3>
 
     	{/*<!--form-->*/}
     	<div class="p-3">
-    		<div class="row ml-4">
-          <div class="col-xs ml-2">
-    				<a>Username</a>
-    			</div>
-    			<div class="col-lg-4">
-    				<input type="text" onChange={this.handleUsername} class="form-control"/>
-    			</div>
-    		</div>
-        <div class="row ml-4 mt-4">
-          <div class="col-xs ml-2">
-    				<a>Password</a>
-    			</div>
-    			<div class="col-lg-4">
-    				<input type="password" onChange={this.handlePassword} class="form-control"/>
-          </div>
+        <div class="form-group ml-md-4 mt-3 col-auto">
+          <label for="inputUL">Username</label>
+          <input type="text" id="inputUL" onChange={this.handleUsername} class="form-control"/>
         </div>
-        <div class="row mt-3 ml-4">
-          <button type="button" onClick={this.login} class="btn btn-primary">Log In</button>
+        <div class="form-group ml-md-4 mt-3 col-auto">
+          <label for="inputPL">Password</label>
+          <input type="password" id="inputPL" onChange={this.handlePassword} class="form-control"/>
+        </div>
+
+        <div class="row mt-3 ml-md-5">
+          <button type="button" onClick={this.login} class="btn btn-primary ml-auto mr-4 mt-1">Log In</button>
         </div>
       </div>
     </div>
