@@ -28,25 +28,30 @@ html, body {
 	max-width: 100%;
 	
 }
+.navbar {
+	transition: all 0.5s;
+	background-color:rgba(0,0,0,0.2)
+}
 #bannerHeader{
 	background-image: url("../imgs/Canva-Runners-in-a-Marathon-1024x680.jpg");
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: center;
-	min-height: 100%;
+	position: relative;
+    overflow: hidden;
+    cursor: default;
 	min-width: 100%;
 	box-sizing: border-box;
-	height: auto;
 	padding-bottom: 4rem;
 }
 nav.navbar.navbar-expand-md.navbar-dark{
 	top:0;
 	max-width: 100%;
 	left:0;
-	background-color: #ff2400;
+	/* background-color: #ff2400; */
 }
 .grayBlock{
-	background-color: #3E4551;
+	background-color: #2d2d2d;
 	box-sizing: border-box;
 	margin-top: 5px;
 	padding-top: 50px;
@@ -70,12 +75,13 @@ nav.navbar.navbar-expand-md.navbar-dark{
 	min-width: 85px;
 }
 #start-search{
-	min-width: 10%;
-	background-color: #ff2400;
-	border-color: #ff2400;
+	min-width: 55px;
+	margin:0;
+	background-color: #ff2400 !important;
+	border-color: #ff2400 !important;
 }
 #searchBar{
- width: 100%;
+	width: 100%;
  /* background-color: red; */
 }
 #homeSearch{
@@ -99,17 +105,21 @@ nav.navbar.navbar-expand-md.navbar-dark{
 	border-right: 1px solid #51595f;	
 }
 .homeCatButton{
-	background-color: #414141 !important;
-	color: #FFFEF2 !important;
-	border-color: #414141 !important;
-	
+
+	font-family: 'Spartan MB';
+	font-size: 1.13rem !important;
+}
+.homeCatButton:hover,
+.homeCatButton:focus{
+    box-shadow: 0 0.5em 0.5em -0.4em #ececec;
 }
 
 #categoryNav{
-	padding-top: 3rem;
-	display: flex;
-	align-items: center;
+	padding-top: 1.3rem;
 	max-width: 85%;
+}
+.catButton{
+	background-color: #ff2400 !important;
 }
 #someLogo{
 	background-color: transparent !important;
@@ -124,13 +134,13 @@ nav.navbar.navbar-expand-md.navbar-dark{
 }
 
 /* .content {
-  min-height: 100%;
+	min-height: 100%;
 } */
 
 /* 
 .content-inside {
-  /* padding: 20px; *//*
-  padding-bottom: 50px;
+	/* padding: 20px; *//*
+	padding-bottom: 50px;
 } */
 footer{
 	background-color: #3E4551;
@@ -142,18 +152,21 @@ footer{
 .sectionTitle{
 	font-size: 36px;
 	margin-bottom: 0px;
-
+	
 }
 
 /* for star ratings under EXCLUSIVES portion of homepage */
 .checked {
-  color: orange;
+	color: orange;
+}
+#homepageNav{
+	
 }
 .card-body{
 	bottom: 4px;
 }
 .img-thumbnail{
-	border:none !important;
+	/* border:none !important; */
 }
 .card-img-top{
 	width: 100%;
@@ -162,7 +175,6 @@ footer{
 .locContainer{
 	position: relative;
 	text-align: center;
-	color: white;
 	height: 100%;
 	width: 100%;
 }
@@ -187,7 +199,7 @@ div .right {
 	float: right;
 } */
 .row {
-    margin-right: -15px;
+	margin-right: -15px;
     margin-left: -15px;
 }
 h1,h2,h3,h4,h5{
@@ -196,7 +208,6 @@ h1,h2,h3,h4,h5{
 .navBarImg{
 	max-height: 2.3rem;
 	height: auto;
-	margin-left: -0.9rem;
 	margin-top: 0.5rem;
 	margin-bottom: 0.3rem;
 }
@@ -210,7 +221,7 @@ h1,h2,h3,h4,h5{
 } */
 .card-group{
 	margin-bottom: 50px;
-
+	
 }
 #exclusivesdiv{
 	margin-top:50px;
@@ -240,9 +251,9 @@ h1,h2,h3,h4,h5{
 }
 
 .card{
-		max-width: 350px;
-		border-radius: 5px;
-		/* padding-bottom: 10px; */
+	max-width: 350px;
+	border-radius: 5px;
+	/* padding-bottom: 10px; */
 }
 #searchforevent{
 	margin-bottom: 1px;
@@ -253,3 +264,10 @@ h1,h2,h3,h4,h5{
 /* .page-footer.font-small.pt-4{
 	background-color:blue;
 } */
+
+@media (min-width: 800px) and (max-width: 850px) {
+	.navbar:not(.top-nav-collapse) {
+		background: #ff2400!important;
+	}
+}
+.view,body,html{height:100%}.navbar{background-color:rgba(255,36,0)}.page-footer,.top-nav-collapse{background-color:#ff2400}@media only screen and (max-width:768px){.navbar{background-color:#ff2400}}

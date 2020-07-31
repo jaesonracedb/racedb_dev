@@ -81,7 +81,7 @@ export default class HomeNav extends Component{
     const homeUrl ="/?&loggedIn="+loggedIn+"&token="+token
     function IsLoggedIn(props){
       if(loggedIn){
-        return <nav className="navbar navbar-expand-md navbar-dark" id="homepageNav">
+        return <nav className="navbar fixed-top scrolling-navbar navbar-expand-md navbar-dark" id="homepageNav">
         <a className="navbar-brand ml-3" href={homeUrl}>
           <img src={logoRDB} alt="logo" className="navBarImg"/>
         </a>
@@ -104,28 +104,28 @@ export default class HomeNav extends Component{
         
       }else{
         return <nav className="navbar navbar-expand-md navbar-dark" id="homepageNav">
-                <a className="navbar-brand ml-3" href={homeUrl}>
+                <a className="navbar-brand" href={homeUrl}>
                   <img src={logoRDB} alt="logo" className="navBarImg"/>
                 </a>
 
-                <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                  <span className="navbar-toggler-icon"></span>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
                 </button>
-                
 
-                <div className="collapse navbar-collapse" id="navbarNav">
-                <ul className="navbar-nav ml-auto">
-                  <li className="nav-item">
-                    <a className="btn btn-outline-light my-2 my-sm-0" href={createRaceUrl} role="button">Create A Race</a>
-                  </li>
-                  <li className="nav-item">
+                <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                  <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+                    <li class="nav-item active">
+                    <a className="nav-link border" href={createRaceUrl} role="button">Create Race</a>
+                    </li>
+                    <li class="nav-item">
                     <a className="nav-link" href={signupUrl}>Sign Up</a>
-                  </li>
-                  <li className="nav-item">
+                    </li>
+                    <li class="nav-item">
                     <a className="nav-link" href={loginUrl}>Login</a>
-                  </li>
-                </ul>
+                    </li>
+                  </ul>
                 </div>
+                  {/* ...................................... */}
               </nav>
       }
     }
@@ -134,14 +134,8 @@ export default class HomeNav extends Component{
     <Helmet>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, shrink-to-fit=no"/>
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.6/umd/popper.min.js"></script>
-      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 
-      <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
-      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+   
     </Helmet>
     <IsLoggedIn/>
     </div>

@@ -29,6 +29,7 @@ import HomepageSearch from "./HomepageSearch.js";
 import Footer from "./Footer.js";
 
 
+
 export default class Homepage extends Component {
   constructor(props){
     super(props);
@@ -88,7 +89,7 @@ export default class Homepage extends Component {
       })
       console.log("fetched: "+PORT);
   }
-  
+
 
   render() {
     const loginUrl = "/login";
@@ -103,22 +104,23 @@ export default class Homepage extends Component {
       <meta charset="utf-8"/>
       {/*--sets width to device size, sets zoom-->*/}
       <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, shrink-to-fit=no"/>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"/>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
 
       <title>Racedb</title>
 
       {/*// --bootstrap stuff--*/}
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"/>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"/>
-      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"/>
-      <script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
-      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"/>
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+      
     </Helmet>
 
     <div className="body">
     <div className="content">
       <div className="content-inside">
     <HomeNav username={this.state.username} name={this.state.name} token={this.state.token} loggedIn={this.state.loggedIn}/>
+    
 
     {/*// --Logo and Search-->*/}
         <div className="container-fluid header " id="bannerHeader">
@@ -128,25 +130,25 @@ export default class Homepage extends Component {
       {/*search field*/}
       <div className="row mb-4">
         <div className="container" id="formSearchHome">
-            <img src={logoRDB} alt="Racedb" id="bannerLogo"/>
+            <img className="mx-auto" src={logoRDB} alt="Racedb" id="bannerLogo"/>
     	  </div> {/*container*/}
       </div>
     	  
-        <div className="row mx-auto pt-5">
-          <div className="col-xs-8 col-xs-offset-2 col-md-10 mx-auto" id="homeSearch">
+        <div className="row mt-5 mx-auto pt-5">
+          <div className="col-xs-8 col-xs-offset-2 col-md-8 col-lg-6 mx-auto" align="center" id="homeSearch">
           <HomepageSearch />{/*input-group*/}
           </div> {/*col-xs-8 col-xs-offset-2*/}
     	  </div>{/*row mx-auto*/}
       
       {/*Quick Category search*/}
-      <div className="row">
-      <div className="container-fluid col-xs-12 col-md-12 col-lg-8 mx-auto pt-3 pb-5 mb-3">
-    	<div className="btn-group btn-group flex-wrap mx-auto" align="center" id="categoryNav">
-    		<a className="btn btn-secondary homeCatButton" href={categoriesUrl+'running'}>Running</a>
-    		<a className="btn btn-secondary homeCatButton" href={categoriesUrl+'triathlon'}>Triathlon</a>
-    		<a className="btn btn-secondary homeCatButton" href={categoriesUrl+'cycling'}>Cycling</a>
-    		<a className="btn btn-secondary homeCatButton" href={categoriesUrl+'obstacle'}>Obstacle</a>
-    		<a className="btn btn-secondary homeCatButton" href={categoriesUrl+'other'}>Other</a>
+      <div className="row pt-md-4 ">
+      <div className="container-fluid col-xs-8 col-sm-10 col-lg-8 mx-auto pt-3 pb-5 mb-3" align="center">
+    	<div className="d-none d-sm-block btn-group btn-group-justified flex-wrap mx-auto" align="center" id="categoryNav">
+    		<a className="btn btn-danger catButton col-xs-6 col-sm-5 col-md-3 col-lg-3 col-xl-3" href={categoriesUrl+'running'}><i class='fas fa-running' aria-hidden="true"></i> Running</a>
+    		<a className="btn btn-danger catButton col-xs-6 col-sm-5 col-md-4 col-lg-4 col-xl-3" href={categoriesUrl+'triathlon'}><i class='fas fa-swimmer' aria-hidden="true"></i> Triathlon</a>
+    		<a className="btn btn-danger catButton col-xs-4 col-sm-5 col-md-3 col-lg-3 col-xl-3" href={categoriesUrl+'cycling'}><i class="fas fa-biking" aria-hidden="true"></i> Cycling</a>
+    		<a className="btn btn-danger catButton col-xs-4 col-sm-5 col-md-4 col-lg-3 col-xl-3" href={categoriesUrl+'obstacle'}><i class="fas fa-people-carry" aria-hidden="true"></i> Obstacle</a>
+    		<a className="btn btn-danger catButton col-xs-4 col-sm-4 col-md-3 col-lg-3 col-xl-3" href={categoriesUrl+'other'}><i class="fas fa-skiing" aria-hidden="true"></i> Other</a>
       </div>
       </div>
       </div>
@@ -158,7 +160,7 @@ export default class Homepage extends Component {
     {/*// -- template from https://getbootstrap.com/docs/3.4/examples/jumbotron/, will be edited and modified accordingly -->*/}
     <div className="container mx-auto" id="exclusivesdiv" align="center">
       <h2 align="center" className="sectionTitle">Featured Races</h2>
-      <div className="row">
+      <div className="row mx-auto">
         
         {/* Featured Card first Row FIRST card START */}
         <div className=" col-xs-8 col-md-6 col-lg-4">
@@ -172,12 +174,6 @@ export default class Homepage extends Component {
                   <p className="card-text">Date: {ft.event_date}<br/>
                   Distance: {ft.distance}<br/>
                   Category: {ft.category}<br/></p>
-                  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
-                  <span className="fa fa-star checked"></span>
-                  <span className="fa fa-star checked"></span>
-                  <span className="fa fa-star checked"></span>
-                  <span className="fa fa-star"></span>
-                  <span className="fa fa-star"></span>
 
                 </div>
               })}
@@ -323,33 +319,33 @@ export default class Homepage extends Component {
       <h2 align="center" style={{color:"white"}} className="sectionTitle mb-3">Locations</h2>
 
         
-        <div className="row" id="locationsfirstrow">
+        <div className="row mx-auto" id="locationsfirstrow">
           <div className="col-xs-8 col-md-6 col-lg-4 mb-3 mb-md-3" id="location1">
-            <div className='locContainer img-thumbnail '>
-              <a className ='homepageLocaton' href={locationUrl+'new-york'} style={{color:"black"}}>
-                <img src={location1} className="mx-auto d-block bg-dark locationImg" alt="New York"/>
-                <div className="locationText caption" align="center">
-                  <h5>New York</h5>
+            <div className='view overlay zoom'>
+              <a href={locationUrl+'new-york'} style={{color:"black"}}>
+                <img src={location1} className="img-fluid" alt="New York"/>
+                <div className="mask rgba-blue-grey-light flex-center d-flex align-bottom">
+                  <p className="white-text align-items-bottom">New York</p>
                 </div>
               </a>
             </div>
           </div>
           <div className="col-xs-8 col-md-6 col-lg-4 mb-3 mb-md-3" id="location1">
-            <div className='locContainer img-thumbnail'>
-              <a className ='homepageLocaton' href={locationUrl+'new-jersey'} style={{color:"black"}}>
-                <img src={location2} className="mx-auto d-block bg-dark locationImg" alt="New Jersey"/>
-                <div className="locationText caption" align="center">
-                  <h5>New Jersey</h5>
+            <div className='view overlay zoom'>
+              <a href={locationUrl+'new-jersey'} style={{color:"black"}}>
+                <img src={location2} className="img-fluid" alt="New Jersey"/>
+                <div className="mask rgba-blue-grey-light flex-center d-flex align-bottom" align="center">
+                  <p className="white-text align-items-bottom">New Jersey</p>
                 </div>
               </a>
             </div>
           </div>
           <div className="col-xs-8 col-md-6 col-lg-4 mb-3 mb-md-3" id="location1">
-            <div className='locContainer img-thumbnail'>
-              <a className ='homepageLocaton' href={locationUrl+'pennsylvania'} style={{color:"black"}}>
-                <img src={location3} className="mx-auto d-block bg-dark locationImg" alt="Pennsylvania" />
-                <div className="locationText caption" align="center">
-                  <h5>Pennsylvania</h5>
+            <div className='view overlay zoom'>
+              <a href={locationUrl+'pennsylvania'} style={{color:"black"}}>
+                <img src={location3} className="img-fluid" alt="Pennsylvania" />
+                <div className="mask rgba-blue-grey-light flex-center d-flex align-bottom" align="center">
+                  <p className="white-text align-items-bottom">Pennsylvania</p>
                 </div>
               </a>
             </div>
@@ -359,31 +355,31 @@ export default class Homepage extends Component {
       
         
           <div className="col-xs-8 col-md-6 col-lg-4 mb-3 mb-md-0" id="location1">
-            <div className='locContainer img-thumbnail'>
-              <a className ='homepageLocaton' href={locationUrl+'connecticut'} style={{color:"black"}}>
-                <img src={location4} className="mx-auto d-block bg-dark locationImg"  alt="Connecticut"/>
-                <div className="locationText caption" align="center">
-                  <h5>Connecticut</h5>
+            <div className='view overlay zoom'>
+              <a href={locationUrl+'connecticut'} style={{color:"black"}}>
+                <img src={location4} className="img-fluid"  alt="Connecticut"/>
+                <div className="mask rgba-blue-grey-light flex-center d-flex align-bottom" align="center">
+                  <p className="white-text align-items-bottom">Connecticut</p>
                 </div>
               </a>
             </div>
           </div>
           <div className="col-xs-8 col-md-6 col-lg-4 mb-3 mb-md-0" id="location1">
-            <div className='locContainer img-thumbnail'>
-              <a className ='homepageLocaton' href={locationUrl+'massachusetts'} style={{color:"black"}}>
-                <img src={location5} className="mx-auto d-block bg-dark locationImg" alt="Massachusetts"/>
-                <div className="locationText caption" align="center">
-                  <h5>Massachusetts</h5>
+            <div className='view overlay zoom'>
+              <a href={locationUrl+'massachusetts'} style={{color:"black"}}>
+                <img src={location5} className="img-fluid" alt="Massachusetts"/>
+                <div className="mask rgba-blue-grey-light flex-center d-flex align-bottom" align="center">
+                  <p className="white-text align-items-bottom">Massachusetts</p>
                 </div>
               </a>
             </div>
           </div>
           <div className="col-xs-8 col-md-6 col-lg-4" id="location1">
-            <div className='locContainer img-thumbnail'>
-              <a className ='homepageLocaton' href={locationUrl+'delaware'} style={{color:"black"}}>
-                <img src={location6} className="mx-auto d-block bg-dark locationImg"  alt="Delaware" />
-                <div className="locationText caption"  align="center">
-                  <h5>California</h5>
+            <div className='view overlay zoom'>
+              <a href={locationUrl+'delaware'} style={{color:"black"}}>
+                <img src={location6} className="img-fluid"  alt="Delaware" />
+                <div className="mask rgba-blue-grey-light flex-center d-flex align-bottom"  align="center">
+                  <p className="white-text align-items-bottom">California</p>
                 </div>
               </a>
             </div>
@@ -396,33 +392,34 @@ export default class Homepage extends Component {
 {/* START OF CATEGORIES */}
       <div className="container-fluid mx-auto" id="categoriesdiv" align="center">
       <h2 align="center" className="sectionTitle">Categories</h2>        
-        <div className="row" id="categoriesfirstrow">
+        <div className="row mx-auto" id="categoriesfirstrow">
           <div className="col-xs-8 col-md-6 col-lg-4 mb-3 mb-md-3" id="location1">
-            <div className='locContainer img-thumbnail '>
-            <a className ='homepageLocaton' href={categoriesUrl+'running'} style={{color:"black"}}>
-              <img src={running} className="mx-auto d-block bg-dark mt-5 img-thumbnail"  alt="category" style={{width:"100%"}}/>
-              <div className="locationText caption" align="center">
-                <h5>Running</h5>
+            <div className='view overlay zoom'>
+            <a href={categoriesUrl+'running'} style={{color:"black"}}>
+              <img src={running} className="img-fluid"  alt="category" style={{width:"100%"}}/>
+              <div className="mask rgba-blue-grey-light flex-center d-flex align-bottom" align="center">
+                <p className="white-text align-items-bottom">Running</p>
+              </div>
+            </a>
+            </div>
+          </div>
+
+          <div className="col-xs-8 col-md-6 col-lg-4 mb-3 mb-md-3" id="location1">
+            <div className='view overlay zoom'>
+            <a href={categoriesUrl+'cycling'} style={{color:"black"}}>
+              <img src={cycling} className="img-fluid" alt="category" style={{width:"100%"}}/>
+              <div className="mask rgba-blue-grey-light flex-center d-flex align-bottom" align="center">
+                <p className="white-text align-items-bottom">Cycling</p>
               </div>
             </a>
             </div>
           </div>
           <div className="col-xs-8 col-md-6 col-lg-4 mb-3 mb-md-3" id="location1">
-            <div className='locContainer img-thumbnail'>
-            <a className ='homepageLocaton' href={categoriesUrl+'cycling'} style={{color:"black"}}>
-              <img src={cycling} className="mx-auto d-block bg-dark mt-5 img-thumbnail" alt="category" style={{width:"100%"}}/>
-              <div className="locationText caption" align="center">
-                <h5>Cycling</h5>
-              </div>
-            </a>
-            </div>
-          </div>
-          <div className="col-xs-8 col-md-6 col-lg-4 mb-3 mb-md-3" id="location1">
-            <div className='locContainer img-thumbnail'>
-            <a className ='homepageLocaton' href={categoriesUrl+'triathlon'} style={{color:"black"}}>
-              <img src={triathlon} className="mx-auto d-block bg-dark mt-5 img-thumbnail" alt="category" style={{width:"100%"}}/>
-              <div className="locationText caption" align="center">
-                <h5>Triathlon</h5>
+            <div className='view overlay zoom'>
+            <a href={categoriesUrl+'triathlon'} style={{color:"black"}}>
+              <img src={triathlon} className="img-fluid" alt="category" style={{width:"100%"}}/>
+              <div className="mask rgba-blue-grey-light flex-center d-flex align-bottom" align="center">
+                <p className="white-text align-items-bottom">Triathlon</p>
               </div>
             </a>
             </div>
@@ -432,21 +429,21 @@ export default class Homepage extends Component {
       
         
           <div className="col-xs-8 col-md-6 col-lg-4 mb-3 mb-md-0 offset-lg-2" id="location1">
-            <div className='locContainer img-thumbnail'>
-              <a className ='homepageLocaton' href={categoriesUrl+'obstacle'} style={{color:"black"}}>
-                <img src={obstacle} className="mx-auto d-block bg-dark mt-5 img-thumbnail" alt="category" style={{width:"100%"}}/>
-                <div className="locationText caption" align="center">
-                  <h5>Obstacle</h5>
+            <div className='view overlay zoom'>
+              <a href={categoriesUrl+'obstacle'} style={{color:"black"}}>
+                <img src={obstacle} className="img-fluid" alt="category" style={{width:"100%"}}/>
+                <div className="mask rgba-blue-grey-light flex-center d-flex align-bottom" align="center">
+                  <p className="white-text align-items-bottom">Obstacle</p>
                 </div>
               </a>
             </div>
           </div>
           <div className="col-xs-8 col-md-6 col-lg-4 mb-3 mb-md-0 offset-md-3 offset-lg-0" id="location1">
-            <div className='locContainer img-thumbnail'>
-            <a className ='homepageLocaton' href={categoriesUrl+'other'} style={{color:"black"}}>
-                <img src={other} className="mx-auto d-block bg-dark mt-5 img-thumbnail" alt="category" style={{width:"100%"}}/>
-                <div className="locationText caption" align="center">
-                  <h5>Other</h5>
+            <div className='view overlay zoom'>
+            <a href={categoriesUrl+'other'} style={{color:"black"}}>
+                <img src={other} className="img-fluid" alt="category" style={{width:"100%"}}/>
+                <div className="mask rgba-blue-grey-light flex-center d-flex align-bottom" align="center">
+                  <h1 className="white-text align-items-bottom">Other</h1>
                 </div>
               </a>
             </div>
