@@ -319,9 +319,9 @@ export default class Homepage extends Component {
       <h2 align="center" style={{color:"white"}} className="sectionTitle mb-3">Locations</h2>
 
         
-        <div className="row mx-auto" id="locationsfirstrow">
-          <div className="col-xs-8 col-md-6 col-lg-4 mb-3 mb-md-3" id="location1">
-            <div className='view overlay zoom'>
+        <div className="row mx-auto" align="center" id="locationsfirstrow">
+          <div className="col-xs-8 col-md-6 col-lg-4 mb-3 mb-md-3" align="center" id="location1">
+            <div className='view '>
               <a href={locationUrl+'new-york'} style={{color:"black"}}>
                 <img src={location1} className="img-fluid" alt="New York"/>
                 <div className="mask rgba-blue-grey-light flex-center d-flex align-bottom">
@@ -330,8 +330,8 @@ export default class Homepage extends Component {
               </a>
             </div>
           </div>
-          <div className="col-xs-8 col-md-6 col-lg-4 mb-3 mb-md-3" id="location1">
-            <div className='view overlay zoom'>
+          <div className="col-xs-8 col-md-6 col-lg-4 mb-3 mb-md-3" align="center" id="location1">
+            <div className='view'>
               <a href={locationUrl+'new-jersey'} style={{color:"black"}}>
                 <img src={location2} className="img-fluid" alt="New Jersey"/>
                 <div className="mask rgba-blue-grey-light flex-center d-flex align-bottom" align="center">
@@ -340,8 +340,8 @@ export default class Homepage extends Component {
               </a>
             </div>
           </div>
-          <div className="col-xs-8 col-md-6 col-lg-4 mb-3 mb-md-3" id="location1">
-            <div className='view overlay zoom'>
+          <div className="col-xs-8 col-md-6 col-lg-4 mb-3 mb-md-3" align="center" id="location1">
+            <div className='view '>
               <a href={locationUrl+'pennsylvania'} style={{color:"black"}}>
                 <img src={location3} className="img-fluid" alt="Pennsylvania" />
                 <div className="mask rgba-blue-grey-light flex-center d-flex align-bottom" align="center">
@@ -354,8 +354,8 @@ export default class Homepage extends Component {
       
       
         
-          <div className="col-xs-8 col-md-6 col-lg-4 mb-3 mb-md-0" id="location1">
-            <div className='view overlay zoom'>
+          <div className="col-xs-8 col-md-6 col-lg-4 mb-3 mb-md-0" align="center" id="location1">
+            <div className='view '>
               <a href={locationUrl+'connecticut'} style={{color:"black"}}>
                 <img src={location4} className="img-fluid"  alt="Connecticut"/>
                 <div className="mask rgba-blue-grey-light flex-center d-flex align-bottom" align="center">
@@ -364,8 +364,8 @@ export default class Homepage extends Component {
               </a>
             </div>
           </div>
-          <div className="col-xs-8 col-md-6 col-lg-4 mb-3 mb-md-0" id="location1">
-            <div className='view overlay zoom'>
+          <div className="col-xs-8 col-md-6 col-lg-4 mb-3 mb-md-0" align="center" id="location1">
+            <div className='view '>
               <a href={locationUrl+'massachusetts'} style={{color:"black"}}>
                 <img src={location5} className="img-fluid" alt="Massachusetts"/>
                 <div className="mask rgba-blue-grey-light flex-center d-flex align-bottom" align="center">
@@ -374,8 +374,8 @@ export default class Homepage extends Component {
               </a>
             </div>
           </div>
-          <div className="col-xs-8 col-md-6 col-lg-4" id="location1">
-            <div className='view overlay zoom'>
+          <div className="col-xs-8 col-md-6 col-lg-4" align="center" id="location1">
+            <div className='view'>
               <a href={locationUrl+'delaware'} style={{color:"black"}}>
                 <img src={location6} className="img-fluid"  alt="Delaware" />
                 <div className="mask rgba-blue-grey-light flex-center d-flex align-bottom"  align="center">
@@ -393,7 +393,7 @@ export default class Homepage extends Component {
       <div className="container-fluid mx-auto" id="categoriesdiv" align="center">
       <h2 align="center" className="sectionTitle">Categories</h2>        
         <div className="row mx-auto" id="categoriesfirstrow">
-          <div className="col-xs-8 col-md-6 col-lg-4 mb-3 mb-md-3" id="location1">
+          <div className="col-xs-8 col-md-6 col-lg-4 mb-3 mb-md-3" align="center" id="location1">
             <div className='view overlay zoom'>
             <a href={categoriesUrl+'running'} style={{color:"black"}}>
               <img src={running} className="img-fluid"  alt="category" style={{width:"100%"}}/>
@@ -404,7 +404,7 @@ export default class Homepage extends Component {
             </div>
           </div>
 
-          <div className="col-xs-8 col-md-6 col-lg-4 mb-3 mb-md-3" id="location1">
+          <div className="col-xs-8 col-md-6 col-lg-4 mb-3 mb-md-3" align="center" id="location1">
             <div className='view overlay zoom'>
             <a href={categoriesUrl+'cycling'} style={{color:"black"}}>
               <img src={cycling} className="img-fluid" alt="category" style={{width:"100%"}}/>
@@ -414,7 +414,7 @@ export default class Homepage extends Component {
             </a>
             </div>
           </div>
-          <div className="col-xs-8 col-md-6 col-lg-4 mb-3 mb-md-3" id="location1">
+          <div className="col-xs-8 col-md-6 col-lg-4 mb-3 mb-md-3" align="center" id="location1">
             <div className='view overlay zoom'>
             <a href={categoriesUrl+'triathlon'} style={{color:"black"}}>
               <img src={triathlon} className="img-fluid" alt="category" style={{width:"100%"}}/>
@@ -428,7 +428,7 @@ export default class Homepage extends Component {
       
       
         
-          <div className="col-xs-8 col-md-6 col-lg-4 mb-3 mb-md-0 offset-lg-2" id="location1">
+          <div className="col-xs-8 col-md-6 col-lg-4 mb-3 mb-md-0 offset-lg-2" align="center" id="location1">
             <div className='view overlay zoom'>
               <a href={categoriesUrl+'obstacle'} style={{color:"black"}}>
                 <img src={obstacle} className="img-fluid" alt="category" style={{width:"100%"}}/>
@@ -438,7 +438,7 @@ export default class Homepage extends Component {
               </a>
             </div>
           </div>
-          <div className="col-xs-8 col-md-6 col-lg-4 mb-3 mb-md-0 offset-md-3 offset-lg-0" id="location1">
+          <div className="col-xs-8 col-md-6 col-lg-4 mb-3 mb-md-0 offset-md-3 offset-lg-0" align="center" id="location1">
             <div className='view overlay zoom'>
             <a href={categoriesUrl+'other'} style={{color:"black"}}>
                 <img src={other} className="img-fluid" alt="category" style={{width:"100%"}}/>
