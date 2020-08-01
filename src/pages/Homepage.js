@@ -158,194 +158,190 @@ export default class Homepage extends Component {
 
   {/*  // -- Exclusives -->*/}
     {/*// -- template from https://getbootstrap.com/docs/3.4/examples/jumbotron/, will be edited and modified accordingly -->*/}
-    <div className="container mx-auto" id="exclusivesdiv" align="center">
-      <h2 align="center" className="sectionTitle">Featured Races</h2>
-      <div className="row mx-auto">
+    <div className="container mx-auto pt-5 pb-5" id="exclusivesdiv" align="center">
+      <h1 align="center" className="h1-responsive sectionTitle pt-1 pb-4">Featured Races</h1>
+      <div className="card-deck h-100">
         
         {/* Featured Card first Row FIRST card START */}
-        <div className=" col-xs-8 col-md-6 col-lg-4">
-          <div className="card border-secondary mb-3 rounded" >
-            <img src={featured1} className="card-img-top" alt="Card image cap"/>
-            <div className="card-body">
+        <div className=" col-xs-8 col-md-6 col-lg-4 mb-4">
               {this.state.featured.map((ft,index) => {
                 if(index ===0)
                 return <div key={ft.id}>
-                  <h5 className="card-title"><a href={featuredUrl+ft.id}>{ft.name}</a></h5>
+                <div className="card mb-3 rounded" >
+                  <div className="view overlay">
+                  <img src={featured1} className="card-img-top" alt="Card image cap"/>  
+                  <a href={featuredUrl+ft.id}>
+                    <div class="mask rgba-stylish-light"></div>
+                  </a>
+                  </div>
+                  <div className="card-body">
+                  <h4 className="card-title"><a className="cardA" href={featuredUrl+ft.id}>{ft.name}</a></h4>
                   <p className="card-text">Date: {ft.event_date}<br/>
-                  Distance: {ft.distance}<br/>
                   Category: {ft.category}<br/></p>
+                  <a href={featuredUrl+ft.id} class="btn btn-danger featured-btn btn-md">View Race</a>
+                  </div>
+                  </div>
 
                 </div>
               })}
-            </div>
-          </div>
           </div>
           
           
         {/* Featured Card first Row SECOND card START */}    
-        <div className=" col-xs-8 col-md-6 col-lg-4">
-          <div className="card border-secondary mb-3" >
-            <img src={featured2} className="card-img-top" alt="category" alt="event"/>
-            <div className="card-body">
+        <div className=" col-xs-8 col-md-6 col-lg-4 mb-4">
             {this.state.featured.map((ft,index) => {
               if(index ===1)
               return <div key={ft.id}>
-                <h5 className="card-title"><a href={featuredUrl+ft.id}>{ft.name}</a></h5>
+                <div className="card mb-3" >
+                <div className="view overlay">
+                  <img src={featured2} className="card-img-top" alt="category" alt="event"/>
+                  <a href={featuredUrl+ft.id}>
+                    <div class="mask rgba-stylish-light"></div>
+                  </a>
+                  </div>
+                  <div className="card-body">
+                <h4 className="card-title"><a className="cardA" href={featuredUrl+ft.id}>{ft.name}</a></h4>
                 <p className="card-text">Date: {ft.event_date}<br/>
-                Distance: {ft.distance}<br/>
                 Category: {ft.category}<br/></p>
-                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
-                <span className="fa fa-star checked"></span>
-                <span className="fa fa-star checked"></span>
-                <span className="fa fa-star checked"></span>
-                <span className="fa fa-star"></span>
-                <span className="fa fa-star"></span>
+                <a href={featuredUrl+ft.id} class="btn btn-danger featured-btn btn-md">View Race</a>
+              </div>
+              </div>
 
               </div>
             })}
-            </div>
-          </div>
        </div>
        {/* Featured Card first Row THIRD card START */}        
-       <div className=" col-xs-8 col-md-6 col-lg-4">
+       <div className=" col-xs-8 col-md-6 col-lg-4 mb-4">
         
-          <div className="card border-secondary mb-3" >
-            <img src={featured3} className="card-img-top" alt="category" alt="event"/>
-            <div className="card-body">
             {this.state.featured.map((ft,index) => {
               if(index ===2)
               return <div key={ft.id}>
-                <h5 className="card-title"><a href={featuredUrl+ft.id}>{ft.name}</a></h5>
+                <div className="card mb-3" >
+                <div className="view overlay">
+                  <img src={featured3} className="card-img-top" alt="category" alt="event"/>
+                  <a href={featuredUrl+ft.id}>
+                    <div class="mask rgba-stylish-light"></div>
+                  </a>
+                </div>
+                  <div className="card-body">
+                <h4 className="card-title"><a className="cardA" href={featuredUrl+ft.id}>{ft.name}</a></h4>
                 <p className="card-text">Date: {ft.event_date}<br/>
-                Distance: {ft.distance}<br/>
                 Category: {ft.category}<br/></p>
-                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
-                <span className="fa fa-star checked"></span>
-                <span className="fa fa-star checked"></span>
-                <span className="fa fa-star checked"></span>
-                <span className="fa fa-star"></span>
-                <span className="fa fa-star"></span>
-
+                <a href={featuredUrl+ft.id} class="btn btn-danger featured-btn btn-md">View Race</a>
+              </div>
+              </div>
               </div>
             })}
-            </div>
-          </div>
         
         </div>
      
 
       {/* Featured Card SECOND Row FIRST card START */}        
-      <div className="col-xs-8 col-md-6 col-lg-4">
-        <div className="card border-secondary mb-3" >
-          <img src={featured4} className="card-img-top" alt="category" alt="event"/>
-          <div className="card-body">
+      <div className="col-xs-8 col-md-6 col-lg-4 mb-4">
           {this.state.featured.map((ft,index) => {
             if(index ===3)
             return <div key={ft.id}>
-              <h5 className="card-title"><a href={featuredUrl+ft.id}>{ft.name}</a></h5>
+            <div className="card mb-3" >
+            <div className="view overlay">
+              <img src={featured4} className="card-img-top" alt="category" alt="event"/>
+              <a href={featuredUrl+ft.id}>
+                    <div class="mask rgba-stylish-light"></div>
+              </a>
+              </div>
+              <div className="card-body">
+              <h4 className="card-title"><a className="cardA" href={featuredUrl+ft.id}>{ft.name}</a></h4>
               <p className="card-text">Date: {ft.event_date}<br/>
-              Distance: {ft.distance}<br/>
               Category: {ft.category}<br/></p>
-              <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
-              <span className="fa fa-star checked"></span>
-              <span className="fa fa-star checked"></span>
-              <span className="fa fa-star checked"></span>
-              <span className="fa fa-star"></span>
-              <span className="fa fa-star"></span>
-
+              <a href={featuredUrl+ft.id} class="btn btn-danger featured-btn btn-md">View Race</a>
+            </div>
+            </div>
             </div>
           })}
-          </div>
-        </div>
       </div>
 
       {/* Featured Card SECOND Row SECOND card START */}             
-      <div className="col-xs-8 col-md-6 col-lg-4">
-        <div className="card border-secondary mb-3" >
-          <img src={featured5} className="card-img-top" alt="category" alt="event"/>
-          <div className="card-body">
+      <div className="col-xs-8 col-md-6 col-lg-4 mb-4">
           {this.state.featured.map((ft,index) => {
             if(index ===4)
             return <div key={ft.id}>
-              <h5 className="card-title"><a href={featuredUrl+ft.id}>{ft.name}</a></h5>
+              <div className="card mb-3" >
+              <div className="view overlay">
+                <img src={featured5} className="card-img-top" alt="category" alt="event"/>
+                <a href={featuredUrl+ft.id}>
+                    <div class="mask rrgba-stylish-light"></div>
+                </a>
+                </div>
+                <div className="card-body">
+              <h4 className="card-title"><a className="cardA" href={featuredUrl+ft.id}>{ft.name}</a></h4>
               <p className="card-text">Date: {ft.event_date}<br/>
-              Distance: {ft.distance}<br/>
               Category: {ft.category}<br/></p>
-              <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
-              <span className="fa fa-star checked"></span>
-              <span className="fa fa-star checked"></span>
-              <span className="fa fa-star checked"></span>
-              <span className="fa fa-star"></span>
-              <span className="fa fa-star"></span>
-
+              <a href={featuredUrl+ft.id} class="btn btn-danger featured-btn btn-md">View Race</a>
+            </div>
+            </div>
             </div>
           })}
-          </div>
-        </div>
      </div>
 
      {/* Featured Card SECOND Row THIRD card START */}        
       <div className="col-xs-8 col-md-6 col-lg-4">
-        <div className="card border-secondary mb-3" >
-          <img src={featured6} className="card-img-top" alt="category" alt="event"/>
-          <div className="card-body">
           {this.state.featured.map((ft,index) => {
             if(index ===5)
             return <div key={ft.id}>
-              <h5 className="card-title"><a href={featuredUrl+ft.id}>{ft.name}</a></h5>
+              <div className="card mb-3" >
+              <div className="view overlay">
+                <img src={featured6} className="card-img-top" alt="category" alt="event"/>
+              <a href={featuredUrl+ft.id}>
+                  <div class="mask rgba-stylish-light"></div>
+              </a>
+              </div>
+              <div className="card-body">
+              <h4 className="card-title"><a className="cardA" href={featuredUrl+ft.id}>{ft.name}</a></h4>
               <p className="card-text">Date: {ft.event_date}<br/>
-              Distance: {ft.distance}<br/>
               Category: {ft.category}<br/></p>
-              <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
-              <span className="fa fa-star checked"></span>
-              <span className="fa fa-star checked"></span>
-              <span className="fa fa-star checked"></span>
-              <span className="fa fa-star"></span>
-              <span className="fa fa-star"></span>
-
-            </div>
+              <a href={featuredUrl+ft.id} class="btn btn-danger featured-btn btn-md">View Race</a>
+              </div>
+              </div>
+              </div>
           })}
-          </div>
-        </div>
       </div>
     
     </div>
     {/*  */}
     </div>
 
+{/* LOCATIONS */}
 
-
-    <div className="grayBlock container-fluid mx-auto" align="center" id="locationsdiv">
-      <h2 align="center" style={{color:"white"}} className="sectionTitle mb-3">Locations</h2>
+    <div className="grayBlock container-fluid mx-auto py-5" align="center" id="locationsdiv">
+      <h2 align="center" style={{color:"white"}} className="sectionTitle pt-1 pb-4 h2-responsive">Locations</h2>
 
         
         <div className="row mx-auto" align="center" id="locationsfirstrow">
-          <div className="col-xs-8 col-md-6 col-lg-4 mb-3 mb-md-3" align="center" id="location1">
+          <div className="col-xs-8 col-md-6 col-lg-4 mb-4 mb-md-4" align="center" id="location1">
             <div className='view '>
               <a href={locationUrl+'new-york'} style={{color:"black"}}>
                 <img src={location1} className="img-fluid" alt="New York"/>
-                <div className="mask rgba-blue-grey-light flex-center d-flex align-bottom">
-                  <p className="white-text align-items-bottom">New York</p>
+                <div className="mask pattern-1 rgba-blue-grey-light flex-center d-flex align-bottom">
+                  <h2 className="white-text align-items-bottom">New York</h2>
                 </div>
               </a>
             </div>
           </div>
-          <div className="col-xs-8 col-md-6 col-lg-4 mb-3 mb-md-3" align="center" id="location1">
+          <div className="col-xs-8 col-md-6 col-lg-4 mb-4 mb-md-4" align="center" id="location1">
             <div className='view'>
               <a href={locationUrl+'new-jersey'} style={{color:"black"}}>
                 <img src={location2} className="img-fluid" alt="New Jersey"/>
-                <div className="mask rgba-blue-grey-light flex-center d-flex align-bottom" align="center">
-                  <p className="white-text align-items-bottom">New Jersey</p>
+                <div className="mask pattern-1 rgba-blue-grey-light flex-center d-flex align-bottom" align="center">
+                  <h2 className="white-text align-items-bottom">New Jersey</h2>
                 </div>
               </a>
             </div>
           </div>
-          <div className="col-xs-8 col-md-6 col-lg-4 mb-3 mb-md-3" align="center" id="location1">
+          <div className="col-xs-8 col-md-6 col-lg-4 mb-4 mb-md-4" align="center" id="location1">
             <div className='view '>
               <a href={locationUrl+'pennsylvania'} style={{color:"black"}}>
                 <img src={location3} className="img-fluid" alt="Pennsylvania" />
-                <div className="mask rgba-blue-grey-light flex-center d-flex align-bottom" align="center">
-                  <p className="white-text align-items-bottom">Pennsylvania</p>
+                <div className="mask pattern-1 rgba-blue-grey-light flex-center d-flex align-bottom" align="center">
+                  <h2 className="white-text align-items-bottom">Pennsylvania</h2>
                 </div>
               </a>
             </div>
@@ -354,22 +350,22 @@ export default class Homepage extends Component {
       
       
         
-          <div className="col-xs-8 col-md-6 col-lg-4 mb-3 mb-md-0" align="center" id="location1">
+          <div className="col-xs-8 col-md-6 col-lg-4 mb-4 mb-md-0" align="center" id="location1">
             <div className='view '>
               <a href={locationUrl+'connecticut'} style={{color:"black"}}>
                 <img src={location4} className="img-fluid"  alt="Connecticut"/>
-                <div className="mask rgba-blue-grey-light flex-center d-flex align-bottom" align="center">
-                  <p className="white-text align-items-bottom">Connecticut</p>
+                <div className="mask pattern-1 rgba-blue-grey-light flex-center d-flex align-bottom" align="center">
+                  <h2 className="white-text align-items-bottom">Connecticut</h2>
                 </div>
               </a>
             </div>
           </div>
-          <div className="col-xs-8 col-md-6 col-lg-4 mb-3 mb-md-0" align="center" id="location1">
+          <div className="col-xs-8 col-md-6 col-lg-4 mb-4 mb-md-0" align="center" id="location1">
             <div className='view '>
               <a href={locationUrl+'massachusetts'} style={{color:"black"}}>
                 <img src={location5} className="img-fluid" alt="Massachusetts"/>
-                <div className="mask rgba-blue-grey-light flex-center d-flex align-bottom" align="center">
-                  <p className="white-text align-items-bottom">Massachusetts</p>
+                <div className="mask pattern-1 rgba-blue-grey-light flex-center d-flex align-bottom" align="center">
+                  <h2 className="white-text align-items-bottom">Massachusetts</h2>
                 </div>
               </a>
             </div>
@@ -378,8 +374,8 @@ export default class Homepage extends Component {
             <div className='view'>
               <a href={locationUrl+'delaware'} style={{color:"black"}}>
                 <img src={location6} className="img-fluid"  alt="Delaware" />
-                <div className="mask rgba-blue-grey-light flex-center d-flex align-bottom"  align="center">
-                  <p className="white-text align-items-bottom">California</p>
+                <div className="mask pattern-1 rgba-blue-grey-light flex-center d-flex align-bottom"  align="center">
+                  <h2 className="white-text align-items-bottom">California</h2>
                 </div>
               </a>
             </div>
@@ -390,36 +386,36 @@ export default class Homepage extends Component {
       </div>
 {/* END OF LOCATIONS */}
 {/* START OF CATEGORIES */}
-      <div className="container-fluid mx-auto" id="categoriesdiv" align="center">
-      <h2 align="center" className="sectionTitle">Categories</h2>        
+      <div className="container-fluid mx-auto py-5" id="categoriesdiv" align="center">
+      <h2 align="center" className="h2-responsive sectionTitle pt-1 pb-4">Categories</h2>        
         <div className="row mx-auto" id="categoriesfirstrow">
-          <div className="col-xs-8 col-md-6 col-lg-4 mb-3 mb-md-3" align="center" id="location1">
+          <div className="col-xs-8 col-md-6 col-lg-4 mb-4 mb-md-4" align="center" id="location1">
             <div className='view overlay zoom'>
             <a href={categoriesUrl+'running'} style={{color:"black"}}>
               <img src={running} className="img-fluid"  alt="category" style={{width:"100%"}}/>
               <div className="mask rgba-blue-grey-light flex-center d-flex align-bottom" align="center">
-                <p className="white-text align-items-bottom">Running</p>
+                <h2 className="white-text align-items-bottom">Running</h2>
               </div>
             </a>
             </div>
           </div>
 
-          <div className="col-xs-8 col-md-6 col-lg-4 mb-3 mb-md-3" align="center" id="location1">
+          <div className="col-xs-8 col-md-6 col-lg-4 mb-4 mb-md-4" align="center" id="location1">
             <div className='view overlay zoom'>
             <a href={categoriesUrl+'cycling'} style={{color:"black"}}>
               <img src={cycling} className="img-fluid" alt="category" style={{width:"100%"}}/>
               <div className="mask rgba-blue-grey-light flex-center d-flex align-bottom" align="center">
-                <p className="white-text align-items-bottom">Cycling</p>
+                <h2 className="white-text align-items-bottom">Cycling</h2>
               </div>
             </a>
             </div>
           </div>
-          <div className="col-xs-8 col-md-6 col-lg-4 mb-3 mb-md-3" align="center" id="location1">
+          <div className="col-xs-8 col-md-6 col-lg-4 mb-4 mb-md-4" align="center" id="location1">
             <div className='view overlay zoom'>
             <a href={categoriesUrl+'triathlon'} style={{color:"black"}}>
               <img src={triathlon} className="img-fluid" alt="category" style={{width:"100%"}}/>
               <div className="mask rgba-blue-grey-light flex-center d-flex align-bottom" align="center">
-                <p className="white-text align-items-bottom">Triathlon</p>
+                <h2 className="white-text align-items-bottom">Triathlon</h2>
               </div>
             </a>
             </div>
@@ -428,22 +424,22 @@ export default class Homepage extends Component {
       
       
         
-          <div className="col-xs-8 col-md-6 col-lg-4 mb-3 mb-md-0 offset-lg-2" align="center" id="location1">
+          <div className="col-xs-8 col-md-6 col-lg-4 mb-4 mb-md-0 offset-lg-2" align="center" id="location1">
             <div className='view overlay zoom'>
               <a href={categoriesUrl+'obstacle'} style={{color:"black"}}>
                 <img src={obstacle} className="img-fluid" alt="category" style={{width:"100%"}}/>
                 <div className="mask rgba-blue-grey-light flex-center d-flex align-bottom" align="center">
-                  <p className="white-text align-items-bottom">Obstacle</p>
+                  <h2 className="white-text align-items-bottom">Obstacle</h2>
                 </div>
               </a>
             </div>
           </div>
-          <div className="col-xs-8 col-md-6 col-lg-4 mb-3 mb-md-0 offset-md-3 offset-lg-0" align="center" id="location1">
+          <div className="col-xs-8 col-md-6 col-lg-4 mb-4 mb-md-0 offset-md-3 offset-lg-0" align="center" id="location1">
             <div className='view overlay zoom'>
             <a href={categoriesUrl+'other'} style={{color:"black"}}>
                 <img src={other} className="img-fluid" alt="category" style={{width:"100%"}}/>
                 <div className="mask rgba-blue-grey-light flex-center d-flex align-bottom" align="center">
-                  <h1 className="white-text align-items-bottom">Other</h1>
+                  <h2 className="white-text align-items-bottom">Other</h2>
                 </div>
               </a>
             </div>
@@ -459,10 +455,10 @@ export default class Homepage extends Component {
 
 
 
-    <div className="grayBlock" id="homepagefooter">
+    <div className="grayBlock pb-5 pt-5" id="homepagefooter">
       <div className="row">
         <div className="col-md-4 mr-auto">
-          <img src={logoRed} className="mx-auto d-block bg-dark mt-5" id="someLogo" alt="logo"/>
+          <img src={logoRed} className="mx-auto d-block bg-dark " id="someLogo" alt="logo"/>
         </div>
         <div className="col-md-4 mr-auto my-auto" align="center">
           <h4 style={{color:"white"}}> 1 - Create </h4>
