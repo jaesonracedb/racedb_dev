@@ -177,6 +177,7 @@ export default class Homepage extends Component {
                   <div className="card-body">
                   <h4 className="card-title"><a className="cardA" href={featuredUrl+ft.id}>{ft.name}</a></h4>
                   <p className="card-text">Date: {ft.event_date}<br/>
+                  {console.log("first card "+ ft)}
                   Category: {ft.category}<br/></p>
                   <a href={featuredUrl+ft.id} class="btn btn-danger featured-btn btn-md">View Race</a>
                   </div>
@@ -321,7 +322,7 @@ export default class Homepage extends Component {
               <a href={locationUrl+'new-york'} style={{color:"black"}}>
                 <img src={location1} className="img-fluid" alt="New York"/>
                 <div className="mask pattern-1 rgba-blue-grey-light flex-center d-flex align-bottom">
-                  <h2 className="white-text align-items-bottom">New York</h2>
+                  <h2 className="white-text h2-responsive align-items-bottom">New York</h2>
                 </div>
               </a>
             </div>
@@ -331,7 +332,7 @@ export default class Homepage extends Component {
               <a href={locationUrl+'new-jersey'} style={{color:"black"}}>
                 <img src={location2} className="img-fluid" alt="New Jersey"/>
                 <div className="mask pattern-1 rgba-blue-grey-light flex-center d-flex align-bottom" align="center">
-                  <h2 className="white-text align-items-bottom">New Jersey</h2>
+                  <h2 className="h2-responsive white-text align-items-bottom">New Jersey</h2>
                 </div>
               </a>
             </div>
@@ -341,7 +342,7 @@ export default class Homepage extends Component {
               <a href={locationUrl+'pennsylvania'} style={{color:"black"}}>
                 <img src={location3} className="img-fluid" alt="Pennsylvania" />
                 <div className="mask pattern-1 rgba-blue-grey-light flex-center d-flex align-bottom" align="center">
-                  <h2 className="white-text align-items-bottom">Pennsylvania</h2>
+                  <h2 className="h2-responsive white-text align-items-bottom">Pennsylvania</h2>
                 </div>
               </a>
             </div>
@@ -355,7 +356,7 @@ export default class Homepage extends Component {
               <a href={locationUrl+'connecticut'} style={{color:"black"}}>
                 <img src={location4} className="img-fluid"  alt="Connecticut"/>
                 <div className="mask pattern-1 rgba-blue-grey-light flex-center d-flex align-bottom" align="center">
-                  <h2 className="white-text align-items-bottom">Connecticut</h2>
+                  <h2 className="h2-responsive white-text align-items-bottom">Connecticut</h2>
                 </div>
               </a>
             </div>
@@ -365,7 +366,7 @@ export default class Homepage extends Component {
               <a href={locationUrl+'massachusetts'} style={{color:"black"}}>
                 <img src={location5} className="img-fluid" alt="Massachusetts"/>
                 <div className="mask pattern-1 rgba-blue-grey-light flex-center d-flex align-bottom" align="center">
-                  <h2 className="white-text align-items-bottom">Massachusetts</h2>
+                  <h2 className="h2-responsive white-text align-items-bottom">Massachusetts</h2>
                 </div>
               </a>
             </div>
@@ -375,7 +376,7 @@ export default class Homepage extends Component {
               <a href={locationUrl+'delaware'} style={{color:"black"}}>
                 <img src={location6} className="img-fluid"  alt="Delaware" />
                 <div className="mask pattern-1 rgba-blue-grey-light flex-center d-flex align-bottom"  align="center">
-                  <h2 className="white-text align-items-bottom">California</h2>
+                  <h2 className="h2-responsive white-text align-items-bottom">California</h2>
                 </div>
               </a>
             </div>
