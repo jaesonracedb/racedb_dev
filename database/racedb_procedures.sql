@@ -36,7 +36,7 @@ create procedure add_race_other(in name varchar(250), in event_date varchar(250)
 -- VIEW Functions---------------------------------------------------------
 CREATE PROCEDURE view_featured_races()
   BEGIN
-    select * from event where event.id IN (SELECT featured_events.event_id from featured_events);
+    select id,name,date(event_date) as event_date,location_city,state,category,distance,swim_distance,bike_distance,run_distance,website,email,summary,race_type,cycling_type from event where event.id IN (SELECT featured_events.event_id from featured_events);
   END;
 //
 
