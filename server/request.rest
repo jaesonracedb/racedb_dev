@@ -1,6 +1,7 @@
 POST http://localhost:3001/userLogin
 Content-Type: application/json
 
+
 {
     "username": "TestUser5",
     "password": "TestPassword4"
@@ -52,3 +53,6 @@ Content-Type: application/json
 
 GET http://localhost:3001/token-info
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiVGVzdE5hbWUzIiwidXNlcm5hbWUiOiJUZXN0VXNlcjUiLCJpYXQiOjE1ODk2OTkxODQsImV4cCI6MTU4OTY5OTE5OX0.eY2YOEWkT8aKeZP74f3dwQmczlhoLkiGJBXp5PHDZdY
+###
+
+GET http://localhost:3001/get-featured

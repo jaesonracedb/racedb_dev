@@ -35,7 +35,6 @@ export default class Homepage extends Component {
     super(props);
     const dotenv = require('dotenv').config()
     // dotenv.config({ path: '../../../' })
-    console.log("ENV PORT: "+ process.env.PORT)
     const url = require('url');
     const http = require('http');
     const queryString =window.location.search;
@@ -49,7 +48,6 @@ export default class Homepage extends Component {
       loggedIn:loggedInQuery,
       token: tokenQuery
     }
-    console.log('GETTING INFO USER ' + this.state.loggedIn)
   
     fetch("/token-info/",{
       headers:{
@@ -85,12 +83,9 @@ export default class Homepage extends Component {
         this.setState({
           featured: body.featured[0]
         })
-        console.log(body.featured[0])
       })
-      console.log("fetched: "+PORT);
   }
-
-
+  
   render() {
     const loginUrl = "/login";
     const {loggedIn} = this.state;
@@ -98,6 +93,38 @@ export default class Homepage extends Component {
     const locationUrl =  "/search?filter=location&page=1&loggedIn="+loggedIn+"&token="+token+"&key=";
     const categoriesUrl=  "/search?filter=category&page=1&loggedIn="+loggedIn+"&token="+token+"&key=";
     const featuredUrl =  "/listing?loggedIn="+loggedIn+"&token="+token+"&id=";
+    
+    this.state.featured.map((ft,index) => {
+      if(index ===1) {
+        const sampleDate2 = new Date(ft.event_date)
+        let [day2,month2,year2] = sampleDate2.toLocaleDateString().split("/");
+      }
+    })
+    this.state.featured.map((ft,index) => {
+      if(index ===2) {
+        const sampleDate3 = new Date(ft.event_date)
+        var [day3,month3,year3] = sampleDate3.toLocaleDateString().split("/");
+      }
+    })
+    this.state.featured.map((ft,index) => {
+      if(index ===3) {
+        const sampleDate4 = new Date(ft.event_date)
+        var [day4,month4,year4] = sampleDate4.toLocaleDateString().split("/");
+      }
+    })
+    this.state.featured.map((ft,index) => {
+      if(index ===4) {
+        const sampleDate5 = new Date(ft.event_date)
+        var [day5,month5,year5] = sampleDate5.toLocaleDateString().split("/");
+      }
+    })
+    this.state.featured.map((ft,index) => {
+      if(index ===5) {
+        const sampleDate6 = new Date(ft.event_date)
+        var [day6,month6,year6] = sampleDate6.toLocaleDateString().split("/");
+      }
+    })
+
     return (
     <div className="application">
     <Helmet>
@@ -165,7 +192,10 @@ export default class Homepage extends Component {
         {/* Featured Card first Row FIRST card START */}
         <div className=" col-xs-8 col-md-6 col-lg-4 mb-4">
               {this.state.featured.map((ft,index) => {
-                if(index ===0)
+                if(index ===0){
+                  let sampleDate1 = new Date(ft.event_date)
+                  let [day1,month1,year1] = sampleDate1.toLocaleDateString().split("/");
+
                 return <div key={ft.id}>
                 <div className="card mb-3 rounded" >
                   <div className="view overlay">
@@ -176,13 +206,15 @@ export default class Homepage extends Component {
                   </div>
                   <div className="card-body">
                   <h4 className="card-title"><a className="cardA" href={featuredUrl+ft.id}>{ft.name}</a></h4>
-                  <p className="card-text">Date: {ft.event_date}<br/>
+                <p className="card-text">Date: {month1}/{day1}/{year1}<br/>
+                  {console.log("first card "+ ft)}
                   Category: {ft.category}<br/></p>
                   <a href={featuredUrl+ft.id} class="btn btn-danger featured-btn btn-md">View Race</a>
                   </div>
                   </div>
 
                 </div>
+                }
               })}
           </div>
           
@@ -190,7 +222,9 @@ export default class Homepage extends Component {
         {/* Featured Card first Row SECOND card START */}    
         <div className=" col-xs-8 col-md-6 col-lg-4 mb-4">
             {this.state.featured.map((ft,index) => {
-              if(index ===1)
+              if(index ===1){
+                let sampleDate1 = new Date(ft.event_date)
+                let [day1,month1,year1] = sampleDate1.toLocaleDateString().split("/");
               return <div key={ft.id}>
                 <div className="card mb-3" >
                 <div className="view overlay">
@@ -201,20 +235,22 @@ export default class Homepage extends Component {
                   </div>
                   <div className="card-body">
                 <h4 className="card-title"><a className="cardA" href={featuredUrl+ft.id}>{ft.name}</a></h4>
-                <p className="card-text">Date: {ft.event_date}<br/>
+                <p className="card-text">Date: {month1}/{day1}/{year1}<br/>
                 Category: {ft.category}<br/></p>
                 <a href={featuredUrl+ft.id} class="btn btn-danger featured-btn btn-md">View Race</a>
               </div>
               </div>
 
-              </div>
+              </div>}
             })}
        </div>
        {/* Featured Card first Row THIRD card START */}        
        <div className=" col-xs-8 col-md-6 col-lg-4 mb-4">
         
             {this.state.featured.map((ft,index) => {
-              if(index ===2)
+              if(index ===2){
+                let sampleDate1 = new Date(ft.event_date)
+                let [day1,month1,year1] = sampleDate1.toLocaleDateString().split("/");
               return <div key={ft.id}>
                 <div className="card mb-3" >
                 <div className="view overlay">
@@ -225,12 +261,12 @@ export default class Homepage extends Component {
                 </div>
                   <div className="card-body">
                 <h4 className="card-title"><a className="cardA" href={featuredUrl+ft.id}>{ft.name}</a></h4>
-                <p className="card-text">Date: {ft.event_date}<br/>
+                <p className="card-text">Date: {month1}/{day1}/{year1}<br/>
                 Category: {ft.category}<br/></p>
                 <a href={featuredUrl+ft.id} class="btn btn-danger featured-btn btn-md">View Race</a>
               </div>
               </div>
-              </div>
+              </div>}
             })}
         
         </div>
@@ -239,7 +275,9 @@ export default class Homepage extends Component {
       {/* Featured Card SECOND Row FIRST card START */}        
       <div className="col-xs-8 col-md-6 col-lg-4 mb-4">
           {this.state.featured.map((ft,index) => {
-            if(index ===3)
+            if(index ===3){
+              let sampleDate1 = new Date(ft.event_date)
+                let [day1,month1,year1] = sampleDate1.toLocaleDateString().split("/");
             return <div key={ft.id}>
             <div className="card mb-3" >
             <div className="view overlay">
@@ -250,19 +288,21 @@ export default class Homepage extends Component {
               </div>
               <div className="card-body">
               <h4 className="card-title"><a className="cardA" href={featuredUrl+ft.id}>{ft.name}</a></h4>
-              <p className="card-text">Date: {ft.event_date}<br/>
+              <p className="card-text">Date: {month1}/{day1}/{year1}<br/>
               Category: {ft.category}<br/></p>
               <a href={featuredUrl+ft.id} class="btn btn-danger featured-btn btn-md">View Race</a>
             </div>
             </div>
-            </div>
+            </div>}
           })}
       </div>
 
       {/* Featured Card SECOND Row SECOND card START */}             
       <div className="col-xs-8 col-md-6 col-lg-4 mb-4">
           {this.state.featured.map((ft,index) => {
-            if(index ===4)
+            if(index ===4){
+              let sampleDate1 = new Date(ft.event_date)
+              let [day1,month1,year1] = sampleDate1.toLocaleDateString().split("/");
             return <div key={ft.id}>
               <div className="card mb-3" >
               <div className="view overlay">
@@ -273,19 +313,21 @@ export default class Homepage extends Component {
                 </div>
                 <div className="card-body">
               <h4 className="card-title"><a className="cardA" href={featuredUrl+ft.id}>{ft.name}</a></h4>
-              <p className="card-text">Date: {ft.event_date}<br/>
+              <p className="card-text">Date: {month1}/{day1}/{year1}<br/>
               Category: {ft.category}<br/></p>
               <a href={featuredUrl+ft.id} class="btn btn-danger featured-btn btn-md">View Race</a>
             </div>
             </div>
-            </div>
+            </div>}
           })}
      </div>
 
      {/* Featured Card SECOND Row THIRD card START */}        
       <div className="col-xs-8 col-md-6 col-lg-4">
           {this.state.featured.map((ft,index) => {
-            if(index ===5)
+            if(index ===5){
+              let sampleDate1 = new Date(ft.event_date)
+                let [day1,month1,year1] = sampleDate1.toLocaleDateString().split("/");
             return <div key={ft.id}>
               <div className="card mb-3" >
               <div className="view overlay">
@@ -296,12 +338,12 @@ export default class Homepage extends Component {
               </div>
               <div className="card-body">
               <h4 className="card-title"><a className="cardA" href={featuredUrl+ft.id}>{ft.name}</a></h4>
-              <p className="card-text">Date: {ft.event_date}<br/>
+              <p className="card-text">Date: {month1}/{day1}/{year1}<br/>
               Category: {ft.category}<br/></p>
               <a href={featuredUrl+ft.id} class="btn btn-danger featured-btn btn-md">View Race</a>
               </div>
               </div>
-              </div>
+              </div>}
           })}
       </div>
     
@@ -321,7 +363,7 @@ export default class Homepage extends Component {
               <a href={locationUrl+'new-york'} style={{color:"black"}}>
                 <img src={location1} className="img-fluid" alt="New York"/>
                 <div className="mask pattern-1 rgba-blue-grey-light flex-center d-flex align-bottom">
-                  <h2 className="white-text align-items-bottom">New York</h2>
+                  <h2 className="white-text h2-responsive align-items-bottom">New York</h2>
                 </div>
               </a>
             </div>
@@ -331,7 +373,7 @@ export default class Homepage extends Component {
               <a href={locationUrl+'new-jersey'} style={{color:"black"}}>
                 <img src={location2} className="img-fluid" alt="New Jersey"/>
                 <div className="mask pattern-1 rgba-blue-grey-light flex-center d-flex align-bottom" align="center">
-                  <h2 className="white-text align-items-bottom">New Jersey</h2>
+                  <h2 className="h2-responsive white-text align-items-bottom">New Jersey</h2>
                 </div>
               </a>
             </div>
@@ -341,7 +383,7 @@ export default class Homepage extends Component {
               <a href={locationUrl+'pennsylvania'} style={{color:"black"}}>
                 <img src={location3} className="img-fluid" alt="Pennsylvania" />
                 <div className="mask pattern-1 rgba-blue-grey-light flex-center d-flex align-bottom" align="center">
-                  <h2 className="white-text align-items-bottom">Pennsylvania</h2>
+                  <h2 className="h2-responsive white-text align-items-bottom">Pennsylvania</h2>
                 </div>
               </a>
             </div>
@@ -355,7 +397,7 @@ export default class Homepage extends Component {
               <a href={locationUrl+'connecticut'} style={{color:"black"}}>
                 <img src={location4} className="img-fluid"  alt="Connecticut"/>
                 <div className="mask pattern-1 rgba-blue-grey-light flex-center d-flex align-bottom" align="center">
-                  <h2 className="white-text align-items-bottom">Connecticut</h2>
+                  <h2 className="h2-responsive white-text align-items-bottom">Connecticut</h2>
                 </div>
               </a>
             </div>
@@ -365,7 +407,7 @@ export default class Homepage extends Component {
               <a href={locationUrl+'massachusetts'} style={{color:"black"}}>
                 <img src={location5} className="img-fluid" alt="Massachusetts"/>
                 <div className="mask pattern-1 rgba-blue-grey-light flex-center d-flex align-bottom" align="center">
-                  <h2 className="white-text align-items-bottom">Massachusetts</h2>
+                  <h2 className="h2-responsive white-text align-items-bottom">Massachusetts</h2>
                 </div>
               </a>
             </div>
@@ -375,7 +417,7 @@ export default class Homepage extends Component {
               <a href={locationUrl+'delaware'} style={{color:"black"}}>
                 <img src={location6} className="img-fluid"  alt="Delaware" />
                 <div className="mask pattern-1 rgba-blue-grey-light flex-center d-flex align-bottom"  align="center">
-                  <h2 className="white-text align-items-bottom">California</h2>
+                  <h2 className="h2-responsive white-text align-items-bottom">California</h2>
                 </div>
               </a>
             </div>
