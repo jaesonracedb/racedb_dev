@@ -159,7 +159,7 @@ export default class Homepage extends Component {
               {this.state.featured.map((ft,index) => {
                 if(index ===0){
                   let sampleDate1 = new Date(ft.event_date)
-                  let [day1,month1,year1] = sampleDate1.toLocaleDateString().split("/");
+                  let [month1,day1,year1] = sampleDate1.toLocaleDateString().split("/");
 
                 return <div key={ft.id}>
                 <div className="card mb-3 rounded" >
@@ -188,7 +188,7 @@ export default class Homepage extends Component {
             {this.state.featured.map((ft,index) => {
               if(index ===1){
                 let sampleDate1 = new Date(ft.event_date)
-                let [day1,month1,year1] = sampleDate1.toLocaleDateString().split("/");
+                let [month1,day1,year1] = sampleDate1.toLocaleDateString().split("/");
               return <div key={ft.id}>
                 <div className="card mb-3" >
                 <div className="view overlay">
@@ -214,7 +214,7 @@ export default class Homepage extends Component {
             {this.state.featured.map((ft,index) => {
               if(index ===2){
                 let sampleDate1 = new Date(ft.event_date)
-                let [day1,month1,year1] = sampleDate1.toLocaleDateString().split("/");
+                let [month1,day1,year1] = sampleDate1.toLocaleDateString().split("/");
               return <div key={ft.id}>
                 <div className="card mb-3" >
                 <div className="view overlay">
@@ -241,7 +241,7 @@ export default class Homepage extends Component {
           {this.state.featured.map((ft,index) => {
             if(index ===3){
               let sampleDate1 = new Date(ft.event_date)
-                let [day1,month1,year1] = sampleDate1.toLocaleDateString().split("/");
+                let [month1,day1,year1] = sampleDate1.toLocaleDateString().split("/");
             return <div key={ft.id}>
             <div className="card mb-3" >
             <div className="view overlay">
@@ -266,7 +266,7 @@ export default class Homepage extends Component {
           {this.state.featured.map((ft,index) => {
             if(index ===4){
               let sampleDate1 = new Date(ft.event_date)
-              let [day1,month1,year1] = sampleDate1.toLocaleDateString().split("/");
+              let [month1,day1,year1] = sampleDate1.toLocaleDateString().split("/");
             return <div key={ft.id}>
               <div className="card mb-3" >
               <div className="view overlay">
@@ -291,7 +291,7 @@ export default class Homepage extends Component {
           {this.state.featured.map((ft,index) => {
             if(index ===5){
               let sampleDate1 = new Date(ft.event_date)
-                let [day1,month1,year1] = sampleDate1.toLocaleDateString().split("/");
+                let [month1,day1,year1] = sampleDate1.toLocaleDateString().split("/");
             return <div key={ft.id}>
               <div className="card mb-3" >
               <div className="view overlay">
