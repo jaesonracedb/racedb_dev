@@ -2,6 +2,7 @@ const db = require(__dirname+ '/../db_config/mysql');
 // const expressValidator = require('express-validator');
 // const jwt = require('jsonwebtoken');
 var Storage = require('dom-storage');
+const { resetWarningCache } = require('prop-types');
 var localStorage = new Storage('./session_storage.json', { strict: false, ws: '  ' });
 
 exports.getFeatured = (req,res)=>{
@@ -25,6 +26,7 @@ exports.getPageItems =(req,res)=>{
   const FILTER_ORDER = req.params.order;
   const START = ((parseInt(req.params.page)-1)*10);
   console.log("Query: "+FILTER_QUERY);
+  console.log("Key: "+FILTER_KEY);
   console.log("STARTING ITEM: "+ START);
   if(FILTER_QUERY ==='category'){
     db.query('SELECT * FROM event WHERE category = ? ORDER BY ? DESC LIMIT ?,10',[FILTER_KEY,FILTER_ORDER, START], (err,results)=>{
@@ -56,8 +58,26 @@ exports.getPageItems =(req,res)=>{
         res.send(err)
       }
     });
-  }else if(FILTER_QUERY ==='event_date'){
-
+  }else if(FILTER_QUERY ==='date'){
+    const TEMP_KEY = FILTER_KEY.replace(/-/g, "/")
+    const DATE_KEY = TEMP_KEY;
+    console.log("DATE IS: "+ DATE_KEY);
+    db.query('SELECT * FROM event WHERE event_date = date(?) ORDER BY ? DESC LIMIT ?,10',[DATE_KEY,FILTER_ORDER,START],(err,results)=>{
+      if(!err){
+        console.log("DATE_KEY IS: "+DATE_KEY);
+        console.log(results);
+        db.query('SELECT COUNT(*) AS sqlTotalCount FROM event WHERE event_date =date(?)',[DATE_KEY],(err1,results1)=>{
+          return res.json({
+            search_results: results,
+            totalCount: results1[0].sqlTotalCount
+          })
+        })
+      }else{
+        console.log(err)
+        res.send(err)
+      }
+    })
+    // select * from event where event_date = date('2020/01/01')\G
   }else if(FILTER_QUERY ==='distance'){
     //modify for when there is no distance, example triathlon
     const DISTANCE_KEY = '%'+FILTER_KEY+'%';
