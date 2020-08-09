@@ -1,26 +1,24 @@
 import React, { Component } from 'react';
-import Cookies from 'universal-cookie';
+import 'universal-cookie';
 import StarRating from "./StarRating.js";
 import StaticStar from "./StaticStar.js"
-
+import Footer from "./Footer.js";
 import {Helmet} from "react-helmet";
-import HomeNav from "./HomeNav.js"
-import styles from "./css/main.css"
-import logoRDB from "./imgs/racedblogo-04-scaled.png"
+import HomeNav from "./HomeNav.js";
+import "./css/main.css";
 export default class Archive extends Component {
   constructor(props){
     super(props)
     const dotenv = require('dotenv')
     dotenv.config({ path: '../../../' })
-    const url = require('url');
-    const http = require('http');
+    require('url');
+    require('http');
     const queryString =window.location.search;
     console.log("url"+queryString);
     const urlParams = new URLSearchParams(queryString)
     const event_id = urlParams.get('id');
     const loggedInQuery = urlParams.get('loggedIn');
     const tokenQuery = urlParams.get('token');
-    var PORT = process.env.PORT || 3001;
   
     // const queryObject = url.parse(req.url.true).query;
     this.state={
@@ -157,7 +155,7 @@ export default class Archive extends Component {
     }
     function DisplayRating(props){
       if(loggedIn){
-        return <div className="card ml-4 mt-3 p-3">
+        return <div className="card col-8 col-sm-5 col-md-5 col-lg-4 mb-5 p-3">
           <h5 className="card-title">Submit Rating</h5>
           
           <StarRating size='30' />
@@ -174,24 +172,24 @@ export default class Archive extends Component {
 		<Helmet>
 			<meta charSet="utf-8"/>
 			{/*--sets width to device size, sets zoom-->*/}
-			<meta name="viewport" content="width=device-width, initial-scale=1"/>
-
-			<title>raceDB Homepage</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, shrink-to-fit=no"/>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"/>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+			<title>raceDB</title>
 			<link rel="stylesheet" href="main.css"/>
 
 			{/*// --bootstrap stuff--*/}
-			<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"/>
-			<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-			<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-			<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-			<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+
+      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 		</Helmet>
 
 		<div className="body">
 
 		<HomeNav username={this.state.username} name={this.state.name} token={this.state.token} loggedIn={this.state.loggedIn}/>
-
-    <div id="carouselExampleIndicators" className="carousel slide mt-5 bg-dark" data-ride="carousel">
+      {/* CAROUSEL */}
+    <div id="carouselExampleIndicators" className="carousel slide bg-dark" data-ride="carousel">
       <ol className="carousel-indicators">
         <li data-target="#carouselExampleIndicators" data-slide-to="0" className="active"></li>
         <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
@@ -217,47 +215,60 @@ export default class Archive extends Component {
         <span className="sr-only">Next</span>
       </a>
     </div>
+    {/* CONTENT STARTS */}
+    <div className="container-fluid col-xs-12 col-sm-10 col-md-8">
+      <div className="mainInfo pb-4">
+        <h1 className="h1-responsive mt-5 mx-xs-auto">{this.state.name}</h1>
+        <StaticStar size="30"/>
+      </div>
+      <div className="eventContent">
+        <div className="row pb-3">
+          <div className="col-12 col-sm-10 col-md-6">
+            <div className="card p-3 pb-md-5">
+              <p className="card-text"><b>Category: </b>&nbsp;{this.state.category}</p>
+              <p className="card-text"><b>Location:</b>&nbsp;{this.state.location_city}</p>
+              <p className="card-text"><b>State:</b>&nbsp;{this.state.state}</p>
+              <div className="extra-info">
+              <ExtraInfo category={this.state.category}/>
+              </div>{/*extra-info*/}
+              <p className="card-text pt-2"><b>Summary:</b>{this.state.summary}</p><br/>
+              {/*<!--filler br-->*/}
+              <br/> <br/> <br/>
+            </div>
+            
+          </div>
+          {/* Email and Ad Section */}
+          <div className="col-12 pt-4 pt-md-0 col-md-6 ml-md-auto">
+            {/* //map to be improved */}
+            <div className="card p-3 pb-3">
+              <p className="card-text"><b>Email:</b>&nbsp;{this.state.email}</p>
+              <p className="card-text"><b>Website:</b>&nbsp;<a href={updatedUrl}>{this.state.website}</a></p>
+            </div>
+            {/* //ads to be finished */}
+            <div className="card mt-3 mb-3" >
+                <img className="card-img-top" src="..." alt="insert ad here"/>
+                <div className="card-body">
+                 <p className="card-text"> An example of where an ad shall be placed</p>
+                </div>
 
-    <h1>{this.state.name}</h1>
-    <div>
-    <StaticStar size="30"/>
+            </div>
+          </div>
+
+        </div>
+        <div className="row pt-3 pl-3 ">
+          
+            <DisplayRating/>
+        </div>
+          
+          
+          
+      </div>
+
     </div>
-    
-    <div>
-    	<div className="row">
-    		<div className="col-sm-6 mr-5">
-    			<div className="card ml-4 p-3">
-            <p className="card-text"><b>Category: </b>&nbsp;{this.state.category}</p>
-    				<p className="card-text"><b>Location:</b>&nbsp;{this.state.location_city}</p>
-    				<p className="card-text"><b>State:</b>&nbsp;{this.state.state}</p>
-            <div className="extra-info">
-            <ExtraInfo category={this.state.category}/>
-            </div>{/*extra-info*/}
-    				<p className="card-text"><b>Summary:</b>{this.state.summary}</p><br/>
-    				{/*<!--filler br-->*/}
-    				<br/> <br/> <br/>
-    			</div>
-    <DisplayRating/>
-    			
-    		</div>
-    		<div className="col-sm-4">
-    			{/* //map to be improved */}
-    			<div id="map-container-google-1" className="z-depth-1-half map-container" >
-    				<iframe src="https://maps.google.com/maps?q=manhatan&t=&z=13&ie=UTF8&iwloc=&output=embed" frameBorder="0" style={{border:0}} allowFullScreen></iframe>
-    			</div>
 
-    			<div className="card p-3">
-    				<p className="card-text"><b>Email:</b>&nbsp;{this.state.email}</p>
-    				<p className="card-text"><b>Website:</b>&nbsp;<a href={updatedUrl}>{this.state.website}</a></p>
-    			</div>
-
-    			{/* //ads to be finished */}
-    			<div>
-    			</div>
-    		</div>
-    	</div>
-    </div>
-    </div></div>
+    <Footer/>    
+      </div>
+      </div>
     )
   }
 }

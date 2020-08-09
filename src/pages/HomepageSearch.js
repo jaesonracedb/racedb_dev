@@ -29,6 +29,12 @@ export default class SearchBar extends Component{
     })
   }
   handleFilter(e){
+    if(e.target.value === "date"){
+      document.getElementById("search-key").placeholder="YYY-MM-DD"
+    }
+    else{
+      document.getElementById("search-key").placeholder="Search"
+    }
     this.setState({
       filter:e.target.value
     })
@@ -55,7 +61,7 @@ export default class SearchBar extends Component{
                 <div className="input-group-btn search-panel" id='select-filter'>
                 <select className="browser-default custom-select col-xs-3"  onChange={this.handleFilter}>
                   <option defaultValue value="name">Name</option>
-                  <option value="event_date">Date</option>
+                  <option value="date" placeholder="YYYY/MM/DD">Date</option>
                   <option value="distance">Distance</option>
                   <option value="location">Location</option>
                   <option value="category">Category</option>

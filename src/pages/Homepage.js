@@ -1,7 +1,7 @@
-import React, { Component, useEffect } from 'react';
+import React, { Component } from 'react';
 // import Cookies from 'universal-cookie';
 import {Helmet} from "react-helmet";
-import styles from "./css/main.css";
+import "./css/main.css";
 import homepageBanner from "./imgs/Canva-Runners-in-a-Marathon-1024x680.jpg"
 import logoRDB from "./imgs/racedblogo-04-scaled.png";
 import stockImg from "./imgs/triathlon.jpg";
@@ -17,7 +17,7 @@ import location2 from "./imgs/Locations/homepage/New-Jersey.jpg";
 import location3 from "./imgs/Locations/homepage/Pennsylvania.jpg";
 import location4 from "./imgs/Locations/homepage/Connecticut.jpg";
 import location5 from "./imgs/Locations/homepage/Massachusetts.jpg";
-import location6 from "./imgs/Locations/homepage/Delaware.jpg";
+import location6 from "./imgs/Locations/homepage/Maine.jpg";
 import logoRed from "./imgs/racedblogo-02-1024x640.png";
 import running from "./imgs/running.png";
 import triathlon from "./imgs/triathlon.png";
@@ -42,7 +42,7 @@ export default class Homepage extends Component {
     const loggedInQuery = urlParams.get('loggedIn');
     const tokenQuery = urlParams.get('token');
     var PORT = process.env.PORT || 3001;
-    console.log("PORT IS: "+PORT)
+
     this.state={
       featured: [],
       loggedIn:loggedInQuery,
@@ -58,12 +58,9 @@ export default class Homepage extends Component {
     })
     .then(res=>{return res.json()})
     .then((body,err)=>{
-      console.log("Welcome: "+ body.name);
       if(err){
-        console.log("Token not valid")
         this.setState({loggedIn:false});
       }else{
-        console.log("Logged In")
         this.setState({
           name: body.name,
           username: body.username
@@ -79,7 +76,6 @@ export default class Homepage extends Component {
       })
       .then(res => res.json())
       .then(body => {
-        console.log(body)
         this.setState({
           featured: body.featured[0]
         })
@@ -93,37 +89,6 @@ export default class Homepage extends Component {
     const locationUrl =  "/search?filter=location&page=1&loggedIn="+loggedIn+"&token="+token+"&key=";
     const categoriesUrl=  "/search?filter=category&page=1&loggedIn="+loggedIn+"&token="+token+"&key=";
     const featuredUrl =  "/listing?loggedIn="+loggedIn+"&token="+token+"&id=";
-    
-    this.state.featured.map((ft,index) => {
-      if(index ===1) {
-        const sampleDate2 = new Date(ft.event_date)
-        let [day2,month2,year2] = sampleDate2.toLocaleDateString().split("/");
-      }
-    })
-    this.state.featured.map((ft,index) => {
-      if(index ===2) {
-        const sampleDate3 = new Date(ft.event_date)
-        var [day3,month3,year3] = sampleDate3.toLocaleDateString().split("/");
-      }
-    })
-    this.state.featured.map((ft,index) => {
-      if(index ===3) {
-        const sampleDate4 = new Date(ft.event_date)
-        var [day4,month4,year4] = sampleDate4.toLocaleDateString().split("/");
-      }
-    })
-    this.state.featured.map((ft,index) => {
-      if(index ===4) {
-        const sampleDate5 = new Date(ft.event_date)
-        var [day5,month5,year5] = sampleDate5.toLocaleDateString().split("/");
-      }
-    })
-    this.state.featured.map((ft,index) => {
-      if(index ===5) {
-        const sampleDate6 = new Date(ft.event_date)
-        var [day6,month6,year6] = sampleDate6.toLocaleDateString().split("/");
-      }
-    })
 
     return (
     <div className="application">
@@ -171,11 +136,11 @@ export default class Homepage extends Component {
       <div className="row pt-md-4 ">
       <div className="container-fluid col-xs-8 col-sm-10 col-lg-8 mx-auto pt-3 pb-5 mb-3" align="center">
     	<div className="d-none d-sm-block btn-group btn-group-justified flex-wrap mx-auto" align="center" id="categoryNav">
-    		<a className="btn btn-danger catButton col-xs-6 col-sm-5 col-md-3 col-lg-3 col-xl-3" href={categoriesUrl+'running'}><i class='fas fa-running' aria-hidden="true"></i> Running</a>
-    		<a className="btn btn-danger catButton col-xs-6 col-sm-5 col-md-4 col-lg-4 col-xl-3" href={categoriesUrl+'triathlon'}><i class='fas fa-swimmer' aria-hidden="true"></i> Triathlon</a>
-    		<a className="btn btn-danger catButton col-xs-4 col-sm-5 col-md-3 col-lg-3 col-xl-3" href={categoriesUrl+'cycling'}><i class="fas fa-biking" aria-hidden="true"></i> Cycling</a>
-    		<a className="btn btn-danger catButton col-xs-4 col-sm-5 col-md-4 col-lg-3 col-xl-3" href={categoriesUrl+'obstacle'}><i class="fas fa-people-carry" aria-hidden="true"></i> Obstacle</a>
-    		<a className="btn btn-danger catButton col-xs-4 col-sm-4 col-md-3 col-lg-3 col-xl-3" href={categoriesUrl+'other'}><i class="fas fa-skiing" aria-hidden="true"></i> Other</a>
+    		<a className="btn btn-danger catButton col-xs-6 col-sm-5 col-md-3 col-lg-3 col-xl-3" href={categoriesUrl+'running'}><i className='fas fa-running' aria-hidden="true"></i> Running</a>
+    		<a className="btn btn-danger catButton col-xs-6 col-sm-5 col-md-4 col-lg-4 col-xl-3" href={categoriesUrl+'triathlon'}><i className='fas fa-swimmer' aria-hidden="true"></i> Triathlon</a>
+    		<a className="btn btn-danger catButton col-xs-4 col-sm-5 col-md-3 col-lg-3 col-xl-3" href={categoriesUrl+'cycling'}><i className="fas fa-biking" aria-hidden="true"></i> Cycling</a>
+    		<a className="btn btn-danger catButton col-xs-4 col-sm-5 col-md-4 col-lg-3 col-xl-3" href={categoriesUrl+'obstacle'}><i className="fas fa-people-carry" aria-hidden="true"></i> Obstacle</a>
+    		<a className="btn btn-danger catButton col-xs-4 col-sm-4 col-md-3 col-lg-3 col-xl-3" href={categoriesUrl+'other'}><i className="fas fa-skiing" aria-hidden="true"></i> Other</a>
       </div>
       </div>
       </div>
@@ -185,9 +150,9 @@ export default class Homepage extends Component {
 
   {/*  // -- Exclusives -->*/}
     {/*// -- template from https://getbootstrap.com/docs/3.4/examples/jumbotron/, will be edited and modified accordingly -->*/}
-    <div className="container mx-auto pt-5 pb-5" id="exclusivesdiv" align="center">
-      <h1 align="center" className="h1-responsive sectionTitle pt-1 pb-4">Featured Races</h1>
-      <div className="card-deck h-100">
+    <div className="container mx-auto py-5" id="exclusivesdiv" align="center">
+      <h1 align="center" className="h1-responsive sectionTitle pt-3 pt-5 pb-4">Featured Races</h1>
+      <div className="card-deck h-100 pt-4">
         
         {/* Featured Card first Row FIRST card START */}
         <div className=" col-xs-8 col-md-6 col-lg-4 mb-4">
@@ -201,15 +166,14 @@ export default class Homepage extends Component {
                   <div className="view overlay">
                   <img src={featured1} className="card-img-top" alt="Card image cap"/>  
                   <a href={featuredUrl+ft.id}>
-                    <div class="mask rgba-stylish-light"></div>
+                    <div className="mask rgba-stylish-light"></div>
                   </a>
                   </div>
                   <div className="card-body">
                   <h4 className="card-title"><a className="cardA" href={featuredUrl+ft.id}>{ft.name}</a></h4>
                 <p className="card-text">Date: {month1}/{day1}/{year1}<br/>
-                  {console.log("first card "+ ft)}
                   Category: {ft.category}<br/></p>
-                  <a href={featuredUrl+ft.id} class="btn btn-danger featured-btn btn-md">View Race</a>
+                  <a href={featuredUrl+ft.id} className="btn btn-danger featured-btn btn-md">View Race</a>
                   </div>
                   </div>
 
@@ -230,14 +194,14 @@ export default class Homepage extends Component {
                 <div className="view overlay">
                   <img src={featured2} className="card-img-top" alt="category" alt="event"/>
                   <a href={featuredUrl+ft.id}>
-                    <div class="mask rgba-stylish-light"></div>
+                    <div className="mask rgba-stylish-light"></div>
                   </a>
                   </div>
                   <div className="card-body">
                 <h4 className="card-title"><a className="cardA" href={featuredUrl+ft.id}>{ft.name}</a></h4>
                 <p className="card-text">Date: {month1}/{day1}/{year1}<br/>
                 Category: {ft.category}<br/></p>
-                <a href={featuredUrl+ft.id} class="btn btn-danger featured-btn btn-md">View Race</a>
+                <a href={featuredUrl+ft.id} className="btn btn-danger featured-btn btn-md">View Race</a>
               </div>
               </div>
 
@@ -256,14 +220,14 @@ export default class Homepage extends Component {
                 <div className="view overlay">
                   <img src={featured3} className="card-img-top" alt="category" alt="event"/>
                   <a href={featuredUrl+ft.id}>
-                    <div class="mask rgba-stylish-light"></div>
+                    <div className="mask rgba-stylish-light"></div>
                   </a>
                 </div>
                   <div className="card-body">
                 <h4 className="card-title"><a className="cardA" href={featuredUrl+ft.id}>{ft.name}</a></h4>
                 <p className="card-text">Date: {month1}/{day1}/{year1}<br/>
                 Category: {ft.category}<br/></p>
-                <a href={featuredUrl+ft.id} class="btn btn-danger featured-btn btn-md">View Race</a>
+                <a href={featuredUrl+ft.id} className="btn btn-danger featured-btn btn-md">View Race</a>
               </div>
               </div>
               </div>}
@@ -283,14 +247,14 @@ export default class Homepage extends Component {
             <div className="view overlay">
               <img src={featured4} className="card-img-top" alt="category" alt="event"/>
               <a href={featuredUrl+ft.id}>
-                    <div class="mask rgba-stylish-light"></div>
+                    <div className="mask rgba-stylish-light"></div>
               </a>
               </div>
               <div className="card-body">
               <h4 className="card-title"><a className="cardA" href={featuredUrl+ft.id}>{ft.name}</a></h4>
               <p className="card-text">Date: {month1}/{day1}/{year1}<br/>
               Category: {ft.category}<br/></p>
-              <a href={featuredUrl+ft.id} class="btn btn-danger featured-btn btn-md">View Race</a>
+              <a href={featuredUrl+ft.id} className="btn btn-danger featured-btn btn-md">View Race</a>
             </div>
             </div>
             </div>}
@@ -308,14 +272,14 @@ export default class Homepage extends Component {
               <div className="view overlay">
                 <img src={featured5} className="card-img-top" alt="category" alt="event"/>
                 <a href={featuredUrl+ft.id}>
-                    <div class="mask rrgba-stylish-light"></div>
+                    <div className="mask rrgba-stylish-light"></div>
                 </a>
                 </div>
                 <div className="card-body">
               <h4 className="card-title"><a className="cardA" href={featuredUrl+ft.id}>{ft.name}</a></h4>
               <p className="card-text">Date: {month1}/{day1}/{year1}<br/>
               Category: {ft.category}<br/></p>
-              <a href={featuredUrl+ft.id} class="btn btn-danger featured-btn btn-md">View Race</a>
+              <a href={featuredUrl+ft.id} className="btn btn-danger featured-btn btn-md">View Race</a>
             </div>
             </div>
             </div>}
@@ -333,14 +297,14 @@ export default class Homepage extends Component {
               <div className="view overlay">
                 <img src={featured6} className="card-img-top" alt="category" alt="event"/>
               <a href={featuredUrl+ft.id}>
-                  <div class="mask rgba-stylish-light"></div>
+                  <div className="mask rgba-stylish-light"></div>
               </a>
               </div>
               <div className="card-body">
               <h4 className="card-title"><a className="cardA" href={featuredUrl+ft.id}>{ft.name}</a></h4>
               <p className="card-text">Date: {month1}/{day1}/{year1}<br/>
               Category: {ft.category}<br/></p>
-              <a href={featuredUrl+ft.id} class="btn btn-danger featured-btn btn-md">View Race</a>
+              <a href={featuredUrl+ft.id} className="btn btn-danger featured-btn btn-md">View Race</a>
               </div>
               </div>
               </div>}
@@ -354,10 +318,10 @@ export default class Homepage extends Component {
 {/* LOCATIONS */}
 
     <div className="grayBlock container-fluid mx-auto py-5" align="center" id="locationsdiv">
-      <h2 align="center" style={{color:"white"}} className="sectionTitle pt-1 pb-4 h2-responsive">Locations</h2>
+      <h2 align="center" style={{color:"white"}} className="sectionTitle pt-3 pb-4 h2-responsive">Locations</h2>
 
         
-        <div className="row mx-auto" align="center" id="locationsfirstrow">
+        <div className="row mx-auto pt-4" align="center" id="locationsfirstrow">
           <div className="col-xs-8 col-md-6 col-lg-4 mb-4 mb-md-4" align="center" id="location1">
             <div className='view '>
               <a href={locationUrl+'new-york'} style={{color:"black"}}>
@@ -414,10 +378,10 @@ export default class Homepage extends Component {
           </div>
           <div className="col-xs-8 col-md-6 col-lg-4" align="center" id="location1">
             <div className='view'>
-              <a href={locationUrl+'delaware'} style={{color:"black"}}>
-                <img src={location6} className="img-fluid"  alt="Delaware" />
+              <a href={locationUrl+'maine'} style={{color:"black"}}>
+                <img src={location6} className="img-fluid"  alt="Maine" />
                 <div className="mask pattern-1 rgba-blue-grey-light flex-center d-flex align-bottom"  align="center">
-                  <h2 className="h2-responsive white-text align-items-bottom">California</h2>
+                  <h2 className="h2-responsive white-text align-items-bottom">Maine</h2>
                 </div>
               </a>
             </div>
@@ -429,9 +393,9 @@ export default class Homepage extends Component {
 {/* END OF LOCATIONS */}
 {/* START OF CATEGORIES */}
       <div className="container-fluid mx-auto py-5" id="categoriesdiv" align="center">
-      <h2 align="center" className="h2-responsive sectionTitle pt-1 pb-4">Categories</h2>        
-        <div className="row mx-auto" id="categoriesfirstrow">
-          <div className="col-xs-8 col-md-6 col-lg-4 mb-4 mb-md-4" align="center" id="location1">
+      <h2 align="center" className="h2-responsive sectionTitle pt-3 pb-4">Categories</h2>        
+        <div className="row mx-auto pt-4" id="categoriesfirstrow">
+          <div className="col-xs-8 col-md-6 col-lg-4 mb-5 mb-md-5" align="center" id="location1">
             <div className='view overlay zoom'>
             <a href={categoriesUrl+'running'} style={{color:"black"}}>
               <img src={running} className="img-fluid"  alt="category" style={{width:"100%"}}/>
@@ -442,7 +406,7 @@ export default class Homepage extends Component {
             </div>
           </div>
 
-          <div className="col-xs-8 col-md-6 col-lg-4 mb-4 mb-md-4" align="center" id="location1">
+          <div className="col-xs-8 col-md-6 col-lg-4 mb-5 mb-md-5" align="center" id="location1">
             <div className='view overlay zoom'>
             <a href={categoriesUrl+'cycling'} style={{color:"black"}}>
               <img src={cycling} className="img-fluid" alt="category" style={{width:"100%"}}/>
@@ -452,7 +416,7 @@ export default class Homepage extends Component {
             </a>
             </div>
           </div>
-          <div className="col-xs-8 col-md-6 col-lg-4 mb-4 mb-md-4" align="center" id="location1">
+          <div className="col-xs-8 col-md-6 col-lg-4 mb-5 mb-md-5" align="center" id="location1">
             <div className='view overlay zoom'>
             <a href={categoriesUrl+'triathlon'} style={{color:"black"}}>
               <img src={triathlon} className="img-fluid" alt="category" style={{width:"100%"}}/>
@@ -466,7 +430,7 @@ export default class Homepage extends Component {
       
       
         
-          <div className="col-xs-8 col-md-6 col-lg-4 mb-4 mb-md-0 offset-lg-2" align="center" id="location1">
+          <div className="col-xs-8 col-md-6 col-lg-4 mb-5 mb-md-0 offset-lg-2" align="center" id="location1">
             <div className='view overlay zoom'>
               <a href={categoriesUrl+'obstacle'} style={{color:"black"}}>
                 <img src={obstacle} className="img-fluid" alt="category" style={{width:"100%"}}/>
@@ -476,7 +440,7 @@ export default class Homepage extends Component {
               </a>
             </div>
           </div>
-          <div className="col-xs-8 col-md-6 col-lg-4 mb-4 mb-md-0 offset-md-3 offset-lg-0" align="center" id="location1">
+          <div className="col-xs-8 col-md-6 col-lg-4 pb-5 pb-md-5 offset-md-3 offset-lg-0" align="center" id="location1">
             <div className='view overlay zoom'>
             <a href={categoriesUrl+'other'} style={{color:"black"}}>
                 <img src={other} className="img-fluid" alt="category" style={{width:"100%"}}/>
@@ -487,7 +451,6 @@ export default class Homepage extends Component {
             </div>
           </div>
         </div>
-      
     
       </div>          
     

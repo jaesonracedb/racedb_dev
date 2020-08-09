@@ -20,7 +20,6 @@ export default class HomeNav extends Component{
       username: props.username,
       token:props.token
     }
-    console.log("NAME IS : "+this.state.name)
   
     fetch('/token-info/',{
       headers:{
@@ -29,10 +28,9 @@ export default class HomeNav extends Component{
         'Accept': 'application/json'
       }
     }).catch((error10)=>{
-      console.log(error10)
+      console.log("Not authorized")
     })
     .then(res=>{
-      console.log(res);
       if(res!== undefined && res.status===403 ){
         this.setState({
           loggedIn:false
@@ -43,10 +41,10 @@ export default class HomeNav extends Component{
       else{
          return console.log("Critical Error")
       }
+    }).catch((error11)=>{
+      console.log(error11)
     })
     .then((body,err)=>{
-      console.log("WELCOME: "+ body);
-        console.log("Logged In")
         if(body !== undefined){
           this.setState({
             name: body.name,
@@ -108,19 +106,19 @@ export default class HomeNav extends Component{
                   <img src={logoRDB} alt="logo" className="navBarImg"/>
                 </a>
 
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-                  <span class="navbar-toggler-icon"></span>
+                <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+                  <span className="navbar-toggler-icon"></span>
                 </button>
 
-                <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-                  <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
-                    <li class="nav-item active">
+                <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
+                  <ul className="navbar-nav ml-auto mt-2 mt-lg-0">
+                    <li className="nav-item active">
                     <a className="nav-link border" href={createRaceUrl} role="button">Create Race</a>
                     </li>
-                    <li class="nav-item">
+                    <li className="nav-item">
                     <a className="nav-link" href={signupUrl}>Sign Up</a>
                     </li>
-                    <li class="nav-item">
+                    <li className="nav-item">
                     <a className="nav-link" href={loginUrl}>Login</a>
                     </li>
                   </ul>
@@ -132,7 +130,7 @@ export default class HomeNav extends Component{
     return(
     <div>
     <Helmet>
-    <meta charset="utf-8"/>
+    <meta charSet="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, shrink-to-fit=no"/>
 
    

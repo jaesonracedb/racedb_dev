@@ -1,4 +1,5 @@
 import React, {PureComponent} from 'react';
+import "./css/main.css";
 import {Helmet} from "react-helmet";
 import HomeNav from "./HomeNav.js";
 import logoRDB from "./imgs/racedblogo-04-scaled.png";
@@ -42,10 +43,10 @@ class AddEvent extends PureComponent {
         'Content-Type': 'application/json',
         'Accept': 'application/json'
       }
-    })
+    }).catch(error0 => console.log(error0))
     .then(res=>{return res.json()})
+    .catch(error1 => console.log(error1))
     .then((body,err)=>{
-      console.log("Welcome: "+ body.name);
       if(err){
         console.log("Token not valid")
         this.setState({loggedIn:false});
@@ -56,7 +57,7 @@ class AddEvent extends PureComponent {
           username: body.username
         })
       } 
-    })
+    }).catch(error2 => console.log(error2))
     this.handleAddEvent = this.handleAddEvent.bind(this)
     this.handleNameChange = this.handleNameChange.bind(this)
     this.handleEvent_date = this.handleEvent_date.bind(this)
@@ -231,48 +232,48 @@ class AddEvent extends PureComponent {
     function DisplayTritahlonFields(){
       return <div>
         <div className="form-row">
-                  <div class="form-group col-md-5">
-                    <label for="inputRaceDistanceTriathlon">Race Distance</label>
+                  <div className="form-group col-md-5">
+                    <label htmlFor="inputRaceDistanceTriathlon">Race Distance</label>
                     <input type="text" name="distanceIn" id="inputRaceDistanceTriathlon" className="form-control" placeholder="Input race Distance" onChange={handleDistance} required/><br/>
                   </div>
-                  <div class="form-group col-md-5">
-                    <label for="inputSwimDistanceTriathlon">Swim Distance</label>
+                  <div className="form-group col-md-5">
+                    <label htmlFor="inputSwimDistanceTriathlon">Swim Distance</label>
                     <input type="text" id="swimDistance" id="inputSwimDistanceTriathlon" className="form-control" name="swim_distanceIn" placeholder="Input swim distance" onChange={handleSwimDistance} required/><br/>
                   </div> 
           </div>   
           <div className="form-row">
-                  <div class="form-group col-md-5">
-                    <label for="inputBikeDistanceTriathlon">Bike Distance</label>
+                  <div className="form-group col-md-5">
+                    <label htmlFor="inputBikeDistanceTriathlon">Bike Distance</label>
                     <input type="text" id="bikeDistance" id="inputBikeDistanceTriathlon" className="form-control" name="bike_distanceIn" placeholder="Input bike distance" onChange={handleBikeDistance} required/><br/>
                   </div>
-                  <div class="form-group col-md-5">
-                    <label for="inputRunDistanceTriathlon">Run Distance</label>
+                  <div className="form-group col-md-5">
+                    <label htmlFor="inputRunDistanceTriathlon">Run Distance</label>
                     <input type="text" id="runDistance" id="inputRunDistanceTriathlon" className="form-control" name="run_distanceIn" placeholder="Input run distance" onChange={handleRunDistance} required/><br/>
                   </div> 
             </div>   
       </div>
     }
     function DisplayObstacleRunningFields(){
-      return <div class="form-group col-md-6">
-        <label for="inputObstacleRunningDistance">Race Distance</label>
-        <input type="text" name="distanceIn" id="inputObstacleRunningDistance" class="form-control" placeholder="Input race Distance" onChange={handleDistance} required/><br/>
+      return <div className="form-group col-md-6">
+        <label htmlFor="inputObstacleRunningDistance">Race Distance</label>
+        <input type="text" name="distanceIn" id="inputObstacleRunningDistance" className="form-control" placeholder="Input race Distance" onChange={handleDistance} required/><br/>
         </div>
     }
     function DisplayOtherFields(){
-      return <div class="form-group col-md-6">
-      <label for="inputOtherDistance">Race Distance</label>
+      return <div className="form-group col-md-6">
+      <label htmlFor="inputOtherDistance">Race Distance</label>
       <input type="text" name="race_typeIn" id="inputOtherDistance" className="form-control" placeholder="Input race type" onChange={handleRaceType} required/><br/>
       </div>
       
     }
     function DisplayCyclingFields(){
       return <div className="form-row">
-        <div class="form-group col-md-6">
-            <label for="inputRaceDistanceCycling">Race Distance</label>
+        <div className="form-group col-md-6">
+            <label htmlFor="inputRaceDistanceCycling">Race Distance</label>
             <input type="text" name="distanceIn" id="inputRaceDistanceCycling" className="form-control" placeholder="Input race Distance" onChange={handleDistance} required/><br/>
         </div>
-        <div class="form-group col-md-6">
-            <label for="inputCyclingType">Cycling Type</label>
+        <div className="form-group col-md-6">
+            <label htmlFor="inputCyclingType">Cycling Type</label>
             <input type="text" id="inputCyclingType" className="form-control" name="cycling_typeIn" placeholder="Input cycling type" onChange={handleCyclingType} required/><br/>
         </div> 
       </div>    
@@ -295,63 +296,61 @@ class AddEvent extends PureComponent {
         }
     }
     return(
-      <div class="application"> {/*parent div, the whole div to return*/}
+      <div className="application"> {/*parent div, the whole div to return*/}
         <Helmet>
-          <meta charset="utf-8"/>
+          <meta charSet="utf-8"/>
           {/*--sets width to device size, sets zoom-->*/}
-          <meta name="viewport" content="width=device-width, initial-scale=1"/>
+          <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, shrink-to-fit=no"/>
+          <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"/>
 
-          <title>raceDB</title>
-          <link rel="stylesheet" href="main.css"/>
+          <title>Racedb</title>
 
           {/*// --bootstrap stuff--*/}
-          <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"/>
-          <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-          <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-          <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+          <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+          <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
         </Helmet>
 
-        <div class="body">
-          <div class="content">
-            <div class="content-inside">
+        <div className="body">
+          <div className="content">
+            <div className="content-inside">
 
             <HomeNav username={this.state.username} name={this.state.user_name} token={this.state.token} loggedIn={this.state.loggedIn}/>
 
 
             <div>
-              <h3 class="mt-3 ml-5">Add Your Race!</h3>
-              <br/>
+              
 
 
 
-              <form className="pl-md-5" >
-                <div class="form-row">
-                  <div class="form-group col-md-5">
-                    <label for="inputEmail4">Name</label>
+              <form className="pl-md-5 col-10 mx-auto" >
+              <h3 className="mt-3 pt-5 pb-3">Add Your Race!</h3>
+                <div className="form-row">
+                  <div className="form-group col-md-5">
+                    <label htmlFor="inputEmail4">Name</label>
                     <input type="text" name="nameIn" id="inputEmail4" className="form-control" placeholder="Input race name" onChange={this.handleNameChange} required/> <br/>
                   </div>
-                  <div class="form-group col-md-2">
-                    <label for="inputDate4">Date</label>
+                  <div className="form-group col-md-2">
+                    <label htmlFor="inputDate4">Date</label>
                     <input type="date" name="event_dateIn" id="inputDate4" className="form-control" required pattern="\d{4}-\d{2}-\d{2}" onChange={this.handleEvent_date} required/><br/>
                   </div>
-                  <div class="form-group col-md-3">
-                    <label for="organizerEmail4">Organizer Email</label>
+                  <div className="form-group col-md-3">
+                    <label htmlFor="organizerEmail4">Organizer Email</label>
                     <input type="email" name="emailIn" id="organizerEmail4" className="form-control" placeholder="organizer@email.com" onChange={this.handleEmail} required/><br/>
                   </div>
                 </div>
-                <div class="form-row">
-                <div class="form-group col-md-5">
-                  <label for="inputLocation">Location</label>
+                <div className="form-row">
+                <div className="form-group col-md-5">
+                  <label htmlFor="inputLocation">Location</label>
                   <input type="text" name="location_cityIn" id="inputLocation" className="form-control" placeholder="Enter Location/City" onChange={this.handleLocationCity} required/><br/>
                 </div>
-                <div class="form-group col-md-3">
-                  <label for="inputState">State</label>
+                <div className="form-group col-md-3">
+                  <label htmlFor="inputState">State</label>
                   <input type="text" name="stateIn" id="inputState" className="form-control" placeholder="Input State" onChange={this.handleState} required/><br/>
                 </div>
-                  <div class="form-group col-md-2">
-                    <label for="inputCategory">Category</label>
-                        <select name="categoryIn" class="form-control" id="inputCategory" placeholder="Input race category" onChange={this.handleCategory} required>
+                  <div className="form-group col-md-2">
+                    <label htmlFor="inputCategory">Category</label>
+                        <select name="categoryIn" className="form-control" id="inputCategory" placeholder="Input race category" onChange={this.handleCategory} required>
                           <option defaultValue value='running' id="running">Running</option>
                           <option value='cycling' id="cycling">Cycling</option>
                           <option value='triathlon' id="triathlon">Triathlon</option>
@@ -362,16 +361,16 @@ class AddEvent extends PureComponent {
                 </div>
                 <DisplayCategoryFields currentCategory={this.state.category}/>
                 <div className="form-row">
-                  <div class="form-group col-md-5">
-                    <label for="inputWebsite">Race Website</label>
+                  <div className="form-group col-md-5">
+                    <label htmlFor="inputWebsite">Race Website</label>
                     <input type="text" name="websiteIn" id="inputWebsite" className="form-control" placeholder="Input race website" onChange={this.handleWebsite} required/><br/>
                   </div>
-                  <div class="form-group col-md-5">
-                    <label for="inputSummary">Race Summary:</label>
+                  <div className="form-group col-md-5">
+                    <label htmlFor="inputSummary">Race Summary:</label>
                     <input type="text" name="summaryIn" id="inputSummary" className="form-control" placeholder="Input summary" onChange={this.handleSummary} required/><br/>
                   </div> 
                   </div>               
-                <button className="addEventButton" type="submit" class="btn btn-primary" onClick={this.handleAddEvent}>Submit Race</button>
+                <button className="addEventButton" type="submit" className="btn btn-danger featured-btn" onClick={this.handleAddEvent}>Submit Race</button>
               </form>
             </div>  {/* unnamed div enclosing tag */}
           </div>  {/* div class = content-inside enclosing tag */}
