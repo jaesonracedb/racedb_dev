@@ -29,7 +29,7 @@ export default class SearchBar extends Component{
           <div className="row mx-auto">
             <div className="col-xs-12">
               <div className="input-group">
-                <div className="input-group-btn search-panel" id='select-filter'>
+                <div className="input-group-btn" id='select-filter'>
                 <select class="browser-default custom-select" onChange={this.handleFilter}>
                   <option defaultValue value="name">Name</option>
                   <option value="date">Date</option>

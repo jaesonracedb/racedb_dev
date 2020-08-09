@@ -1,18 +1,18 @@
 import React, {Component} from 'react';
 import {Helmet} from "react-helmet";
-import styles from "./css/main.css";
+import "./css/main.css";
 export default class SearchBar extends Component{
   constructor(props){
     super(props);
     const dotenv = require('dotenv')
     dotenv.config({ path: '../../../' })
-    const url = require('url');
-    const http = require('http');
+    require('url');
+    require('http');
     const queryString =window.location.search;
     const urlParams = new URLSearchParams(queryString);
     const loggedInQuery = urlParams.get('loggedIn');
     const tokenQuery = urlParams.get('token');
-    var PORT = process.env.PORT || 3001;
+    
 
     this.state={
       filter:'name',
@@ -51,7 +51,6 @@ export default class SearchBar extends Component{
     <Helmet >
         <meta charset="utf-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, shrink-to-fit=no"/>
-          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
     </Helmet>
       <form className="search-bar"  onSubmit={handleSearch}>
         {/*<div className="container ml-3 mt-5">*/}
@@ -79,7 +78,7 @@ export default class SearchBar extends Component{
       </div>
 
     )
-    var searchForm = document.getElementById('searchBar');
+
     function handleSearch(event){
       event.preventDefault();
       var newsearchUrl = searchUrl+"&filter="+filter+"&key="+key;

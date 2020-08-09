@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import styles from "./css/main.css";
-import Cookies from 'universal-cookie';
+import "./css/main.css";
+import 'universal-cookie';
 import {Helmet} from "react-helmet";
-import logoRDB from "./imgs/racedblogo-04-scaled.png"
 import HomeNav from "./HomeNav.js";
 // Fix error messages
 export default class Signup extends Component {
@@ -17,7 +16,7 @@ export default class Signup extends Component {
       email: '',
       firstName: '',
       lastName: '',
-      middleInit: null
+      middleInit: 'X',
     }
     this.handleUsername = this.handleUsername.bind(this);
     this.handlePass = this.handlePass.bind(this);
@@ -65,11 +64,9 @@ export default class Signup extends Component {
     // e.preventDefault()
     let thisFirstName= this.state.firstName;
     let thisLastName = this.state.lastName;
-    let thisMiddleInit = this.state.middleInit;
     let verifyPass1 = this.state.password;
     let verifyPass2 = this.state.password1;
     let thisUser = this.state.username;
-    var PORT = process.env.PORT || 3001;
     const regExName = /^([a-zA-Z0-9\s])*$/;
     const regExUser = /^([a-zA-Z0-9\_])*$/;
     const newUser = {
@@ -78,7 +75,7 @@ export default class Signup extends Component {
       email: this.state.email,
       firstName: this.state.firstName,
       lastName: this.state.lastName,
-      middleInit: null
+      middleInit: this.state.middleInit
     }
     if(regExUser.test(thisUser)){
       if(regExName.test(thisFirstName) && regExName.test(thisLastName)){
@@ -90,15 +87,15 @@ export default class Signup extends Component {
                 'Content-Type': 'application/json'
               },
               body: JSON.stringify(newUser)
-            }).catch(error10 => console.log(error10))
+            }).catch(error10 => console.log("error10 ENCOUNTERED"))
               .then(response => response.json())
               .then(body => {
                 if (body.success) {
                   alert('Account Created!');
                 } else {
-                  alert('Failed to sign up')
+                  alert(body.error)
                 }
-              })
+              }).catch(resp=> alert(resp.error))
             }else{
               alert('Passwords do not match!')
             }
@@ -153,14 +150,11 @@ export default class Signup extends Component {
       <meta charSet="utf-8"/>
       {/*--sets width to device size, sets zoom-->*/}
       <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, shrink-to-fit=no"/>
-      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"/>
-      
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"/>
       <title>Racedb</title>
 
       {/*// --bootstrap stuff--*/}
-      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossOrigin="anonymous"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossOrigin="anonymous"></script>
-      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossOrigin="anonymous"></script>
+
     </Helmet>
 
     <div className="body">
@@ -210,7 +204,11 @@ export default class Signup extends Component {
         </div>
       </div>
     </div>
-    </div></div></div></div>
+    </div></div></div>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossOrigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossOrigin="anonymous"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossOrigin="anonymous"></script>
+    </div>
 
     )
   }

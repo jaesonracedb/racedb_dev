@@ -2,10 +2,7 @@ import React, { Component } from 'react';
 // import Cookies from 'universal-cookie';
 import {Helmet} from "react-helmet";
 import "./css/main.css";
-import homepageBanner from "./imgs/Canva-Runners-in-a-Marathon-1024x680.jpg"
 import logoRDB from "./imgs/racedblogo-04-scaled.png";
-import stockImg from "./imgs/triathlon.jpg";
-import featuredImg from "./imgs/default-running-thumbnail-1.png";
 import featured1 from "./imgs/Featured/rsz_williamsburglogo.jpg";
 import featured3 from "./imgs/Featured/rsz_nyrr.jpg";
 import featured4 from "./imgs/Featured/rsz_gfny.jpg";
@@ -33,15 +30,14 @@ import Footer from "./Footer.js";
 export default class Homepage extends Component {
   constructor(props){
     super(props);
-    const dotenv = require('dotenv').config()
+    require('dotenv').config()
     // dotenv.config({ path: '../../../' })
-    const url = require('url');
-    const http = require('http');
+    require('url');
+    require('http');
     const queryString =window.location.search;
     const urlParams = new URLSearchParams(queryString);
     const loggedInQuery = urlParams.get('loggedIn');
     const tokenQuery = urlParams.get('token');
-    var PORT = process.env.PORT || 3001;
 
     this.state={
       featured: [],
@@ -55,7 +51,7 @@ export default class Homepage extends Component {
         'Content-Type': 'application/json',
         'Accept': 'application/json'
       }
-    })
+    }).catch()
     .then(res=>{return res.json()})
     .then((body,err)=>{
       if(err){
@@ -73,7 +69,7 @@ export default class Homepage extends Component {
           'Content-Type': 'application/json',
           'Accept': 'application/json'
         }
-      })
+      }).catch()
       .then(res => res.json())
       .then(body => {
         this.setState({
@@ -83,7 +79,6 @@ export default class Homepage extends Component {
   }
   
   render() {
-    const loginUrl = "/login";
     const {loggedIn} = this.state;
     const {token} = this.state;
     const locationUrl =  "/search?filter=location&page=1&loggedIn="+loggedIn+"&token="+token+"&key=";
@@ -96,15 +91,13 @@ export default class Homepage extends Component {
       <meta charset="utf-8"/>
       {/*--sets width to device size, sets zoom-->*/}
       <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, shrink-to-fit=no"/>
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"/>
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"/>
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
 
       <title>Racedb</title>
 
       {/*// --bootstrap stuff--*/}
-      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
       
     </Helmet>
 
@@ -115,7 +108,7 @@ export default class Homepage extends Component {
     
 
     {/*// --Logo and Search-->*/}
-        <div className="container-fluid header " id="bannerHeader">
+        <div className="container-fluid header pt-5 " id="bannerHeader">
     	{/*// --bd-dark is there to see area while there is no picture-->*/}
 
 
@@ -164,7 +157,7 @@ export default class Homepage extends Component {
                 return <div key={ft.id}>
                 <div className="card mb-3 rounded" >
                   <div className="view overlay">
-                  <img src={featured1} className="card-img-top" alt="Card image cap"/>  
+                  <img src={featured1} className="card-img-top" alt={ft.name}/>  
                   <a href={featuredUrl+ft.id}>
                     <div className="mask rgba-stylish-light"></div>
                   </a>
@@ -192,7 +185,7 @@ export default class Homepage extends Component {
               return <div key={ft.id}>
                 <div className="card mb-3" >
                 <div className="view overlay">
-                  <img src={featured2} className="card-img-top" alt="category" alt="event"/>
+                  <img src={featured2} className="card-img-top"  alt={ft.name}/>
                   <a href={featuredUrl+ft.id}>
                     <div className="mask rgba-stylish-light"></div>
                   </a>
@@ -218,7 +211,7 @@ export default class Homepage extends Component {
               return <div key={ft.id}>
                 <div className="card mb-3" >
                 <div className="view overlay">
-                  <img src={featured3} className="card-img-top" alt="category" alt="event"/>
+                  <img src={featured3} className="card-img-top" alt={ft.name}/>
                   <a href={featuredUrl+ft.id}>
                     <div className="mask rgba-stylish-light"></div>
                   </a>
@@ -245,7 +238,7 @@ export default class Homepage extends Component {
             return <div key={ft.id}>
             <div className="card mb-3" >
             <div className="view overlay">
-              <img src={featured4} className="card-img-top" alt="category" alt="event"/>
+              <img src={featured4} className="card-img-top" alt={ft.name}/>
               <a href={featuredUrl+ft.id}>
                     <div className="mask rgba-stylish-light"></div>
               </a>
@@ -270,9 +263,9 @@ export default class Homepage extends Component {
             return <div key={ft.id}>
               <div className="card mb-3" >
               <div className="view overlay">
-                <img src={featured5} className="card-img-top" alt="category" alt="event"/>
+                <img src={featured5} className="card-img-top" alt={ft.name}/>
                 <a href={featuredUrl+ft.id}>
-                    <div className="mask rrgba-stylish-light"></div>
+                    <div className="mask rgba-stylish-light"></div>
                 </a>
                 </div>
                 <div className="card-body">
@@ -295,7 +288,7 @@ export default class Homepage extends Component {
             return <div key={ft.id}>
               <div className="card mb-3" >
               <div className="view overlay">
-                <img src={featured6} className="card-img-top" alt="category" alt="event"/>
+                <img src={featured6} className="card-img-top" alt={ft.name}/>
               <a href={featuredUrl+ft.id}>
                   <div className="mask rgba-stylish-light"></div>
               </a>
@@ -482,6 +475,10 @@ export default class Homepage extends Component {
 
     <Footer/>
 </div>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+      
 </div>
     )
   }

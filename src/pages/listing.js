@@ -46,7 +46,7 @@ export default class Archive extends Component {
         'Content-Type': 'application/json',
         'Accept': 'application/json'
       }
-    })
+    }).catch()
     .then(res=>{return res.json()})
     .then((body,err)=>{
       console.log("Welcome: "+ body.name);
@@ -67,7 +67,7 @@ export default class Archive extends Component {
         'Content-Type': 'application/json',
         'Accept': 'application/json'
       }
-    })
+    }).catch()
     .then(res=>{return res.json() })
     .then((body)=>{
       this.setState({
@@ -91,23 +91,15 @@ export default class Archive extends Component {
   }
   // RENDER PART -----------------------------
   render() {
-    let {id} = this.state;
-    let {name} = this.state;
-    let {event_date} = this.state;
-    let {location_city}= this.state;
-    let {state} = this.state;
-    let {category} = this.state;
+
     let {loggedIn} = this.state;
     let {distance} = this.state;
     let {swim_distance} = this.state;
     let {bike_distance} = this.state;
     let {run_distance} = this.state;
     let {website} =this.state;
-    let {email} = this.state;
-    let {summary} = this.state;
     let {race_type} = this.state;
     let {cycling_type} = this.state;
-    let websiteUrl = "http://"+website;
     console.log(this.state.category)
     var updatedUrl= website;
     if (!updatedUrl.match("~^(?:f|ht)tps?://~i")) {
@@ -173,16 +165,13 @@ export default class Archive extends Component {
 			<meta charSet="utf-8"/>
 			{/*--sets width to device size, sets zoom-->*/}
       <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, shrink-to-fit=no"/>
-      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"/>
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"/>
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
 			<title>raceDB</title>
 			<link rel="stylesheet" href="main.css"/>
 
 			{/*// --bootstrap stuff--*/}
 
-      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 		</Helmet>
 
 		<div className="body">
@@ -268,6 +257,9 @@ export default class Archive extends Component {
 
     <Footer/>    
       </div>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
       </div>
     )
   }

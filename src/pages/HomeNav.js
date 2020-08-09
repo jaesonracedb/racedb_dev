@@ -1,4 +1,4 @@
-import React,{Component, useState, useEffect} from 'react';
+import React,{Component} from 'react';
 import logoRDB from "./imgs/rsz_racedblogo-04-scaled.png";
 import "./css/main.css";
 import {Helmet} from "react-helmet";
@@ -7,19 +7,17 @@ export default class HomeNav extends Component{
     super(props)
     const dotenv = require('dotenv')
     dotenv.config({ path: '../../../' })
-    var PORT = process.env.PORT || 3001;
-    const url = require('url');
-    const http = require('http');
+    require('url');
+    require('http');
     const queryString =window.location.search;
     const urlParams = new URLSearchParams(queryString);
-    const loggedInQuery = urlParams.get('loggedIn');
-    const tokenQuery = urlParams.get('token');
     this.state={
       loggedIn: props.loggedIn,
       name: props.name,
       username: props.username,
       token:props.token
     }
+    
   
     fetch('/token-info/',{
       headers:{
@@ -51,20 +49,7 @@ export default class HomeNav extends Component{
           })
         }
     })
-      // fetch('http://localhost:3001/refresh-user/',{
-      //     method:"POST",
-      //     headers:{
-      //       'Content-Type': 'applicaton/json',
-      //     },
-      //     body: JSON.stringify({username: this.state.username})
-      //   })
-      //   .then( res=>{return res.json()})
-      //   .then((body,err)=>{
-      //     this.setState({
-      //       token: body.token
-      //     })       
-      //   })
-    // fetch('http://localhost:3001/check-token')
+    .catch()
   }
 
 
@@ -77,29 +62,31 @@ export default class HomeNav extends Component{
     let {loggedIn} = this.state;
     let {token} = this.state;
     const homeUrl ="/?&loggedIn="+loggedIn+"&token="+token
+    const createRaceUrlLoggedIn = "/add-event?loggedIn="+loggedIn+"&token="+token
     function IsLoggedIn(props){
       if(loggedIn){
-        return <nav className="navbar fixed-top scrolling-navbar navbar-expand-md navbar-dark" id="homepageNav">
-        <a className="navbar-brand ml-3" href={homeUrl}>
+        return <nav className="navbar navbar-expand-md navbar-dark" id="homepageNav">
+        <a className="navbar-brand" href={homeUrl}>
           <img src={logoRDB} alt="logo" className="navBarImg"/>
         </a>
 
-        <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav2" aria-controls="navbarNav2" aria-expanded="false" aria-label="Toggle navigation">
+        <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
           <span className="navbar-toggler-icon"></span>
         </button>
-      
-        <div className="collapse navbar-collapse" id="navbarNav2">
-        <ul className="navbar-nav ml-auto">
-          <li className="nav-item">
-            <a className="btn btn-outline-light my-2 my-sm-0" href={createRaceUrl} role="button">Create A Race</a>
-          </li>
-          <li className="nav-item">
-            <a className="nav-link" href={logoutUrl}>Logout</a>
-          </li>
-        </ul>
+
+        <div className="collapse navbar-collapse" id="navbarTogglerDemo03">
+          <ul className="navbar-nav ml-auto mt-2 mt-lg-0">
+            <li className="nav-item active">
+              <a className="nav-link border" href={createRaceUrlLoggedIn} role="button">Create Race</a>
+            </li>
+            <li className="nav-item">
+              <a className="nav-link" href={logoutUrl}>Logout</a>
+            </li>
+            
+          </ul>
         </div>
-      </nav>
-        
+          {/* ...................................... */}
+      </nav>        
       }else{
         return <nav className="navbar navbar-expand-md navbar-dark" id="homepageNav">
                 <a className="navbar-brand" href={homeUrl}>

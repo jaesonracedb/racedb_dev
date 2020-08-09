@@ -1,4 +1,4 @@
-import React, {Component,useState} from 'react';
+import React, {Component} from 'react';
 import {FaStar}from 'react-icons/fa';
 import './css/star.css';
 
@@ -7,14 +7,14 @@ export default class StarRating extends Component {
         super(props);
         const dotenv = require('dotenv')
         dotenv.config({ path: '../../../' })
-        const url = require('url');
-        const http = require('http');
+        require('url');
+        require('http');
         const queryString =window.location.search;
         const urlParams = new URLSearchParams(queryString);
         const loggedInQuery = urlParams.get('loggedIn');
         const tokenQuery = urlParams.get('token');
         const idQuery = urlParams.get('id');
-        var PORT = process.env.PORT || 3001;
+        
         this.state={
             size: props.size,
             rating: null,
@@ -58,7 +58,7 @@ export default class StarRating extends Component {
                         event_id:this.state.event_id,
                         username: body.username
                     })  
-                })
+                }).catch()
                 .then(res=>{return res.json()})
                 .then((body1,err)=>{
                     console.log("RACE RATING IS: "+body1)
@@ -75,7 +75,6 @@ export default class StarRating extends Component {
         })
     }
     handleRating(e){
-        var PORT = process.env.PORT || 3001;
         this.setState({
             rating: e.target.value
         })
