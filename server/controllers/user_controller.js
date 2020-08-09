@@ -11,30 +11,45 @@ exports.createUser = async (req,res) =>{
 	const {username,password,email,lastName,firstName,middleInit}= req.body;
 	const queryString = "INSERT INTO user_account (username,psswrd,lname,fname,minit,email) values (?,?,?,?,?,?)"
 	const ifEmailExist = "select COUNT(*) as emailCount from user_account where email REGEXP(?)"
+	const ifUsernameExist = "select COUNT(*) as userCount from user_account where username REGEXP(?)"
 	try{
 		const salt = await bcrypt.genSalt()
-		console.log("applying salt");
 		const hashedPass = await bcrypt.hash(password, salt)
-		console.log(" applying salt2");
 		const emailRegEx = '\^' + email +'\$';
-		db.query(ifEmailExist,[emailRegEx],(errV,resV)=>{
-			console.log(resV[0].emailCount)
+		const userRegEx = '\^'+ username + '\$';
+		db.query(ifUsernameExist,[userRegEx],(errV,resV)=>{
+			console.log("userCount: "+resV[0].userCount)
 			if(errV){
-				console.log("error validating email");
+				console.log("error validating username");
 				console.log(errV);
-				return res.sendStatus(500);
+				return res.status(500).json({error: "Cannot validate Username"});
 			}else{
-				if(resV[0].emailCount >0 ){
-					console.log('email Exists!');
+				if(resV[0].userCount >0 ){
+					console.log('Username already exists');
+					return res.status(409).json({error: 'Username already exists'});
 				}else{
-					db.query(queryString,[username,hashedPass,lastName,firstName,middleInit,email],(err,results)=>{
-						if(err){
-							console.log('Creating User');
-							console.log(err);
-							return res.sendStatus(500);
+					db.query(ifEmailExist,[emailRegEx],(errW,resW)=>{
+						console.log("userCount: "+resW[0].emailCount)
+						if(errW){
+							console.log("error validating email");
+							console.log(errW)
+							return res.status(500).json({error: "Cannot validate email"})
 						}else{
-							console.log("User Added")
-							return res.sendStatus(200);
+							if(resW[0].emailCount >0){
+								console.log('Email already exists');
+								return res.status(409).json({error: 'Email already exists'})
+							}else{
+								db.query(queryString,[username,hashedPass,lastName,firstName,middleInit,email],(err,results)=>{
+									if(err){
+										console.log('Creating User');
+										console.log(err);
+										return res.status(500).json({error: 'Failed in Creating User'});
+									}else{
+										console.log("User Added")
+										return res.status(200).json({success: true});
+									}
+								})
+							}
 						}
 					})
 				}
@@ -148,17 +163,13 @@ exports.userLogin = async (req, res) => {
 		const usernameRegEx = '\^' + req.body.username  + '\$'
 		db.query(queryString,[usernameRegEx],(err, result) => {
 			//Case 1: querry error or user does not exist
-			console.log("debug line 1");
 			console.log(result);
 		if(err || !result.length){
-			console.log("Case 1, user not found\n");
 			console.log(err);
-			if(err) 
-			return res.send({
+			return res.status(400).json({
 				result: result,
 				success: false,
-				status: 400,
-				message: "User not found"
+				message: "Incorrect User/Password"
 			});
 		}else{
 			console.log("debug line 1");

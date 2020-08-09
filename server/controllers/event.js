@@ -96,7 +96,8 @@ exports.getPageItems =(req,res)=>{
       }
     });
   }else if(FILTER_QUERY === 'location'){
-    const LOCATION_KEY = '%'+FILTER_KEY+'%';
+    const TEMP_LOC_KEY = FILTER_KEY.replace(/-/g, "\s")
+    const LOCATION_KEY = '%'+TEMP_LOC_KEY+'%';
     db.query('SELECT * FROM event WHERE state LIKE ? OR location_city LIKE ? ORDER BY state DESC LIMIT ?,10',[LOCATION_KEY,LOCATION_KEY,START],(err,results)=>{
       if(!err){
         console.log("LOCATION_KEY is: "+LOCATION_KEY);
@@ -209,6 +210,18 @@ exports.addEvent = (req,res)=>{
   // const race_type= req.body.race_type
   // const cycling_type= req.body.cycling_type
     const {name,event_date,location_city,state,category,distance,swim_distance,bike_distance,run_distance,website,email,summary,race_type,cycling_type}=req.body;
+    if(name === ""){
+      return res.status(400).json({error:"Please Fill in Name"})
+    }
+    if(event_date === null){
+      return res.status(400).json({error:"Please Fill in Date"})
+    }
+    if(location_city === ""){
+      return res.status(400).json({error:"Please Fill in Location"})
+    }
+    if(state === ""){
+      return res.status(400).json({error:"Please Fill in State"})
+    }
   console.log("adding event...");
   console.log(req.body);
     if(req.body.category==='running'){
@@ -217,12 +230,13 @@ exports.addEvent = (req,res)=>{
       db.query(queryString,[name, event_date, location_city ,state, category, distance, website, email, summary], (err,results)=>{
         console.log("name is: "+name+"Location: "+location_city);
         if(err){
-          console.log(err);
-          res.sendStatus(500)
+          console.log("DEBUGGING")
+          return res.status(500).json({error: "Unable to add race", success:false})
         }else{
+          console.log("SUCCESS")
           var raceEvent = results[0]
           localStorage.setItem('event',raceEvent);
-          console.log("added race");
+          return res.status(200).json({message:"successfully added race", success:true})
         }
       })
   }else if(req.body.category === "cycling"){
@@ -231,11 +245,11 @@ exports.addEvent = (req,res)=>{
       console.log("name is: "+name+"Location: "+location_city);
       if(err){
         console.log(err);
-        res.sendStatus(500)
+        return res.status(500).json({error: "Unable to add race", success:false})
       }else{
         var raceEvent = results[0]
         localStorage.setItem('event',raceEvent);
-        console.log("added race");
+        return res.status(200).json({message:"successfully added race", success:true})
     }
     })
   }else if(req.body.category === "obstacle"){
@@ -244,11 +258,11 @@ exports.addEvent = (req,res)=>{
       console.log("name is: "+name+"Location: "+location_city);
       if(err){
         console.log(err);
-        res.sendStatus(500)
+        return res.status(500).json({error: "Unable to add race", success:false})
       }else{
         var raceEvent = results[0]
         localStorage.setItem('event',raceEvent);
-        console.log("added race");
+        return res.status(200).json({message:"successfully added race", success:true})
     }
   })
   }else if(req.body.category==="other"){
@@ -257,11 +271,11 @@ exports.addEvent = (req,res)=>{
       console.log("name is: "+name+"Location: "+location_city);
       if(err){
         console.log(err);
-        res.sendStatus(500)
+        return res.status(500).json({error: "Unable to add race", success:false})
       }else{
         var raceEvent = results[0]
         localStorage.setItem('event',raceEvent);
-        console.log("added race");
+        return res.status(200).json({message:"successfully added race", success:true})
     }
   })
   }else if(req.body.category="triathlon"){
@@ -270,11 +284,11 @@ exports.addEvent = (req,res)=>{
       console.log("name is: "+name+"Location: "+location_city);
       if(err){
         console.log(err);
-        res.sendStatus(500)
+        return res.status(500).json({error: "Unable to add race", success:false})
       }else{
         var raceEvent = results[0]
         localStorage.setItem('event',raceEvent);
-        console.log("added race");
+        return res.status(200).json({message:"successfully added race", success:true})
     }
   })
   }else{

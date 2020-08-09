@@ -5,8 +5,8 @@ export default class Pagination extends Component{
     super(props);
     const dotenv = require('dotenv')
     dotenv.config({ path: '../../../' })
-    const url = require('url');
-    const http = require('http');
+    require('url');
+    require('http');
     const queryString =window.location.search;
     const urlParams = new URLSearchParams(queryString)
     const currentPage = urlParams.get('page');
@@ -14,7 +14,6 @@ export default class Pagination extends Component{
     const currentKey = urlParams.get('key');
     const loggedInQuery = urlParams.get('loggedIn');
     const tokenQuery = urlParams.get('token');
-    var PORT = process.env.PORT || 3001;
     const urlPage = "/search?loggedIn="+loggedInQuery+"&token="+tokenQuery+"&filter="+currentFilter+"&key="+currentKey+"&page=";
     this.state={
       totalCount: parseInt(props.totalCount),
@@ -23,7 +22,6 @@ export default class Pagination extends Component{
       url: urlPage,
       // hidden: true
     }
-    console.log("Curr page == "+props.currentPage)
   }
   // componentDidMount(){
   //   setTimeout(()=>{

@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import logoRDB from "./imgs/rsz_racedblogo-04-scaled.png";
 
 export default class Navbar extends Component{
+	
   render(){
     return(
       <nav className="navbar navbar-expand-sm navbar-dark" style={{backgroundcolor:"#2d4f78"}}>
