@@ -29,7 +29,7 @@ exports.getPageItems =(req,res)=>{
   console.log("Key: "+FILTER_KEY);
   console.log("STARTING ITEM: "+ START);
   if(FILTER_QUERY ==='category'){
-    db.query('SELECT * FROM event WHERE category = ? LIMIT ?,10',[FILTER_KEY, START], (err,results)=>{
+    db.query('SELECT * FROM event WHERE category LIKE ? LIMIT ?,10',[FILTER_KEY, START], (err,results)=>{
       if(!err){
         db.query('SELECT count(*) AS sqlTotalCount FROM event where category = ?',[FILTER_KEY],(err1,results1)=>{
           return res.json({
