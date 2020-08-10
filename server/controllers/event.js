@@ -29,20 +29,39 @@ exports.getPageItems =(req,res)=>{
   console.log("Key: "+FILTER_KEY);
   console.log("STARTING ITEM: "+ START);
   if(FILTER_QUERY ==='category'){
-    db.query('SELECT * FROM event WHERE category LIKE ? LIMIT ?,10',[FILTER_KEY, START], (err,results)=>{
-      if(!err){
-        console.log("CATEGORY KEY IS: "+FILTER_KEY)
-        db.query('SELECT count(*) AS sqlTotalCount FROM event where category = ?',[FILTER_KEY],(err1,results1)=>{
-          return res.json({
-            search_results: results,
-            totalCount: results1[0].sqlTotalCount
+    if(FILTER_KEY === 'triathlon'){
+      const FILTER_KEY2 = 'Triathlon';
+      db.query('SELECT * FROM event WHERE category LIKE ? OR category LIKE ? LIMIT ?,10',[FILTER_KEY, FILTER_KEY2, START], (err,results)=>{
+        if(!err){
+          console.log("CATEGORY KEY IS: "+FILTER_KEY)
+          db.query('SELECT count(*) AS sqlTotalCount FROM event where category = ?',[FILTER_KEY],(err1,results1)=>{
+            return res.json({
+              search_results: results,
+              totalCount: results1[0].sqlTotalCount
+            })
           })
-        })
-      }else{
-        console.log(err)
-        res.send(err)
-      }
-    })
+        }else{
+          console.log(err)
+          res.send(err)
+        }
+      })
+    }
+    else{
+      db.query('SELECT * FROM event WHERE category LIKE ? LIMIT ?,10',[FILTER_KEY, START], (err,results)=>{
+        if(!err){
+          console.log("CATEGORY KEY IS: "+FILTER_KEY)
+          db.query('SELECT count(*) AS sqlTotalCount FROM event where category = ?',[FILTER_KEY],(err1,results1)=>{
+            return res.json({
+              search_results: results,
+              totalCount: results1[0].sqlTotalCount
+            })
+          })
+        }else{
+          console.log(err)
+          res.send(err)
+        }
+      })
+  }
   }else if(FILTER_QUERY ==='name'){
     const NAME_KEY = '%'+FILTER_KEY+'%';
     db.query('SELECT * FROM event WHERE name LIKE ? LIMIT ?,10',[NAME_KEY,START],(err,results)=>{
