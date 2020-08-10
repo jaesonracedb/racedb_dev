@@ -31,6 +31,7 @@ exports.getPageItems =(req,res)=>{
   if(FILTER_QUERY ==='category'){
     db.query('SELECT * FROM event WHERE category LIKE ? LIMIT ?,10',[FILTER_KEY, START], (err,results)=>{
       if(!err){
+        console.log("CATEGORY KEY IS: "+FILTER_KEY)
         db.query('SELECT count(*) AS sqlTotalCount FROM event where category = ?',[FILTER_KEY],(err1,results1)=>{
           return res.json({
             search_results: results,
