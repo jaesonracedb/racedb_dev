@@ -32,6 +32,9 @@ exports.getPageItems =(req,res)=>{
     db.query('SELECT * FROM event WHERE category = ? ORDER BY ? DESC LIMIT ?,10',[FILTER_KEY,FILTER_ORDER, START], (err,results)=>{
       if(!err){
         db.query('SELECT count(*) AS sqlTotalCount FROM event where category = ?',[FILTER_KEY],(err1,results1)=>{
+          console.log("TOTAL COUNT: "+results1[0].sqlTotalCount)
+          console.log("CATEGORY: "+FILTER_KEY)
+          console.log(results)
           return res.json({
             search_results: results,
             totalCount: results1[0].sqlTotalCount
