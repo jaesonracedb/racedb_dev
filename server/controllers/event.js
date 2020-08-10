@@ -29,12 +29,9 @@ exports.getPageItems =(req,res)=>{
   console.log("Key: "+FILTER_KEY);
   console.log("STARTING ITEM: "+ START);
   if(FILTER_QUERY ==='category'){
-    db.query('SELECT * FROM event WHERE category = ? ORDER BY ? DESC LIMIT ?,10',[FILTER_KEY,FILTER_ORDER, START], (err,results)=>{
+    db.query('SELECT * FROM event WHERE category = ? LIMIT ?,10',[FILTER_KEY, START], (err,results)=>{
       if(!err){
         db.query('SELECT count(*) AS sqlTotalCount FROM event where category = ?',[FILTER_KEY],(err1,results1)=>{
-          console.log("TOTAL COUNT: "+results1[0].sqlTotalCount)
-          console.log("CATEGORY: "+FILTER_KEY)
-          console.log(results)
           return res.json({
             search_results: results,
             totalCount: results1[0].sqlTotalCount
@@ -47,7 +44,7 @@ exports.getPageItems =(req,res)=>{
     })
   }else if(FILTER_QUERY ==='name'){
     const NAME_KEY = '%'+FILTER_KEY+'%';
-    db.query('SELECT * FROM event WHERE name LIKE ? ORDER BY ? DESC LIMIT ?,10',[NAME_KEY,FILTER_ORDER,START],(err,results)=>{
+    db.query('SELECT * FROM event WHERE name LIKE ? LIMIT ?,10',[NAME_KEY,START],(err,results)=>{
       if(!err){
         console.log("NAME_KEY is: "+NAME_KEY);
         db.query('SELECT COUNT(*) AS sqlTotalCount FROM event WHERE name LIKE ?',[NAME_KEY],(err1,results1)=>{
@@ -65,7 +62,7 @@ exports.getPageItems =(req,res)=>{
     const TEMP_KEY = FILTER_KEY.replace(/-/g, "/")
     const DATE_KEY = TEMP_KEY;
     console.log("DATE IS: "+ DATE_KEY);
-    db.query('SELECT * FROM event WHERE event_date = date(?) ORDER BY ? DESC LIMIT ?,10',[DATE_KEY,FILTER_ORDER,START],(err,results)=>{
+    db.query('SELECT * FROM event WHERE event_date = date(?) LIMIT ?,10',[DATE_KEY,START],(err,results)=>{
       if(!err){
         console.log("DATE_KEY IS: "+DATE_KEY);
         console.log(results);
@@ -84,7 +81,7 @@ exports.getPageItems =(req,res)=>{
   }else if(FILTER_QUERY ==='distance'){
     //modify for when there is no distance, example triathlon
     const DISTANCE_KEY = '%'+FILTER_KEY+'%';
-    db.query('SELECT * FROM event WHERE distance LIKE ? ORDER BY ? DESC LIMIT ?,10',[DISTANCE_KEY,FILTER_ORDER,START],(err,results)=>{
+    db.query('SELECT * FROM event WHERE distance LIKE ? LIMIT ?,10',[DISTANCE_KEY,START],(err,results)=>{
       if(!err){
         console.log("DISTANCE_KEY is: "+DISTANCE_KEY);
         db.query('SELECT COUNT(*) AS sqlTotalCount FROM event WHERE distance LIKE ?',[DISTANCE_KEY],(err1,results1)=>{
