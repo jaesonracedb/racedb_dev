@@ -31,6 +31,7 @@ exports.getPageItems =(req,res)=>{
   if(FILTER_QUERY ==='category'){
     if(FILTER_KEY === 'triathlon'){
       const FILTER_KEY2 = 'Triathlon';
+      console.log("TRIATHLON SEARCH")
       db.query('SELECT * FROM event WHERE category LIKE ? OR category LIKE ? LIMIT ?,10',[FILTER_KEY, FILTER_KEY2, START], (err,results)=>{
         if(!err){
           console.log("CATEGORY KEY IS: "+FILTER_KEY)
